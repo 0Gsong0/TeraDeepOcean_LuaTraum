@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Override>
+    <!--导弹-->
+    <Item name="垂直导弹发射系统" description="" identifier="Verticalmissilelaunchers" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.7" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="5000" linkable="true" allowedlinks="Missileloadingchamber">
+      <Sprite name="垂直导弹发射系统" texture="Missile.png" depth="0.01" sourcerect="0,0,479,334" canflipy="false" origin="0.5,0.5" />
+      <MinimapIcon name="Command_Weapons_FlakCannon" texture="Content/UI/CommandUIBackground.png" sourcerect="512,768,128,128" />
+      <SwappableItem price="50000" replacementonuninstall="largeturrethardpoint" origin="256,438" swapidentifier="largeturret">
+        <SchematicSprite texture="%ModDir%/Content/Items/weapons/Missiles/Missile.png" sourcerect="0,0,479,334" />
+        <SwapConnectedItem tag="periscope" swapto="periscope" />
+        <SwapConnectedItem tag="turretammosource" swapto="Missileloadingchamber" rotation="90" />
+      </SwappableItem>
+      <UpgradePreviewSprite scale="3.5" texture="%ModDir%/Content/Items/weapons/Missiles/Missile.png" sourcerect="0,0,479,334" origin="0.5,0.5" />
+      <StaticBody width="80" radius="80" />
+      <Turret canbeselected="false" spread="8.0" launchimpulse="70.0" characterusable="false" linkable="true" barrelpos="256,250" rotationlimits="-125,-55" powerconsumption="10000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="120" reload="5" springstiffnesslowskill="1" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8" firingoffset="0,-510" MaxAngleOffset="5" AICurrentTargetPriorityMultiplier="1" recoiltime="0.4" retractiondelay="1">
+        <sound file="%ModDir%/Content/Sounds/Weapons/Missiles/导弹1.ogg" range="10000" type="OnUse" volume="2.0" />
+        <sound file="%ModDir%/Content/Sounds/Weapons/Missiles/导弹2.ogg" range="10000" type="OnUse" volume="2.0" />
+        <sound file="%ModDir%/Content/Sounds/Weapons/Missiles/导弹3.ogg" range="10000" type="OnUse" volume="2.0" />
+        <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Missiles/Missile.png" sourcerect="0,355,358,515" origin="0.5,0.5" />
+        <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+        <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+        <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+        <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+        <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+        <RequiredSkill identifier="weapons" level="80" />
+        <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+          <LightTexture texture="Content/Lights/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+        </LightComponent>
+        <ParticleEmitter particle="muzzleflashflakcannon" particleamount="1" velocitymin="50" velocitymax="100" distance="-20" />
+        <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="10" scalemax="15" distancemin="-100" distancemax="50" />
+        <StatusEffect type="OnUse" target="This">
+          <Explosion range="1000.0" structuredamage="0" force="0.0" camerashake="100" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+        </StatusEffect>
+      </Turret>
+      <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+      <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <input name="power_in" displayname="connection.powerin" />
+        <input name="position_in" displayname="connection.turretaimingin" />
+        <input name="trigger_in" displayname="connection.turrettriggerin" />
+        <input name="toggle_light" displayname="connection.togglelight" />
+        <input name="set_light" displayname="connection.setlight" />
+      </ConnectionPanel>
+      <SkillRequirementHint identifier="weapons" level="80" />
+    </Item>
+    <Item name="垂直导弹装填仓" description="" identifier="Missileloadingchamber" tags="railgunequipment,railgunammosource,turretammosource,railgunammoloader" category="Machine,Weapon" linkable="true" allowedlinks="Missileloadingchamber" scale="0.4" damagedbyexplosions="true" explosiondamagemultiplier="0.2" rotation="90">
+      <SwappableItem canbebought="false" origin="110,353" spawnwithid="railgunshell,railgunshell,railgunshell,railgunshell,railgunshell" />
+      <Sprite name="垂直导弹装填仓" texture="Loaders.png" depth="0.78" sourcerect="0,0,603,919" origin="0.5,0.5" />
+      <BrokenSprite texture="Content/Items/Weapons/Loaders.png" sourcerect="163,563,153,351" origin="0.5,0.5" offset="35,4" depth="0.77" fadein="true" maxcondition="99" />
+      <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+      <DecorativeSprite name="Railgun Loader Frame Front" texture="Loaders.png" depth="0.8" sourcerect="901,741,117,200" origin="0.5,0.5" offset="0,-30" />
+      <ItemContainer hideitems="false" drawinventory="true" capacity="4" slotsperrow="6" itempos="58,-400" iteminterval="140,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepths="0.79,0.791,0.792,0.793,0.794,0.795">
+        <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
+        <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,87,91,69" origin="0.5,0.5" />
+        <SlotIcon slotindex="1" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,87,91,69" origin="0.5,0.5" />
+        <SlotIcon slotindex="2" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,87,91,69" origin="0.5,0.5" />
+        <SlotIcon slotindex="3" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,87,91,69" origin="0.5,0.5" />
+        <Containable items="Missile" />
+      </ItemContainer>
+      <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="20" mindeteriorationdelay="5" maxdeteriorationdelay="15" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+        <StatusEffect type="InWater" target="This" condition="-0.25" />
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+        <RequiredSkill identifier="mechanical" level="55" />
+        <RequiredItem items="wrench" type="Equipped" />
+        <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+        <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+          <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+          <Affliction identifier="lacerations" strength="5" />
+          <Affliction identifier="stun" strength="4" />
+        </StatusEffect>
+      </Repairable>
+      <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <output name="condition_out" displayname="connection.conditionout" />
+      </ConnectionPanel>
+    </Item>
+    <Item name="干扰弹发射系统" description="" identifier="jammingBombsDefenseArtillery" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="750" linkable="true" allowedlinks="coilgunequipment">
+      <Sprite texture="Missile.png" depth="0.01" sourcerect="710,142,207,196" canflipy="false" origin="0.5,0.5" />
+      <MinimapIcon name="Command_Weapons_Chaingun" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,896,128,128" />
+      <StaticBody width="80" radius="80" />
+      <SwappableItem price="2500" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
+        <SchematicSprite texture="%ModDir%/Content/Items/weapons/Missiles/Missile.png" sourcerect="710,142,207,196" origin="0.5,0.5" />
+        <SwapConnectedItem tag="periscope" swapto="periscope" />
+        <SwapConnectedItem tag="turretammosource" swapto="jammingBombsCloseDefenseArtillery_Loader" />
+      </SwappableItem>
+      <Turret launchimpulse="10" spinningbarreldistance="45.0" firingrotationspeedmodifier="0.6" usefiringoffsetformuzzleflash="true" maxchargetime="1.0" canbeselected="false" firingoffset="-10,-370" characterusable="false" linkable="true" barrelpos="128,88" rotationlimits="-100,-90" powerconsumption="400.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.01" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="5" MaxAngleOffset="30" AICurrentTargetPriorityMultiplier="1.1">
+        <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot1.ogg" type="OnUse" range="10000" selectionmode="Random" />
+        <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot2.ogg" type="OnUse" range="10000" />
+        <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot3.ogg" type="OnUse" range="10000" />
+        <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot4.ogg" type="OnUse" range="10000" />
+        <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot5.ogg" type="OnUse" range="10000" />
+        <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot6.ogg" type="OnUse" range="10000" />
+        <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="325,140,128,267" origin="0.5,0.5" />
+        <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+        <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+        <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+        <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+        <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+        <ChargeSound file="%ModDir%/Content/Sounds/Turrets/干扰蓄力.ogg" range="10000" />
+        <RequiredSkill identifier="weapons" level="50" />
+        <LightComponent Flicker="0.0" range="2500" LightColor="1.0,1.0,1.0,0.7" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+          <LightTexture texture="%ModDir%/Content/Items/weapons/Turrets/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+        </LightComponent>
+        <ParticleEmitter particle="muzzleflashchaingun" particleamount="1" velocitymin="0" velocitymax="0" distancemin="-50" distancemax="-50" />
+        <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" />
+        <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" distancemin="-100" distancemax="50" />
+        <StatusEffect type="OnUse" target="This">
+          <Explosion range="1500.0" structuredamage="0" force="0.0" camerashake="8" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+        </StatusEffect>
+      </Turret>
+      <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+      <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <input name="power_in" displayname="connection.powerin" />
+        <input name="position_in" displayname="connection.turretaimingin" />
+        <input name="trigger_in" displayname="connection.turrettriggerin" />
+        <input name="toggle_light" displayname="connection.togglelight" />
+        <input name="set_light" displayname="connection.setlight" />
+        <input name="set_auto_operate" displayname="connection.setautooperate" />
+        <input name="toggle_auto_operate" displayname="connection.toggleautooperate" />
+      </ConnectionPanel>
+      <SkillRequirementHint identifier="weapons" level="50" />
+    </Item>
+    <Item name="干扰弹发射系统装弹器" identifier="jammingBombsCloseDefenseArtillery_Loader" description="" tags="chaingunequipment,chaingunammosource,turretammosource" category="Machine,Weapon" linkable="true" allowedlinks="jammingBombsDefenseArtillery" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+      <SwappableItem canbebought="false" origin="75,356" spawnwithid="CloseDefenseArtillery_routineBox" />
+      <Sprite name="干扰弹发射系统装弹器" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.78" sourcerect="701,1,148,362" origin="0.5,0.5" />
+      <BrokenSprite name="干扰弹发射系统装弹器Broken" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="865,0,159,366" origin="0.5,0.5" offset="0,7" depth="0.77" fadein="false" maxcondition="15" />
+      <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+      <DecorativeSprite name="Chaingun Loader Frame Back" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-68" />
+      <DecorativeSprite name="Ammobelt" texture="Content/Items/Containers/containers.png" depth="0.79" sourcerect="499,663,52,142" origin="0.5,0.5" offset="0,12">
+        <IsActiveConditional targetcontaineditem="true" condition="gt 0.0" />
+      </DecorativeSprite>
+      <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="10" mindeteriorationdelay="60" maxdeteriorationdelay="300" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+        <StatusEffect type="InWater" target="This" condition="-0.25" />
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+        <RequiredSkill identifier="mechanical" level="55" />
+        <RequiredItem items="wrench" type="Equipped" />
+        <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+        <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+          <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+          <Affliction identifier="lacerations" strength="5" />
+          <Affliction identifier="stun" strength="4" />
+        </StatusEffect>
+      </Repairable>
+      <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="6" itempos="75,-270" iteminterval="0,0" itemrotation="0" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.79">
+        <GuiFrame relativesize="0.18,0.23" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+        <Containable items="jammingBombsCloseDefenseArtillery_routineBox" />
+        <!-- when the chaingun is fired, it triggers this statuseffect, causing contained ammunition boxes to spawn new ammo -->
+        <StatusEffect type="OnUse" target="Contained">
+          <RequiredItem items="jammingBombsCloseDefenseArtillery_routineBox" type="Contained" />
+          <Use />
+        </StatusEffect>
+      </ItemContainer>
+      <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+        <RequiredItem items="screwdriver" type="Equipped" />
+        <output name="condition_out" displayname="connection.conditionout" />
+      </ConnectionPanel>
+      <LightComponent lightcolor="219,0,36,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+        <sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="348,921,25,27" origin="1.685,-4.88" alpha="1.0" />
+        <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 0" />
+      </LightComponent>
+      <LightComponent lightcolor="255,170,1,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+        <sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="348,921,25,27" origin="1.135,-4.88" alpha="1.0" />
+        <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 20" />
+      </LightComponent>
+      <LightComponent lightcolor="246,210,2,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+        <sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="348,921,25,27" origin="0.585,-4.88" alpha="1.0" />
+        <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 40" />
+      </LightComponent>
+      <LightComponent lightcolor="252,230,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+        <sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="348,921,25,27" origin="0.035,-4.88" alpha="1.0" />
+        <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 60" />
+      </LightComponent>
+      <LightComponent lightcolor="185,214,0,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+        <sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="348,921,25,27" origin="-0.515,-4.88" alpha="1.0" />
+        <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 80" />
+      </LightComponent>
+      <LightComponent lightcolor="79,184,0,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+        <sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="348,921,25,27" origin="-1.065,-4.88" alpha="1.0" />
+        <IsActiveConditional targetcontaineditem="true" conditionpercentage="gte 100" />
+      </LightComponent>
+    </Item>
+    <Item name="干扰弹弹药箱" identifier="jammingBombsCloseDefenseArtillery_routineBox" description="" scale="0.5" tags="ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+      <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.15" />
+      <Price baseprice="300" minavailable="1" displaynonempty="true">
+        <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+        <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+        <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+        <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+        <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+        <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+      </Price>
+      <Deconstruct time="10">
+        <Item identifier="lead" mincondition="0.7" />
+        <Item identifier="lead" mincondition="0.3" />
+        <Item identifier="aluminium" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="weapons" level="40" />
+        <RequiredItem tag="munition_core" amount="3" description="fabricationdescription.munition_core" />
+        <RequiredItem identifier="aluminium" amount="1" />
+        <RequiredItem identifier="flare" amount="8" />
+      </Fabricate>
+      <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="12">
+        <RequiredSkill identifier="weapons" level="40" />
+        <RequiredItem identifier="flare" amount="8" />
+        <RequiredItem tag="munition_core" amount="3" description="fabricationdescription.munition_core" />
+        <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.1" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+      </Fabricate>
+      <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+      <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="376,835,98,80" origin="0.5,0.5" />
+      <Body width="90" height="72" density="50" />
+      <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+      <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+        <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.05">
+          <SpawnItem identifiers="jammingBombsCloseDefenseArtillery_routineAmmo" spawnposition="ThisInventory" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" condition="-3" disabledeltatime="true">
+          <RequiredItem items="jammingBombsCloseDefenseArtillery_routineAmmo" type="Contained" />
+        </StatusEffect>
+        <Containable items="jammingBombsCloseDefenseArtillery_routineAmmo" />
+      </ItemContainer>
+      <Quality>
+        <QualityStat stattype="Condition" value="0.1" />
+      </Quality>
+    </Item>
+    <Item name="干扰弹" identifier="jammingBombsCloseDefenseArtillery_routineAmmo" category="Weapon" scale="1" sonarsize="15" hideinmenus="true">
+      <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,204,54,18" depth="0.55" origin="0.5,0.5" />
+      <Body width="50" height="20" density="10" />
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+      <LightComponent LightColor="255,0.0,0.0,255" Flicker="0.5" range="600" IsOn="true">
+        <StatusEffect type="OnActive" targettype="This">
+          <Conditional PhysicsBodyActive="eq true" />
+          <ParticleEmitter particle="flare" emitinterval="2.1" particleamount="10" particlespersecond="60" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" />
+          <ParticleEmitter particle="FlareBubbles" particlespersecond="40" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" scalemin="0.8" scalemax="1.2" />
+        </StatusEffect>
+        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="800.0" loop="true" />
+      </LightComponent>
+      <Projectile characterusable="false" launchimpulse="30" spread="7.5" removeonhit="true" damagedoors="true">
+        <Attack structuredamage="0" itemdamage="0" severlimbsprobability="0.2" penetration="0.5" targetforce="3" targetimpulse="3">
+          <Affliction identifier="bleeding" strength="2" />
+          <Affliction identifier="stun" strength="0.01" />
+          <Affliction identifier="stun" strength="0.02" probability="0.2" />
+        </Attack>
+        <StatusEffect type="OnImpact" target="UseTarget">
+          <ParticleEmitter particle="impactfirearm" copyentityangle="true" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="3.0" />
+        </StatusEffect>
+        <StatusEffect type="OnNotContained" target="This" stackable="false" delay="5">
+          <Remove />
+        </StatusEffect>
+      </Projectile>
+      <AiTarget maxsoundrange="8000" soundrange="7500" fadeouttime="30" sonarlabel="诱饵屏障" />
+    </Item>
+    <Item name="导弹发射许可" identifier="MissileLaunchPermit" description="手持此物品发射导弹获得引导权限，请注意发射导弹时请勿有第二人手持此物品" category="Weapon" Tags="smallitem" scale="0.15" cargocontaineridentifier="metalcrate">
+      <Fabricate suitablefabricators="fabricator" requiredtime="60">
+        <RequiredSkill identifier="mechanical" level="20" />
+        <RequiredItem identifier="fpgacircuit" amount="1" />
+      </Fabricate>
+      <InventoryIcon texture="icon.png" sourcerect="0,0,170,156" origin="0.5,0.5" />
+      <Sprite texture="icon.png" depth="0.5" sourcerect="0,0,170,156" origin="0.5,0.5" />
+      <Body width="16" height="12" density="20" />
+      <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false" />
+      <Deconstruct time="1"></Deconstruct>
+    </Item>
+  </Override>
+</Items>

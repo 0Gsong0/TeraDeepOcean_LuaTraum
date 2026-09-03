@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Charactervariant inherit="Bossdefensebot_TL" SpeciesName="Bossdefensebot2_TL" SpeciesTranslationOverride="" DisplayName="">
+  <health vitality="30000">
+    <Limb name="Head">
+      <VitalityMultiplier type="damage" multiplier="0" />
+      <VitalityMultiplier type="burn" multiplier="0" />
+    </Limb>
+    <Limb name="Torso">
+      <VitalityMultiplier type="damage" multiplier="0" />
+      <VitalityMultiplier type="burn" multiplier="0" />
+    </Limb>
+    <Limb name="LeftArm">
+      <VitalityMultiplier type="damage" multiplier="0" />
+      <VitalityMultiplier type="burn" multiplier="0" />
+    </Limb>
+    <Limb name="RightArm">
+      <VitalityMultiplier type="damage" multiplier="0" />
+      <VitalityMultiplier type="burn" multiplier="0" />
+    </Limb>
+    <Limb name="LeftLeg">
+      <VitalityMultiplier type="damage" multiplier="0" />
+      <VitalityMultiplier type="burn" multiplier="0" />
+    </Limb>
+    <Limb name="RightLeg">
+      <VitalityMultiplier type="damage" multiplier="0" />
+      <VitalityMultiplier type="burn" multiplier="0" />
+    </Limb>
+  </health>
+  <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" AccessibleWhenAlive="False" Commonness="1">
+    <Item slot="Card" Identifier="idcard" />
+    <Item slot="OuterClothes" Identifier="BossLuaArmor" />
+    <Item identifier="grenadelauncher_TLBoss" slot="LeftHand" />
+  </inventory>
+  <StatusEffect type="OnDeath" target="This" disabledeltatime="true" delay="3">
+    <particleemitter particle="iceshards" particleamount="200" velocitymin="100" velocitymax="3000" anglemin="0" anglemax="360" scalemin="0.5" scalemax="3.0" />
+    <Explosion range="1000.0" ballastfloradamage="0" structuredamage="0" itemdamage="0" force="5.0" severlimbsprobability="0.0" decal="explosion" decalsize="1.0" camerashake="500" camerashakerange="50000">
+      <Affliction identifier="explosiondamage" strength="5" />
+      <Affliction identifier="explosiondamage_TLAI" strength="25" />
+      <Affliction identifier="stun" strength="4" />
+    </Explosion>
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This">
+    <SpawnItem identifiers="Idcard_TLnengyuanzhan" spawnposition="This" probability="1" />
+  </StatusEffect>
+  <ragdoll scalemultiplier="1.2" />
+</Charactervariant>

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--背包-->
+  <Item name="小型双肩背包" identifier="TL_smallBag" HideConditionBar="true" category="Equipment" tags="mediumitem,TLbag" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.32" waterprof="true" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="12" requiresrecipe="false">
+      <RequiredItem identifier="organicfiber" amount="3" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" amount="2" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" depth="0.6" sourcerect="31,23,131,158" origin="0.5,0.5" />
+    <Body width="130" height="160" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false"></Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" inherittexturescale="false" hideotherwearables="false" sourcerect="31,23,131,158" origin="0.855,0.55" scale="0.35" />
+    </Wearable>
+    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" slotsperrow="2">
+      <Containable items="none" />
+      <SubContainer capacity="10" maxstacksize="32">
+        <Containable items="smallitem,handheldammo" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="军用中型背包" identifier="TL_mediumBag" HideConditionBar="true" category="Equipment" tags="mediumitem,TLbag" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.32" waterprof="true" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="false">
+      <RequiredSkill identifier="mechanical" level="35" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="ballisticfiber" amount="3" />
+      <RequiredItem identifier="organicfiber" amount="5" />
+      <RequiredItem identifier="TL_smallBag" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="titaniumaluminiumalloy" amount="1" />
+      <Item identifier="organicfiber" amount="7" />
+      <Item identifier="plastic" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="900" fabricationlimitmin="1" fabricationlimitmax="3" />
+    <Sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" depth="0.6" sourcerect="231,24,143,171" origin="0.5,0.5" />
+    <Body width="170" height="170" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false"></Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" inherittexturescale="false" hideotherwearables="false" sourcerect="231,24,169,202" origin="0.725,0.55" scale="0.35" />
+    </Wearable>
+    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" slotsperrow="4">
+      <Containable items="none" />
+      <SlotIcon slotindex="16" texture="content/ui/MainIconsAtlas.png" sourcerect="266,145,108,91" origin="0.5,0.5" />
+      <SubContainer capacity="16" maxstacksize="32">
+        <Containable items="smallitem,weapon,handheldammo" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="diving" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="军用大型背包" identifier="TL_bigBag" HideConditionBar="true" category="Equipment" tags="mediumitem,TLbag" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.32" waterprof="true" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem identifier="steel_Tl" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="3" />
+      <RequiredItem identifier="ballisticfiber" amount="3" />
+      <RequiredItem identifier="TL_mediumBag" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="titaniumaluminiumalloy" amount="2" />
+      <Item identifier="ballisticfiber" amount="3" />
+      <Item identifier="steel_Tl" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" depth="0.6" sourcerect="452,19,146,206" origin="0.5,0.5" />
+    <Body width="150" height="200" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false"></Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" inherittexturescale="false" hideotherwearables="false" sourcerect="452,19,146,206" origin="0.91,0.55" scale="0.35" />
+    </Wearable>
+    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" slotsperrow="5">
+      <Containable items="none" />
+      <SlotIcon slotindex="25" texture="content/ui/MainIconsAtlas.png" sourcerect="266,145,108,91" origin="0.5,0.5" />
+      <SubContainer capacity="25" maxstacksize="32">
+        <Containable items="smallitem,weapon,handheldammo" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="diving" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="TL超大型背包" identifier="TL_biggestBag" HideConditionBar="true" category="Equipment" tags="mediumitem,TLbag" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.32" waterprof="true" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" depth="0.6" sourcerect="690,0,161,191" origin="0.5,0.5" />
+    <Body width="150" height="200" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <StatusEffect type="Always" target="This" drawhudwhenequipped="true"></StatusEffect>
+        <Button text="TL.fold">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="Content/Sounds/DropItem.ogg" type="OnUse" range="250" />
+            <SpawnItem identifier="TLbagzhe" count="1" spawnposition="This" />
+            <dropcontaineditems />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite name="Backpack Wearable" texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" inherittexturescale="false" hideotherwearables="false" sourcerect="690,0,161,191" origin="0.9,0.6" scale="0.35" />
+    </Wearable>
+    <ItemContainer capacity="42" maxstacksize="32" hideitems="true" slotsperrow="5">
+      <Containable items="smallitem,weapon,mediumitem,bigitem,handheldammo,Gatlingun_TL,ammobox,diving,deepdiving,deepdivinglarge,depthchargeammo,deepdiving,turretammosource,railgunammo,extinguisher,explosive,vest,tool,stackbox" excludeitems="TLbag,backpacks,toolbox,toolbelt,backpack,crates">
+        <StatusEffect type="OnContaining" target="This" drawhudwhenequipped="false" />
+      </Containable>
+      <SlotIcon slotindex="42" texture="%ModDir%/Content/Items/Equipment/Bags/Toolbox.png" origin="0.5,0.5" />
+      <SlotIcon slotindex="43" texture="%ModDir%/Content/Items/Equipment/Bags/Toolbox.png" origin="0.5,0.5" />
+      <SlotIcon slotindex="44" texture="%ModDir%/Content/Items/Equipment/Bags/Toolbox.png" origin="0.5,0.5" />
+      <SlotIcon slotindex="45" texture="%ModDir%/Content/Items/Equipment/Bags/Toolbox.png" origin="0.5,0.5" />
+      <SlotIcon slotindex="46" texture="%ModDir%/Content/Items/Equipment/Bags/Toolbox.png" origin="0.5,0.5" />
+      <SlotIcon slotindex="47" texture="%ModDir%/Content/Items/Equipment/Bags/Toolbox.png" origin="0.5,0.5" />
+      <SubContainer capacity="6" maxstacksize="1">
+        <Containable items="toolbelt,toolbox,stackbox,safewallhangingmetalcrate" excludeitems="TLbag,backpacks,backpack">
+          <StatusEffect type="OnContaining" target="This" drawhudwhenequipped="false" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="TL超大型背包(折叠）" identifier="TLbagzhe" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" waterprof="true" fireproof="true" description="TL超大背包，实用，可装万物（大部分东西），现已折叠，可以放入物品栏和箱子" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="mechanical" level="100" />
+      <RequiredItem identifier="steel_Tl" amount="4" />
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="3" />
+      <RequiredItem identifier="physicorium" amount="3" />
+      <RequiredItem identifier="TL_bigBag" amount="1" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+      <RequiredItem identifier="TL_blueprint" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="TL_EngineeringPlastics" amount="1" />
+      <Item identifier="steel_Tl" amount="1" />
+      <Item identifier="TL_bigBag" amount="1" />
+    </Deconstruct>
+    <Price baseprice="7499">
+      <Price storeidentifier="TLarmory" multiplier="1.5" minavailable="0" maxavailable="3" sold="true" />
+    </Price>
+    <Sprite texture="%ModDir%/Content/Items/Equipment/Bags/backpacks.png" depth="0.6" sourcerect="711,208,115,32" origin="0.5,0.6" />
+    <Body width="115" height="30" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Open">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="Content/Sounds/DropItem.ogg" type="OnUse" range="250" />
+            <SpawnItem identifier="TL_biggestBag" count="1" spawnposition="This" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+</Items>

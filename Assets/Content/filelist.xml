@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="MyModName" modversion="1.0" corepackage="false">
+<contentpackage name="TeraDeepOcean" modversion="1.0" corepackage="false">
     <Text file="%ModDir%/Texts/English.xml" />
+	<Text file="%ModDir%/Texts/ChineseText.xml" />
+	<UIStyle file="%ModDir%/Content/UI/styleAdd.xml" />
 </contentpackage>

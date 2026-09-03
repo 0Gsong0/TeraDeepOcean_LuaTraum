@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Override>
+		<Item name="智能水培箱" identifier="TL_HydroponicTank" tags="donttakeitems,dontsellitems" category="Machine" subcategory="Gardening" linkable="true" allowedlinks="medcabinet,locker,kitchen" description="" isshootable="true" scale="0.08" damagedbyexplosions="true" explosiondamagemultiplier="0.2" canflipx="false">
+			<Body width="2508" height="1672" density="20" />
+			<sprite texture="HydroponicTank.png" sourcerect="0,0,2508,1672" depth="0.799" premultiplyalpha="false" origin="0.5,0.5" />
+			<!-- <Decorativesprite name="foreground" texture="Content/Map/Outposts/Art/MedicalItemResearch.png" sourcerect="0,6,414,297" depth="0.797" premultiplyalpha="false" origin="0.5,0.5" color="255,255,255,100"/>
+        <DecorativeSprite name="spinny thing" texture="Content/Map/Outposts/Art/AdminResidentAssets.png" sourcerect="848,627,99,99" depth="0.798" premultiplyalpha="false" origin="0.5,0.5" rotationspeed="-715" color="255,255,255,100"/> -->
+			<Price baseprice="1399" sold="true">
+				<Price storeidentifier="merchantoutpost" multiplier="1.7" minavailable="0" maxavailable="1" />
+				<Price storeidentifier="merchantcity" multiplier="1.4" minavailable="0" maxavailable="3" />
+				<Price storeidentifier="merchantresearch" multiplier="1.0" minavailable="2" maxavailable="5" />
+			</Price>
+			<Deconstruct time="15">
+				<Item identifier="steel" amount="1" />
+				<Item identifier="titaniumaluminiumalloy" amount="1" />
+				<Item identifier="plastic" amount="2" />
+			</Deconstruct>
+			<Fabricate suitablefabricators="fabricator" requiredtime="45" requiresrecipe="false" amount="1">
+				<RequiredSkill identifier="mechanical" level="75" />
+				<RequiredItem identifier="steel" amount="6" />
+				<RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+				<RequiredItem identifier="plastic" amount="6" />
+				<RequiredItem identifier="fpgacircuit" amount="4" />
+			</Fabricate>
+			<CustomInterface canbeselected="true" drawhudwhenequipped="false">
+				<GuiFrame style="ItemUI" absoluteoffset="0,-100" anchor="Center" relativesize="0.07,0.08" />
+				<TickBox text="interaction.onoff">
+					<StatusEffect type="OnUse" target="This" IsOn="true" targetitemcomponent="LightComponent" setvalue="true">
+						<Conditional IsOn="false" targetitemcomponent="LightComponent" />
+					</StatusEffect>
+					<StatusEffect type="OnSecondaryUse" target="This" IsOn="false" targetitemcomponent="LightComponent" setvalue="true">
+						<Conditional IsOn="true" targetitemcomponent="LightComponent" />
+					</StatusEffect>
+				</TickBox>
+			</CustomInterface>
+			<!--PowerContainer charge used to keep track of time to only water every 15min (900s)-->
+			<PowerContainer capacity="900" charge="0" maxrechargespeed="0" rechargespeed="0" allowingameediting="false" canbeselected="false" VulnerableToEMP="false" />
+			<LightComponent range="0.0" lightcolor="255,255,255,111" IsOn="false" castshadows="false" alphablend="false" allowingameediting="false" powerconsumption="200">
+				<sprite texture="Content/Map/Outposts/Art/MedicalItemResearchLights.png" sourcerect="0,6,414,297" depth="0.1" origin="0.5,0.5" alpha="1.0" />
+				<!--Tag the item to allow for StatusEffect conditionals to check if every requirement is met and play a sound loop to clarify the item is active-->
+				<StatusEffect type="OnActive" target="This" disabledeltatime="false" comparison="And" tags="cangenerate" duration="0.1">
+					<RequiredItem items="he-kegwater,he-kegseawater,TL_water" targetslot="6" type="Contained" />
+					<RequiredItem items="fertilizer" targetslot="7" type="Contained" />
+					<RequiredItem items="yeastshroom,slimebacteria,elastinplant,fiberplant,aquaticpoppy,Compositefruit" targetslot="8" type="Contained" />
+					<Sound file="%ModDir%/Content/Builtin/HydroponicTank/Sounds/hydroponics_loop.ogg" volume="1.5" range="400" loop="true" />
+				</StatusEffect>
+				<!--生长-->
+				<!--Increase charge by 1 each second to simulate growing if the item has the status tag "cangenerate"-->
+				<StatusEffect type="OnActive" target="This" targetitemcomponent="PowerContainer" interval="1" charge="1" stackable="false" disabledeltatime="true">
+					<Conditional HasStatusTag="eq cangenerate" />
+				</StatusEffect>
+				<!--停止-->
+				<!--Decrease charge by 1 every two seconds to simulate plant withering if the item doesn't have the status tag "cangenerate"-->
+				<StatusEffect type="Always" target="This" targetitemcomponent="PowerContainer" interval="2" charge="-1" stackable="false" disabledeltatime="true">
+					<Conditional HasStatusTag="neq cangenerate" />
+				</StatusEffect>
+				<!--结果-->
+				<!--"Use" the item if charge is equal to or larger than 900 to trigger the "OnUse" StatusEffects, reset the charge to 0 and "grow" a plant if the item has the status tag "cangenerate"-->
+				<StatusEffect type="OnActive" target="This" interval="0.5" stackable="false" charge="0" setvalue="true" disabledeltatime="true" comparison="And">
+					<Conditional HasStatusTag="eq cangenerate" />
+					<Conditional charge="gte 900" />
+					<Use />
+				</StatusEffect>
+				<!--Set light color to white when all required items are contained and the item has the active tag "cangenerate"-->
+				<StatusEffect type="OnActive" target="This" lightcolor="255,255,255,111" pulseamount="0" pulsefrequency="0" powerconsumption="200" interval="1" stackable="false" setvalue="true" disabledeltatime="true">
+					<Conditional HasStatusTag="eq cangenerate" />
+				</StatusEffect>
+				<!--Set light color to orange and pulsate when the item is on, but is missing required items-->
+				<StatusEffect type="OnActive" target="This" lightcolor="255,150,0,111" pulseamount="0.75" pulsefrequency="1" powerconsumption="5" interval="1" stackable="false" setvalue="true" disabledeltatime="true">
+					<Conditional HasStatusTag="neq cangenerate" />
+				</StatusEffect>
+				<!--Drain condition of water tank every second when powered and all required items are contained-->
+				<StatusEffect type="OnActive" target="Contained" tag="waterkeg" disabledeltatime="true" condition="-0.03" delay="1" interval="1" targetslot="6" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+				</StatusEffect>
+				<!--Drain condition of fertilizer and spawn a yeast shroom when all required items are contained and the item has the active tag "cangenerate"-->
+				<StatusEffect type="OnUse" target="Contained" tag="fertilizer" disabledeltatime="true" condition="-134.0" targetslot="7" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+					<RequiredItem items="yeastshroom" targetslot="8" type="Contained" />
+					<SpawnItem identifier="yeastshroom" spawnposition="ThisInventory" spawnifcantbecontained="false" SpawnIfInventoryFull="false" />
+				</StatusEffect>
+				<!--Drain condition of fertilizer and spawn a slime bacteria when all required items are contained and the item has the active tag "cangenerate"-->
+				<StatusEffect type="OnUse" target="Contained" tag="fertilizer" disabledeltatime="true" condition="-134.0" targetslot="7" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+					<RequiredItem items="slimebacteria" targetslot="8" type="Contained" />
+					<SpawnItem identifier="slimebacteria" spawnposition="ThisInventory" spawnifcantbecontained="false" SpawnIfInventoryFull="false" />
+				</StatusEffect>
+				<!--Drain condition of fertilizer and spawn a elastin plant when all required items are contained and the item has the active tag "cangenerate"-->
+				<StatusEffect type="OnUse" target="Contained" tag="fertilizer" disabledeltatime="true" condition="-134.0" targetslot="7" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+					<RequiredItem items="elastinplant" targetslot="8" type="Contained" />
+					<SpawnItem identifier="elastinplant" spawnposition="ThisInventory" spawnifcantbecontained="false" SpawnIfInventoryFull="false" />
+				</StatusEffect>
+				<!--Drain condition of fertilizer and spawn a fiber plant when all required items are contained and the item has the active tag "cangenerate"-->
+				<StatusEffect type="OnUse" target="Contained" tag="fertilizer" disabledeltatime="true" condition="-134.0" targetslot="7" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+					<RequiredItem items="fiberplant" targetslot="8" type="Contained" />
+					<SpawnItem identifier="fiberplant" spawnposition="ThisInventory" spawnifcantbecontained="false" SpawnIfInventoryFull="false" />
+				</StatusEffect>
+				<!--Drain condition of fertilizer and spawn an aquatic poppy when all required items are contained and the item has the active tag "cangenerate"-->
+				<StatusEffect type="OnUse" target="Contained" tag="fertilizer" disabledeltatime="true" condition="-134.0" targetslot="7" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+					<RequiredItem items="aquaticpoppy" targetslot="8" type="Contained" />
+					<SpawnItem identifier="aquaticpoppy" spawnposition="ThisInventory" spawnifcantbecontained="false" SpawnIfInventoryFull="false" />
+				</StatusEffect>
+				<StatusEffect type="OnUse" target="Contained" tag="fertilizer" disabledeltatime="true" condition="-134.0" targetslot="7" comparison="And" CheckConditionalAlways="true" stackable="false">
+					<Conditional HasStatusTag="eq cangenerate" targetcontainer="true" />
+					<RequiredItem items="Compositefruit" targetslot="8" type="Contained" />
+					<SpawnItem identifier="Compositefruit" spawnposition="ThisInventory" spawnifcantbecontained="false" SpawnIfInventoryFull="false" />
+				</StatusEffect>
+			</LightComponent>
+			<ItemContainer selectkey="Select" capacity="0" canbeselected="true" hideitems="true" containedstateindicatorstyle="battery" containedstateindicatorslot="0" slotsperrow="3" keepopenwhenequipped="false" movableframe="true">
+				<GuiFrame relativesize="0.15,0.30" anchor="Center" relativeoffset="0,0" style="ItemUI" msg="ItemMsgInteractSelect" />
+				<!--Watertank Icon-->
+				<SlotIcon slotindex="6" texture="%ModDir%/Content/Builtin/HydroponicTank/Items/HE-IconsAtlas.png" sourcerect="237,0,85,85" origin="0.5,0.5" />
+				<!--Fertilizer Icon-->
+				<SlotIcon slotindex="7" texture="%ModDir%/Content/Builtin/HydroponicTank/Items/HE-IconsAtlas.png" sourcerect="322,0,85,85" origin="0.5,0.5" />
+				<!--Plant Icon-->
+				<SlotIcon slotindex="8" texture="%ModDir%/Content/Builtin/HydroponicTank/Items/HE-IconsAtlas.png" sourcerect="407,0,85,85" origin="0.5,0.5" />
+				<!--Plant Product Slots-->
+				<SubContainer capacity="6" maxstacksize="1">
+					<Containable items="yeastshroom,slimebacteria,elastinplant,fiberplant,aquaticpoppy,Compositefruit" />
+				</SubContainer>
+				<!--Watertank Slot-->
+				<SubContainer capacity="1" maxstacksize="1" slot="6">
+					<Containable items="he-kegwater,he-kegseawater,TL_water" />
+				</SubContainer>
+				<!--Fertilizer Slot-->
+				<SubContainer capacity="1" maxstacksize="1" slot="7">
+					<Containable items="fertilizer" />
+				</SubContainer>
+				<!--Plant Slot-->
+				<SubContainer capacity="1" maxstacksize="1" slot="8">
+					<Containable items="yeastshroom,slimebacteria,elastinplant,fiberplant,aquaticpoppy,Compositefruit" />
+				</SubContainer>
+				<!--Play a sound when opening the items interface-->
+				<StatusEffect type="OnPicked" target="this">
+					<Sound file="%ModDir%/Content/Builtin/HydroponicTank/Sounds/hydroponics_interact.ogg" volume="1" range="300" selectionmode="random" />
+				</StatusEffect>
+			</ItemContainer>
+			<ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+				<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+				<RequiredSkill identifier="electrical" level="55" />
+				<StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+					<Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+					<Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+					<Affliction identifier="stun" strength="4" />
+					<Affliction identifier="burn" strength="5" />
+				</StatusEffect>
+				<!--Trigger interact sound when opening the connection panel-->
+				<StatusEffect type="OnPicked" target="this">
+					<Sound file="%ModDir%/Content/Builtin/HydroponicTank/Sounds/junctionbox_interact.ogg" volume="1" range="300" />
+				</StatusEffect>
+				<RequiredItem items="screwdriver" type="Equipped" />
+				<input name="power_in" displayname="connection.powerin" />
+				<output name="condition_out" displayname="connection.conditionout" />
+				<output name="charge" displayname="connection.batterychargestatusout" />
+			</ConnectionPanel>
+			<Holdable canbepicked="true" selectkey="Select" pickkey="Action" slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" attachable="true" aimable="true" AttachesToFloor="true" DisallowAttachingOverTags="planter,hydroponicplanter,fabricator,deconstructor,engine,oxygengenerator,geneticresearchstation,reactor,kitchen,divingsuitcontainer,oxygentankrefiller,turretammosource,supercapacitor,medicalfabricator,navterminal,depthchargeammosource,ammoboxcontainer,cargocontainer">
+				<RequiredItem items="wrench" type="Equipped" />
+				<StatusEffect target="This" type="OnContained">
+					<Conditional attached="false" targetitemcomponentname="Holdable" />
+					<DropContainedItems />
+				</StatusEffect>
+				<StatValue stattype="WalkingSpeed" value="-0.5" />
+				<StatValue stattype="SwimmingSpeed" value="-0.7" />
+			</Holdable>
+			<Repairable selectkey="Action" header="electricalrepairsheader" deteriorationspeed="0.00" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="70" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairScrewdriver" hudpriority="10">
+				<GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+				<RequiredSkill identifier="electrical" level="55" />
+				<RequiredItem items="screwdriver" type="Equipped" />
+				<ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+				<ParticleEmitter particle="MistSmoke" particlespersecond="60" anglemin="0" anglemax="360" distancemin="0" distancemax="30" velocitymin="0" velocitymax="20" mincondition="0.0" maxcondition="50.0" />
+				<ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
+				<ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
+				<StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+					<Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+					<Affliction identifier="stun" strength="4" />
+					<Affliction identifier="burn" strength="5" />
+				</StatusEffect>
+				<StatusEffect type="InWater" target="This" condition="-1" interval="2" disabledeltatime="true" />
+			</Repairable>
+		</Item>
+		<!--饥饿欧罗巴的源码覆盖，需要进行标注-->
+		<Item name="一桶海水" identifier="he-kegseawater" Tags="keg,filledkeg,waterkeg,seawaterkeg,crate" category="Misc" subcategory="Kegs" maxstacksize="1" scale="0.5" impactsoundtag="impact_metal_heavy" canflipx="false" isshootable="true">
+			<PreferredContainer primary="kitchen" secondary="cargocontainer" />
+			<Sprite texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" sourcerect="546,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+			<InventoryIcon texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" sourcerect="546,0,91,138" origin="0.5,0.5" />
+			<ContainedSprite texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" allowedcontainertags="cargocontainer" usewhenattached="false" sourcerect="0,0,1,1" depth="0.699" origin="0.5,0.5" decorativespritebehavior="HideWhenNotVisible" />
+			<DecorativeSprite texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" sourcerect="546,0,91,138" depth="0.699" origin="0.5,0.5" rotation="90" />
+			<Body width="91" height="136" density="10.1" />
+			<Deconstruct time="2" requireddeconstructor="deconstructor">
+				<Item identifier="aluminium" amount="3" outcondition="1.0" />
+			</Deconstruct>
+			<Holdable canBeCombined="true" removeOnCombined="false" pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" holdangle="3" aimpos="65,-10" handle1="0,53" handle2="0,53" aimable="false" characterusable="true" msg="ItemMsgPickUpSelect" PickingTime="0">
+				<!-- Revert position if not emptying -->
+				<StatusEffect type="OnActive" target="This" holdpos="40,-40" holdangle="3" aimpos="65,-10" aimangle="0" setvalue="true">
+					<Conditional hasstatustag="neq emptying" />
+				</StatusEffect>
+				<StatusEffect type="OnUse" target="This" condition="-7" />
+				<StatusEffect type="OnUse" target="This" duration="0.1" statuseffecttags="emptying" holdpos="-40,0" holdangle="176" aimpos="0,0" aimangle="180" offset="0,-36" setvalue="true" comparison="and">
+					<Sound file="%ModDir%/Content/Builtin/HydroponicTank/Sounds/DrainLiquid.ogg" volume="3" range="300" loop="true" />
+					<ParticleEmitter particle="waterdrop" velocitymin="0.0" velocitymax="10.0" particlespersecond="10" distancemin="-3" distancemax="3" colormultiplier="255,255,255,255" />
+					<Conditional InWater="false" />
+				</StatusEffect>
+				<!-- Exclusive to salt keg: Reload in salt water -->
+				<StatusEffect type="OnSecondaryUse" target="This" condition="10" comparison="And">
+					<Conditional Condition="lt 100" />
+					<Conditional InWater="true" />
+					<ParticleEmitter particle="bubbles" particlespersecond="2" scalemin="0.25" scalemax="0.5" distancemin="30" distancemax="35" velocitymin="20" velocitymax="50" copyentityangle="true" anglemin="90" anglemax="90" colormultiplier="255,255,255,255" lifetimemultiplier="1" />
+					<Sound file="Content/Sounds/Water/SplashLoop.ogg" range="200" volume="1" loop="true" frequencymultiplier="2" />
+				</StatusEffect>
+				<StatusEffect type="OnBroken" target="This">
+					<Remove />
+					<SpawnItem identifier="he-kegempty" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" Count="1" Equip="true" />
+				</StatusEffect>
+				<StatValue stattype="WalkingSpeed" value="-0.3" />
+				<StatValue stattype="SwimmingSpeed" value="-0.4" />
+			</Holdable>
+		</Item>
+		<Item name="空水桶" identifier="he-kegempty" Tags="keg,emptykeg,crate" category="Misc" subcategory="Kegs" maxstacksize="1" scale="0.5" impactsoundtag="impact_metal_heavy" canflipx="false" isshootable="false">
+			<PreferredContainer primary="kitchen" secondary="cargocontainer" />
+			<Sprite texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" canflipx="false" />
+			<InventoryIcon texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" sourcerect="0,0,91,138" origin="0.5,0.5" />
+			<ContainedSprite texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" allowedcontainertags="cargocontainer" usewhenattached="false" sourcerect="0,0,1,1" depth="0.699" origin="0.5,0.5" decorativespritebehavior="HideWhenNotVisible" />
+			<DecorativeSprite texture="%ModDir%/Content/Builtin/HydroponicTank/Items/Kegs.png" sourcerect="0,0,91,138" depth="0.699" origin="0.5,0.5" rotation="90" />
+			<Body width="91" height="136" density="9" />
+			<Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="false" amount="1" outcondition="1">
+				<RequiredSkill identifier="mechanical" level="30" />
+				<RequiredItem identifier="aluminium" amount="6" />
+			</Fabricate>
+			<Deconstruct time="2">
+				<Item identifier="aluminium" amount="3" outcondition="1.0" />
+			</Deconstruct>
+			<Holdable pickkey="Select" slots="RightHand+LeftHand" holdpos="40,-40" handle1="0,53" handle2="0,53" holdangle="3" msg="ItemMsgPickUpSelect" PickingTime="0" aimpos="65,-10">
+				<StatusEffect type="OnSecondaryUse" target="This" interval="0.1">
+					<Conditional InWater="true" />
+					<Sound file="Content/Sounds/Water/Splash0.ogg" range="200" volume="0.5" />
+					<Remove />
+					<SpawnItem identifier="he-kegseawater" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" condition="0.01" />
+				</StatusEffect>
+				<StatValue stattype="WalkingSpeed" value="-0.2" />
+				<StatValue stattype="SwimmingSpeed" value="-0.3" />
+			</Holdable>
+		</Item>
+	</Override>
+</Items>

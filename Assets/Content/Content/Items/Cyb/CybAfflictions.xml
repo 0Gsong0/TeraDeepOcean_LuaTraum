@@ -1,0 +1,146 @@
+﻿<Afflictions>
+	<Affliction name="测试义体植入" identifier="cyb_limb" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="895,8,137,133" origin="0.5,0.5" />
+	</Affliction>
+	<Affliction name="手术准备" identifier="TLCyb_Tool_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="895,8,137,133" origin="0.5,0.5" />
+	</Affliction>
+	<Affliction name="结构损伤" identifier="TLCyb_StructuralDamage" type="TLCyb" limbspecific="true" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="4,7" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100"
+          multiplybymaxvitality="true"
+          minvitalitydecrease="0"
+          maxvitalitydecrease="0.3" />
+	</Affliction>
+	<Affliction name="伺服系统故障" identifier="TLCyb_ServoDamage" type="TLCyb" limbspecific="true" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="5,7" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100">
+			<StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.15" />
+			<StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.2" />
+		</Effect>
+	</Affliction>
+	<Affliction name="电路损坏" identifier="TLCyb_CircuitDamage" type="TLCyb" limbspecific="true" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="6,7" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100">
+			<StatValue stattype="WalkingSpeed" minvalue="0" maxvalue="-0.05" />
+			<StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="-0.05" />
+		</Effect>
+	</Affliction>
+	<Affliction name="神经系统同步失调" identifier="TLCyb_SystemDamage" type="TLCyb" limbspecific="true" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="7,7" sheetelementsize="128,128" origin="0,0" />
+	</Affliction>
+	<Affliction name="曼珠核心子系统异常" identifier="TLCyb_LycorisSystemDamage" type="TLCyb" indicatorlimb="Head" limbspecific="false" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="0,1" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="0">
+			<StatValue stattype="SkillGainSpeed" value="-0.3" />
+			<StatValue stattype="HelmSkillGainSpeed" value="-0.15" />
+			<StatValue stattype="WeaponsSkillGainSpeed" value="-0.15" />
+			<StatValue stattype="MedicalSkillGainSpeed" value="-0.15" />
+			<StatValue stattype="ElectricalSkillGainSpeed" value="-0.15" />
+			<StatValue stattype="MechanicalSkillGainSpeed" value="-0.15" />
+			<StatValue stattype="ElectricalSkillBonus" value="-15" />
+			<StatValue stattype="HelmSkillBonus" value="-15" />
+			<StatValue stattype="MechanicalSkillBonus" value="-15" />
+			<StatValue stattype="MedicalSkillBonus" value="-15" />
+			<StatValue stattype="WeaponsSkillBonus" value="-15" />
+			<StatValue stattype="TurretPowerCostReduction" value="-0.15" />
+			<StatValue stattype="TurretAttackSpeed" value="-0.1" />
+			<StatValue stattype="TurretChargeSpeed" value="-0.3" />
+		</Effect>
+	</Affliction>
+	<Affliction name="伤口应急封闭" identifier="TLCyb_ClosedWound" type="TLCyb" limbspecific="true" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="1,1" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="0" minvitalitydecrease="0" maxvitalitydecrease="0.25">
+			<StatValue stattype="SwimmingSpeed" value="-0.35" />
+			<Statvalue stattype="WalkingSpeed" value="-0.4" />
+			<StatValue stattype="MaximumHealthMultiplier" value="-0.15" />
+		</Effect>
+	</Affliction>
+	<Affliction name="曼珠植入" identifier="TLCyb_LycorisChip_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="749,8,137,133" origin="0.5,0.5" />
+	</Affliction>
+	<Affliction name="曼珠·[加速学习协议]植入" identifier="TLCyb_LycorisChip_Learning_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="749,8,137,133" origin="0.5,0.5" />
+		<Effect minstrength="0" maxstrength="10" strengthchange="0">
+			<StatValue stattype="SkillGainSpeed" value="0.1" />
+			<StatValue stattype="ExtraLevelGain" value="5" />
+			<StatValue stattype="HelmSkillGainSpeed" value="0.15" />
+			<StatValue stattype="WeaponsSkillGainSpeed" value="0.15" />
+			<StatValue stattype="MedicalSkillGainSpeed" value="0.15" />
+			<StatValue stattype="ElectricalSkillGainSpeed" value="0.15" />
+			<StatValue stattype="MechanicalSkillGainSpeed" value="0.15" />
+		</Effect>
+	</Affliction>
+	<Affliction name="曼珠·[执行强化模块]植入" identifier="TLCyb_LycorisChip_Skill_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="749,8,137,133" origin="0.5,0.5" />
+		<Effect minstrength="0" maxstrength="10" strengthchange="0">
+			<StatValue stattype="ElectricalSkillBonus" value="15" />
+			<StatValue stattype="HelmSkillBonus" value="15" />
+			<StatValue stattype="MechanicalSkillBonus" value="15" />
+			<StatValue stattype="MedicalSkillBonus" value="15" />
+			<StatValue stattype="WeaponsSkillBonus" value="15" />
+			<StatValue stattype="TurretPowerCostReduction" value="0.15" />
+			<StatValue stattype="TurretAttackSpeed" value="0.1" />
+			<StatValue stattype="TurretChargeSpeed" value="0.3" />
+		</Effect>
+	</Affliction>
+	<Affliction name="曼珠·[应激缓冲模块]植入" identifier="TLCyb_LycorisChip_Stress_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="749,8,137,133" origin="0.5,0.5" />
+		<Effect minstrength="0" maxstrength="10" resistancefor="damage" minresistance="0.25" maxresistance="0.25">
+			<StatValue stattype="MaximumHealthMultiplier" value="0.2" />
+		</Effect>
+	</Affliction>
+	<Affliction name="曼珠·[代谢调节模块]植入" identifier="TLCyb_LycorisChip_Metabolic_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="749,8,137,133" origin="0.5,0.5" />
+		<Effect minstrength="0" maxstrength="10">
+			<StatValue stattype="BuffDurationMultiplier" value="0.25" />
+			<StatValue stattype="DebuffDurationMultiplier" value="0.35" />
+			<StatValue stattype="MedicalItemEffectivenessMultiplier" value="0.15" />
+		</Effect>
+	</Affliction>
+	<Affliction name="曼珠·终止-[回收协议]植入" identifier="TLCyb_LycorisChip_Recovery_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="749,8,137,133" origin="0.5,0.5" />
+	</Affliction>
+	<Affliction name="民用机械腿安装" identifier="TLCyb_CivilianLeg_Init" description="" healableinmedicalclinic="false" targets="human" type="resistance" isbuff="true" limbspecific="true" maxstrength="100" showiconthreshold="1" showinhealthscannerthreshold="500" iconcolors="230,240,90">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="0">
+			<StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="0.15" />
+			<Statvalue stattype="WalkingSpeed" minvalue="0" maxvalue="0.1" />
+			<StatValue stattype="MaximumHealthMultiplier" minvalue="0" maxvalue="0.05" />
+		</Effect>
+	</Affliction>
+	<Affliction name="民用机械臂安装" identifier="TLCyb_CivilianArm_Init" description="" healableinmedicalclinic="false" targets="human" type="resistance" isbuff="true" limbspecific="true" maxstrength="100" showiconthreshold="1" showinhealthscannerthreshold="500" iconcolors="230,240,90">
+		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="5,0" sheetelementsize="128,128" origin="0,0" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="0">
+			<StatValue stattype="SwimmingSpeed" minvalue="0" maxvalue="0.1" />
+			<Statvalue stattype="ElectricalRepairSpeed" value="0.1" />
+			<StatValue stattype="MechanicalRepairSpeed" value="0.1" />
+			<StatValue stattype="RepairToolStructureRepairMultiplier" value="0.1" />
+			<StatValue stattype="RepairToolDeattachTimeMultiplier" value="0.15" />
+		</Effect>
+	</Affliction>
+	<Affliction name="TL_爬" identifier="TL_CrawlState" type="gaze" isbuff="false" limbspecific="false" indicatorlimb="Torso" activationthreshold="0" maxstrength="2" showinhealthscannerthreshold="10000" showiconthreshold="10000" healableinmedicalclinic="false">
+		<Effect minstrength="0" maxstrength="2">
+			<StatusEffect target="Character">
+				<TriggerAnimation Type="Crouch" path="%ModDir%\Content\Characters\Human\Animations\HumanProneCrouch.xml" priority="10" ExpectedSpecies="Human" />
+				<TriggerAnimation Type="Walk" path="%ModDir%\Content\Characters\Human\Animations\HumanProneWalkProperBowthWays.xml" priority="10" ExpectedSpecies="Human" />
+				<TriggerAnimation Type="Run" path="%ModDir%\Content\Characters\Human\Animations\HumanProneRunProperBowthWays.xml" priority="10" ExpectedSpecies="Human" />
+				<TriggerAnimation Type="SwimSlow" path="%ModDir%\Content\Characters\Human\Animations\HumanProneSwimSlow.xml" priority="10" ExpectedSpecies="Human" />
+				<TriggerAnimation Type="SwimFast" path="%ModDir%\Content\Characters\Human\Animations\HumanProneSwimFast.xml" priority="10" ExpectedSpecies="Human" />
+			</StatusEffect>
+		</Effect>
+		<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0" />
+	</Affliction>
+	<Affliction name="TL_晕" identifier="TL_StunState" type="gaze" isbuff="false" limbspecific="false" indicatorlimb="Torso" activationthreshold="0" maxstrength="10" showinhealthscannerthreshold="10000" showiconthreshold="10000" healableinmedicalclinic="false">
+		<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="128,640,128,128" color="195,177,60,255" origin="0,0" />
+	</Affliction>
+	<!--
+	<StatValue stattype="MeleeAttackMultiplier" minvalue="0" maxvalue="1" />
+	<StatValue stattype="HoldBreathMultiplier" minvalue="1" maxvalue="0.5" />
+	<StatValue stattype="ElectricalSkillBonus" minvalue="0" maxvalue="10" />
+	<StatValue stattype="HelmSkillBonus" minvalue="0" maxvalue="10" />
+	<StatValue stattype="MechanicalSkillBonus" minvalue="0" maxvalue="10" />
+	<StatValue stattype="MedicalSkillBonus" minvalue="0" maxvalue="10" />
+	<StatValue stattype="WeaponsSkillBonus" minvalue="0" maxvalue="10" />
+		-->
+</Afflictions>

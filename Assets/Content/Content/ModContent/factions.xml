@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Factions>
+    <Faction identifier="TLCompany" initialreputation="-20" minreputation="-100" menuorder="-10" controlledoutpostpercentage="60" opposingfaction="coalition" maxreputation="100">
+      <Icon texture="%ModDir%/Content/UI/Prefabs/TL.png" sourcerect="0,0,172,195" />
+      <Portrait texture="%ModDir%/Content/UI/TLbei.jpg" sourcerect="0,0,535,300" />
+      <AutomaticMission leveltype="LocationConnection" missiontag="TLattack" minreputation="-100" maxreputation="-40" MaxDistanceFromFactionOutpost="3" DisallowBetweenOtherFactionOutposts="true" minprobability="0.2" maxprobability="0.01" />
+      <Hireable npcsetidentifier="TL_mission_npcs" npcidentifier="TL_mission_npcs_RegularCombat" minreputation="0" />
+      <Hireable npcsetidentifier="TL_mission_npcs" npcidentifier="TL_mission_npcs_SpecialCombat" minreputation="40" />
+      <Hireable npcsetidentifier="TL_mission_npcs" npcidentifier="TL_mission_npcs_Commander" minreputation="80" />
+      <Hireable npcsetidentifier="TL_Hire_npcs" npcidentifier="TL_Hire_npc_Leopard" minreputation="100" />
+    </Faction>
+    <!-->Faction identifier="HXhui" initialreputation="10" minreputation="-100" controlledoutpostpercentage="20" maxreputation="100">
+      <Icon texture="%ModDir%/Content/UI/HX.png" sourcerect="0,0,94,104" />
+      <Portrait name="TLhui" texture="%ModDir%/Content/UI/HXbei.jpg" sourcerect="0,0,1024,710" />
+    </Faction-->
+  </Factions>
+</Override>

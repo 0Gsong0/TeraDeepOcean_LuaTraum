@@ -1,0 +1,1089 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="C#学习，测试组件" identifier="tl_Ctest_testComponent" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
+		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+		<Body width="48" height="48" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
+			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+		</Holdable>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="Test_input"/>
+			<output name="Test_output"/>
+		</ConnectionPanel>
+		<TLSignalToggleComponent Enable="true" />
+	</Item>
+	<Item name="导演-摄像机控制组件" identifier="tl_camera_director_point" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
+		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+		<Body width="48" height="48" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
+			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+		</Holdable>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="trigger_in" displayname="Trigger In" />
+		</ConnectionPanel>
+		<TLCameraDirectorComponent index="0" batch="1" delay="2.5" zoom="0.6" target="All" />
+	</Item>
+	<Item name="墙体移动组件" identifier="tl_wall_mover_controller" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
+		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+		<Body width="48" height="48" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
+			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+        </Holdable>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="trigger_in" displayname="Trigger In" />
+			<output name="state_out" displayname="State Out" />
+		</ConnectionPanel>
+		<TLWallMoverComponent movedistance="-64" speed="2" movedirection="0"/>
+	</Item>
+	<Item name="物品移动组件" identifier="tl_item_mover_controller" category="Electrical" Tags="smallitem,logic" scale="0.5" linkable="true">
+		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+		<Body width="48" height="48" density="20" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+		</Holdable>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="trigger_in" displayname="Trigger In" />
+		</ConnectionPanel>
+		<TLItemMoverComponent movedirection="0" movedistance="-64" speed="2" />
+	</Item>
+	<Item name="墙体旋转组件" identifier="tl_wall_Rotate_controller" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
+		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+		<Body width="48" height="48" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
+			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+		</Holdable>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="trigger_in" displayname="Trigger In" />
+			<output name="state_out" displayname="State Out" />
+		</ConnectionPanel>
+		<TLWallRotateComponent rotateangle="90" rotatespeed="2" />
+	</Item>
+	<Item name="物品旋转组件" identifier="tl_item_Rotate_controller" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
+		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+		<Body width="48" height="48" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
+			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+		</Holdable>
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="trigger_in" displayname="Trigger In" />
+			<output name="state_out" displayname="State Out" />
+		</ConnectionPanel>
+		<TLItemRotateComponent rotateangle="90" rotatespeed="2" />
+	</Item>
+	
+  <Item name="高级手持声纳信标" identifier="sonarbeacon_TL" category="Equipment,Diving" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer secondary="wreckstoragecab,wreckdivingcab" amount="1" spawnprobability="0.05" />
+    <Price baseprice="300" sold="false">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" multiplier="0.9" minavailable="2" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="copper" />
+      <Item identifier="plastic" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="60" />
+      <RequiredItem identifier="fpgacircuit" amount="8" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,320,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="473,1,29,65" depth="0.55" origin="0.5,0.5" />
+    <Body width="27" height="60" density="12" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" msg="ItemMsgPickUpSelect" />
+    <AiTarget soundrange="500000" sonarlabel="entityname.sonarbeacon_TL" sight="5000" staticsight="true" />
+    <LightComponent LightColor="0.0,1.0,0.0,1.0" range="50" powerconsumption="0" blinkfrequency="2" IsOn="false" canbeselected="false">
+      <StatusEffect type="OnActive" targettype="This" SoundRange="500000" setvalue="true">
+        <Conditional Voltage="gt 0.5" targetitemcomponent="LightComponent" />
+        <sound file="Content/Items/Weapons/SonarDecoy.ogg" range="500.0" loop="true" volume="0.25" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="Character" ConditionalComparison="And" setvalue="true">
+        <Conditional healthpercentage="lte 40" />
+        <Conditional isdead="False" />
+        <sound file="%ModDir%/Content/Sounds/Other/检测到弱生命体征.ogg" range="5000.0" volume="2" />
+      </StatusEffect>
+    </LightComponent>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.16,0.15" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+      <TickBox text="sonarbeacon.beaconactive">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <TextBox text="sonarbeacon.beaconsignal" propertyname="SonarLabel" maxtextlength="32" />
+    </CustomInterface>
+  </Item>
+  <Item name="690战术核板砖" identifier="GTX690" category="Weapon" Tags="mediumitem,mountableweapon,weapon,gunsmith" scale="0.5" allowasextracargo="true" requireaimtouse="true" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab" />
+    <Price baseprice="111" sold="false"></Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false">
+      <RequiredItem identifier="FuelRod" amount="1" />
+    </Fabricate>
+    <Sprite texture="icon.png" sourcerect="553,48,100,40" depth="0.55" origin="0.5,0.5" />
+    <Body width="100" height="20" density="25" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-22,2" handle2="-32,5" holdangle="30" aimangle="10" reload="0.5" range="180" combatPriority="40" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="66666" severlimbsprobability="1" itemdamage="6.6" structuredamage="6">
+        <Affliction identifier="stun" strength="10" multiplybymaxvitality="true" />
+        <Affliction identifier="blunttrauma" strength="30" multiplybymaxvitality="true" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.5" />
+    </Quality>
+  </Item>
+  <Item name="华强的砍刀" identifier="huaqiangKnife_Genuine" category="Weapon" description="" Tags="mediumitem,mountableweapon,weapon,gunsmith" scale="0.5" allowasextracargo="true" requireaimtouse="true" impactsoundtag="impact_metal_light">
+    <Sprite texture="icon.png" sourcerect="28,444,122,26" depth="0.55" origin="0.5,0.5" />
+    <Body width="110" height="15" density="25" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-22,2" handle2="-32,5" holdangle="30" aimangle="10" reload="0.5" range="180" combatPriority="40" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="1500" severlimbsprobability="9" itemdamage="100" structuredamage="250">
+        <Affliction identifier="kill" strength="100" multiplybymaxvitality="true" />
+        <Affliction identifier="lacerations" strength="100" multiplybymaxvitality="true" />
+        <Affliction identifier="internaldamage" strength="100" multiplybymaxvitality="true" />
+        <Affliction identifier="blunttrauma" strength="100" multiplybymaxvitality="true" />
+        <Affliction identifier="bleeding" strength="100" multiplybymaxvitality="true" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <LuaHook name="luahuaqiang.onUse" />
+          <Sound file="%ModDir%/Content/Sounds/Other/撒日朗.ogg" selectionmode="random" range="2000" />
+          <Sound file="%ModDir%/Content/Sounds/Other/撒日朗.ogg" range="2000" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+  </Item>
+  <Item name="万能钥匙" identifier="idcardplus" description="可以进出木卫二上大部分区域" category="Hidden" hideinmenus="true" Tags="smallitem,idcard,wrecksecarmcab,abandonedsecarmcab,id_outpostmanager,id_medic,id_captain,id_security,id_engineer,id_mechanic,wreck_id,idmedic,idcaptain,idsecurity,idengineer,idmechanic,level1" scale="0.15" cargocontaineridentifier="metalcrate">
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="60">
+      <RequiredSkill identifier="mechanical" level="40" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="icon.png" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Sprite texture="icon.png" depth="0.8" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Body width="16" height="12" density="20" />
+    <IdCard slots="Any" msg="ItemMsgPickUpSelect" />
+    <Deconstruct time="1"></Deconstruct>
+  </Item>
+  <Item name="万能钥匙（NPC）" identifier="idcardplus1" description="" nonplayerteaminteractable="true" category="Hidden" hideinmenus="true" Tags="idcard,wrecksecarmcab,abandonedsecarmcab,id_outpostmanager,id_medic,id_captain,id_security,id_engineer,id_mechanic,wreck_id,idmedic,idcaptain,idsecurity,idengineer,idmechanic,level1" scale="0.15" cargocontaineridentifier="metalcrate">
+    <InventoryIcon texture="icon.png" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Sprite texture="icon.png" depth="0.8" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Body width="16" height="12" density="20" />
+    <IdCard slots="Card" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+    </IdCard>
+  </Item>
+  <Item name="万能钥匙B（NPC）" identifier="idcardplus1B" description="" nonplayerteaminteractable="true" category="Hidden" hideinmenus="true" Tags="idcard,wrecksecarmcab,abandonedsecarmcab,id_outpostmanager,id_medic,id_captain,id_security,id_engineer,id_mechanic,wreck_id,idmedic,idcaptain,idsecurity,idengineer,idmechanic,level1" scale="0.15" cargocontaineridentifier="metalcrate">
+    <InventoryIcon texture="icon.png" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Sprite texture="icon.png" depth="0.8" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Body width="16" height="12" density="20" />
+    <IdCard slots="Card" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="Character" disabledeltatime="true">
+        <Affliction identifier="pressurestabilized" amount="100" />
+        <Affliction identifier="last_B" amount="1500" />
+        <Affliction identifier="stabilozineeffectTL_Pro" amount="100" />
+        <Affliction identifier="stun" amount="-1000" />
+        <ReduceAffliction type="poison" amount="1000" />
+        <ReduceAffliction type="paralysis" amount="1000" />
+        <LuaHook name="idcardplus1B.onUse" />
+      </StatusEffect>
+    </IdCard>
+  </Item>
+  <Item name="智脑日志" identifier="zhiheldterminal" category="Electrical" Tags="smallitem,logic" description="" cargocontaineridentifier="metalcrate" scale="0.25" impactsoundtag="impact_metal_light" isshootable="true">
+    <Upgrade gameversion="0.9.9000.0" scale="0.25" />
+    <Price baseprice="100" sold="false" />
+    <PreferredContainer primary="reactorcab" secondary="engcab" />
+    <InventoryIcon texture="rizhi.png" sourcerect="0,0,512,512" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="149,371,69,93" depth="0.8" origin="0.5,0.5" />
+    <Body width="60" height="90" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.35,0.35" anchor="Center" style="ItemUI" />
+    </Terminal>
+  </Item>
+  <Item name="豹二A6召唤器" identifier="leopard6" description="召唤一只可以保护你的豹豹A6，也可以防在加工台改造为废话版" category="logic" Tags="smallitem" scale="0.25" cargocontaineridentifier="metalcrate">
+    <Fabricate suitablefabricators="fabricator" requiredtime="1">
+      <RequiredItem identifier="leopard6_B" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="icon.png" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Sprite texture="icon.png" depth="0.8" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Body width="16" height="12" density="20" />
+    <PreferredContainer primary="crewcab" spawnprobability="0.05" notcampaign="true" />
+    <PreferredContainer secondary="wreckcrewcab,abandonedcrewcab,piratecrewcab" spawnprobability="0.05" />
+    <Price baseprice="500" minavailable="4" maxavailable="16" mincondition="0.9" maxcondition="1.0" usecondition="false" sold="false">
+      <Price storeidentifier="TLarmory" multiplier="1.5" minavailable="0" maxavailable="3" sold="true" />
+    </Price>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <StatusEffect type="Always" target="This" drawhudwhenequipped="true" condition="9">
+          <Conditional condition="gt 50" />
+        </StatusEffect>
+        <Button text="召唤">
+          <StatusEffect type="OnUse" target="This">
+            <SpawnCharacter speciesname="Leopard2a6" totalmaxcount="1" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="豹二A6召唤器（话痨版）" identifier="leopard6_B" description="召唤一只可以保护你的豹豹A6，就是废话有点多，也可以防在加工台改造为普通版" category="logic" Tags="smallitem" scale="0.25" cargocontaineridentifier="metalcrate">
+    <Fabricate suitablefabricators="fabricator" requiredtime="1">
+      <RequiredItem identifier="leopard6" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="icon.png" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Sprite texture="icon.png" depth="0.8" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Body width="16" height="12" density="20" />
+    <PreferredContainer primary="crewcab" spawnprobability="0.05" notcampaign="true" />
+    <PreferredContainer secondary="wreckcrewcab,abandonedcrewcab,piratecrewcab" spawnprobability="0.05" />
+    <Price baseprice="500" minavailable="4" maxavailable="16" mincondition="0.9" maxcondition="1.0" usecondition="false" sold="false">
+      <Price storeidentifier="TLarmory" multiplier="1.5" minavailable="0" maxavailable="3" sold="true" />
+    </Price>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Select" allowswappingwhenpicked="false">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <StatusEffect type="Always" target="This" drawhudwhenequipped="true" condition="9">
+          <Conditional condition="gt 50" />
+        </StatusEffect>
+        <Button text="召唤">
+          <StatusEffect type="OnUse" target="This">
+            <SpawnCharacter speciesname="Leopard2a6废话版" totalmaxcount="1" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="奇怪的小喇叭(失重状态）" identifier="shenyingge" category="Misc" tags="smallitem,hornitem,clowns" scale="0.5" cargocontaineridentifier="metalcrate" description="有明显失重感">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="769,385,64,64" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Misc/Misc.png" sourcerect="101,45,53,22" depth="0.55" />
+    <Body width="50" height="20" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" aimpos="100,0" handle1="-15,-3" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="16">
+      <Sound file="%ModDir%/Content/Sounds/Other/神鹰1.ogg" type="OnUse" range="1200" volume="1.5" />
+    </RangedWeapon>
+    <PreferredContainer primary="crewcab" spawnprobability="0.05" notcampaign="true" />
+    <PreferredContainer secondary="wreckcrewcab,abandonedcrewcab,piratecrewcab" spawnprobability="0.05" />
+    <Price baseprice="5" canbespecial="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" minavailable="1" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchantclown" minavailable="3" maxavailable="5">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+    </Price>
+  </Item>
+  <Item name="奇怪的小喇叭2(失重状态）" identifier="shenyingge2" category="Misc" tags="smallitem,hornitem,clowns" scale="0.5" cargocontaineridentifier="metalcrate" description="有明显失重感">
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="769,385,64,64" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Misc/Misc.png" sourcerect="101,45,53,22" depth="0.55" />
+    <Body width="50" height="20" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" aimpos="100,0" handle1="-15,-3" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="16">
+      <Sound file="%ModDir%/Content/Sounds/Other/神鹰2.ogg" type="OnUse" range="1200" volume="1.5" />
+    </RangedWeapon>
+    <PreferredContainer primary="crewcab" spawnprobability="0.05" notcampaign="true" />
+    <PreferredContainer secondary="wreckcrewcab,abandonedcrewcab,piratecrewcab" spawnprobability="0.05" />
+    <Price baseprice="5" canbespecial="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" minavailable="1" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchantclown" minavailable="3" maxavailable="5">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+    </Price>
+  </Item>
+  <Item name="哇哇叫小喇叭" identifier="shenyingge3" category="Misc" tags="smallitem,hornitem,clowns" scale="0.5" cargocontaineridentifier="metalcrate" description="这喇叭话怎么这么多">
+    <InventoryIcon texture="long.png" sourcerect="0,0,771,632" depth="0.55" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Misc/Misc.png" sourcerect="101,45,53,22" depth="0.55" />
+    <Body width="50" height="20" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" aimpos="100,0" handle1="-15,-3" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="5">
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/!.ogg" type="OnUse" range="2000" selectionmode="Random" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/bababoyi.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/gangguan.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/guanji.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/hahahaha.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/haitun.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/heheheha.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/hulu.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/jingbao.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/jingxia.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/kaiji.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/kuaizai.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/kulou.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/laxi.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/malaibilai.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/mao.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/ou!.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/ouA!.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/oumaga.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/ouou.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/pian.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/pingguo.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/qiangshui.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/sanxing.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/shengli.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/sulianjieti.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/tantiao.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/waou.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/weng.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/wobagangnan.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/yee.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/zhamai.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/zhamai2.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/zhamai3.ogg" type="OnUse" range="1200" volume="1.5" />
+      <Sound file="%ModDir%/Content/Sounds/Other/搞怪音效/zhiwu.ogg" type="OnUse" range="1200" volume="1.5" />
+    </RangedWeapon>
+    <PreferredContainer primary="crewcab" spawnprobability="0.05" notcampaign="true" />
+    <PreferredContainer secondary="wreckcrewcab,abandonedcrewcab,piratecrewcab" spawnprobability="0.05" />
+    <Price baseprice="5" canbespecial="false">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" minavailable="1" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchantclown" minavailable="3" maxavailable="5">
+        <Reputation faction="clowns" min="30" />
+      </Price>
+    </Price>
+  </Item>
+  <Item name="燃料补充系统" identifier="weldingfueltankhelf2" category="Diving" description="右键+E放置,记得接电哦♡" tags="container,oxygentankcontainer,oxygentankrefiller" pickdistance="50" scale="0.5">
+    <Sprite name="Diving Suit Locker Small" texture="Content/Items/Containers/containers.png" sourcerect="714,259,99,82" depth="0.84" origin="0.5,0.5" />
+    <Body width="60" height="45" density="25" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="10" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+      <requireditem items="wrench" type="Equipped" />
+    </Holdable>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="60" requiresrecipe="false">
+      <RequiredSkill identifier="mechanical" level="70" />
+      <RequiredItem identifier="steel" amount="4" />
+      <RequiredItem identifier="Steel_TL" amount="1" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <Price baseprice="1" sold="false"></Price>
+    <Powered powerconsumption="30" currpowerconsumption="30" isactive="true">
+      <GuiFrame relativesize="0.18,0.15" minsize="350,160" maxsize="420,192" anchor="Center" relativeoffset="0,-0.1" style="ItemUI" msg="ItemMsgInteractSelect" />
+    </Powered>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
+        <Affliction identifier="burn" strength="5" />
+      </StatusEffect>
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <ParticleEmitter particle="spark" particleamount="5" emitinterval="1.05" anglemax="360" distancemax="20" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
+      <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
+      <input name="power_in" displayname="connection.powerin" />
+    </ConnectionPanel>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="3" maxstacksize="1" slotsperrow="3" itempos="27,-42" iteminterval="22.5,0" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.16,0.18" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
+      <Containable items="weldingfuel" excludebroken="false" excludefullcondition="true">
+        <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And" />
+      </Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="集成式充能站" identifier="allhelf" description="" category="Diving" tags="container,oxygentankcontainer,oxygentankrefiller" pickdistance="50" scale="0.6">
+    <Sprite name="Oxygen Tank Shelf" texture="DivingSuitLocker.png" depth="0.84" sourcerect="0,0,92,338" origin="0.5,0.5" />
+    <Powered powerconsumption="50" currpowerconsumption="50" isactive="true">
+      <GuiFrame relativesize="0.18,0.15" minsize="350,160" maxsize="420,192" anchor="Center" relativeoffset="0,-0.1" style="ItemUI" msg="ItemMsgInteractSelect" />
+    </Powered>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
+        <Affliction identifier="burn" strength="5" />
+      </StatusEffect>
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <ParticleEmitter particle="spark" particleamount="5" emitinterval="1.05" anglemax="360" distancemax="20" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
+      <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
+      <input name="power_in" displayname="connection.powerin" />
+    </ConnectionPanel>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="0" maxstacksize="0" slotsperrow="5" itempos="24,-41" iteminterval="42,-65" itemsperrow="2" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="6" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="7" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="8" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="9" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="5" maxstacksize="1">
+        <Containable items="mobilebattery,Blame_mobilebattery,alienpowercell,Powerbattery" excludebroken="false" excludefullcondition="true">
+          <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And" />
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="5" maxstacksize="1">
+        <Containable items="weldingfuel,oxygensource" excludebroken="false" excludefullcondition="true">
+          <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And" />
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="垃圾处理器" identifier="Garbagedisposal" description="删除容器中的物品" tags="smallitem" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy" damagedbymonsters="true" damagedbyexplosions="true" damagedbyrepairtools="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" indestructible="true" health="10" cargocontaineridentifier="">
+    <PreferredContainer primary="depthchargeloader" secondary="ammoboxcontainer" />
+    <Price baseprice="120" minavailable="1">
+      <Price storeidentifier="merchantoutpost" multiplier="1.4" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="25" />
+      <RequiredItem identifier="plastic" amount="2" />
+    </Fabricate>
+    <Sprite name="垃圾处理器" texture="icon.png" sourcerect="406,16,80,103" depth="0.55" origin="0.5,0.5" />
+    <Body width="80" height="100" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,20" handle2="10,20" aimable="false" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="销毁">
+          <StatusEffect type="OnUse" target="Contained">
+            <Sound file="Content/Sounds/DropItem.ogg" type="OnUse" range="250" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+    <ItemContainer hideitems="true" capacity="20" maxstacksize="10" canbeselected="false">
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="6" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="7" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="8" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="9" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="10" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="11" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="12" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="13" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="14" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="15" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="16" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="17" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="18" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <SlotIcon slotindex="19" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="0,0,64,77" origin="0.5,0.5" />
+      <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <Containable items="smallitem,mediumitem,ammobox,coilgunammo,depthchargeammo,deepdiving,turretammosource,railgunammo,crate" excludeitems="Trashbombs,Garbagedisposal" />
+    </ItemContainer>
+  </Item>
+  <Item name="手持万用宝" description="" identifier="handheldstatusmonitorPro" category="Equipment" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" allowasextracargo="true" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="divingcab" />
+    <Price baseprice="800">
+      <Price storeidentifier="merchantoutpost" multiplier="1.4" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+      <Price storeidentifier="TLarmory" minavailable="0" maxavailable="3" sold="true" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="copper" />
+      <Item identifier="plastic" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="20">
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="130,183,61,52" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="64,3,36,28" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="22" density="15" />
+    <AiTarget soundrange="50000" sonarlabel="entityname.sonarbeacon" sight="500" staticsight="true" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+        <GuiFrame relativesize="0.1,0.10" anchor="BottomLeft" relativeoffset="0.0043,0.252" style="ItemUI" />
+        <TickBox text="TL.Statesystem">
+          <StatusEffect type="OnUse" TargetItemComponent="MiniMap" target="This" IsOn="false" drawhudwhenequipped="true" setvalue="true" />
+          <StatusEffect type="OnSecondaryUse" TargetItemComponent="MiniMap" target="This" IsOn="true" currentmode="Passive" drawhudwhenequipped="false" setvalue="true" />
+        </TickBox>
+        <TickBox text="TL.drivesystem">
+          <StatusEffect type="OnUse" TargetItemComponent="RemoteController" target="This" IsOn="false" drawhudwhenequipped="true" setvalue="true" />
+          <StatusEffect type="OnSecondaryUse" TargetItemComponent="RemoteController" target="This" IsOn="true" currentmode="Passive" drawhudwhenequipped="false" setvalue="true" />
+        </TickBox>
+      </CustomInterface>
+    </Holdable>
+    <MiniMap enableitemfinder="true" enablehullcondition="true" enableelectricalview="true" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true">
+      <GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
+    </MiniMap>
+    <RemoteController target="navterminal" onlyinownsub="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" drawhudwhenequipped="true" powerconsumption="10000"></RemoteController>
+  </Item>
+  <Item name="灭火/浇灌器" identifier="FireSprinklers" category="Equipment" Tags="smallitem,tool,signal" cargocontaineridentifier="metalcrate" requireaimtouse="true" characterusable="false" Scale="0.5" impactsoundtag="impact_metal_light" maxstacksize="2">
+    <Sprite texture="icon.png" sourcerect="464,579,86,129" depth="0.55" canflipx="false" origin="0.38,0.5" />
+    <Price baseprice="50">
+      <Price storeidentifier="merchantoutpost" multiplier="1" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="2" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="0.75" sold="false" />
+    </Price>
+    <Body width="121" height="96" density="40" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="1">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="fpgacircuit" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="steel" />
+      <Item identifier="plastic" outcondition="0.5" />
+      <Item identifier="fpgacircuit" outcondition="0.5" />
+    </Deconstruct>
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="false">
+      <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    <RepairTool wateramount="30" extinguishamount="50.0" range="420" powerconsumption="15" barrelpos="0,-10" barrelrotation="270" spread="40" unskilledspread="40" targetstructures="false" hititems="false" characterusable="false" requireaimtouse="false" usablein="air">
+      <ParticleEmitter particle="extinguisher" velocitymin="0.0" velocitymax="700.0" particlespersecond="50" anglemin="-45" anglemax="45" />
+      <sound file="Content/Items/Tools/Extinguisher.ogg" type="OnUse" range="500.0" loop="true" />
+      <StatusEffect type="OnNotContained" target="This" setvalue="true" requireaimtouse="false" />
+      <StatusEffect type="OnContained" target="This" setvalue="true" requireaimtouse="true" />
+    </RepairTool>
+    <LightComponent lightcolor="255,255,255,0" range="10.0" powerconsumption="25" IsOn="true" castshadows="false" allowingameediting="false">
+      <StatusEffect type="OnActive" target="This">
+        <UseItem />
+      </StatusEffect>
+    </LightComponent>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power" displayname="connection.power" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="集团小推车" description="" identifier="TLhandtruck" pickdistance="75" scale="0.6">
+    <Price baseprice="300" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" multiplier="1" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="3" />
+      <Price storeidentifier="merchantmine" multiplier="1.3" minavailable="1" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="aluminium" />
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="aluminium" amount="2" />
+      <RequiredItem identifier="rubber" amount="3" />
+    </Fabricate>
+    <Sprite texture="icon.png" depth="0.5" sourcerect="785,832,215,169" origin="0.5,0.5" />
+    <Body width="96" height="178" density="25" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="40,-88" holdangle="25" handle1="-40,82" handle2="-40,82" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="1.3" setvalue="true" />
+    </Holdable>
+    <ItemContainer autofill="False" hideitems="false" drawinventory="true" capacity="15" slotsperrow="3" maxstacksize="16" itempos="-6,-2" iteminterval="21,1" itemsperrow="3" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
+      <Containable identifiers="smallitem,mediumitem,despawncontainer,380MMammo,ammobox,coilgunammo,depthchargeammo,deepdiving,turretammosource,railgunammo,crate,460MMammo,duffelbag"></Containable>
+    </ItemContainer>
+  </Item>
+  <Item name="集团医疗操作手册" identifier="TLskillbookeuropanmedicine" description="" category="Misc" Tags="smallitem,skillbook" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft" cargocontaineridentifier="metalcrate">
+    <PreferredContainer primary="crewcab" />
+    <Price baseprice="600" buyingpricemodifier="2.5" minleveldifficulty="40">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" maxavailable="1" />
+      <Price storeidentifier="merchantresearch" maxavailable="1" />
+      <Price storeidentifier="merchantmilitary" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="TLarmory" maxavailable="2" />
+    </Price>
+    <Deconstruct time="20">
+      <Item identifier="carbon" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="1,368,40,56" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="2,75,32,38" depth="0.6" origin="0.5,0.5" />
+    <Body width="28" height="36" density="20" />
+    <Holdable slots="Any,RightHand+LeftHand" aimable="false" aimpos="40,-20" handle1="5,0" aimangle="260" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-10" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 0" />
+        <GiveSkill skillidentifier="medical" amount="20" triggertalents="false" />
+        <RemoveItem />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="高级照明灯" identifier="TLlight1" category="Electrical" Tags="smallitem,light" subcategory="泰拉新科技" scale="0.25">
+    <Sprite texture="light.png" sourcerect="7,778,192,48" depth="0.8" origin="0.5,0.5" />
+    <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="800.0" IsOn="true" powerconsumption="5">
+      <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Content/Items/Sundrys/light.png" sourcerect="507,778,192,48" alpha="1.0" origin="0.5,0.5" />
+    </LightComponent>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power" displayname="connection.power" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+      <input name="set_color" displayname="connection.setcolor" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="高级照明灯" identifier="TLlight2" category="Electrical" Tags="smallitem,light" subcategory="泰拉新科技" scale="0.25">
+    <Sprite texture="light.png" sourcerect="198,778,96,48" depth="0.8" origin="0.5,0.5" />
+    <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="800.0" IsOn="true" powerconsumption="5">
+      <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Content/Items/Sundrys/light.png" sourcerect="698,778,96,48" alpha="1.0" origin="0.5,0.5" />
+    </LightComponent>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power" displayname="connection.power" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+      <input name="set_color" displayname="connection.setcolor" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="高级照明灯" identifier="TLlight3" category="Electrical" Tags="smallitem,light" subcategory="泰拉新科技" scale="0.25">
+    <Sprite texture="light.png" sourcerect="6,824,288,48" depth="0.8" origin="0.5,0.5" />
+    <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="800.0" IsOn="true" powerconsumption="5">
+      <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Content/Items/Sundrys/light.png" sourcerect="508,824,288,48" alpha="1.0" origin="0.5,0.4" />
+    </LightComponent>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power" displayname="connection.power" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+      <input name="set_color" displayname="connection.setcolor" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="高级照明灯长" identifier="TLlight4" category="Electrical" Tags="smallitem,light" subcategory="泰拉新科技" scale="0.25">
+    <Sprite texture="light.png" sourcerect="11,973,541,51" depth="0.8" origin="0.5,0.5" />
+    <LightComponent lightcolor="1.0,1.0,1.0,0.5" range="800.0" IsOn="true" powerconsumption="5">
+      <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Content/Items/Sundrys/light.png" sourcerect="552,972,474,52" alpha="1.0" origin="0.5,0.4" />
+    </LightComponent>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power" displayname="connection.power" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+      <input name="set_color" displayname="connection.setcolor" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="物品展示柜" identifier="TLartifactholder" category="Alien" Tags="alien,artifactholder,artifactcontainer">
+    <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" depth="0.8" sourcerect="725,786,260,425" />
+    <ItemContainer capacity="1" maxstacksize="1" canbeselected="true" hideitems="false" itempos="130,-180" containedspritedepth="0.81" autointeractwithcontained="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.11,0.17" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <Containable items="smallitem,mediumitem,ammobox,coilgunammo,depthchargeammo,deepdiving,turretammosource,railgunammo,crate" excludebroken="false"></Containable>
+    </ItemContainer>
+    <LightComponent AllowInGameEditing="false" lightcolor="153,204,255,200" powerconsumption="1" canbeselected="false" range="800.0" IsOn="true" castshadows="false">
+      <sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="1047,1792,255,255" depth="0.025" origin="0.5,0.5" alpha="0.4" />
+    </LightComponent>
+    <PowerContainer capacity="20000.0" canbeselected="false" maxrechargespeed="10000.0" maxoutput="10000.0" />
+    <ConnectionPanel canbeselected="false" hudpriority="10">
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="power_out" displayname="connection.powerout" />
+    </ConnectionPanel>
+    <DecorativeSprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="746,1246,21,153" depth="0.7" offset="-50,0" origin="0.5,0.7" offsetanim="Sine" offsetanimspeed="1.8" />
+    <DecorativeSprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="776,1246,20,153" depth="0.9" offset="50,0" origin="0.5,0.7" offsetanim="Sine" offsetanimspeed="0.6" />
+    <DecorativeSprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="805,1251,7,153" depth="0.7" offset="-50,0" origin="0.5,0.7" offsetanim="Sine" offsetanimspeed="1.3" />
+    <DecorativeSprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="818,1246,19,153" depth="0.9" offset="50,0" origin="0.5,0.7" offsetanim="Sine" offsetanimspeed="0.82" />
+    <DecorativeSprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="837,1246,19,153" depth="0.7" offset="-50,0" origin="0.5,0.7" offsetanim="Sine" offsetanimspeed="2.12" />
+  </Item>
+  <Item name="动力电池" identifier="Powerbattery" Category="Fuel" Tags="smallitem,TLbattery,reactorfuel,loadable" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5">
+    <PreferredContainer primary="wreckstoragecab,abandonedstoragecab,piratestoragecab" amount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="seedbag" amount="1" spawnprobability="0.05" />
+    <Price baseprice="2499" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchantengineering" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchanttutorial" multiplier="0.8" minavailable="1" />
+    </Price>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="90" displayname="Recast_Quality">
+      <RequiredSkill identifier="mechanical" level="100" />
+      <RequiredItem identifier="Powerbattery" amount="3" />
+      <RequiredItem identifier="fulguriumfuelrod" amount="2" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.25" usecondition="true" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="steel" amount="8" />
+      <Item identifier="uranium" amount="4" />
+      <Item identifier="fulgurium" amount="4" />
+    </Deconstruct>
+    <Sprite texture="icon.png" sourcerect="291,20,48,80" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="80" density="30" />
+    <Holdable handle1="0,0" slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" itemrotation="90" drawinventory="false" canbeselected="false" SpawnWithId="nucleargunbolt" removecontaineditemsondeconstruct="true" showcontainedstateindicator="false">
+      <Containable items="nucleargunbolt" />
+      <StatusEffect type="OnUse" target="This" condition="-25.0" disabledeltatime="true">
+        <SpawnItem identifiers="nucleargunbolt" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.5" />
+    </Quality>
+  </Item>
+  <Item name="任务标记器" identifier="missionlocater_TL" category="Equipment" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" spritecolor="219,100,80,255" inventoryiconcolor="219,100,80,255">
+    <Deconstruct time="15">
+      <Item identifier="fpgacircuit" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,320,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="473,1,29,65" depth="0.55" origin="0.5,0.5" />
+    <Body width="27" height="60" density="12" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="0,-15" msg="ItemMsgPickUpSelect" />
+    <AiTarget soundrange="100000" sonarlabel="任务" sight="500" staticsight="true" />
+    <LightComponent LightColor="1.0,0.0,0.0,1.0" range="50" powerconsumption="0" blinkfrequency="2" IsOn="true" canbeselected="false">
+      <StatusEffect type="OnActive" targettype="This" SoundRange="100000" setvalue="true" />
+    </LightComponent>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.10,0.08" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,0.17" style="ItemUI" />
+      <TickBox text="label.turnoff">
+        <StatusEffect type="OnUse" targettype="This" IsOn="false" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="true" />
+      </TickBox>
+    </CustomInterface>
+  </Item>
+  <Item name="泰拉防暴盾牌" identifier="riotshield_TL" description="" category="Equipment" tags="smallitem" health="3000" impactsoundtag="impact_metal_light" cargocontaineridentifier="metalcrate" damagedbyprojectiles="true" damagedbymeleeweapons="true" scale="1" allowasextracargo="true" inventoryiconcolor="110,120,110,255" spritecolor="110,120,110">
+    <PreferredContainer primary="armcab" secondary="secarmcab" />
+    <Price baseprice="500" sold="false"></Price>
+    <Deconstruct time="10">
+      <Item identifier="steel_TL" amount="1" />
+      <Item identifier="steel" amount="1" />
+      <Item identifier="plastic" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="Moneymaker" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="steel_TL" amount="1" />
+      <RequiredItem identifier="steel" amount="3" />
+      <RequiredItem identifier="plastic" amount="3" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,320,64,64" />
+    <Sprite texture="Content/Items/Jobgear/Security/riotgear.png" sourcerect="31,54,27,147" origin="0.5,0.5" depth="0.55" />
+    <Body width="40" height="145" density="20" />
+    <Holdable slots="RightHand,LeftHand,Any" aimpos="60,-30" holdpos="45,-30" handle1="-15,-10" handle2="-15,10" controlpose="true" blocksplayers="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="weldspark" drawontop="true" particleamount="50" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="30" scalemin="0.1" scalemax="0.35" />
+        <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="weldspark" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
+        <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" />
+        <!-- an invisible explosion to make the user "flinch" -->
+        <Explosion range="100.0" force="1" showeffects="false" camerashake="1.0" />
+      </StatusEffect>
+    </Holdable>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1" />
+    </Quality>
+  </Item>
+  <!--补给-->
+  <Item name="存储箱（矿物）" description="" identifier="Lootcrate_TL_Ore" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="5">
+      <Item identifier="titanite" commonness="0.5" amount="4" />
+      <Item identifier="brockite" commonness="0.5" amount="4" />
+      <Item identifier="thorianite" commonness="0.5" amount="4" />
+      <Item identifier="amblygonite" commonness="0.5" amount="4" />
+      <Item identifier="sphalerite" commonness="0.5" amount="4" />
+      <Item identifier="pyromorphite" commonness="0.5" amount="4" />
+      <Item identifier="quartz" commonness="0.5" amount="4" />
+      <Item identifier="diamond" commonness="0.5" amount="4" />
+      <Item identifier="hydroxyapatite" commonness="0.5" amount="4" />
+      <Item identifier="uraniumore" commonness="0.5" amount="4" />
+      <Item identifier="ilmenite" commonness="0.5" amount="4" />
+      <Item identifier="stannite" commonness="0.5" amount="4" />
+      <Item identifier="chalcopyrite" commonness="0.5" amount="4" />
+      <Item identifier="esperite" commonness="0.5" amount="4" />
+      <Item identifier="galena" commonness="0.5" amount="4" />
+      <Item identifier="triphylite" commonness="0.5" amount="4" />
+      <Item identifier="langbeinite" commonness="0.5" amount="4" />
+      <Item identifier="chamosite" commonness="0.5" amount="4" />
+      <Item identifier="ironore" commonness="0.5" amount="4" />
+      <Item identifier="polyhalite" commonness="0.5" amount="4" />
+      <Item identifier="graphite" commonness="0.5" amount="4" />
+      <Item identifier="sylvite" commonness="0.5" amount="4" />
+      <Item identifier="lazulite" commonness="0.5" amount="4" />
+      <Item identifier="bornite" commonness="0.5" amount="4" />
+      <Item identifier="cassiterite" commonness="0.5" amount="4" />
+      <Item identifier="cryolite" commonness="0.5" amount="4" />
+      <Item identifier="aragonite" commonness="0.5" amount="4" />
+      <Item identifier="chrysoprase" commonness="0.5" amount="4" />
+      <Item identifier="titanite" commonness="0.5" amount="4" />
+      <Item identifier="brockite" commonness="0.5" amount="4" />
+      <Item identifier="thorianite" commonness="0.5" amount="4" />
+      <Item identifier="amblygonite" commonness="0.5" amount="4" />
+      <Item identifier="sphalerite" commonness="0.5" amount="4" />
+      <Item identifier="pyromorphite" commonness="0.5" amount="4" />
+      <Item identifier="quartz" commonness="0.5" amount="4" />
+      <Item identifier="diamond" commonness="0.5" amount="4" />
+      <Item identifier="hydroxyapatite" commonness="0.5" amount="4" />
+      <Item identifier="uraniumore" commonness="0.5" amount="4" />
+      <Item identifier="ilmenite" commonness="0.5" amount="4" />
+      <Item identifier="stannite" commonness="0.5" amount="4" />
+      <Item identifier="chalcopyrite" commonness="0.5" amount="4" />
+      <Item identifier="esperite" commonness="0.5" amount="4" />
+      <Item identifier="galena" commonness="0.5" amount="4" />
+      <Item identifier="triphylite" commonness="0.5" amount="4" />
+      <Item identifier="langbeinite" commonness="0.5" amount="4" />
+      <Item identifier="chamosite" commonness="0.5" amount="4" />
+      <Item identifier="ironore" commonness="0.5" amount="4" />
+      <Item identifier="polyhalite" commonness="0.5" amount="4" />
+      <Item identifier="graphite" commonness="0.5" amount="4" />
+      <Item identifier="sylvite" commonness="0.5" amount="4" />
+      <Item identifier="lazulite" commonness="0.5" amount="4" />
+      <Item identifier="bornite" commonness="0.5" amount="4" />
+      <Item identifier="cassiterite" commonness="0.5" amount="4" />
+      <Item identifier="cryolite" commonness="0.5" amount="4" />
+      <Item identifier="aragonite" commonness="0.5" amount="4" />
+      <Item identifier="chrysoprase" commonness="0.5" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="956,22,197,175" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（协调者通用弹鼓）" description="" identifier="Lootcrate_TL_XTZmagezine" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" amount="1">
+      <Item identifier="coordinator_magazine" amount="5" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="490,14,194,180" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（霰弹）" description="" identifier="Lootcrate_TL_shotgunammo" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="2">
+      <Item identifier="TL_shotgunammo_ordinary" commonness="9" amount="8" />
+      <Item identifier="TL_shotgunammo_ordinary" commonness="9" amount="8" />
+      <Item identifier="TL_shotgunammo_ordinary" commonness="8" amount="8" />
+      <Item identifier="TL_shotgunammo_ordinary" commonness="7" amount="8" />
+      <Item identifier="TL_shotgunammo_ordinary" commonness="5" amount="6" />
+      <Item identifier="TL_shotgunammo_ordinary" commonness="5" amount="6" />
+      <Item identifier="TL_shotgunammo_burst" commonness="5" amount="6" />
+      <Item identifier="TL_shotgunammo_burst" commonness="5" amount="6" />
+      <Item identifier="TL_shotgunammo_fire" commonness="1" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="723,17,195,176" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（医疗物资）" description="" identifier="Lootcrate_TL_medic" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="4">
+      <Item identifier="medicalkit_TL_Slow" commonness="4" amount="6" />
+      <Item identifier="medicalkit_TL_Slow" commonness="6" amount="4" />
+      <Item identifier="antidama1" commonness="7" amount="4" />
+      <Item identifier="antidama1" commonness="9" amount="3" />
+      <Item identifier="antibloodloss2" commonness="6" amount="4" />
+      <Item identifier="antibloodloss2" commonness="7" amount="4" />
+      <Item identifier="stabilozine" commonness="6" amount="4" />
+      <Item identifier="stabilozine" commonness="5" amount="4" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="728,220,187,165" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（弹药材料）" description="" identifier="Lootcrate_TL_ammomaterial" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="4">
+      <Item identifier="flashpowder" commonness="4" amount="4" />
+      <Item identifier="magnesium" commonness="8" amount="6" />
+      <Item identifier="magnesium" commonness="8" amount="6" />
+      <Item identifier="nitroglycerin" commonness="6" amount="4" />
+      <Item identifier="nitroglycerin" commonness="5" amount="6" />
+      <Item identifier="phosphorus" commonness="8" amount="6" />
+      <Item identifier="potassium" commonness="4" amount="6" />
+      <Item identifier="sodium" commonness="4" amount="6" />
+      <Item identifier="uex" commonness="2" amount="2" />
+      <Item identifier="zinc" commonness="6" amount="6" />
+      <Item identifier="copper" commonness="8" amount="6" />
+      <Item identifier="iron" commonness="8" amount="8" />
+      <Item identifier="steel" commonness="4" amount="4" />
+      <Item identifier="titanium" commonness="4" amount="4" />
+      <Item identifier="titaniumaluminiumalloy" commonness="2" amount="2" />
+      <Item identifier="lead" commonness="10" amount="8" />
+      <Item identifier="flashpowder" commonness="4" amount="4" />
+      <Item identifier="magnesium" commonness="8" amount="6" />
+      <Item identifier="phosphorus" commonness="8" amount="6" />
+      <Item identifier="copper" commonness="8" amount="6" />
+      <Item identifier="steel" commonness="4" amount="4" />
+      <Item identifier="titanium" commonness="4" amount="4" />
+      <Item identifier="lead" commonness="10" amount="8" />
+      <Item identifier="lead" commonness="10" amount="8" />
+      <Item identifier="physicorium" commonness="1" amount="2" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="736,407,192,171" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（幻星弹药）" description="" identifier="Lootcrate_TL_HXmagazine" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="2">
+      <Item identifier="coordinator_magazine" commonness="9" amount="6" />
+      <Item identifier="coordinator_magazine" commonness="7" amount="6" />
+      <Item identifier="HX_Snakes_magazine" commonness="5" amount="3" />
+      <Item identifier="HX_Snakes_magazine" commonness="7" amount="3" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="481,213,202,164" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（植物）" description="" identifier="Lootcrate_TL_plants" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="6">
+      <Item identifier="fiberplant" commonness="5" amount="2" />
+      <Item identifier="elastinplant" commonness="5" amount="2" />
+      <Item identifier="aquaticpoppy" commonness="5" amount="2" />
+      <Item identifier="yeastshroom" commonness="5" amount="2" />
+      <Item identifier="slimebacteria" commonness="5" amount="2" />
+      <Item identifier="fiberplant" commonness="5" amount="2" />
+      <Item identifier="elastinplant" commonness="5" amount="2" />
+      <Item identifier="aquaticpoppy" commonness="5" amount="2" />
+      <Item identifier="yeastshroom" commonness="5" amount="2" />
+      <Item identifier="slimebacteria" commonness="5" amount="2" />
+      <Item identifier="saltbulb" commonness="5" amount="2" />
+      <Item identifier="creepingorange" commonness="5" amount="2" />
+      <Item identifier="tobaccobud" commonness="5" amount="2" />
+      <Item identifier="raptorbane" commonness="5" amount="2" />
+      <Item identifier="banana" commonness="5" amount="2" />
+      <Item identifier="Compositefruit" commonness="5" amount="2" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="970,229,188,162" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="存储箱（异星矿物）" description="" identifier="Lootcrate_TL_Alienmine" category="Equipment" tags="smallitem,crate,circuitboxcomponent,storecrate_TL" scale="0.22" maxstacksizecharacterinventory="4" maxstacksize="16" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Deconstruct time="5" chooserandom="true" amount="4">
+      <Item identifier="incendium" commonness="5" amount="2" />
+      <Item identifier="fulgurium" commonness="5" amount="2" />
+      <Item identifier="physicorium" commonness="5" amount="2" />
+      <Item identifier="dementonite" commonness="5" amount="2" />
+      <Item identifier="oxygeniteshard" commonness="5" amount="2" />
+      <Item identifier="sulphuriteshard" commonness="5" amount="2" />
+      <Item identifier="paralyxis" commonness="5" amount="2" />
+      <Item identifier="incendium" commonness="5" amount="2" />
+      <Item identifier="fulgurium" commonness="5" amount="2" />
+      <Item identifier="physicorium" commonness="5" amount="2" />
+      <Item identifier="dementonite" commonness="5" amount="2" />
+      <Item identifier="oxygeniteshard" commonness="5" amount="2" />
+      <Item identifier="sulphuriteshard" commonness="5" amount="2" />
+      <Item identifier="paralyxis" commonness="5" amount="2" />
+    </Deconstruct>
+    <InventoryIcon texture="Crate.png" sourcerect="975,412,187,162" />
+    <Sprite texture="Crate.png" depth="0.54" sourcerect="14,19,379,265" origin="0.5,0.5" />
+    <Body width="180" height="120" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="大型潜水服柜" identifier="TL_divingsuitlocker2" category="Diving" tags="container,divingsuitcontainer,divingsuitcontainerhorizontal" subcategory="ekr_dockyard_r" pickdistance="50" scale="0.6">
+    <Sprite name="Large Diving Suit Locker" texture="Content/Items/Containers/DivingSuitLocker.png" depth="0.84" sourcerect="82,0,248,338" origin="0.5,0.5" />
+    <DecorativeSprite name="Diving Suit Locker Frame" texture="Content/Items/Containers/DivingSuitLocker.png" depth="0.82" sourcerect="0,340,232,69" origin="0.5,0.5" offset="0,130" />
+    <DecorativeSprite name="Diving Suit Locker Frame" texture="Content/Items/Containers/DivingSuitLocker.png" depth="0.82" sourcerect="0,340,232,69" origin="0.5,0.5" offset="0,65" />
+    <DecorativeSprite name="Diving Suit Locker Frame" texture="Content/Items/Containers/DivingSuitLocker.png" depth="0.82" sourcerect="0,340,232,69" origin="0.5,0.5" />
+    <DecorativeSprite name="Diving Suit Locker Frame" texture="Content/Items/Containers/DivingSuitLocker.png" depth="0.82" sourcerect="0,340,232,69" origin="0.5,0.5" offset="0,-65" />
+    <DecorativeSprite name="Diving Suit Locker Frame" texture="Content/Items/Containers/DivingSuitLocker.png" depth="0.82" sourcerect="0,340,232,69" origin="0.5,0.5" offset="0,-130" />
+    <Powered powerconsumption="50" currpowerconsumption="50" isactive="true">
+      <GuiFrame relativesize="0.18,0.15" minsize="350,160" maxsize="420,192" anchor="Center" relativeoffset="0,-0.1" style="ItemUI" msg="ItemMsgInteractSelect" />
+    </Powered>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" probability="0.5" />
+        <Affliction identifier="electricshock" strength="60" />
+        <Affliction identifier="burn" strength="5" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="10" DistanceMax="25" ParticleAmount="5" ScaleMin="0.1" ScaleMax="0.12" />
+      </StatusEffect>
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+    </ConnectionPanel>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="5" maxstacksize="1" slotsperrow="5" itempos="132,-44" iteminterval="0,-65" itemrotation="0" containedspritedepth="0.83" canbeselected="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="Content/Map/LabelIcons.png" sourcerect="512,0,256,256" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/Map/LabelIcons.png" sourcerect="512,0,256,256" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/Map/LabelIcons.png" sourcerect="512,0,256,256" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="Content/Map/LabelIcons.png" sourcerect="512,0,256,256" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="Content/Map/LabelIcons.png" sourcerect="512,0,256,256" origin="0.5,0.5" />
+      <Containable items="deepdiving,divingsuit,abyssdivingsuit,combatdivingsuit,pucs,slipsuit" />
+    </ItemContainer>
+  </Item>
+  <Item name="泰拉科技货运箱" identifier="TL_metalcrate" category="Equipment" tags="crate,allowcleanup,securecrate" scale="0.15" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <!--源码来自九州武库-->
+    <Price baseprice="250">
+      <Price storeidentifier="merchantoutpost" multiplier="1" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Sundrys/Crate.png" depth="0.54" sourcerect="0,968,1085,433" origin="0.5,0.5" />
+    <Body width="250" height="100" density="50" />
+    <Holdable slots="LeftHand" controlpose="true" holdpos="2,25" handle1="48,28" handle2="48,28" aimable="false" holdangle="-15" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+    </Holdable>
+    <ItemContainer capacity="42" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true" showcontainedstateindicator="true">
+      <Containable items="smallitem,mediumitem,diving" />
+    </ItemContainer>
+    <ItemComponent>
+      <StatusEffect type="OnContained" target="This" tags="locker" setvalue="true">
+        <Conditional targetcontainer="true" HasTag="eq deconstructor" />
+        <Conditional targetcontainer="true" HasTag="eq fabricator" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" tags="" setvalue="true">
+        <Conditional targetcontainer="true" HasTag="neq deconstructor,fabricator" />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+</Items>

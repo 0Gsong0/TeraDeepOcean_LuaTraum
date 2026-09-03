@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="Tl_human_enemy_base" displayname="" speciesname="elitehumanH_pirate" group="pirate">
+    <health Vitality="180" />
+    <ai sight="100" hearing="100" />
+    <attack damagemultiplier="0" />
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="5">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="exosuit_AI" slot="OuterClothes" />
+      <Item identifier="handcannon_TLAI" slot="RightHand+LeftHand" />
+      <Item identifier="handcannonround" amount="6" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="4">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="exosuit_AI" slot="OuterClothes" />
+      <Item identifier="hmg_TLAI" slot="RightHand" />
+      <Item identifier="riotshield_TLAI" slot="LeftHand" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="1">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="exosuit_AI" slot="OuterClothes" />
+      <Item identifier="grenadelauncher_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="1">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="exosuit_AI" slot="OuterClothes" />
+      <Item identifier="grenadelauncher_TLAI" slot="RightHand" />
+      <Item identifier="hmg_TLAI" slot="RightHand" />
+    </inventory>
+    <StatusEffect type="OnDeath" target="This">
+      <SpawnItem identifiers="coalitioncommendation" spawnposition="ThisInventory" probability="0.66" />
+    </StatusEffect>
+  </Charactervariant>
+</Override>

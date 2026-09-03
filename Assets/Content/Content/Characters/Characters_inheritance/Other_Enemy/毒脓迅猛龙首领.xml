@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Charactervariant inherit="毒脓迅猛龙" SpeciesName="毒脓迅猛龙首领" SpeciesTranslationOverride="" DisplayName="">
+  <health vitality="3000">
+    <Limb name="Torso">
+      <VitalityMultiplier type="damage" multiplier="1" />
+		<VitalityMultiplier type="poison" multiplier="0.0" />
+    </Limb>
+    <Limb name="Head">
+      <VitalityMultiplier type="damage" multiplier="4.5" />
+		<VitalityMultiplier type="poison" multiplier="0.0" />
+    </Limb>
+    <Limb name="LeftLeg">
+      <VitalityMultiplier type="damage" multiplier="0.5" />
+		<VitalityMultiplier type="poison" multiplier="0.0" />
+    </Limb>
+    <Limb name="RightLeg">
+      <VitalityMultiplier type="damage" multiplier="0.5" />
+		<VitalityMultiplier type="poison" multiplier="0.0" />
+    </Limb>
+	  <Limb>
+		  <VitalityMultiplier type="poison" multiplier="0.0" />
+	  </Limb>
+  </health>
+  <Inventory Slots="Any, Any, Any, Any, Any, Any" AccessibleWhenAlive="False" Commonness="1">
+    <Item Identifier="hydroxyapatite" />
+    <Item Identifier="paralyxis" amount="2" />
+    <Item Identifier="swimbladder" amount="3" />
+  </Inventory>
+  <Inventory Slots="Any, Any, Any, Any, Any, Any" AccessibleWhenAlive="False" Commonness="1">
+    <Item Identifier="hydroxyapatite" amount="3" />
+    <Item Identifier="swimbladder" amount="2" />
+    <Item Identifier="paralyxis" />
+  </Inventory>
+  <Inventory Slots="Any, Any, Any, Any, Any, Any" AccessibleWhenAlive="False" Commonness="1">
+    <Item Identifier="hydroxyapatite" amount="3" />
+    <Item Identifier="swimbladder" amount="3" />
+  </Inventory>
+  <ragdoll scalemultiplier="2" impacttolerance="60" />
+  <attack damagemultiplier="2.5" rangemultiplier="1.5" impactmultiplier="2" />
+</Charactervariant>

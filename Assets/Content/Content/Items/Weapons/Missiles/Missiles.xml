@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Override>
+    <Item name="全球定位系统引导导弹" identifier="Semiactiveguidancemissiles" description="" tags="mediumitem,railgunequipment,Missile" showcontentsintooltip="true" category="Weapon" sonarsize="8" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+      <Price baseprice="210">
+        <Price storeidentifier="merchantoutpost" multiplier="1.5" minavailable="3" />
+        <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
+        <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="2" />
+        <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="10" />
+        <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="2" />
+        <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="10" />
+      </Price>
+      <Deconstruct time="10">
+        <Item identifier="steel" />
+        <Item identifier="steel" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="20">
+        <RequiredSkill identifier="weapons" level="50" />
+        <RequiredItem identifier="steel" amount="2" />
+        <RequiredItem identifier="fpgacircuit" />
+        <RequiredItem identifier="Throwables_Grenade" amount="2" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/Content/Items/Weapons/Missiles/导弹1.png" sourcerect="0,0,819,410" origin="0.5,0.5" />
+      <Sprite name="导弹" texture="导弹1.png" sourcerect="0,0,819,410" depth="0.55" origin="0.5,0.5" />
+      <Body width="512" height="150" density="15" />
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+      <LightComponent LightColor="255,200,0,255" range="800" blinkfrequency="0" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="true">
+        <sprite texture="%ModDir%/Content/Items/Weapons/Missiles/导弹1.png" sourcerect="0,0,819,410" origin="0.5,0.5" alpha="1" />
+      </LightComponent>
+      <Projectile characterusable="false" launchimpulse="10" maxtargetstohit="1" damagedoors="true">
+        <Attack structuredamage="100" itemdamage="100" severlimbsprobability="5" penetration="0.6" targetforce="1000">
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="bleeding" strength="50" />
+          <Affliction identifier="stun" strength="15" />
+        </Attack>
+        <StatusEffect type="OnActive" target="This">
+          <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="15" ParticlesPerSecond="15" velocitymin="0" velocitymax="50" scalemin="4" scalemax="6" />
+          <ParticleEmitter particle="damagebubbles" AngleMax="360" DistanceMax="10" VelocityMax="15" ScaleMax="5" ScaleMultiplier="1,1" ParticleAmount="10" ParticlesPerSecond="50" CopyTargetAngle="True" ColorMultiplier="255,255,255,255" />
+          <LuaHook name="GPSmissiles.OnActive" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" targetcomponent="LightComponent" IsOn="true" />
+        <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+          <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+          <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+          <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+          <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+          <Explosion range="1000" ballastfloradamage="100" structuredamage="500" itemdamage="200" force="20" severlimbsprobability="0.5" decal="explosion" decalsize="0.4" penetration="0.8">
+            <Affliction identifier="explosiondamage" strength="700" />
+            <Affliction identifier="stun" strength="50" />
+            <Affliction identifier="internaldamage" strength="400" />
+            <Affliction identifier="organdamage" strength="400" />
+            <Affliction identifier="bleeding" strength="100" />
+          </Explosion>
+        </StatusEffect>
+        <!-- Trigger explosions on contained items -->
+        <StatusEffect type="OnBroken" target="Contained">
+          <Use />
+        </StatusEffect>
+        <!-- Remove the item after exploding -->
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </Projectile>
+      <AiTarget maxsoundrange="10000" soundrange="9500" fadeouttime="5" sonarlabel="我舰导弹" />
+    </Item>
+    <Item name="反舰导弹（敌用）" identifier="antishipMissile_Enemy" damagedbyprojectiles="true" health="100" description="" tags="railgunequipment,Missile" showcontentsintooltip="true" category="Weapon" sonarsize="10" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+      <Deconstruct time="10">
+        <Item identifier="steel" />
+        <Item identifier="steel" />
+      </Deconstruct>
+      <InventoryIcon texture="%ModDir%/Content/Items/Weapons/Missiles/导弹1.png" sourcerect="0,0,819,410" origin="0.5,0.5" />
+      <Sprite name="导弹" texture="导弹1.png" sourcerect="0,0,819,410" depth="0.55" origin="0.5,0.5" />
+      <Body width="512" height="150" density="15" />
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+      <LightComponent LightColor="255,200,0,255" range="800" blinkfrequency="0" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="true">
+        <sprite texture="%ModDir%/Content/Items/Weapons/Missiles/导弹1.png" sourcerect="0,0,819,410" origin="0.5,0.5" alpha="1" />
+      </LightComponent>
+      <Projectile characterusable="false" launchimpulse="10" maxtargetstohit="99" damagedoors="true">
+        <Attack structuredamage="100" itemdamage="100" severlimbsprobability="5" penetration="0.6" targetforce="1000">
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="bleeding" strength="50" />
+          <Affliction identifier="stun" strength="15" />
+        </Attack>
+        <StatusEffect type="OnActive" target="This">
+          <sound file="%ModDir%/Content/Sounds/Turrets/敌跟踪.ogg" range="50000" Loop="true" volume="4" />
+		  <ParticleEmitter particle="TLRapidlyRisingBubbles" AngleMax="360" ScaleMultiplier="1,1" ParticleAmount="1" ParticlesPerSecond="0.1" ColorMultiplier="255,255,255,255" />
+          <ParticleEmitter particle="damagebubbles" AngleMax="360" DistanceMax="10" VelocityMax="15" ScaleMax="5" ScaleMultiplier="1,1" ParticleAmount="10" ParticlesPerSecond="50" CopyTargetAngle="True" ColorMultiplier="255,255,255,255" />
+          <LuaHook name="AntiShipHoming_Enemy.OnActive" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" targetcomponent="LightComponent" IsOn="true" />
+        <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true" delay="3">
+          <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+          <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+          <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+          <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+          <Explosion range="1000" ballastfloradamage="100" structuredamage="500" itemdamage="200" force="20" severlimbsprobability="0.5" decal="explosion" decalsize="0.4" penetration="0.8">
+            <Affliction identifier="explosiondamage" strength="700" />
+            <Affliction identifier="stun" strength="50" />
+            <Affliction identifier="internaldamage" strength="400" />
+            <Affliction identifier="organdamage" strength="400" />
+            <Affliction identifier="bleeding" strength="100" />
+          </Explosion>
+        </StatusEffect>
+        <!-- Trigger explosions on contained items -->
+        <StatusEffect type="OnBroken" target="Contained">
+          <Use />
+        </StatusEffect>
+        <!-- Remove the item after exploding -->
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </Projectile>
+      <AiTarget maxsoundrange="10000" soundrange="9500" fadeouttime="5" sonarlabel="！！敌舰导弹！！" />
+    </Item>
+	  <Item name="" identifier="antishipMissile_Enemy_Boom" hideinmenus="true" damagedbyprojectiles="true" health="100" description="" tags="railgunequipment,Missile" showcontentsintooltip="true" category="Weapon" sonarsize="10" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+		  <InventoryIcon texture="%ModDir%/Content/Items/Weapons/Missiles/导弹1.png" sourcerect="0,0,819,410" origin="0.5,0.5" />
+		  <Sprite name="导弹" texture="导弹1.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+		  <Body width="1" height="1" density="15" />
+		  <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+		  <LightComponent LightColor="255,200,0,255" range="800" blinkfrequency="0" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="true">
+			  <sprite texture="%ModDir%/Content/Items/Weapons/Missiles/导弹1.png" sourcerect="0,0,819,410" origin="0.5,0.5" alpha="1" />
+		  </LightComponent>
+		  <Projectile characterusable="false" launchimpulse="10" maxtargetstohit="99" damagedoors="true">
+			  <StatusEffect type="OnSpawn" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true" delay="0">
+				  <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+				  <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+				  <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+				  <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+				  <Explosion range="1000" ballastfloradamage="100" structuredamage="500" itemdamage="200" force="20" severlimbsprobability="0.5" decal="explosion" decalsize="0.4" penetration="0.8">
+					  <Affliction identifier="explosiondamage" strength="700" />
+					  <Affliction identifier="stun" strength="50" />
+					  <Affliction identifier="internaldamage" strength="400" />
+					  <Affliction identifier="organdamage" strength="400" />
+					  <Affliction identifier="bleeding" strength="100" />
+				  </Explosion>
+				  <Remove />
+			  </StatusEffect>
+		  </Projectile>
+	  </Item>
+  </Override>
+</Items>

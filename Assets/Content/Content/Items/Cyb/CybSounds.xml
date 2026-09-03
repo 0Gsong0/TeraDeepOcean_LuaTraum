@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<!--曼珠-->
+	<Item name="" identifier="TLCyb_LycorisChip_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_LycorisChipOnline.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_LycorisChip_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--学习加速-->
+	<Item name="" identifier="TLCyb_LycorisChip_Learning_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_Learning_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--技能-->
+	<Item name="" identifier="TLCyb_LycorisChip_Skill_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_Skill_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--缓冲-->
+	<Item name="" identifier="TLCyb_LycorisChip_Stress_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_Stress_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--代谢-->
+	<Item name="" identifier="TLCyb_LycorisChip_Metabolic_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_Metabolic_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--回收-->
+	<Item name="" identifier="TLCyb_LycorisChip_Recovery_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_Recovery_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_LycorisChip_Recovery_ues_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_LycorisChip_Recovery_ues.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_LycorisChip_Recovery_ues" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LycorisChip_Recovery_ues" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_NewModel_Init_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_NewModel_Init.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--民用腿-->
+	<Item name="" identifier="TLCyb_CivilianLeg_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_CivilianLegInit.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_CivilianLeg_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_CivilianLeg_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--民用手-->
+	<Item name="" identifier="TLCyb_CivilianArm_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_CivilianArm_Init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--断肢提示-->
+	<Item name="" identifier="TLCyb_LimbBreak_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_LimbBreak.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_LimbBreak_Init" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="OnSpawn" target="Character">
+				<TriggerEvent identifier="TLCyb_LimbBreak_init" />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" delay="0.1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<!--重启提示-->
+	<Item name="" identifier="TLCyb_Lycoris_Restart_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_Lycoris_Restart_Sound.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_Lycoris_CantRestart_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_Lycoris_CantRestart_Sound.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_Lycoris_OFFline_Sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_Lycoris_OFFline_Sound.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TLCyb_LycorisChipRestart" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_LycorisChipRestart.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+</Items>

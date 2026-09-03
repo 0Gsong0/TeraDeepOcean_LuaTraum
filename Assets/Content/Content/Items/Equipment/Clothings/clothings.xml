@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--幻化器示例-->
+  <Item name="豹" identifier="var_leopard" category="Equipment" tags="smallitem,clothing" fireproof="false" HideConditionBar="true" cargocontaineridentifier="metalcrate" description="幻化为豹" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantoutpost" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantresearch" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" minavailable="2" />
+      <Price storeidentifier="merchantmine" minavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="豹的脑袋" texture="%ModDir%/Content/Items/Equipment/Clothings/head.png" sourcerect="165,0,182,222" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="28,321,49,62" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="Maid's Uniform 1 Torso" texture="Maid1_male.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="Maid1_male.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="Maid1_male.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="Maid1_male.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="Maid1_male.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="Maid1_male.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="Maid1_male.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Waist" texture="Maid1_male.png" limb="Waist" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="Maid1_male.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="Maid1_male.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="Maid1_male.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="Maid1_male.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="Maid1_male.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="Maid1_male.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="leopard Head" texture="head.png" limb="Head" sourcerect="165,0,182,222" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.5,0.4" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+    </ItemContainer>
+  </Item>
+  <Item name="豹（自注射版本）" identifier="var_leopard_autoinject" category="Equipment" tags="smallitem,clothing" fireproof="false" HideConditionBar="true" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="var_leopard" amount="1" />
+      <RequiredItem identifier="autoinjectorheadset" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="autoinjectorheadset" />
+    </Deconstruct>
+    <InventoryIcon name="豹的脑袋" texture="%ModDir%/Content/Items/Equipment/Clothings/head.png" sourcerect="165,0,182,222" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="28,321,49,62" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="Maid's Uniform 1 Torso" texture="Maid1_male.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="Maid1_male.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="Maid1_male.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="Maid1_male.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="Maid1_male.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="Maid1_male.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="Maid1_male.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Waist" texture="Maid1_male.png" limb="Waist" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="Maid1_male.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="Maid1_male.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="Maid1_male.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="Maid1_male.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="Maid1_male.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="Maid1_male.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="leopard Head" texture="head.png" limb="Head" sourcerect="165,0,182,222" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.5,0.4" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="384,448,64,64" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+      <SubContainer capacity="1" maxstacksize="1" autoinject="true" autoinjectthreshold="0.3">
+        <Containable items="chem,syringe" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="豹" identifier="var_leopard_NPC" tags="smallitem,clothing" fireproof="false" HideConditionBar="true" cargocontaineridentifier="metalcrate" nonplayerteaminteractable="true" category="Hidden" hideinmenus="true" description="幻化为豹" scale="0.5" impactsoundtag="impact_soft">
+    <Deconstruct time="1"></Deconstruct>
+    <InventoryIcon name="豹的脑袋" texture="%ModDir%/Content/Items/Equipment/Clothings/head.png" sourcerect="165,0,182,222" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="28,321,49,62" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="Maid's Uniform 1 Torso" texture="Maid1_male.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="Maid1_male.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="Maid1_male.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="Maid1_male.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="Maid1_male.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="Maid1_male.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="Maid1_male.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Waist" texture="Maid1_male.png" limb="Waist" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="Maid1_male.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="Maid1_male.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="Maid1_male.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="Maid1_male.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="Maid1_male.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="Maid1_male.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="leopard Head" texture="head.png" limb="Head" sourcerect="165,0,182,222" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.5,0.4" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+    </ItemContainer>
+  </Item>
+  <Item name="MR.X" identifier="var_MRX" category="Equipment" tags="smallitem,clothing" fireproof="false" HideConditionBar="true" cargocontaineridentifier="metalcrate" description="幻化为豹" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantoutpost" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantresearch" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" minavailable="2" />
+      <Price storeidentifier="merchantmine" minavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="X的脑袋" texture="%ModDir%/Content/Items/Equipment/Clothings/head.png" sourcerect="922,2,102,123" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="28,321,49,62" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="MRX's Uniform 1 Torso" texture="MRX.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="177,7,80,191" origin="0.5,0.5" />
+      <sprite name="MRX's Uniform 1 Right Hand" texture="MRX.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Left Hand" texture="MRX.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Left Lower Arm" texture="MRX.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Right Lower Arm" texture="MRX.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Left Upper Arm" texture="MRX.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Right Upper Arm" texture="MRX.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Waist" texture="MRX.png" limb="Waist" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Right Thigh" texture="MRX.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Left Thigh" texture="MRX.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Right Leg" texture="MRX.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Left Leg" texture="MRX.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Right Shoe" texture="MRX.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX's Uniform 1 Left Shoe" texture="MRX.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="MRX Head" texture="head.png" limb="Head" sourcerect="922,2,102,123" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="false" depth="0.61" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.5,0.6" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+    </ItemContainer>
+  </Item>
+  <Item name="特雷西亚" identifier="var_te" category="Equipment" tags="smallitem,clothing" fireproof="false" cargocontaineridentifier="metalcrate" description="幻化为特雷西亚" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantoutpost" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantresearch" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" minavailable="2" />
+      <Price storeidentifier="merchantmine" minavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="特雷西亚" texture="Shigure_Cloth_Sprite7.png" sourcerect="446,125,63,74" origin="0.5,0.5" />
+    <Sprite texture="Shigure_Cloth_Sprite7.png" depth="0.5" sourcerect="141,130,105,69" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="小特衣服 Torso" texture="小特衣服.png" limb="Torso" sourcerect="155,0,105,256" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="小特衣服.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="小特衣服.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="小特衣服.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="小特衣服.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="小特衣服.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="小特衣服.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="小特衣服 Waist" texture="小特衣服.png" limb="Waist" sourcerect="0,0,1,1" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="true" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="小特衣服.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="小特衣服.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="小特衣服.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="小特衣服.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="小特衣服.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="小特衣服.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,0,0" origin="0.5,0.5" />
+      <sprite name="te Head" texture="head.png" limb="Head" sourcerect="389,-2,209,437" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.7,0.22" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+    </ItemContainer>
+  </Item>
+  <Item name="特雷西亚-2" identifier="var_te-2" category="Equipment" tags="smallitem,clothing" fireproof="false" cargocontaineridentifier="metalcrate" description="幻化为特雷西亚" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantoutpost" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantresearch" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" minavailable="2" />
+      <Price storeidentifier="merchantmine" minavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="特雷西亚2" texture="Shigure_Cloth_Sprite7.png" sourcerect="446,125,63,74" origin="0.5,0.5" />
+    <Sprite texture="Shigure_Cloth_Sprite7.png" depth="0.5" sourcerect="141,130,105,69" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="特雷西亚 Torso" texture="特雷西亚.png" limb="Torso" sourcerect="152,13,126,256" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="特雷西亚.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="402,163,22,37" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="特雷西亚.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="466,162,22,38" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="特雷西亚.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="397,93,27,65" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="特雷西亚.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="460,94,25,64" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="特雷西亚.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="376,9,45,76" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="特雷西亚.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="431,9,50,79" origin="0.8,0.5" />
+      <sprite name="特雷西亚 Waist" texture="特雷西亚.png" limb="Waist" sourcerect="0,0,1,1" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="false" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="特雷西亚.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,512,268" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="特雷西亚.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,512,268" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="特雷西亚.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,512,268" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="特雷西亚.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,512,268" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="特雷西亚.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="401,216,34,41" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="特雷西亚.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" sourcerect="463,217,33,40" origin="0.5,0.5" />
+      <sprite name="te2 Head" texture="head.png" limb="Head" sourcerect="615,1,244,346" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.75,0.3" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+    </ItemContainer>
+  </Item>
+  <!--衣物-->
+  <Item name="白丝作战服" identifier="Whitesilk1" category="Equipment" tags="smallitem,clothing" fireproof="false" cargocontaineridentifier="metalcrate" description="常规的白丝女仆装" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1" />
+    <Price baseprice="150">
+      <Price storeidentifier="merchantoutpost" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantresearch" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" minavailable="2" />
+      <Price storeidentifier="merchantmine" minavailable="2" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <Sprite texture="Shigure_Cloth_Sprite7.png" sourcerect="3,12,127,59" depth="0.6" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Maid's Uniform 1 Torso" texture="Maid1_male.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="Maid1_male.png" limb="RightHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="Maid1_male.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="Maid1_male.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="Maid1_male.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="Maid1_male.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="Maid1_male.png" limb="RightArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Waist" texture="Maid1_male.png" limb="Waist" hidelimb="false" inheritorigin="true" inherittexturescale="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="Maid1_male.png" limb="RightThigh" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="Maid1_male.png" limb="LeftThigh" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="Maid1_male.png" limb="RightLeg" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="Maid1_male.png" limb="LeftLeg" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="Maid1_male.png" limb="RightFoot" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="Maid1_male.png" limb="LeftFoot" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <SkillModifier skillidentifier="electrical" skillvalue="5" />
+      <SkillModifier skillidentifier="helm" skillvalue="5" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="5" />
+      <SkillModifier skillidentifier="medical" skillvalue="5" />
+      <SkillModifier skillidentifier="weapons" skillvalue="5" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+  </Item>
+  <!--正常防弹衣-->
+  <Item name="防弹衣" identifier="bodyarmor1" category="Equipment" tags="smallitem,clothing,separatists" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+    <Price baseprice="480" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="0" maxavailable="2" sold="true">
+        <Reputation faction="separatists" min="30" />
+      </Price>
+      <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="2" maxavailable="5" sold="true">
+        <Reputation faction="separatists" min="30" />
+      </Price>
+      <Price storeidentifier="merchantmilitary" multiplier="1.3" minavailable="4" maxavailable="6" sold="true">
+        <Reputation faction="separatists" min="50" />
+      </Price>
+      <Price storeidentifier="merchantresearch" />
+      <Price storeidentifier="merchantmine" multiplier="0.9" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="ballisticfiber" />
+      <Item identifier="ballisticfiber" />
+      <Item identifier="ballisticfiber" />
+    </Deconstruct>
+    <Sprite texture="Armor1.png" sourcerect="183,21,79,134" depth="0.6" origin="0.5,0.4" />
+    <Body radius="45" height="35" density="30" />
+    <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds,explosiondamage" damagemultiplier="0.2" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="damage" damagemultiplier="0.9" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bleeding" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <sprite name="bodyarmor1 1 Torso" texture="Armor1.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 1 Left Upper Arm" texture="Armor1.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mbodyarmor1 1 Right Upper Arm" texture="Armor1.png" limb="RightArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+    </Wearable>
+  </Item>
+  <Item name="防弹衣2" identifier="bodyarmor2" category="Equipment" tags="smallitem,clothing,separatists" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+    <Sprite texture="Lightweightbulletproofvest.png" sourcerect="317,21,98,118" depth="0.6" origin="0.5,0.4" />
+    <Body radius="45" height="35" density="30" />
+    <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds,explosiondamage" damagemultiplier="0.2" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="damage" damagemultiplier="0.9" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bleeding" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <sprite name="bodyarmor2 1 Torso" texture="Lightweightbulletproofvest.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+    </Wearable>
+  </Item>
+	<Item name="防弹衣3" identifier="bodyarmor3" category="Equipment" tags="smallitem,clothing,separatists" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+		<Sprite texture="Heavybulletproofvest.png" sourcerect="317,21,98,118" depth="0.6" origin="0.5,0.4" />
+		<Body radius="45" height="35" density="30" />
+		<Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+			<damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds,explosiondamage" damagemultiplier="0.2" damagesound="LimbArmor" deflectprojectiles="true" />
+			<damagemodifier armorsector="0.0,360.0" afflictiontypes="damage" damagemultiplier="0.9" damagesound="LimbArmor" deflectprojectiles="true" />
+			<damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+			<damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bleeding" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+			<SkillModifier skillidentifier="weapons" skillvalue="10" />
+			<sprite name="bodyarmor2 1 Torso" texture="Heavybulletproofvest.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+		</Wearable>
+	</Item>
+  <!--外骨骼（骨架类）-->
+  <Item name="泰拉集团初代外骨骼" HideConditionBar="true" identifier="waiguge1" category="Equipment" tags="diving,divingsuit,clothing,human" fireproof="false" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_soft">
+    <Price baseprice="20999" sold="false"></Price>
+    <InventoryIcon name="泰拉集团初代外骨骼Icon" texture="泰拉集团初代外骨骼.png" sourcerect="66,25,172,370" origin="0.5,0.5" />
+    <Sprite texture="泰拉集团初代外骨骼.png" sourcerect="63,25,177,375" depth="0.6" origin="0.5,0.5" />
+    <Body width="100" height="315" density="15" friction="0.8" restitution="0.01" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Maid's Uniform 1 Torso" texture="waiguge1.png" limb="Torso" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="153,2,106,139" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="waiguge1.png" limb="RightHand" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="waiguge1.png" limb="LeftHand" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="waiguge1.png" limb="LeftForearm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="waiguge1.png" limb="RightForearm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="waiguge1.png" limb="LeftArm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="waiguge1.png" limb="RightArm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Waist" texture="waiguge1.png" limb="Waist" hideotherwearables="true" hidelimb="true" inheritorigin="true" inherittexturescale="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="waiguge1.png" limb="RightThigh" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="waiguge1.png" limb="LeftThigh" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="88,1,63,113" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="waiguge1.png" limb="RightLeg" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="waiguge1.png" limb="LeftLeg" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="waiguge1.png" limb="RightFoot" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="waiguge1.png" limb="LeftFoot" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <SkillModifier skillidentifier="electrical" skillvalue="5" />
+      <SkillModifier skillidentifier="helm" skillvalue="15" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="5" />
+      <SkillModifier skillidentifier="medical" skillvalue="5" />
+      <SkillModifier skillidentifier="weapons" skillvalue="5" />
+      <!--抗性待定-->
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds,burn,acidburn,explosiondamage" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="damage" damagemultiplier="0.9" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bleeding" damagemultiplier="0.15" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="alcellruin" damagemultiplier="0.65" damagesound="" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.0" damagesound="LimbArmor" />
+      <StatusEffect type="OnWearing" target="Character" PressureProtection="9999.0" setvalue="true" disabledeltatime="true"></StatusEffect>
+      <StatusEffect type="OnWearing" target="Character">
+        <ReduceAffliction identifier="oxygenlow" amount="100" />
+      </StatusEffect>
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+        <GuiFrame relativesize="0.083,0.08" anchor="BottomLeft" relativeoffset="0.0043,0.252" style="ItemUI" />
+        <TickBox text="开关">
+          <StatusEffect type="OnUse" TargetItemComponent="Sonar" target="This" IsOn="false" drawhudwhenequipped="true" setvalue="true" />
+          <StatusEffect type="OnSecondaryUse" TargetItemComponent="Sonar" target="This" IsOn="true" currentmode="Passive" drawhudwhenequipped="false" setvalue="true" />
+        </TickBox>
+      </CustomInterface>
+      <StatusEffect type="OnWearing" target="Character" UseHullOxygen="true" OxygenAvailable="1000.0">
+        <ReduceAffliction identifier="oxygenlow" amount="100" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="Contained" Condition="-0.1" targetslot="0">
+        <RequiredItem items="mobilebattery,Powerbattery" type="Contained" targetslot="0" />
+      </StatusEffect>
+    </Wearable>
+    <Sonar range="12000.0" powerconsumption="10" drawhudwhenequipped="true" detectsubmarinewalls="false" displaybordersize="-0.1" characterusable="false" hasmineralscanner="true" allowuioverlap="true">
+      <sound file="%ModDir%/Content/Sounds/Machine/声纳 01.ogg" type="OnUse" range="1000.0" frequencymultiplier="1.5" />
+      <sound file="%ModDir%/Content/Sounds/Machine/声纳 02.ogg" type="OnUse" range="1000.0" frequencymultiplier="1.5" />
+      <sound file="%ModDir%/Content/Sounds/Machine/声纳 03.ogg" type="OnUse" range="1000.0" frequencymultiplier="1.5" />
+      <GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" />
+      <PingCircle texture="%ModDir%/Content/UI/Item/pingCircle.png" origin="0.5,0.5" />
+      <DirectionalPingCircle texture="%ModDir%/Content/UI/Item/directionalPingCircle.png" origin="0.0,0.5" />
+      <ScreenOverlay texture="%ModDir%/Content/UI/Item/sonarOverlay.png" origin="0.5,0.5" />
+      <ScreenBackground texture="%ModDir%/Content/UI/Item/sonarBackground.png" origin="0.5,0.5" />
+      <DirectionalPingBackground texture="%ModDir%/Content/UI/Item/directionalPingBackground.png" origin="0.5,0.5" />
+      <DirectionalPingButton index="0" texture="%ModDir%/Content/UI/Item/directionalPingButton.png" sourcerect="0,0,91,266" origin="-4.5275,0.5" />
+      <DirectionalPingButton index="1" texture="%ModDir%/Content/UI/Item/directionalPingButton.png" sourcerect="133,0,91,266" origin="-4.5275,0.5" />
+      <DirectionalPingButton index="2" texture="%ModDir%/Content/UI/Item/directionalPingButton.png" sourcerect="266,0,91,266" origin="-4.5275,0.5" />
+      <Blip texture="Content/Items/Command/sonarBlip.png" origin="0.5,0.5" />
+      <LineSprite texture="Content/Items/Command/NavUI.png" sourcerect="181,141,109,4" origin="0,0.5" />
+      <icon identifier="outpost" texture="Content/UI/MainIconsAtlas.png" sourcerect="352,398,16,8" origin="0.5,0.5" />
+      <icon identifier="submarine" texture="Content/UI/MainIconsAtlas.png" sourcerect="353,407,14,6" origin="0.5,0.5" />
+      <icon identifier="shuttle" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,407,8,6" origin="0.5,0.5" />
+      <icon identifier="artifact" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,414,8,8" origin="0.5,0.5" />
+      <icon identifier="location" texture="Content/UI/MainIconsAtlas.png" sourcerect="349,435,11,11" origin="0.5,0.5" />
+      <icon identifier="mineral" texture="Content/UI/MainIconsAtlas.png" sourcerect="336,434,7,12" origin="0.5,0.5" />
+      <icon identifier="" texture="Content/UI/MainIconsAtlas.png" sourcerect="346,416,4,4" origin="0.5,0.5" />
+      <LightComponent LightColor="120,255,120,255" range="25" powerconsumption="10" pulsefrequency="0.5" pulseamount="0.8" castshadows="false" IsOn="false" canbeselected="false">
+        <IsActive TargetItemComponent="Sonar" CurrentMode="Active" />
+      </LightComponent>
+    </Sonar>
+    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" containedstateindicatorstyle="battery" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="mobilebattery">
+          <StatusEffect type="OnContaining" target="This,Character" SpeedMultiplier="1.1" PropulsionSpeedMultiplier="1.5" Voltage="1.0" setvalue="true">
+            <Conditional IsDead="false" />
+          </StatusEffect>
+        </Containable>
+        <Containable items="Powerbattery">
+          <StatusEffect type="OnContaining" target="This,Character" SpeedMultiplier="1.5" PropulsionSpeedMultiplier="2" Voltage="1.0" setvalue="true">
+            <Conditional IsDead="false" />
+          </StatusEffect>
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="11" maxstacksize="16">
+        <Containable items="smallitem,handheldammo,explosive,vest,tool" excludeitems="waiguge1" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <Item name="黄鹤战斗套装" identifier="exosuitCrane" category="Diving,Equipment" tags="diving,divinggear_wearableindoors,deepdiving,deepdivinglarge,human" scale="0.605" fireproof="true" description="" isshootable="true" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy" botpriority="0.01" cargocontaineridentifier="">
+    <Price canbespecial="false" sold="false" />
+    <Deconstruct time="30">
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="steel_TL" />
+      <Item identifier="steel_TL" />
+      <Item identifier="abyssdivingsuit" />
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="50" requiresrecipe="true">
+      <RequiredSkill identifier="mechanical" level="100" />
+      <RequiredItem identifier="steel_TL" amount="2" />
+      <RequiredItem identifier="abyssdivingsuit" amount="1" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="4" />
+      <RequiredItem identifier="rubber" amount="3" />
+    </Fabricate>
+    <InventoryIcon texture="Exosuit.png" sourcerect="384,384,128,128" origin="0.5,0.5" />
+    <Sprite name="Exosuit Item" texture="Exosuit.png" sourcerect="2,266,203,244" depth="0.55" origin="0.5,0.5" />
+    <Body width="150" height="230" density="30" />
+    <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select" allowusewhenworn="true">
+      <sprite name="Exosuit Helmet Wearable" texture="Exosuit.png" limb="Head" hidelimb="true" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hideotherwearables="true" hidewearablesoftype="" sourcerect="0,0,1,1" origin="0.5,0.5" />
+      <sprite name="Exosuit Torso" texture="Exosuit.png" limb="Torso" scale="1.2" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.8" inheritlimbdepth="true" inheritsourcerect="false" sourcerect="167,1,203,193">
+        <LightComponent range="750.0" lightcolor="250,224,165,255" powerconsumption="10" IsOn="true" allowingameediting="false" offset="-50,-50">
+          <LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="1.0,1.0" />
+        </LightComponent>
+      </sprite>
+      <sprite name="Exosuit Right Hand" texture="Exosuit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="383,160,64,48" />
+      <sprite name="Exosuit Left Hand" texture="Exosuit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,160,64,48" />
+      <sprite name="Exosuit Right Upper Arm" texture="Exosuit.png" limb="RightArm" depthlimb="Head" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="383,0,64,96" />
+      <sprite name="Exosuit Left Upper Arm" texture="Exosuit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,0,64,96" />
+      <sprite name="Exosuit Right Forearm" texture="Exosuit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="383,96,64,64" />
+      <sprite name="Exosuit Left Forearm" texture="Exosuit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,96,64,64" />
+      <sprite name="Exosuit Waist" texture="Exosuit.png" limb="Waist" hidelimb="true" scale="1.2" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="182,196,178,53" />
+      <sprite name="Exosuit Right Thigh" texture="Exosuit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="0,0,96,112" />
+      <sprite name="Exosuit Left Thigh" texture="Exosuit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="0,0,96,112" />
+      <sprite name="Exosuit Right Leg" texture="Exosuit.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritlimbdepth="true" inheritsourcerect="true" />
+      <sprite name="Exosuit Left Leg" texture="Exosuit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Exosuit Left Shoe" texture="Exosuit.png" limb="LeftFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="371,211,133,37" />
+      <sprite name="Exosuit Right Shoe" texture="Exosuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="371,211,133,37" />
+      <StatusEffect type="OnWearing" target="Character" LowPassMultiplier="0.2" HideFace="true" ObstructVisionAmount="0.5" PressureProtection="7000.0" setvalue="true" disabledeltatime="true"></StatusEffect>
+      <!-- no HMG stun -->
+      <StatusEffect type="OnWearing" target="Character" interval="0.9" disabledeltatime="true">
+        <Affliction identifier="recoilstabilized" amount="1" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Character" UseHullOxygen="true" />
+      <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" OxygenAvailable="1000.0" disabledeltatime="true" interval="1" Condition="-0.25" comparison="And" targetslot="0">
+        <Conditional IsDead="false" />
+        <Conditional HullOxygenPercentage="lt 50" />
+        <Conditional InWater="false" />
+        <RequiredItem items="oxygensource" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" UseHullOxygen="false" OxygenAvailable="1000.0" disabledeltatime="true" interval="1" Condition="-0.25" comparison="And" targetslot="0">
+        <Conditional InWater="true" />
+        <RequiredItem items="oxygensource" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" Condition="-0.1" interval="1" disabledeltatime="true" targetslot="1" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="mobilebattery" targetslot="1" type="Contained" />
+      </StatusEffect>
+      <!-- 0 movement speed when out of fuel-->
+      <StatusEffect type="OnWearing" target="This,Character" SpeedMultiplier="-5.0" setvalue="true" disabledeltatime="true">
+        <Conditional Voltage="lte 0.5" />
+      </StatusEffect>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.2" damagesound="" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="bleeding" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="explosiondamage" damagemultiplier="0.15" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.05" damagesound="LimbArmor" />
+      <StatValue stattype="FlowResistance" value="0.9" />
+      <StatValue stattype="PropulsionSpeed" value="-0.5" />
+    </Wearable>
+    <ItemContainer capacity="0" hideitems="true" slotsperrow="4" containedstateindicatorstyle="tank" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <StatusEffect type="OnWearing" target="Contained" playsoundonrequireditemfailure="true" targetslot="0">
+        <RequiredItem items="oxygensource" type="Contained" />
+        <Conditional condition="lte 5.0" />
+        <Sound file="Content/Items/WarningBeep.ogg" range="250" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained" playsoundonrequireditemfailure="true" targetslot="1">
+        <RequiredItem items="mobilebattery" type="Contained" />
+        <Conditional condition="lte 5.0" />
+        <Sound file="Content/Items/WarningBeep.ogg" range="250" loop="true" />
+      </StatusEffect>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="oxygensource"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="mobilebattery">
+          <StatusEffect type="OnContaining" target="This,Character" Voltage="1.0" setvalue="true">
+            <Conditional IsDead="false" />
+          </StatusEffect>
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="14" maxstacksize="32">
+        <Containable items="smallitem,ammobox,weapon" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget maxsightrange="1500" />
+  </Item>
+  <!--特殊-->
+  <Item name="特殊作战装甲01式" identifier="sp01" category="Diving,Equipment" tags="diving,deepdiving,provocative,empprotect,sp_exo,human" scale="0.25" waterproof="true" fireproof="true" description="" isshootable="true" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy" botpriority="0.01">
+    <Price baseprice="21000" sold="false"></Price>
+    <InventoryIcon name="sp01Icon" texture="stand.png" sourcerect="510,3,151,394" origin="0.5,0.5" />
+    <Sprite texture="stand.png" sourcerect="6,5,396,248" depth="0.6" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="0,-50" handle1="-10,-20" handle2="10,-20" holdangle="45" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="01 Head" texture="head.png" limb="Head" sourcerect="3,132,145,154" hidelimb="true" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.45" hideotherwearables="true" hidewearablesoftype="" origin="0.5,0.5" />
+      <sprite name="Maid's Uniform 1 Torso" texture="特殊作战服01式.png" limb="Torso" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" hideotherwearables="true">
+        <LightComponent LightColor="250,224,165,255" range="820" powerconsumption="10" IsOn="true">
+          <StatusEffect type="OnWearing" target="This,Character" Interval="0.1" setvalue="true" comparison="And">
+            <Conditional IsDead="false" />
+            <Conditional Voltage="gt 0.5" />
+          </StatusEffect>
+        </LightComponent>
+      </sprite>
+      <sprite texture="特殊作战服01式.png" limb="RightHand" hidelimb="true" hideotherwearables="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="LeftHand" hidelimb="true" hideotherwearables="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="LeftForearm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="RightForearm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="LeftArm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="RightArm" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="Waist" hidelimb="true" hideotherwearables="true" inheritorigin="true" inherittexturescale="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="RightThigh" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="LeftThigh" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="RightLeg" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="LeftLeg" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="RightFoot" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite texture="特殊作战服01式.png" limb="LeftFoot" hideotherwearables="true" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <!--电池消耗-->
+      <StatValue stattype="FlowResistance" value="0.9" />
+      <StatusEffect type="OnWearing" target="Contained,Character" Condition="-0.1" interval="1" disabledeltatime="true" comparison="Or" targetslot="0" OxygenAvailable="10000.0">
+        <Conditional IsDead="false" />
+        <RequiredItem items="Powerbattery" targetslot="0" type="Contained" />
+      </StatusEffect>
+      <!-- 氧气基础消耗 -->
+      <StatusEffect type="OnWearing" target="Character" UseHullOxygen="true" OxygenAvailable="1000.0">
+        <ReduceAffliction identifier="oxygenlow" amount="100" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVision="false" PressureProtection="10000.0" SpeedMultiplier="0.75" PropulsionSpeedMultiplier="1.25" setvalue="true" disabledeltatime="true"></StatusEffect>
+      <!--装备电池后的增益效果-->
+      <StatusEffect type="OnWearing" target="Character">
+        <RequiredItem items="Powerbattery" type="Contained" targetslot="0" />
+        <Affliction identifier="01BUFF" strength="2" multiplybymaxvitality="true" />
+      </StatusEffect>
+      <!--热成像与健康扫描-->
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="Always" target="This,Character" drawhudwhenequipped="true" thermalgoggles="true">
+          <Conditional Voltage="gt 0.5" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This,Character" drawhudwhenequipped="false" thermalgoggles="false">
+          <Conditional Voltage="lte 0.5" />
+        </StatusEffect>
+      </StatusHUD>
+      <!--抗性-->
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds,burn,acidburn,explosiondamage" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="damage" damagemultiplier="0.9" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bleeding" damagemultiplier="0.15" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.0" damagesound="LimbArmor" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="alcellruin" damagemultiplier="0.65" damagesound="" deflectprojectiles="true" />
+      <!--药物治疗效果-->
+      <!--使用生理盐水-->
+      <StatusEffect type="OnWearing" target="Character,Contained" condition="-10" targetslot="1">
+        <ReduceAffliction type="bloodloss" amount="2.5" />
+        <RequiredItem items="antibloodloss1" type="Contained" targetslot="1" />
+        <Conditional bloodloss="gt 5.0" />
+      </StatusEffect>
+      <!--使用血袋-->
+      <StatusEffect type="OnWearing" target="Character,Contained" condition="-5" targetslot="1">
+        <ReduceAffliction type="bloodloss" amount="6" />
+        <RequiredItem items="antibloodloss2" type="Contained" targetslot="1" />
+        <Conditional bloodloss="gt 5.0" />
+      </StatusEffect>
+      <!--使用异星血浆-->
+      <StatusEffect type="OnWearing" target="Character,Contained" condition="-5" targetslot="1">
+        <Affliction identifier="psychosis" amount="2.25" />
+        <ReduceAffliction type="bloodloss" amount="6" />
+        <RequiredItem items="alienblood" type="Contained" targetslot="1" />
+        <Conditional bloodloss="gt 5.0" />
+      </StatusEffect>
+      <!--使用吗啡-->
+      <StatusEffect type="OnWearing" target="Character,Contained" comparison="or" condition="-10" targetslot="2">
+        <ReduceAffliction type="damage" amount="5" />
+        <ReduceAffliction type="burn" amount="0.1" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="3.0" />
+        <RequiredItem items="antidama1" type="Contained" targetslot="2" />
+        <Conditional internaldamage="gt 0.0" />
+        <Conditional blunttrauma="gt 0.0" />
+        <Conditional lacerations="gt 0.0" />
+        <Conditional bitewounds="gt 0.0" />
+        <Conditional gunshotwound="gt 0.0" />
+        <Conditional organdamage="gt 0.0" />
+        <Conditional explosiondamage="gt 0.0" />
+        <Conditional concussion="gt 0.0" />
+      </StatusEffect>
+      <!--使用芬太尼-->
+      <StatusEffect type="OnWearing" target="Character,Contained" comparison="or" condition="-20" targetslot="2">
+        <ReduceAffliction type="damage" amount="15" />
+        <ReduceAffliction type="burn" amount="1" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="20" />
+        <RequiredItem items="antidama2" type="Contained" targetslot="2" />
+        <Conditional internaldamage="gt 0.0" />
+        <Conditional blunttrauma="gt 0.0" />
+        <Conditional lacerations="gt 0.0" />
+        <Conditional bitewounds="gt 0.0" />
+        <Conditional gunshotwound="gt 0.0" />
+        <Conditional organdamage="gt 0.0" />
+        <Conditional explosiondamage="gt 0.0" />
+        <Conditional concussion="gt 0.0" />
+      </StatusEffect>
+      <!--使用神效剂-->
+      <StatusEffect type="OnWearing" target="Character,Contained" comparison="or" condition="-5" targetslot="2">
+        <ReduceAffliction type="damage" amount="3" />
+        <RequiredItem items="deusizine" type="Contained" targetslot="2" />
+        <Conditional internaldamage="gt 0.0" />
+        <Conditional blunttrauma="gt 0.0" />
+        <Conditional lacerations="gt 0.0" />
+        <Conditional bitewounds="gt 0.0" />
+        <Conditional gunshotwound="gt 0.0" />
+        <Conditional organdamage="gt 0.0" />
+        <Conditional explosiondamage="gt 0.0" />
+        <Conditional concussion="gt 0.0" />
+        <Conditional bloodloss="gt 5.0" />
+        <Conditional oxygenlow="gt 50.0" />
+      </StatusEffect>
+    </Wearable>
+    <ItemContainer capacity="0">
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/Items/Weapons/TLItems1.png" sourcerect="291,20,48,80" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,448,64,64" origin="0.5,0.45" />
+      <SlotIcon slotindex="2" texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,448,64,64" origin="0.5,0.45" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="Powerbattery">
+          <StatusEffect type="OnContaining" target="This" Voltage="1.0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="antibloodloss1,antibloodloss2,alienblood,ringerssolution" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="antidama1,antidama2,deusizine" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+</Items>

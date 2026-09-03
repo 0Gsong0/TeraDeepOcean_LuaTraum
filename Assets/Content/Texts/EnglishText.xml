@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+	<Override>
+		<deconstructor.unknownitemsoutput>random items</deconstructor.unknownitemsoutput>
+		<entityname.safewallhangingmetalcrate>Safety wall-mounted metal box (improved)</entityname.safewallhangingmetalcrate>
+		<entitydescription.safewallhangingmetalcrate>A container for storing items that can be quickly placed on the wall, waterproof and fireproof. Now improved, it is cheaper and larger.</entitydescription.safewallhangingmetalcrate>
+		<!--导弹发射系统-->
+		<entityname.Verticalmissilelaunchers>Vertical missile launch system</entityname.Verticalmissilelaunchers>
+		<entitydescription.Verticalmissilelaunchers>Terra Group's Vertical Launch System，compatible:‖color:gui.orange‖GPS-guided missile，‖end‖\n\n We strongly advise against replacing this weapon on ships with narrow gun rooms in the game, as its loader is relatively high and the room may be too narrow to interact with it. We recommend completing the editing in advance in the editor.</entitydescription.Verticalmissilelaunchers>
+		<entityname.Missileloadingchamber>Vertical missile loading bay</entityname.Missileloadingchamber>
+		<entitydescription.Missileloadingchamber>The loading device for the vertical launch system should be placed vertically below the launcher.</entitydescription.Missileloadingchamber>
+		<entityname.jammingBombsDefenseArtillery>Jamming device launch system</entityname.jammingBombsDefenseArtillery>
+		<entitydescription.jammingBombsDefenseArtillery>You can launch specially designed chaff to interfere with the enemy's missile targeting accuracy. You need to quickly complete evasive maneuvers while deploying the chaff. Please adjust the launch angle yourself. It is recommended to use a trigger rod for activation.</entitydescription.jammingBombsDefenseArtillery>
+		<entityname.jammingBombsCloseDefenseArtillery_Loader>Jammer Launch System Loader</entityname.jammingBombsCloseDefenseArtillery_Loader>
+		<entitydescription.jammingBombsCloseDefenseArtillery_Loader>Interference grenade launcher system with accompanying loading device</entitydescription.jammingBombsCloseDefenseArtillery_Loader>
+		<entityname.jammingBombsCloseDefenseArtillery_routineBox>Jamming ammunition box</entityname.jammingBombsCloseDefenseArtillery_routineBox>
+		<entitydescription.jammingBombsCloseDefenseArtillery_routineBox>It can launch specially designed chaff to interfere with the targeting accuracy of enemy missiles. It requires rapid evasive maneuvers while deploying the chaff. It also has the effect of a sonar decoy, capable of diverting the attention of submarines.</entitydescription.jammingBombsCloseDefenseArtillery_routineBox>
+		<!--导弹-->
+		<entityname.Semiactiveguidancemissiles>GPS-guided missile</entityname.Semiactiveguidancemissiles>
+		<entitydescription.Semiactiveguidancemissiles>Guided by the group's orbiting satellite around Europa, obtain the launch permit, enter the turret view, place the mouse on the target location, and press the left button to lock on. You can move the mouse to adjust the landing point, but please do not move the mouse back to the ship.\n‖color:gui.orange‖(Maximum number of leads：1，Fuse type: Explodes upon reaching target location/impact fuse, overload capacity: strong, can it perform beyond-visual-range active strikes: no)‖end‖</entitydescription.Semiactiveguidancemissiles>
+		<entityname.antishipMissile_Enemy>Anti-ship missile (for enemy use only)</entityname.antishipMissile_Enemy>
+		<entitydescription.antishipMissile_Enemy>Player teams, please do not equip your ships with this missile, as it can be interfered with by decoy missiles.\n‖color:gui.orange‖(Maximum number of targets that can be guided: 1, Fuse type: Impact fuse, Overload capacity: High, Can it perform beyond-visual-range active strikes: Yes)‖end‖</entitydescription.antishipMissile_Enemy>
+		<entityname.TL_HydroponicTank>Smart Hydroponic Grow Box</entityname.TL_HydroponicTank>
+		<entitydescription.TL_HydroponicTank>The Group's smart hydroponic box continuously produces corresponding fruits after connecting to power and placing fruits inside. ‖color:gui.orange‖Compatible with TeraDeepOcean. ‖end‖ Please ensure it is plugged in; otherwise, the timer mechanism will not activate.</entitydescription.TL_HydroponicTank>
+		<entityname.he-kegseawater>A bucket of seawater</entityname.he-kegseawater>
+		<entitydescription.he-kegseawater>A bucket of ordinary seawater</entitydescription.he-kegseawater>
+		<entityname.he-kegempty>Empty bucket</entityname.he-kegempty>
+		<entitydescription.he-kegempty>An empty bucket can be placed in the sea to collect seawater.</entitydescription.he-kegempty>
+	</Override>
+	<!--TURRTES-->
+	<!--近防系统-->
+	<entityname.CloseDefenseArtillery>Rapid-fire close-in weapon system</entityname.CloseDefenseArtillery>
+	<entitydescription.CloseDefenseArtillery>High-speed rotary close-range cannon, capable of firing tons of bullets, vent your anger on the creatures of Europa.</entitydescription.CloseDefenseArtillery>
+	<entityname.CloseDefenseArtillery_Atuo>Fully automatic rapid-fire close-in weapon system</entityname.CloseDefenseArtillery_Atuo>
+	<entitydescription.CloseDefenseArtillery_Atuo>The rapid-fire close-in weapon system is equipped with a specially designed AI chip that can independently target and engage threats. To reduce ammunition costs, its firing rate is slightly slower than the manual version.</entitydescription.CloseDefenseArtillery_Atuo>
+	<entityname.CloseDefenseArtillery_Loader>Close-in weapon system loader</entityname.CloseDefenseArtillery_Loader>
+	<entitydescription.CloseDefenseArtillery_Loader>Loader for two close-in weapon systems</entitydescription.CloseDefenseArtillery_Loader>
+	<!--近防系统AmmoBoxs-->
+	<entityname.CloseDefenseArtillery_routineBox>Close-in weapon system ammunition box</entityname.CloseDefenseArtillery_routineBox>
+	<entitydescription.CloseDefenseArtillery_routineBox>The basic ammunition of the close-range artillery battery has impressive firepower, with a large amount of inexpensive ammunition stored inside for indiscriminate firing.</entitydescription.CloseDefenseArtillery_routineBox>
+	<entityname.CloseDefenseArtillery_routineBoxPro>Close-in weapon system upgrade ammunition box</entityname.CloseDefenseArtillery_routineBoxPro>
+	<entitydescription.CloseDefenseArtillery_routineBoxPro>The ammunition, upgraded from conventional ammunition, incorporates harder materials to improve armor penetration and is equipped with a micro-explosive warhead. However, due to the increased size of the projectile, the ammunition capacity has been reduced and the rate of fire has decreased.\n‖color:gui.orange‖Close-range defense guns, rapid-fire guns, and electromagnetic guns‖end‖All compatible</entitydescription.CloseDefenseArtillery_routineBoxPro>
+	<entityname.CloseDefenseArtillery_precisionBox>Close-range high-precision ammunition box</entityname.CloseDefenseArtillery_precisionBox>
+	<entitydescription.CloseDefenseArtillery_precisionBox>The bullet casing has been improved, resulting in extremely stable ballistics and accuracy, but at the expense of some damage. This has increased bullet velocity and penetration power.\n‖color:gui.orange‖Close-range defense guns, rapid-fire guns, and electromagnetic guns‖end‖All compatible</entitydescription.CloseDefenseArtillery_precisionBox>
+	<entityname.CloseDefenseArtillery_explosionBox>近防穿甲爆破弹药箱</entityname.CloseDefenseArtillery_explosionBox>
+	<entitydescription.CloseDefenseArtillery_explosionBox>Wide-area scatter bombs with armor-piercing explosive warheads, effective against group targets, capable of penetrating invincible ship hulls (3 layers).</entitydescription.CloseDefenseArtillery_explosionBox>
+	<entityname.CloseDefenseArtillery_explosionBox_Close>Close-range anti-armor fragmentation explosive ammunition box (close-range detonation)</entityname.CloseDefenseArtillery_explosionBox_Close>
+	<entitydescription.CloseDefenseArtillery_explosionBox_Close>Explosive shells equipped with proximity fuses (2M) are heavier and bulkier, fly slower, but are more accurate, and can form a terrifying fire network in front of large numbers of enemies.</entitydescription.CloseDefenseArtillery_explosionBox_Close>
+	<entityname.CloseDefenseArtillery_empBox>Close-in EMP Universal Ammunition Box</entityname.CloseDefenseArtillery_empBox>
+	<entitydescription.CloseDefenseArtillery_empBox>A special type of electromagnetic bomb that produces extremely destructive electrolysis upon explosion, used to disable enemy electronic equipment or turrets. It can penetrate invincible ship hulls (3 layers).\n‖color:gui.orange‖Close-range defense guns, rapid-fire guns, and electromagnetic guns‖end‖All compatible</entitydescription.CloseDefenseArtillery_empBox>
+	<entityname.CloseDefenseArtillery_collapseBox>Close-range anti-collapse ammunition box</entityname.CloseDefenseArtillery_collapseBox>
+	<entitydescription.CloseDefenseArtillery_collapseBox>The group applied the manufacturing principle of fragmentation shells to the close-in weapon system in a rather crude manner, but the drawbacks were also obvious, resulting in a significant decline in compatibility and turret performance.</entitydescription.CloseDefenseArtillery_collapseBox>
+	<!--380-->
+	<entityname.380MMMAINGUN>380MM twin main guns</entityname.380MMMAINGUN>
+	<entityname.Bismarck_Old>380MM twin main guns</entityname.Bismarck_Old>
+	<entitydescription.Bismarck_Old>The outdated giant cannon, once the pride of the Earth fleet, might be more effective against the creatures of Europa than advanced water pipes?\n‖color:gui.orange‖Long press to fire repeatedly, allowing you to launch railgun shells.‖end‖</entitydescription.Bismarck_Old>
+	<entitydescription.380MMMAINGUN>The outdated giant cannon, once the pride of the Earth fleet, might be more effective against the creatures of Europa than advanced water pipes?？\n‖color:gui.orange‖Long press to fire repeatedly, allowing you to launch railgun shells.‖end‖</entitydescription.380MMMAINGUN>
+	<entityname.380railgunloader>380MM gun loading device</entityname.380railgunloader>
+	<entitydescription.380railgunloader></entitydescription.380railgunloader>
+	<entityname.HeavyArtilleryShellMounts>Heavy artillery shell rack</entityname.HeavyArtilleryShellMounts>
+	<entitydescription.HeavyArtilleryShellMounts>Ammunition rack for 380 mm and 460 mm shells</entitydescription.HeavyArtilleryShellMounts>
+	<!--380Ammos-->
+	<entityname.380MMAmmo_Propellant>380MM propellant</entityname.380MMAmmo_Propellant>
+	<entitydescription.380MMAmmo_Propellant>380MM Special propellant for naval gun shells</entitydescription.380MMAmmo_Propellant>
+	<entityname.380MMAmmo_Hollow>380MM hollow shell casing</entityname.380MMAmmo_Hollow>
+	<entitydescription.380MMAmmo_Hollow>Nothing but an iron shell.</entitydescription.380MMAmmo_Hollow>
+	<entityname.380MMAmmo_Solid>380MM Armor-piercing composite rod (APCR)</entityname.380MMAmmo_Solid>
+	<entitydescription.380MMAmmo_Solid>Extremely inexpensive solid cannonballs that rely solely on kinetic energy to cause damage.</entitydescription.380MMAmmo_Solid>
+	<entityname.380MMAmmo_HE>380MM High explosive (HE)</entityname.380MMAmmo_HE>
+	<entitydescription.380MMAmmo_HE>The lethality of high-explosive shells is achieved through gas expansion and fragmentation, and they are unable to penetrate the heavy armor of enemy ships.</entitydescription.380MMAmmo_HE>
+	<entityname.380MMAmmo_AP>380MM Armor-piercing (AP)</entityname.380MMAmmo_AP>
+	<entitydescription.380MMAmmo_AP>Relying on the hardness of the warhead and its own weight to crash into enemy ships, then exploding inside to cause damage.</entitydescription.380MMAmmo_AP>
+	<entityname.380MMAmmo_SAP>380MM Semi-armor-piercing (SAP)</entityname.380MMAmmo_SAP>
+	<entitydescription.380MMAmmo_SAP>A type of ammunition that combines armor-piercing and high-explosive capabilities, capable of effectively penetrating enemy ship armor and causing significant damage.</entitydescription.380MMAmmo_SAP>
+	<entityname.380MMAmmo_Light>380MM （Flares）</entityname.380MMAmmo_Light>
+	<entitydescription.380MMAmmo_Light>When fired, the illumination flare splits into several illumination cores during flight, illuminating the surrounding area.</entitydescription.380MMAmmo_Light>
+	<!--460-->
+	<entityname.460mm>460MM triple-barreled naval gun</entityname.460mm>
+	<entitydescription.460mm>The Earth Fleet's former glory in caliber warfare (cannot be boarded, for use by official Terra ships only)</entitydescription.460mm>
+	<entityname.460MMAmmo>460MM high-explosive armor-piercing shell</entityname.460MMAmmo>
+	<entitydescription.460MMAmmo>The Earth Fleet's former glory in caliber warfare is now nothing more than a pile of scrap metal.</entitydescription.460MMAmmo>
+	<!--可控深弹-->
+	<entityname.Con_depthchargetube>Controlled deep-water bomb launcher</entityname.Con_depthchargetube>
+	<entitydescription.Con_depthchargetube>Direction-changeable deep-water bomb launcher\n‖color:gui.orange‖Railgun shells can be deployed.‖end‖</entitydescription.Con_depthchargetube>
+	<entityname.Con_depthchargeloader>Controlled deep-water bomb loader</entityname.Con_depthchargeloader>
+	<entitydescription.Con_depthchargeloader></entitydescription.Con_depthchargeloader>
+	<!--重型激光防御系统-->
+	<entityname.LaserCloseSystem>Heavy Laser Defense System</entityname.LaserCloseSystem>
+	<entitydescription.LaserCloseSystem>The heavy laser defense turrets widely deployed on the Group's flagship warships require immense power consumption for charging. Two types of ammunition are available: multi-scatter rounds provide wide-area coverage, ideal for group engagements; while focused-energy rounds concentrate laser beams to effortlessly penetrate heavily armored targets.</entitydescription.LaserCloseSystem>
+	<entityname.LaserCloseSystem_Auto>Fully Automated Heavy-Duty Laser Defense System</entityname.LaserCloseSystem_Auto>
+	<entitydescription.LaserCloseSystem_Auto>The integrated search-and-strike module has been upgraded to automatically identify targets and engage them, but this comes at a higher cost and requires increased power consumption to support its operation.</entitydescription.LaserCloseSystem_Auto>
+	<entityname.LaserCloseSystem_loader>Heavy Laser Defense System Loader</entityname.LaserCloseSystem_loader>
+	<entityname.LaserCloseSystem_MultipleLasersBox>Heavy-Duty Multi-Laser Module</entityname.LaserCloseSystem_MultipleLasersBox>
+	<entitydescription.LaserCloseSystem_MultipleLasersBox>The internal structure employs an extremely complex prism arrangement, maximizing the laser's scattering angle but resulting in reduced penetration and ultimate damage.</entitydescription.LaserCloseSystem_MultipleLasersBox>
+	<entityname.LaserCloseSystem_HeavyLasersBox>Heavy-Duty Focused Energy Laser Module</entityname.LaserCloseSystem_HeavyLasersBox>
+	<entitydescription.LaserCloseSystem_HeavyLasersBox>Using a specially designed prism, all lasers converge and erupt outward—a brutally efficient method against heavily armored targets. Any armor comes into contact with the laser beam and instantly melts away. ‖color:gui.orange‖Features a headshot execution function‖end‖</entitydescription.LaserCloseSystem_HeavyLasersBox>
+	<!--可控深弹Ammos-->
+	<!--WEAPONS-->
+	<!--手枪-->
+	<entityname.TL_WhitePhoenix>White Phoenix</entityname.TL_WhitePhoenix>
+	<entitydescription.TL_WhitePhoenix>White Phoenix is steady and solemn, its barrel forged like white feathers. Though its rate of fire is slow, the muzzle's still flame and heavy recoil imbue each shot with decisive intent. ‖color:gui.blue‖Twin Design · Phoenix and Kite White Phoenix symbolizes “the purity of wind,” while Purple Kite embodies “the agility of shadow.” \nComplementing each other, they are known as “Bright Wings and Dark Feathers.”‖end‖</entitydescription.TL_WhitePhoenix>
+	<entityname.WhitePhoenix_magazine>White Phoenix Pistol Magazine</entityname.WhitePhoenix_magazine>
+	<entitydescription.WhitePhoenix_magazine>Each pull of the trigger on the White Phoenix pistol feels like a plummeting strike from the heavens. Its unique “wind ridge penetration structure” grants the bullet astonishing penetrating power, capable of effortlessly shattering armor and cover.</entitydescription.WhitePhoenix_magazine>
+	<entityname.HX_PurpleKite>Purple Kite</entityname.HX_PurpleKite>
+	<entitydescription.HX_PurpleKite>The Purple Kite is agile and elusive, featuring a deep purple gradient shell with lightweight internal materials. This design delivers exceptional rapid-fire responsiveness, making it exceptionally nimble in close-to-medium range combat. ‖color:gui.blue‖Twin Design · Phoenix and Kite The White Phoenix symbolizes “the purity of wind,” while the Purple Kite embodies “the agility of shadow.” \nComplementing each other, they are known as “Bright Wings and Dark Feathers.”‖end‖</entitydescription.HX_PurpleKite>
+	<entityname.PurpleKite_magazine>Purple Kite Pistol Magazine</entityname.PurpleKite_magazine>
+	<entitydescription.PurpleKite_magazine>The Purple Kite pistol's bullets deal relatively low damage per shot, but it excels in rapid fire rate, strong handling, and excellent penetration, making it exceptionally agile in close-to-medium range combat.</entitydescription.PurpleKite_magazine>
+	<!--TL武器-->
+	<entityname.TL_Baikal>‖color:gui.red‖Ultimate Weapon - Baikal Blue Ice‖end‖</entityname.TL_Baikal>
+	<entitydescription.TL_Baikal>‖color:gui.red‖-贝加尔的蓝冰下，冰封的生命诗-‖end‖\n A top-secret experimental weapon exhibiting extreme instability, requiring either a ‖color:gui.orange‖Baikal Blue Ice Energy Capacitor‖end‖ for power supply or a single bullet to be loaded. When a bullet is loaded, electromagnetic force propels it at high velocity; alternatively, it can fire directly using laser technology. \n - Comes with one capacitor included.-</entitydescription.TL_Baikal>
+	<entityname.TL_Baikal_Battery>‖color:gui.red‖Baikal Blue Ice - Energy Capacitor‖end‖</entityname.TL_Baikal_Battery>
+	<entitydescription.TL_Baikal_Battery>Internal injection of concentrated high-voltage electricity; single-use only. Recharge at the printer after use.</entitydescription.TL_Baikal_Battery>
+	<!--步枪-->
+	<!--AR57-->
+	<entityname.TL_AR57>AR57carbine</entityname.TL_AR57>
+	<entitydescription.TL_AR57>Tera recovered one of the prototype weapon blueprints from the abandoned military blockade outpost of the Alliance, reverse-engineered and modified it, and ultimately produced a standard-issue submachine carbine.</entitydescription.TL_AR57>
+	<entityname.AR57_magazine>AR57carbine magazine</entityname.AR57_magazine>
+	<entitydescription.AR57_magazine>Magazine for AR57\n‖color:gui.orange‖Penetration: Weak Damage: Medium-high Ammo capacity: 50‖end‖</entitydescription.AR57_magazine>
+	<!--TL14-15-->
+	<entityname.TL_TL14>TL-14assault rifle</entityname.TL_TL14>
+	<entitydescription.TL_TL14>Terra Group standard equipment is widely favored by mercenaries thanks to its outstanding precision and design, and is suitable for a variety of scenarios.</entitydescription.TL_TL14>
+	<entityname.TL_TL14_Pro>TL-14assault rifle·Plus</entityname.TL_TL14_Pro>
+	<entitydescription.TL_TL14_Pro>TL-14An improved version of the standard assault rifle, featuring additional expansion slots for mounting accessories and addressing design flaws in the previous model, it has also become more aggressive.\n‖color:gui.orange‖Supported accessories: Vertical grip, lightweight extended barrel‖end‖</entitydescription.TL_TL14_Pro>
+	<entityname.TL14_magazine>TL-14/15rifle magazine</entityname.TL14_magazine>
+	<entitydescription.TL14_magazine>Designed for the TL-14 magazine, but can also be used with the TL-15 due to its excellent compatibility.\n‖color:gui.orange‖Penetration: Weak Damage: Medium-high Ammo capacity: 40‖end‖</entitydescription.TL14_magazine>
+	<!---->
+	<entityname.TL_TL15>TL-15assault rifle</entityname.TL_TL15>
+	<entitydescription.TL_TL15>Yes, we are a little tired of the old TL-14, even though its performance is impeccable. The group has developed an improved model at just the right time. Who doesn't love a new toy?\n‖color:gui.orange‖Supported accessories: Vertical grip, heavy-duty extended barrel‖end‖</entitydescription.TL_TL15>
+	<entityname.TL_TL15_Pro>TL-15assault rifle·Plus</entityname.TL_TL15_Pro>
+	<entitydescription.TL_TL15_Pro>In its final iteration on TL-15, this weapon has become the pinnacle of the Terra series. When its bullets rain down on the enemy's face, it becomes clear why the corporation has locked down this blueprint.\n‖color:gui.orange‖Supported accessories: Vertical grip, Heavy-duty extended barrel, Gun chip ‖end‖</entitydescription.TL_TL15_Pro>
+	<entityname.TL15_magazine>TL-15rifle magazine</entityname.TL15_magazine>
+	<entitydescription.TL15_magazine>Designed for the TL-15 magazine\n‖color:gui.orange‖Penetration: High Damage: High Ammo Capacity: 55‖end‖</entitydescription.TL15_magazine>
+	<!--TL霰弹-->
+	<!--TL13-23-->
+	<entityname.TL_TL13>TL-13Standard shotgun</entityname.TL_TL13>
+	<entitydescription.TL_TL13>The group's basic standard equipment is easy to use and manufacture, and can be quickly mastered even without combat experience.</entitydescription.TL_TL13>
+	<entityname.TL_TL23>TL-23Advanced Assault Shotgun</entityname.TL_TL23>
+	<entitydescription.TL_TL23>Rejecting the TL13 design, the group redesigned a highly versatile assault weapon with high compatibility and excellent performance that was widely recognized by the group's mercenaries.\n‖color:gui.orange‖Supported accessories: Vertical grip, Heavy-duty extended barrel, Gun chip ‖end‖</entitydescription.TL_TL23>
+	<entityname.TL_TL23_Pro>TL-23Advanced Assault Shotgun·Plus</entityname.TL_TL23_Pro>
+	<entitydescription.TL_TL23_Pro>Building on the TL-23's excellent expandability, the gun body structure has been further upgraded, placing it among the top weapons in the group.\n‖color:gui.orange‖Supported accessories: Vertical grip, Heavy-duty extended barrel, Gun chip ‖end‖</entitydescription.TL_TL23_Pro>
+	<!--其它-->
+	<entityname.Gatlingun_TL>T-1S Experimental Gatling Gun</entityname.Gatlingun_TL>
+	<entitydescription.Gatlingun_TL>Tera Research's new Gatling gun uses special batteries to fire lasers. It has an extremely fast rate of fire, a 400-round magazine capacity, and can inflict additional damage on non-human targets. If the target is a skin-changing creature, the damage will be even higher. The magazine is rechargeable.</entitydescription.Gatlingun_TL>
+	<entityname.gatlinmagazine_TL>T-1S type charging compartment</entityname.gatlinmagazine_TL>
+	<entitydescription.gatlinmagazine_TL>Can be charged, but slowly</entitydescription.gatlinmagazine_TL>
+	<!--HX武器-->
+	<!--灭-->
+	<entityname.HX_MR>High-speed electromagnetic weapon - Extinction Blade</entityname.HX_MR>
+	<entitydescription.HX_MR>Developed by Phantom Star Industries, this high-speed electromagnetic weapon propels a specially designed flying blade with extremely high kinetic energy. Throw away those plastic toys you have in your hands—this is your ultimate weapon.</entitydescription.HX_MR>
+	<entityname.MR_magazine>Electromagnetic magazine</entityname.MR_magazine>
+	<entitydescription.MR_magazine>The bullets, made from the group's proprietary alloy, can easily tear through any creature's armor and directly shred their internal organs.\n‖color:gui.orange‖Penetration: High Damage: High Ammo Capacity: 10 Can penetrate 3 layers of ship hull‖end‖</entitydescription.MR_magazine>
+	<entityname.MR_magazine_radiation>Extinction Blade Electromagnetic Magazine · Radiant Light</entityname.MR_magazine_radiation>
+	<entitydescription.MR_magazine_radiation>The flying blade structure has been redesigned so that when it enters the enemy's body, it bursts into countless radiating beads. They say it tastes sweet. Do you dare to lick it and try it?\n‖color:gui.orange‖Penetration: High Damage: High Ammo Capacity: 10 Can penetrate 3 layers of ship hull‖end‖</entitydescription.MR_magazine_radiation>
+	<!--协调者-->
+	<entityname.HX_coordinator>-Coordinator-Rifle</entityname.HX_coordinator>
+	<entitydescription.HX_coordinator>The first weapon developed by Phantom Star Group is a handy weapon for the early to mid-game.</entitydescription.HX_coordinator>
+	<entityname.coordinator_magazine>Coordinator Universal Drum</entityname.coordinator_magazine>
+	<entitydescription.coordinator_magazine>A drum used by coordinators, which can also be used by pythons.\n‖color:gui.orange‖Penetration: Weak Damage: Medium-high Ammo capacity: 50‖end‖</entitydescription.coordinator_magazine>
+	<entityname.coordinator_magazine2>Coordinator Universal Magazine</entityname.coordinator_magazine2>
+	<entitydescription.coordinator_magazine2>Magazine for coordinators\n‖color:gui.orange‖Penetration: Weak Damage: Medium-high Ammo capacity: 40‖end‖</entitydescription.coordinator_magazine2>
+	<!--蚺蛇-->
+	<entityname.HX_Snakes>-Python-Rifle</entityname.HX_Snakes>
+	<entitydescription.HX_Snakes>The Phantom Star, developed in line with the TL-15 rapid-fire rifle, boasts a futuristic design. What lies beneath its sci-fi exterior?</entitydescription.HX_Snakes>
+	<entityname.HX_Snakes_magazine>Python rifle magazine</entityname.HX_Snakes_magazine>
+	<entitydescription.HX_Snakes_magazine>Magazine for use with a python\n‖color:gui.orange‖Penetration: High Damage: High Ammo Capacity: 50‖end‖</entitydescription.HX_Snakes_magazine>
+	<!--竞争者-->
+	<entityname.HX_competitor>‖color:purple‖competitor‖end‖</entityname.HX_competitor>
+	<entitydescription.HX_competitor>A weapon engraved with strange symbols, with the Phantom Star logo engraved in an inconspicuous place, feels very heavy when held in the hand.\n‖color:gui.orange‖It is said to have been found in a leopard's den.‖end‖</entitydescription.HX_competitor>
+	<entityname.HX_competitor_ammo_AP>Hand Cannon/Competitor Bullet - Heavy Spiral Armor-Piercing Projectile</entityname.HX_competitor_ammo_AP>
+	<entitydescription.HX_competitor_ammo_AP>The universal heavy handgun cartridge boasts high destructive power and a hefty price tag.</entitydescription.HX_competitor_ammo_AP>
+	<entityname.HX_competitor_ammo_HeadShattering>‖color:purple‖Competitor Bullet - Skull Crusher‖end‖</entityname.HX_competitor_ammo_HeadShattering>
+	<entitydescription.HX_competitor_ammo_HeadShattering>A uniquely shaped bullet that explodes inside the skull after penetrating the head.\n‖color:gui.orange‖A direct hit to the head will instantly kill, but only if the opponent has a head.‖end‖</entitydescription.HX_competitor_ammo_HeadShattering>
+	<entityname.HX_competitor_ammo_deadwood>‖color:purple‖Competitor Bullet - Rotten Wood‖end‖</entityname.HX_competitor_ammo_deadwood>
+	<entitydescription.HX_competitor_ammo_deadwood>‖color:purple‖生无归路心如纸\n血落尘中葬我名‖end‖</entitydescription.HX_competitor_ammo_deadwood>
+	<!--超级地球-->
+	<entityname.NIL_BurstGun>Blast Gun</entityname.NIL_BurstGun>
+	<entitydescription.NIL_BurstGun>‖color:gui.orange‖Super Earth Weapon‖end‖\nThe prototype developed by Terra Tech Group's Weapons Division stands as one of the finest achievements from its mechanical design department. Utilizing large-caliber rapid-fire cannon shells, it has successfully mitigated recoil to a level tolerable for human operators. However, significant propellant gas leakage occurs during operation, rendering it strictly prohibited for use by personnel without specialized training.</entitydescription.NIL_BurstGun>
+	<entityname.NIL_BurstGun_magazine>Blast Gun High-Explosive Magazine（HE）</entityname.NIL_BurstGun_magazine>
+	<entitydescription.NIL_BurstGun_magazine>‖color:gui.orange‖Super Earth Weapon‖end‖\nBlast Gun Traditional Magazine Holds 5 rounds of anti-aircraft high-explosive ammunition Features lightweight high-strength alloy construction for reduced weight</entitydescription.NIL_BurstGun_magazine>
+	<entityname.NIL_BurstGun_HEAT_magazine>Armor-Piercing Fragmentation Cartridge（HEAT）</entityname.NIL_BurstGun_HEAT_magazine>
+	<entitydescription.NIL_BurstGun_HEAT_magazine>‖color:gui.orange‖Super Earth Weapon‖end‖\nBased on the high-explosive shells for the Burst Gun, the CR-9 red-gray explosive was adopted to achieve enhanced blast capability and penetration damage.</entitydescription.NIL_BurstGun_HEAT_magazine>
+	<entityname.NIL_BurstGun_HEAT_TIME_magazine>Armor-Piercing Fragmentation Cartridge（HEAT-Delay fuse）</entityname.NIL_BurstGun_HEAT_TIME_magazine>
+	<entitydescription.NIL_BurstGun_HEAT_TIME_magazine>‖color:gui.orange‖Super Earth Weapon‖end‖\nFitting burst-firing armor-piercing rounds with delayed-action fuses enables them to detonate 0.25 seconds after impact, delivering optimal effectiveness against enemies concealed behind cover or doors.</entitydescription.NIL_BurstGun_HEAT_TIME_magazine>
+	<entityname.NIL_BambooSpear>Spear gun</entityname.NIL_BambooSpear>
+	<entitydescription.NIL_BambooSpear>‖color:gui.orange‖Super Earth Weapon‖end‖\nTerra Group's next-generation multi-purpose projectile launcher employs an elastic energy storage principle to fire subsonic high-quality ammunition, partially replacing the grenade launchers that perform poorly on Europa.</entitydescription.NIL_BambooSpear>
+	<entityname.TL_RedAcidSpear>Spear gun Ammunition - Red Acid Mao</entityname.TL_RedAcidSpear>
+	<entitydescription.TL_RedAcidSpear>‖color:gui.orange‖Super Earth Weapon‖end‖\nEquipped with a hydrogen fluoride warhead featuring a contact detonator, it ruptures upon impact with the target, releasing a massive cloud of corrosive acid.</entitydescription.TL_RedAcidSpear>
+	<entityname.TL_RedAcidSpear_B>Spear gun Ammunition - Red Acid Mao (Injection Version)</entityname.TL_RedAcidSpear_B>
+	<entitydescription.TL_RedAcidSpear_B>‖color:gui.orange‖Super Earth Weapon‖end‖\nThe warhead has been modified into a specialized injection device requiring special materials to resist corrosion. Upon striking an enemy, it directly injects concentrated acid into their body, completely incinerating them into an empty shell.</entitydescription.TL_RedAcidSpear_B>
+	<entityname.TL_RedAcidSpear_C>Spear gun Ammunition - Sulfuric Acid Mao (Injection Version)</entityname.TL_RedAcidSpear_C>
+	<entitydescription.TL_RedAcidSpear_C>‖color:gui.orange‖Super Earth Weapon‖end‖\nThe warhead was modified to a specially formulated syringe, with its internal solution replaced by ordinary concentrated sulfuric acid, thereby reducing production costs.</entitydescription.TL_RedAcidSpear_C>
+
+
+	<entityname.NIL_Ultimatum>Ultimatum</entityname.NIL_Ultimatum>
+	<entitydescription.NIL_Ultimatum>‖color:gui.orange‖Super Earth Weapon‖end‖\nTerra Tech Group Department's experimental individual light weapon prototype, featuring an oversized caliber projectile design, is an exceptional tool for individual anti-armor combat—at least that was the original intent. This is the final ultimatum to the enemy, and to you.</entitydescription.NIL_Ultimatum>
+	<entityname.NIL_Ultimatum_Ammo>Ultimatum Miniature Nuclear Bomb</entityname.NIL_Ultimatum_Ammo>
+	<entitydescription.NIL_Ultimatum_Ammo>‖color:gui.orange‖Super Earth Weapon‖end‖\nThe palm-sized warhead was packed to the brim with a full box of CR-9 red-gray explosive, resulting in a top-heavy design that caused severe plummeting. While delivering devastating explosions to the enemy, it also issued a final warning to the user.</entitydescription.NIL_Ultimatum_Ammo>
+	<!--无势力武器-->
+	<!--AT4-->
+	<entityname.Nil_AT4>AT-4 Anti-Tank Recoilless Rocket Launcher</entityname.Nil_AT4>
+	<entitydescription.Nil_AT4>Pre-loaded disposable weapons discarded after firing, equipped with modified armor-piercing explosive rounds. Blueprints from the Earth era. Due to their simple structure, all factions on Europa can mass-produce and modify them. ‖color:gui.orange‖Armor-piercing explosive round: Capable of penetrating one layer of hull armor.‖end‖</entitydescription.Nil_AT4>
+	<entityname.AT4Ammo_TL>AT-4 Rocket-Propelled Grenade</entityname.AT4Ammo_TL>
+	<entitydescription.AT4Ammo_TL>If you've picked up this thing, it means there's a bug. Please take it and dismantle it.</entitydescription.AT4Ammo_TL>
+	<!--AKE-->
+	<entityname.Nil_AKE>AKE assault rifle</entityname.Nil_AKE>
+	<entitydescription.Nil_AKE>The best choice for early-stage standard weapons</entitydescription.Nil_AKE>
+	<entityname.AKE_magazine>AKE magazine</entityname.AKE_magazine>
+	<entitydescription.AKE_magazine>AKE magazine\n‖color:gui.orange‖Penetration: Weak Damage: Low Ammo Capacity: 30‖end‖</entitydescription.AKE_magazine>
+	<entityname.AKE_Magazines2>AKE drum</entityname.AKE_Magazines2>
+	<entitydescription.AKE_Magazines2>AKE drum\n‖color:gui.orange‖Penetration: Weak Damage: Low Ammo Capacity: 65‖end‖</entitydescription.AKE_Magazines2>
+	<!--M2-->
+	<entityname.Nil_M2Browning>M2 Browning heavy machine gun</entityname.Nil_M2Browning>
+	<entitydescription.Nil_M2Browning>old-fashioned heavy machine gun</entitydescription.Nil_M2Browning>
+	<entityname.M2_Magazine>M2 conventional ammunition</entityname.M2_Magazine>
+	<entitydescription.M2_Magazine>The severely aged ammunition, with rust-stained shells full of stories from the past, is not suitable for suppression. It's good enough if it can be fired.\n‖color:gui.orange‖Penetration: Weak Damage: Low Ammo Capacity: 200‖end‖</entitydescription.M2_Magazine>
+	<entityname.M2_Magazine_ap>M2 Extended-range armor-piercing ammunition</entityname.M2_Magazine_ap>
+	<entitydescription.M2_Magazine_ap>A whole box of brand-new custom armor-piercing ammunition, with extended ammunition belts. The silver-blue bullets glistened with a cold metallic sheen in the dim light.\n‖color:gui.orange‖Penetration: High Damage: High Ammo Capacity: 300‖end‖</entitydescription.M2_Magazine_ap>
+	<!--霰弹-->
+	<entityname.TL_shotgunammo_ordinary>TL Conventional shotgun</entityname.TL_shotgunammo_ordinary>
+	<entitydescription.TL_shotgunammo_ordinary>The standard shotgun shells used by the group have weak armor-piercing capabilities but higher convergence and flesh damage, making them suitable for most shotguns.\n‖color:gui.orange‖Penetration: Weak Damage: High‖end‖</entitydescription.TL_shotgunammo_ordinary>
+	<entityname.TL_shotgunammo_fire>TL Burning shotgun shells</entityname.TL_shotgunammo_fire>
+	<entitydescription.TL_shotgunammo_fire>Shotgun shells specifically designed for Terra Group, containing highly flammable materials that explode upon impact with the target.\n‖color:gui.orange‖Penetration: Weak Damage: Low Special Effect: Explosion‖end‖</entitydescription.TL_shotgunammo_fire>
+	<entityname.TL_shotgunammo_burst>TL Blast shotgun</entityname.TL_shotgunammo_burst>
+	<entitydescription.TL_shotgunammo_burst>Upgraded from conventional ammunition, it is equipped with a micro-explosive warhead and is a good alternative to conventional shotgun ammunition.\n‖color:gui.orange‖Penetration: Weak Damage: Medium‖end‖</entitydescription.TL_shotgunammo_burst>
+	<entityname.TL_shotgunammo_disintegrate>TL Shotgun pellets</entityname.TL_shotgunammo_disintegrate>
+	<entitydescription.TL_shotgunammo_disintegrate>One of the products of the group's collaboration with Phantom Star Darkness, it tears apart the enemy's DNA/cells after rushing into their bodies, dismantling their defenses.\n‖color:gui.orange‖Penetration: High Damage: High Special Effect: Disintegration‖end‖</entitydescription.TL_shotgunammo_disintegrate>
+	<!--entityname.TL_shotgunammo_ArrowShaped>TL箭型霰弹</entityname.TL_shotgunammo_ArrowShaped>
+	<entitydescription.TL_shotgunammo_ArrowShaped>\n‖color:gui.orange‖穿深：高 伤害：高‖end‖</entitydescription.TL_shotgunammo_ArrowShaped-->
+	<!--装弹器-->
+	<entityname.TL_ammobox>Terra Universal Ammunition Box</entityname.TL_ammobox>
+	<entitydescription.TL_ammobox>The intelligent ammunition box developed by Terra Group can automatically recognize the identifiers on Terra magazines and fill them with corresponding bullets through 3D printing, with a total of 1,250 units of material (80 units consumed each time, can be loaded into non-powered weapons).\n‖color:gui.orange‖[Insert magazine, right-click + left-click, press magazine]‖end‖</entitydescription.TL_ammobox>
+	<entityname.HX_ammobox>Phantom Star Universal Ammunition Box</entityname.HX_ammobox>
+	<entitydescription.HX_ammobox>Teral supplies Phantasia with smart ammunition boxes that can automatically recognize the identifiers on Phantasia's magazines and fill them with corresponding bullets via 3D printing. There are a total of 1,250 units of material (70 units are consumed each time, and can be loaded into non-faction weapons).\n‖color:gui.orange‖[Insert magazine, right-click + left-click, press magazine]‖end‖</entitydescription.HX_ammobox>
+	<!--配件-->
+	<entityname.TL_Tholographic_sight>1x Holographic Sight</entityname.TL_Tholographic_sight>
+	<entitydescription.TL_Tholographic_sight>Provides a 1x holographic sight\n‖color:gui.orange‖(-35% spread, +10% movement speed)‖end‖</entitydescription.TL_Tholographic_sight>
+	<entityname.TL_T2x_sight>2x Holographic Sight</entityname.TL_T2x_sight>
+	<entitydescription.TL_T2x_sight>Provides 2x magnification sights, allowing shooters to hit vital targets more easily.\n‖color:gui.orange‖(-45% spread, -5% movement speed)‖end‖</entitydescription.TL_T2x_sight>
+	<entityname.TL_T3x_sight>3x Holographic Sight</entityname.TL_T3x_sight>
+	<entitydescription.TL_T3x_sight>The 3x scope provides better accuracy, allowing for more precise aiming, but it does slow you down.\n‖color:gui.orange‖(-60% spread, -20% movement speed)‖end‖</entitydescription.TL_T3x_sight>
+	<entityname.TL_Tfocusingflashlight>tactical flashlight</entityname.TL_Tfocusingflashlight>
+	<entitydescription.TL_Tfocusingflashlight>Ultra-long-range flashlight</entitydescription.TL_Tfocusingflashlight>
+	<entityname.TL_Tspreadflashlight>wide-area flashlight</entityname.TL_Tspreadflashlight>
+	<entitydescription.TL_Tspreadflashlight>A flashlight that illuminates the entire room</entitydescription.TL_Tspreadflashlight>
+	<entityname.TL_Tvertical_grip>vertical grip</entityname.TL_Tvertical_grip>
+	<entitydescription.TL_Tvertical_grip>The vertical grip allows the shooter to grip the firearm more securely, improving weapon performance.\n‖color:gui.orange‖(-50% water flow impact, -35% weapon spread)‖end‖</entitydescription.TL_Tvertical_grip>
+	<entityname.TL_Tcorner_grip>Right-angle handle</entityname.TL_Tcorner_grip>
+	<entitydescription.TL_Tcorner_grip>Provides a more comfortable shooting posture\n‖color:gui.orange‖(+15% movement speed, +25 weapon handling)‖end‖</entitydescription.TL_Tcorner_grip>
+	<entityname.TL_Textended_barrel_light>lightweight barrel</entityname.TL_Textended_barrel_light>
+	<entitydescription.TL_Textended_barrel_light>Extended barrel attachments can increase base damage.\n‖color:gui.orange‖(+12% damage, -15% spread)‖end‖</entitydescription.TL_Textended_barrel_light>
+	<entityname.TL_Textended_barrel>重型枪管</entityname.TL_Textended_barrel>
+	<entitydescription.TL_Textended_barrel>Extended barrel attachments can increase base damage.\n‖color:gui.orange‖(+20% damage, -18% spread)‖end‖</entitydescription.TL_Textended_barrel>
+	<!--芯片-->
+	<entityname.TL_WeaponChips_Thermalimaging>Thermal imaging chip</entityname.TL_WeaponChips_Thermalimaging>
+	<entitydescription.TL_WeaponChips_Thermalimaging>Can hold firearms and armor, and activate thermal imaging module.</entitydescription.TL_WeaponChips_Thermalimaging>
+	<entityname.TL_WeaponChips_medical>Tera Medical Chip</entityname.TL_WeaponChips_medical>
+	<entitydescription.TL_WeaponChips_medical>Can be equipped with firearms and armor, and has a medical module.</entitydescription.TL_WeaponChips_medical>
+	<entityname.TL_WeaponChips_balance>Terra Gun Balance Chip</entityname.TL_WeaponChips_balance>
+	<entitydescription.TL_WeaponChips_balance>Can be installed on certain firearms, Terra Group's first-generation combat chip, which can effectively regulate firearm performance and unleash extraordinary combat power.\n‖color:gui.orange‖+25% movement speed, +20% damage, +25% reload speed, -20% spread‖end‖</entitydescription.TL_WeaponChips_balance>
+	<entityname.TL_WeaponChips_attack>Tera Gun Assault Chip</entityname.TL_WeaponChips_attack>
+	<entitydescription.TL_WeaponChips_attack>The extremely advanced chips developed by the group are often distributed to mercenaries on a one-time basis.\n‖color:gui.orange‖+50% movement speed, +35% damage, +20% reload speed, -50% spread, -50% maximum health, -99% health regeneration speed, all skills -90 except weapons, weapon skills increased to 250.‖end‖</entitydescription.TL_WeaponChips_attack>
+	<!--投掷物-->
+	<entityname.Throwables_Grenade_Close>Anti-Personnel Grenade (Proximity Fuse)</entityname.Throwables_Grenade_Close>
+	<entitydescription.Throwables_Grenade_Close>The device is internally equipped with Terra Group's displacement sensors and friend-or-foe identification modules. It detonates upon approaching enemies within a certain range. Due to the sensor components, internal space is reduced, resulting in decreased explosive charge capacity. \n ‖color:red‖Danger: When not contained, the displacement sensor actively monitors approaching enemies (in other words, if you drop it on the ground, it becomes a landmine)‖end‖</entitydescription.Throwables_Grenade_Close>
+	<entityname.TL_Remotestrikemarker>Remote strike marker</entityname.TL_Remotestrikemarker>
+	<entitydescription.TL_Remotestrikemarker>Remotely call for standard missile support from the Terra Escort Ship, with a total of 20 fire coverings. Placing depth charges and other containers is ineffective.</entitydescription.TL_Remotestrikemarker>
+	<entityname.TL_RemotestrikemarkerB>Strategic-level long-range strike marker</entityname.TL_RemotestrikemarkerB>
+	<entitydescription.TL_RemotestrikemarkerB>Remotely call in a tactical nuclear bomb from the Ark Group for a precision strike. Please stay as far away from the marked area as possible. Depositing deep-water bombs or other containers is ineffective.</entitydescription.TL_RemotestrikemarkerB>
+	<entityname.blindbox_TL_Remotestrikemarker>Strike marker box</entityname.blindbox_TL_Remotestrikemarker>
+	<entitydescription.blindbox_TL_Remotestrikemarker>1% chance to obtain a strategic marker, 99% chance to obtain a normal marker.</entitydescription.blindbox_TL_Remotestrikemarker>
+	<entityname.Throwables_Grenade>anti-personnel grenade</entityname.Throwables_Grenade>
+	<entitydescription.Throwables_Grenade>No structural damage, just shove it up your teammate's ass.</entitydescription.Throwables_Grenade>
+	<entityname.Throwables_firecracker_BOX>A box of firecrackers</entityname.Throwables_firecracker_BOX>
+	<entitydescription.Throwables_firecracker_BOX>A toy from Earth's era. Pop a couple after this tour to celebrate—if your captain permits. This box contains 6 firecrackers, which can also trigger traps.</entitydescription.Throwables_firecracker_BOX>
+	<entityname.Throwables_firecracker>Firecracker</entityname.Throwables_firecracker>
+	<entitydescription.Throwables_firecracker>Deals minimal damage with a small area of effect. Can be used to trigger traps</entitydescription.Throwables_firecracker>
+	<entityname.Throwables_bacteriaBronken>Microbial disruption grenade</entityname.Throwables_bacteriaBronken>
+	<entitydescription.Throwables_bacteriaBronken>No structural damage, designed specifically for removing the thalamus</entitydescription.Throwables_bacteriaBronken>
+	<!--其它-->
+	<entityname.redspider>‖color:red‖flower of the afterlife‖end‖</entityname.redspider>
+	<entitydescription.redspider>‖color:red‖地狱之花，生于忘川，盛于忘川‖end‖</entitydescription.redspider>
+	<entityname.Yedris_1>Yedris control chip</entityname.Yedris_1>
+	<entitydescription.Yedris_1>A small, elegant chip bearing the Terra logo and the words “Yedris.”</entitydescription.Yedris_1>
+	<entityname.Yedris_2>Yedris Bomb Main Body</entityname.Yedris_2>
+	<entitydescription.Yedris_2>The technology has already been publicly disclosed by the group, featuring an EMP warhead and a fragmentation warhead, but it is evident that a crucial component is missing.</entitydescription.Yedris_2>
+	<entityname.Yedris>‖color:purple‖Yedris‖end‖</entityname.Yedris>
+	<entitydescription.Yedris>‖color:purple‖The water demon at the confluence‖end‖</entitydescription.Yedris>
+	<!--装备-->
+	<!--背包-->
+	<entityname.TL_smallBag>Small backpack</entityname.TL_smallBag>
+	<entitydescription.TL_smallBag>Small backpack, inexpensive, 10 compartments</entitydescription.TL_smallBag>
+	<entityname.TL_mediumBag>Military medium-sized backpack</entityname.TL_mediumBag>
+	<entitydescription.TL_mediumBag>Military-grade medium-sized backpack, sturdy but slightly expensive, with 16 compartments, capable of holding weapons, and a compartment specifically designed for storing diving gear.</entitydescription.TL_mediumBag>
+	<entityname.TL_bigBag>Military large backpack</entityname.TL_bigBag>
+	<entitydescription.TL_bigBag>Large backpack, very large but more expensive, 25 slots, can hold weapons, and has a slot for a diving suit.</entitydescription.TL_bigBag>
+	<entityname.TL_biggestBag>TL Extra-large backpack</entityname.TL_biggestBag>
+	<entitydescription.TL_biggestBag>Extra-large backpack，Practical, expensive, can hold everything</entitydescription.TL_biggestBag>
+	<entityname.TLbagzhe>TL Extra-large backpack（Folding）</entityname.TLbagzhe>
+	<entitydescription.TLbagzhe>Extra-large backpack，Practical, expensive, can hold everything</entitydescription.TLbagzhe>
+	<!--盾-->
+	<entityname.TL_HurugeeShield>One-handed Charge Shield</entityname.TL_HurugeeShield>
+	<entitydescription.TL_HurugeeShield>A cheap one-handed shield that allows you to elbow enemies while running.</entitydescription.TL_HurugeeShield>
+	<entityname.TL_HurugeeShield_B>Heavy Assault Shield</entityname.TL_HurugeeShield_B>
+	<entitydescription.TL_HurugeeShield_B>Heavy one-handed shield; can elbow enemies while moving.</entitydescription.TL_HurugeeShield_B>
+	<!--材料-->
+	<entityname.MoldingPrinters>Tera Shaping Printer_AD-1 Fleet Standard Type</entityname.MoldingPrinters>
+	<entitydescription.MoldingPrinters>The standard model printer used by the Terra Fleet. Its operating principle is unknown, but it appears to use some kind of technology to simulate plastic materials into the actual materials needed to manufacture items.\n‖color:gui.orange‖The first slot on the lower left is for printing consumables, and the second slot is for the authenticator.‖end‖</entitydescription.MoldingPrinters>
+	<Lightweight_Antioxidant>Lightweight, antioxidant materials can form high-performance alloys with aluminum.</Lightweight_Antioxidant>
+	<entityname.Stabilizers_DNT>propellant stabilizer（DNT）</entityname.Stabilizers_DNT>
+	<entitydescription.Stabilizers_DNT>Essential for high-grade military propellants, ultra-long service life</entitydescription.Stabilizers_DNT>
+	<entityname.AluminumAlloy>aluminum alloy</entityname.AluminumAlloy>
+	<entitydescription.AluminumAlloy>Lightweight, antioxidant, high-strength material</entitydescription.AluminumAlloy>
+	<entityname.Triple_BasePropellant>Ordinary triple-base propellant</entityname.Triple_BasePropellant>
+	<entitydescription.Triple_BasePropellant>High energy, low smoke, stable, specifically designed for heavy naval artillery weapon propellants.</entitydescription.Triple_BasePropellant>
+	<entityname.Triple_BasePropellant_Pro>Advanced triple-base propellant</entityname.Triple_BasePropellant_Pro>
+	<entitydescription.Triple_BasePropellant_Pro>Upgraded from ordinary propellant, this propellant is extremely unstable. Please store it properly.</entitydescription.Triple_BasePropellant_Pro>
+	<entityname.TL_EngineeringPlastics>Terra Engineering Plastics</entityname.TL_EngineeringPlastics>
+	<entitydescription.TL_EngineeringPlastics>A special composite plastic used by the group, which is versatile and highly reusable.</entitydescription.TL_EngineeringPlastics>
+	<entityname.PrintingMaterials>Printing shaping consumables</entityname.PrintingMaterials>
+	<entitydescription.PrintingMaterials>Essential consumables for group printer operation, which can be made using cheaper materials in the printer.</entitydescription.PrintingMaterials>
+	<entityname.Steel_TL>Terra alloy</entityname.Steel_TL>
+	<entitydescription.Steel_TL>The high-hardness alloy used by the group is often used to make high-end weapons and accessories.</entitydescription.Steel_TL>
+	<entityname.TL_Keys>Terra Database Security Key</entityname.TL_Keys>
+	<entitydescription.TL_Keys>Unlock the printer's access to certain blueprints, and repeatedly overwrite their contents after inserting the printer.</entitydescription.TL_Keys>
+	<entityname.TL_blueprint>Terra Data Blueprint</entityname.TL_blueprint>
+	<entitydescription.TL_blueprint>Important materials for crafting high-level equipment</entitydescription.TL_blueprint>
+	<entityname.Radiation_ball>Radiation Brain Beads</entityname.Radiation_ball>
+	<entitydescription.Radiation_ball>The radioactive core dug out of the radioactive worm's corpse—damn, this thing is hot to the touch!\n‖color:gui.orange‖Can be loaded into a creation transport box‖end‖</entitydescription.Radiation_ball>
+	<entityname.nanogel>nanogel</entityname.nanogel>
+	<entitydescription.nanogel>Through research on materials from the Europa ruins, the group created this precious nanomaterial with biological properties.</entitydescription.nanogel>
+	<entityname.nanogel_cr>Destructive nanogel</entityname.nanogel_cr>
+	<entitydescription.nanogel_cr>Through reprogramming and secondary processing of the gel, this type of gel has become hazardous and can cause permanent cell death in living organisms.</entitydescription.nanogel_cr>
+	<entityname.HighEnergyC4>CR-9 Red-Gray Explosive</entityname.HighEnergyC4>
+	<entitydescription.HighEnergyC4>The new product developed by Terra Tech Group's Chemical Division is a specialized substance obtained through centrifugal separation of reaction products from two extraterrestrial minerals: phlogiston and fulminate. The specific production process remains highly confidential. Due to its exceptional performance, Terra Tech Group has designated this series as the CR Series to avoid confusion with the conventional C Series explosives and the IC Series phlogiston explosives. ‖color:gui.red‖Danger: Please note: Store this explosive properly. Failure to do so will result in consequences at your own risk.‖end‖</entitydescription.HighEnergyC4>
+	<entityname.sulphuricacid_Pro>Anhydrous Hydrofluoric Acid</entityname.sulphuricacid_Pro>
+	<entitydescription.sulphuricacid_Pro>A highly corrosive strong acid produced through a specialized process, requiring special containers for storage.</entitydescription.sulphuricacid_Pro>
+
+	<!--工具-->
+	<entityname.weldingtoolPRO1>Advanced electric welder・一</entityname.weldingtoolPRO1>
+	<entitydescription.weldingtoolPRO1>The Group's first generation of low-end welding machines</entitydescription.weldingtoolPRO1>
+	<entityname.weldingtoolPRO2>Advanced electric welder・二</entityname.weldingtoolPRO2>
+	<entitydescription.weldingtoolPRO2>The Group's second-generation standard welding machine</entitydescription.weldingtoolPRO2>
+	<entityname.weldingtoolPRO3>Advanced electric welder・三</entityname.weldingtoolPRO3>
+	<entitydescription.weldingtoolPRO3>The final form of the Terra series welding machine</entitydescription.weldingtoolPRO3>
+	<entityname.plasmacutterPRO1>Advanced electric cutter・一</entityname.plasmacutterPRO1>
+	<entitydescription.plasmacutterPRO1>The Group's first-generation low-end cutter</entitydescription.plasmacutterPRO1>
+	<entityname.plasmacutterPRO2>Advanced electric cutter・二</entityname.plasmacutterPRO2>
+	<entitydescription.plasmacutterPRO2>The Group's second-generation standard cutting machine</entitydescription.plasmacutterPRO2>
+	<entityname.plasmacutterPRO3>Advanced electric cutter・三</entityname.plasmacutterPRO3>
+	<entitydescription.plasmacutterPRO3>The final form of the Terra series cutter</entitydescription.plasmacutterPRO3>
+	<entityname.FireBoom_TL>jet aircraft</entityname.FireBoom_TL>
+	<entitydescription.FireBoom_TL>An experimental jet aircraft, the high-temperature flames have the additional effect of repairing the hull.</entitydescription.FireBoom_TL>
+	<entityname.Jetaircraftfuel_tanks>Jet aircraft high-pressure fuel tank</entityname.Jetaircraftfuel_tanks>
+	<entitydescription.Jetaircraftfuel_tanks>Using special compression technology, a large amount of gas is compressed into this small bottle.</entitydescription.Jetaircraftfuel_tanks>
+	<entityname.cratedeconstructormini_TL>Portable box opener</entityname.cratedeconstructormini_TL>
+	<entitydescription.cratedeconstructormini_TL>You can carry it with you and quickly open the Terra supply box.</entitydescription.cratedeconstructormini_TL>
+	<!--医疗-->
+	<entityname.REalcellruin>Cell neurotrophic factor</entityname.REalcellruin>
+	<entitydescription.REalcellruin>Expensive cell regeneration drugs supplied by the Group's department</entitydescription.REalcellruin>
+	<entityname.last>last</entityname.last>
+	<entitydescription.last>‖color:gui.red‖The remnants of the body rival the gods!‖end‖\nSignificantly increases health points. If injected when at full health, maximum health points can be increased to 10,000 for 15 seconds.\n注：The higher the blood volume, the lower the damage taken.</entitydescription.last>
+	<entityname.Physiotherapydevice>External automatic therapy device</entityname.Physiotherapydevice>
+	<entitydescription.Physiotherapydevice>Install the battery and wear it on your body to slowly recover from some basic injuries.</entitydescription.Physiotherapydevice>
+	<entityname.medicalkit_TL_Slow>Long-term medical kit</entityname.medicalkit_TL_Slow>
+	<entitydescription.medicalkit_TL_Slow>A first aid kit that can treat all kinds of surgical wounds. It's slow to work, but it lasts a long time.</entitydescription.medicalkit_TL_Slow>
+	<entityname.stabilozineTL_Pro>Tera Concentrated Therapy</entityname.stabilozineTL_Pro>
+	<entitydescription.stabilozineTL_Pro>Purely potent therapeutic concentrate, developed and tested by Terra Group's medical division, stands as a rare stable and non-toxic medication within the Terra pharmaceutical line. ‖color:gui.orange‖Enhanced viral suppression with hangover relief/paralysis treatment effects‖end‖\n‖color:gui.orange‖Dynamic neural trauma compatibility: Delivers 100 points of Vitamin B1, treats various visceral/bone injuries, heals up to 50 points of neural trauma‖end‖</entitydescription.stabilozineTL_Pro>
+	<entityname.antibioticsTL_Pro>Terra Concentrated Antibiotics</entityname.antibioticsTL_Pro>
+	<entitydescription.antibioticsTL_Pro>A more potent and less harmful concentrated antibiotic developed and tested by Terra Group's medical division. Demonstrated extreme reactivity during human trials, requiring administration by experienced physicians to avoid physical harm several times more severe otherwise. ‖color:gui.orange‖Suppresses skin infection rates below 98%, offering enhanced resistance and suppression capabilities. Poses minimal risk to human subjects upon successful skill verification‖end‖\n‖color:gui.orange‖Dynamically adapts to neural trauma: treats 100 points of sepsis‖end‖</entitydescription.antibioticsTL_Pro>
+	<entityname.TL_sprayer>Tera Medical Spray</entityname.TL_sprayer>
+	<entitydescription.TL_sprayer>A type of emergency medical supplies developed by the group needs to be loaded with a Terra medical chip to be used. It can adjust the corresponding liquid spray according to the severity of the patient's pain.</entitydescription.TL_sprayer>
+	<entityname.TL_sprayer_cheap>Tera Disposable Medical Spray</entityname.TL_sprayer_cheap>
+	<entitydescription.TL_sprayer_cheap>A widely acclaimed emergency medical supply across all factions, featuring a specially formulated solution contained within a disposable pressure canister. When treating critically injured casualties, it's certainly better than breaking their ribs...</entitydescription.TL_sprayer_cheap>
+	<entityname.plywood>aluminum sandwich panel\n‖color:gui.orange‖Dynamic compatibility with “Neurotrauma”‖end‖</entityname.plywood>
+	<entitydescription.plywood>Quick and effective fracture treatment without the need for complicated fracture medical procedures.\n‖color:gui.orange‖Dynamically compatible with neural trauma; this item is ineffective if neural trauma is not loaded.‖end‖</entitydescription.plywood>
+	<entityname.BurnOintment>Burn Ointment</entityname.BurnOintment>
+	<entitydescription.BurnOintment>A common burn ointment that provides continuous treatment for burns. Apply some before the electrician begins work.</entitydescription.BurnOintment>
+
+	<!--AFFS-->
+	<afflictionname.TL_acidburn>Burns from highly concentrated acid solutions</afflictionname.TL_acidburn>
+	<afflictionname.plasmaCauterization>Plasma cauterization</afflictionname.plasmaCauterization>
+	<afflictiondescription.plasmaCauterization.low.Self>Severe burn scars cover your body, with blue-tinged electric currents swirling around them, making your entire body feel numb.</afflictiondescription.plasmaCauterization.low.Self>
+	<afflictiondescription.plasmaCauterization.low>Severe burn scars covered his body, with blue-tinged electrical currents swirling around them. Touching them sent a tingling sensation through his entire body.</afflictiondescription.plasmaCauterization.low>
+	<afflictiondescription.plasmaCauterization.Self>You have extensive burns over most of your body—there's no good flesh left. Your body has been completely fried by the electric current.</afflictiondescription.plasmaCauterization.Self>
+	<afflictiondescription.plasmaCauterization>Screw this idiot—he'll get burned alive in a minute!!</afflictiondescription.plasmaCauterization>
+	<afflictionname.alcellruin>cell lysis</afflictionname.alcellruin>
+	<afflictiondescription.alcellruin>Some of your cells have permanently lost their activity and become more fragile.</afflictiondescription.alcellruin>
+	<afflictiondescription.kill_notreal>Murder! (Loss of health points, recovers over time)</afflictiondescription.kill_notreal>
+	<afflictionname.bingdu_TL>Pus-filled virus infection</afflictionname.bingdu_TL>
+	<afflictiondescription.bingdu_TL>A type that only assimilates with host cells and does not actively spread. The host does not die immediately before systemic infection, but it has a significant negative impact on the host. Perhaps a universal antidote could be effective in treating it. Each layer of the virus reduces its maximum health, and there is a chance of transmission after reaching full health or death.</afflictiondescription.bingdu_TL>
+	<afflictionname.last>survival against all odds</afflictionname.last>
+	<afflictionname.stabilozineeffectTL_Pro>Stabilizer+</afflictionname.stabilozineeffectTL_Pro>
+	<afflictiondescription.stabilozineeffectTL_Pro>Oh, a virus?</afflictiondescription.stabilozineeffectTL_Pro>
+	<afflictiondescription.stabilozineeffectTL_Pro.self>This drug significantly suppresses the virus in your body.</afflictiondescription.stabilozineeffectTL_Pro.self>
+	<afflictiondescription.BurnOintment_ointmented>Application of burn ointment</afflictiondescription.BurnOintment_ointmented>
+	<afflictiondescription.BurnOintment_ointmented>Apply burn ointment to the limb and ensure that this limb does not get roasted.</afflictiondescription.BurnOintment_ointmented>
+
+	<!--杂物-->
+	<entityname.GTX690>GTX690 tactical nuclear brick</entityname.GTX690>
+	<entitydescription.GTX690>The tactical graphics card lives up to its reputation.</entitydescription.GTX690>
+	<entityname.huaqiangKnife_Genuine>Huaqiang's Cleaver · Genuine Product</entityname.huaqiangKnife_Genuine>
+	<entitydescription.huaqiangKnife_Genuine>You're deliberately picking a fight, aren't you?</entitydescription.huaqiangKnife_Genuine>
+	<entityname.idcardplus>master key</entityname.idcardplus>
+	<entitydescription.idcardplus>The Group gives you a pass to Europa.</entitydescription.idcardplus>
+	<entityname.zhiheldterminal>central computer log</entityname.zhiheldterminal>
+	<entitydescription.zhiheldterminal>The last record before the central computer here shut down. If you see this, it means something has happened here and it has been abandoned and erased by the group.</entitydescription.zhiheldterminal>
+	<entityname.leopard6>LeopardA6 summoner</entityname.leopard6>
+	<entitydescription.leopard6>Summon a leopard</entitydescription.leopard6>
+	<entityname.shenyingge3>Wah-wah-wah little trumpet</entityname.shenyingge3>
+	<entitydescription.shenyingge3>Stop arguing, okay? Just spray it.</entitydescription.shenyingge3>
+	<entityname.probed>Advanced treatment bed</entityname.probed>
+	<entitydescription.probed>Internally integrated all of the group's technologies in the medical field</entitydescription.probed>
+	<entityname.weldingfueltankhelf2>Fuel tank replenishment system</entityname.weldingfueltankhelf2>
+	<entitydescription.weldingfueltankhelf2>Right-click + E to place, can replenish various fuels</entitydescription.weldingfueltankhelf2>
+	<entityname.allhelf>Integrated charging station</entityname.allhelf>
+	<entitydescription.allhelf>Integrated with multiple charging systems, it can charge any battery and welding oil.</entitydescription.allhelf>
+	<entityname.Garbagedisposal>garbage disposal unit</entityname.Garbagedisposal>
+	<entitydescription.Garbagedisposal>Remove items from the container</entitydescription.Garbagedisposal>
+	<entityname.handheldstatusmonitorPro>Handheld Multi-Tool</entityname.handheldstatusmonitorPro>
+	<entitydescription.handheldstatusmonitorPro>Interoperability with submarine systems: everything you need to know</entitydescription.handheldstatusmonitorPro>
+	<entityname.FireSprinklers>Fire extinguisher/sprinkler</entityname.FireSprinklers>
+	<entitydescription.FireSprinklers>It can extinguish flames and also irrigate plants.</entitydescription.FireSprinklers>
+	<entityname.TLhandtruck>Group trolley</entityname.TLhandtruck>
+	<entitydescription.TLhandtruck>Tera's handcart for transporting supplies</entitydescription.TLhandtruck>
+	<entityname.TLskillbookeuropanmedicine>Group Medical Operations Manual</entityname.TLskillbookeuropanmedicine>
+	<entitydescription.TLskillbookeuropanmedicine>A collection of medical knowledge published by the group, suitable for all ages, providing a 20-point bonus to medical skills.</entitydescription.TLskillbookeuropanmedicine>
+	<entityname.TLartifactholder>display cabinet</entityname.TLartifactholder>
+	<entitydescription.TLartifactholder></entitydescription.TLartifactholder>
+	<entityname.Shuishengseed_TL>Composite plant seeds</entityname.Shuishengseed_TL>
+	<entitydescription.Shuishengseed_TL>The group uses hybrid technology to cultivate special seeds that are said to produce a variety of plants.</entitydescription.Shuishengseed_TL>
+	<entityname.Compositefruit>compound fruit</entityname.Compositefruit>
+	<entitydescription.Compositefruit>Obtained from the fruit of composite plant seeds, it is a material</entitydescription.Compositefruit>
+	<entityname.Powerbattery>power battery</entityname.Powerbattery>
+	<entitydescription.Powerbattery>A heavy-duty battery developed by the group that can be repeatedly charged and discharged.</entitydescription.Powerbattery>
+	<entityname.cleantool_TL>Cleaning tools</entityname.cleantool_TL>
+	<entitydescription.cleantool_TL>The ultimate means of physically eliminating experimental defense robots. Use this when you feel that you are unable to kill the experimental defense robot (only effective against it). It will directly remove the target, and you will not be able to obtain the key to the final reward.</entitydescription.cleantool_TL>
+	<entityname.Idcard_TLnengyuanzhan>Energy station storage facility key</entityname.Idcard_TLnengyuanzhan>
+	<entitydescription.Idcard_TLnengyuanzhan>Obtained after killing experimental robots, used to unlock additional reward rooms. Limited time only, don't wait until it disappears!</entitydescription.Idcard_TLnengyuanzhan>
+	<entityname.missionlocater_TL>Task marker</entityname.missionlocater_TL>
+	<entitydescription.missionlocater_TL>Marking task locations is useless.</entitydescription.missionlocater_TL>
+	<entityname.Lootcrate_TL_Ore>Storage box (mineral)</entityname.Lootcrate_TL_Ore>
+	<entitydescription.Lootcrate_TL_Ore>Boxes for storing items</entitydescription.Lootcrate_TL_Ore>
+	<entityname.Lootcrate_TL_XTZmagezine>Storage box (coordinator universal drum)</entityname.Lootcrate_TL_XTZmagezine>
+	<entitydescription.Lootcrate_TL_XTZmagezine>Boxes for storing items</entitydescription.Lootcrate_TL_XTZmagezine>
+	<entityname.Lootcrate_TL_shotgunammo>Storage box (shotgun)</entityname.Lootcrate_TL_shotgunammo>
+	<entitydescription.Lootcrate_TL_shotgunammo>Boxes for storing items</entitydescription.Lootcrate_TL_shotgunammo>
+	<entityname.Lootcrate_TL_medic>Storage box (medical supplies)</entityname.Lootcrate_TL_medic>
+	<entitydescription.Lootcrate_TL_medic>Boxes for storing items</entitydescription.Lootcrate_TL_medic>
+	<entityname.Lootcrate_TL_ammomaterial>Storage box (material)</entityname.Lootcrate_TL_ammomaterial>
+	<entitydescription.Lootcrate_TL_ammomaterial>Boxes for storing items</entitydescription.Lootcrate_TL_ammomaterial>
+	<entityname.Lootcrate_TL_HXmagazine>Storage box (Phantom Star Ammunition)</entityname.Lootcrate_TL_HXmagazine>
+	<entitydescription.Lootcrate_TL_HXmagazine>Boxes for storing items</entitydescription.Lootcrate_TL_HXmagazine>
+	<entityname.Lootcrate_TL_plants>Storage box (plants)</entityname.Lootcrate_TL_plants>
+	<entitydescription.Lootcrate_TL_plants>Boxes for storing items</entitydescription.Lootcrate_TL_plants>
+	<entityname.Lootcrate_TL_Alienmine>Storage Box (Alien Minerals)</entityname.Lootcrate_TL_Alienmine>
+	<entitydescription.Lootcrate_TL_Alienmine>Boxes for storing items</entitydescription.Lootcrate_TL_Alienmine>
+	<entityname.blindbox_TL_CDWGG>loot box</entityname.blindbox_TL_CDWGG>
+	<entitydescription.blindbox_TL_CDWGG>Open to have a chance to obtain Terra's precious supplies.</entitydescription.blindbox_TL_CDWGG>
+	<entityname.riotshield_TL>Tera riot shield</entityname.riotshield_TL>
+	<entitydescription.riotshield_TL>It has a more stable structure and higher durability.</entitydescription.riotshield_TL>
+	<entityname.periscope2>Group Intelligent Periscope</entityname.periscope2>
+	<entitydescription.periscope2>A periscope with a button and a selection box can help submarine engineers build more amazing systems (for example, connecting the chaff launch system to the selection box is a good choice).</entitydescription.periscope2>
+	<entityname.TL_divingsuitlocker2>Large Diving Suit Cabinet</entityname.TL_divingsuitlocker2>
+	<entitydescription.TL_divingsuitlocker2>Connecting to a power source can oxygenate many diving suits.</entitydescription.TL_divingsuitlocker2>
+	<entityname.TL_metalcrate>TerraTech Cargo Container</entityname.TL_metalcrate>
+	<entitydescription.TL_metalcrate>Large container capable of holding a significant amount of cargo for transportation.</entitydescription.TL_metalcrate>
+
+	<!--资源兑换-->
+	<entityname.ResourceMaterialsRecycle>Resource MaterialsRecycle（English translation is not yet complete.）</entityname.ResourceMaterialsRecycle>
+	<entitydescription.ResourceMaterialsRecycle>Recycle redundant or unused materials, convert them into gold coins, and exchange them for resources.</entitydescription.ResourceMaterialsRecycle>
+	<entityname.InstructionManual>Recovery Instrument Manual</entityname.InstructionManual>
+	<entitydescription.InstructionManual>How to use the recycling machine is explained here.</entitydescription.InstructionManual>
+	<!--衣服-->
+	<entityname.var_leopard>leopard</entityname.var_leopard>
+	<entitydescription.var_leopard>leopard</entitydescription.var_leopard>
+	<entityname.Whitesilk1>White silk combat uniform</entityname.Whitesilk1>
+	<entitydescription.Whitesilk1>Combat uniform</entitydescription.Whitesilk1>
+	<entityname.bodyarmor1>bulletproof vest</entityname.bodyarmor1>
+	<entitydescription.bodyarmor1>standard body armor</entitydescription.bodyarmor1>
+	<entityname.waiguge1>Tera Group's first-generation exoskeleton</entityname.waiguge1>
+	<entitydescription.waiguge1>The first generation of test exoskeletons developed by the group has powerful armor, can be equipped with batteries to increase mobility, can carry a variety of items, and is self-sufficient in oxygen.</entitydescription.waiguge1>
+	<entityname.exosuitCrane>Yellow Crane Battle Set</entityname.exosuitCrane>
+	<entitydescription.exosuitCrane>Tera Regular Security Exoskeleton, with excellent survivability</entitydescription.exosuitCrane>
+	<entityname.sp01>Special Operations Armor 01</entityname.sp01>
+	<entitydescription.sp01>The prototype all-terrain special operations suit, secretly developed by Phantom Star Industries and Terra Group, features a self-contained oxygen system and a self-injecting healing system. It offers robust protective performance without compromising mobility. When a power battery is inserted, the intelligent assistance system enhances the user's overall capabilities and activates thermal imaging and health scanning functions.</entitydescription.sp01>
+	<!--职业/天赋-->
+	<jobname.TLsafe>Group Special Forces Team</jobname.TLsafe>
+	<jobdescription.TLsafe>The Group's Special Forces are a special unit that has undergone special training by the Group. They possess combat capabilities that exceed those of ordinary people and are undoubtedly the strongest security force available.</jobdescription.TLsafe>
+	<!--特战队的诞生-->
+	<talentname.BeginofTLsafe>Mercenary Sign-Up</talentname.BeginofTLsafe>
+	<talentdescription.BeginofTLsafe>From now on, you are a member of the special forces team, and the group will provide you with certain support.：‖color:gui.green‖20‖end‖% Experience Bonus。</talentdescription.BeginofTLsafe>
+	<!--常规1线-->
+	<!--格斗-->
+	<talentname.fightTrain>Special Training: Combat</talentname.fightTrain>
+	<talentdescription.fightTrain>Gain [amount2] experience points, [amount3] weapon skill points, and [amount4] maximum health points by killing [amount1] enemies.</talentdescription.fightTrain>
+	<!--修复-->
+	<talentname.repairTrain>Special Training: Repair</talentname.repairTrain>
+	<talentdescription.repairTrain>Repair [amount1] various mechanical and electrical devices to gain [amount3] experience points, [amount1] mechanical and electrical skill points, and a [amount2]% repair speed bonus.</talentdescription.repairTrain>
+	<!--医疗-->
+	<talentname.yiliaoTrain>Special Training: Medical Care</talentname.yiliaoTrain>
+	<talentdescription.yiliaoTrain>By crafting [amount1] medical items, you will gain [amount2] experience points, [amount3] medical skill points, and [amount4]% medical effect enhancement.</talentdescription.yiliaoTrain>
+	<!--舵手-->
+	<talentname.DuoshouTrain>Special Training: Helmsman</talentname.DuoshouTrain>
+	<talentdescription.DuoshouTrain>You have earned [amount] driving skill points.</talentdescription.DuoshouTrain>
+	<!--常规2线-->
+	<talentname.olympian_TL>Olympic</talentname.olympian_TL>
+	<talentname.affiliation2>network of relationships</talentname.affiliation2>
+	<talentdescription.affiliation2>
+		The rate at which reputation within a faction increases is boosted by [amount]%.
+		When completing tasks for your faction, the points earned are increased by [amount2]%.
+		Note: Reputation is highest within your faction, and identical skills cannot be stacked.
+	</talentdescription.affiliation2>
+	<talentname.TL_Disposable_medical>Unlock Disposable Medical Supplies</talentname.TL_Disposable_medical>
+	<talentdescription.TL_Disposable_medical>Obtain authorization for some group disposable medical supply formulas, as well as cheaper versions, to enhance submarine medical efficiency and unlock ‖color:gui.orange‖Terra Disposable Medical Spray‖end‖</talentdescription.TL_Disposable_medical>
+	<!--严格学习-->
+	<talentname.StudyMore_TL>Strict study</talentname.StudyMore_TL>
+	<talentdescription.StudyMore_TL>Increase skill acquisition speed by [amount]%.</talentdescription.StudyMore_TL>
+	<!--绝地猪头-->
+	<talentname.TL_HellDive>The rogue pig is here to reinforce!!</talentname.TL_HellDive>
+	<talentdescription.TL_HellDive>For the Super Balloon!! The Pig-Headed Desperados gave us their tech and blueprints—all for the Super Balloon! !\nUnlock‖color:gui.orange‖Blast Gun/Three Blast Gun Ammo‖end‖AND‖color:gui.orange‖Ultimatum‖end‖AND‖color:gui.orange‖Mao Gun/Three Mao Gun Ammo‖end‖</talentdescription.TL_HellDive>
+	<!--后勤线-->
+	<talenttree.TLsafe_specialization>Director of Logistics</talenttree.TLsafe_specialization>
+	<talentname.systemoverload>Printer authorization</talentname.systemoverload>
+	<talentdescription.systemoverload>Unlock ‖color:gui.orange‖Printer‖end‖, the real Terra has just begun, ‖color:gui.orange‖Workbench/Deconstructor/Printer‖end‖ efficiency increased by [amount]%.</talentdescription.systemoverload>
+	<talentname.scavenger2>treasure hunter</talentname.scavenger2>
+	<talentdescription.scavenger2>Unlock ‖color:gui.orange‖Resource Recycling Device‖end‖，Searching sunken ship containers has a [amount]% chance of finding an additional ‖color:gui.orange‖ steel bar/titanium alloy/Terra Group alloy/data blueprint‖end‖</talentdescription.scavenger2>
+	<talentname.tooloverload>tool overload</talentname.tooloverload>
+	<talentdescription.tooloverload>Your mining and repair speed will increase by [amount]%，Unlock‖color:gui.orange‖Phase II Tools‖end‖</talentdescription.tooloverload>
+	<talentname.Deconstructer>Disassembly Specialization</talentname.Deconstructer>
+	<talentdescription.Deconstructer>Every time you dismantle an item, there is a [amount]% chance of obtaining triple the yield.</talentdescription.Deconstructer>
+	<talentname.gongyi>Advanced craftsmanship</talentname.gongyi>
+	<talentdescription.gongyi>Crafting items increases [amount] quality and unlocks ‖color:gui.orange‖three-stage tools‖end‖ and ‖color:gui.orange‖medical/thermal imaging chips‖end‖.</talentdescription.gongyi>
+	<!--医疗线-->
+	<talenttree.TLsafe_specialization2>physician</talenttree.TLsafe_specialization2>
+	<talentname.drsubmarinePRO>Medical production</talentname.drsubmarinePRO>
+	<talentdescription.drsubmarinePRO>Your medical crafting speed is increased by [amount]%, and your medical skill is increased by [amount2].</talentdescription.drsubmarinePRO>
+	<talentname.miracleworkerPRO>Miracle Walker</talentname.miracleworkerPRO>
+	<talentdescription.miracleworkerPRO>You and your teammates within 4 meters of you will not die.</talentdescription.miracleworkerPRO>
+	<talentname.drsubmarinePRO2>Director of Medical Services</talentname.drsubmarinePRO2>
+	<talentdescription.drsubmarinePRO2>When you complete any task, you will receive [amount] Group Medical Operation Manuals, [amount2] blood bags, and [amount] Dawn and Dusk.‖color:gui.orange‖Unlocking Dawn‖end‖And‖color:gui.orange‖medical chip‖end‖And‖color:gui.orange‖Tera Medical Spray‖end‖</talentdescription.drsubmarinePRO2>
+	<!--战斗线-->
+	<talenttree.TLsafe_specialization3>special forces</talenttree.TLsafe_specialization3>
+	<talentname.Shuigui_TL>physical training</talentname.Shuigui_TL>
+	<talentdescription.Shuigui_TL>After completing the group's customized training program, your swimming speed has improved by [amount]% and your land movement speed has improved by [amount2]%.Unlock‖color:gui.orange‖AT4 Anti-Tank Sub-Launched Rocket Launcher Cheap Recipe‖end‖</talentdescription.Shuigui_TL>
+	<talentname.hurt_TL>Special limb modification</talentname.hurt_TL>
+	<talentdescription.hurt_TL>Your skin and bones have undergone group skin enhancement surgery, increasing your physical resistance by [amount]% and burn resistance by [amount]%. You have unlocked the ‖color:gui.orange‖TL-14 Standard Assault Rifle·Modified‖end‖ and the ‖color:gui.orange‖TL-15 Assault Rifle‖end‖.</talentdescription.hurt_TL>
+	<talentname.advancedattack>Combat Skills Training</talentname.advancedattack>
+	<talentdescription.advancedattack>After completing the group's special operations training course, you have gained a deeper understanding of Terra weapons. Your movement speed is reduced by [amount]%, and the damage dealt by Terra weapon ammunition is increased by [amount2]%. You also unlock the ‖color:gui.orange‖TL-23 Advanced Assault Shotgun‖end‖ and the ‖color:gui.orange‖TL-15 Assault Rifle· Modified‖end‖, as well as the ‖color:gui.orange‖Weapon Balance Chip‖end‖.</talentdescription.advancedattack>
+	<talentname.lastfight>Group's highest individual authority</talentname.lastfight>
+	<talentdescription.lastfight>You are already an elite special forces operative within the Group. The Group will do everything possible to ensure your safety. You may call for individual support and remote strategic strikes. Upon completing all missions, you will receive a Strike Indicator Crate, with a chance to obtain two types of Markers: \nIncrease maximum health by [amount], increase damage equivalent to [amount]% of weapon proficiency, unlock ‖color:gui.orange‖ Blade Extinction‖end‖ and ‖color:gui.orange‖Ultimate Weapon - Baikal Blue Ice‖end‖, along with ‖color:gui.orange‖Firearm Assault Chip‖end‖</talentdescription.lastfight>
+	<!--Displayname-->
+	<displayname.Recast_Quality>[itemname] (Recasting Quality)</displayname.Recast_Quality>
+	<displayname.Fix_Item>[itemname] (Repair durability)</displayname.Fix_Item>
+	<displayname.Fillwithliquid>[itemname] (Fill with liquid medicine)</displayname.Fillwithliquid>
+	<displayname.Charge>[itemname] (Recharge)</displayname.Charge>
+	<!--生物-->
+	<character.失控初代测试机>Out-of-control first-generation test machine</character.失控初代测试机>
+	<character.失控初代测试机_leader>Out-of-control first-generation test machine_Leader</character.失控初代测试机_leader>
+	<character.辐射蠕虫>radiation worm</character.辐射蠕虫>
+	<character.辐射捕勾兽>Radiation-capturing beast</character.辐射捕勾兽>
+	<character.日蚀前锋>Solar Eclipse Striker</character.日蚀前锋>
+	<!--250-->
+	<character.毒脓迅猛龙>Venomous Plesiosaur</character.毒脓迅猛龙>
+	<!--3500-->
+	<character.毒脓迅猛龙首领>Poisonous Pussysnake Leader</character.毒脓迅猛龙首领>
+	<!--400-->
+	<character.毒浓迅猛龙步枪手>Poison Pus Raptor Gunner</character.毒浓迅猛龙步枪手>
+	<!--350-->
+	<character.毒浓迅猛龙掷弹兵>Toxic Pus Raptor Grenadier</character.毒浓迅猛龙掷弹兵>
+	<!--280-->
+	<character.HuskPro>Ordinary painted skin experimental body</character.HuskPro>
+	<!--500-->
+	<character.HuskPro2>Elite Painted Skin Test Subject</character.HuskPro2>
+	<!--300-->
+	<character.HuskProPro>Ordinary remote skin-changing experimental subject</character.HuskProPro>
+	<!--500-->
+	<character.HuskProPro2>Elite Remote Skin-Changing Experiment Subject</character.HuskProPro2>
+	<!--620-->
+	<character.Lost1>Lost</character.Lost1>
+	<!--1200-->
+	<character.Lost2>Lost</character.Lost2>
+	<!--300-->
+	<character.LostLand>scissor hands</character.LostLand>
+	<!--2000-->
+	<character.Husk_chimeraTL>Chimera Experiment</character.Husk_chimeraTL>
+	<!--2500-->
+	<character.Husk_exosuitTL>Elite Skin-Covered Exoskeleton</character.Husk_exosuitTL>
+	<!--200-->
+	<character.Husk_prowlerTL>predator</character.Husk_prowlerTL>
+	<!--海盗-->
+	<!--150-->
+	<character.meleehuman_pirate>Shield Pirate</character.meleehuman_pirate>
+	<!--110-->
+	<character.normalhuman_pirate>Ordinary Pioneer Pirate</character.normalhuman_pirate>
+	<!--140-->
+	<character.elitehuman_pirate>Heavy Armor Pioneer Pirates</character.elitehuman_pirate>
+	<!--140-->
+	<character.humanboomerb_pirate>Self-destructing pirates</character.humanboomerb_pirate>
+	<!--1400-->
+	<character.humanboomer_pirate>Heavy Armor Self-Destructing Pirate</character.humanboomer_pirate>
+	<!--250-->
+	<character.elitehumanH_pirate>Heavy Assault Pirates</character.elitehumanH_pirate>
+	<!--180-->
+	<character.SpikeThunderhuman_pirate>Suicide pirate</character.SpikeThunderhuman_pirate>
+	<character.SpikeThunderhuman_Music_pirate>Suicide pirate</character.SpikeThunderhuman_Music_pirate>
+	<!--幻星-->
+	<!--130-->
+	<character.defensehuman_HX>Phantom Star Security Patrol Team</character.defensehuman_HX>
+	<!--160-->
+	<character.defensehumanDV_HX>Phantom Star Security Land Forces</character.defensehumanDV_HX>
+	<!--120-->
+	<character.DVstunhuman_HX>Phantom Star Shock Troops</character.DVstunhuman_HX>
+	<!--180-->
+	<character.elitehuman_HX>Phantom Star Heavy Infantry</character.elitehuman_HX>
+	<!--1100-->
+	<character.BNZHuman_HX>The Enraged One</character.BNZHuman_HX>
+	<!--泰拉-->
+	<character.Bossdefensebot_TL>Automatic defense robot</character.Bossdefensebot_TL>
+	<character.Bossdefensebot2_TL>Experimental automated defense BOSS</character.Bossdefensebot2_TL>
+	<!--站点-->
+	<locationname.TL_reside>Terra Regular Residential Outpost</locationname.TL_reside>
+	<locationnameformat.TL_reside>[name]</locationnameformat.TL_reside>
+	<locationnameformat.TL_reside>Terra Group[name]residential station</locationnameformat.TL_reside>
+	<locationnameformat.TL_reside>Terra Group[name]-substation</locationnameformat.TL_reside>
+	<locationnameformat.TL_reside>[name]-Terra Group residential facilities</locationnameformat.TL_reside>
+	<locationnameformat.TLEnergyTowers_1>TerraTech Abandoned Facility - Energy Harvesting Station - Low Difficulty</locationnameformat.TLEnergyTowers_1>
+	<locationname.TLEnergyTowers_1>Energy Station, one of the key facilities supplying primary energy to Terra Group, relies on laser mining technology to excavate precious resources deep beneath Europa's rocky surface. Though the facility appears long abandoned, emergency power sources still barely sustain some systems.\n（This copy is a difficulty-reduced version featuring fewer traps and fewer enemy waves, allowing players to better acclimate to this map.）</locationname.TLEnergyTowers_1>
+	<locationnameformat.TLEnergyTowers>TerraTech Abandoned Facility - Energy Harvesting Station - Standard Difficulty</locationnameformat.TLEnergyTowers>
+	<locationname.TLEnergyTowers>Energy stations, one of the key facilities supplying primary energy to Terra Group, rely on laser mining technology to excavate precious resources deep beneath the icy walls of Europa.\n The facility appears to have been abandoned for quite some time, yet it still clings to life with emergency power barely sustaining some systems.</locationname.TLEnergyTowers>
+	<locationname.DMissions>Terra Group The alliance's specialized spy outposts for containment and surveillance are currently under attack from the Phantom Star's massive Normandy-style assault.</locationname.DMissions>
+	<locationnameformat.DMissions>Terra Tech Guard Outpost - Site “D”</locationnameformat.DMissions>
+	<locationnameformat.TLxue> Terra Technology Research Facility - Viewing Snow-Capped Mountains Together</locationnameformat.TLxue>
+	<locationname.TLxue>The origin of the flower of the afterlife, Terra's top-secret research facility</locationname.TLxue>
+	<locationnameformat.TLHQ>Phantom Star Research Facility - Iron Tree in Bloom</locationnameformat.TLHQ>
+	<locationname.TLHQ>铁树一朝开血花，寒心不忘旧年刃</locationname.TLHQ>
+	<locationnameformat.TLMine>Terra Abandoned Mine Shaft</locationnameformat.TLMine>
+	<locationname.TLMine>The group's former mining site has long been abandoned, and there are still many minerals left behind.</locationname.TLMine>
+	<!--命令-->
+	<ordername.restandrecover>Rest and Recover</ordername.restandrecover>
+	<orderdialog.restandrecover>[name], rest for bit.</orderdialog.restandrecover>
+	<orderdialog.restandrecover>[name], you should rest in bed right now!</orderdialog.restandrecover>
+	<orderdialogself.restandrecover>I'll rest for a time being.</orderdialogself.restandrecover>
+	<orderdialog.dismissed.restandrecover>[name]，Get up and get to work! Or I'll make sure you can't get out of bed for a week!</orderdialog.dismissed.restandrecover>
+	<ordername.restandrecover_B>Lie down on the advanced treatment bed！</ordername.restandrecover_B>
+	<orderdialog.restandrecover_B>[name], Hurry to the advanced treatment bed for your treatment.！</orderdialog.restandrecover_B>
+	<orderdialog.restandrecover_B> Your condition is very unstable.！[name],Hurry to the advanced treatment bed for your treatment.！</orderdialog.restandrecover_B>
+	<orderdialogself.restandrecover_B>You're all set now. Go ahead and let someone else have a turn.</orderdialogself.restandrecover_B>
+	<orderdialog.dismissed.restandrecover_B>[name]，Your injuries have healed, and you are ready to be discharged.</orderdialog.dismissed.restandrecover_B>
+	<!--按钮/文案-->
+	<TL.Open>Open</TL.Open>
+	<TL.Close>Close</TL.Close>
+	<TL.fold>fold</TL.fold>
+	<TL.deploy>deploy</TL.deploy>
+	<TL.Statesystem>Ship Status System Switch</TL.Statesystem>
+	<TL.drivesystem>Ship steering system switch</TL.drivesystem>
+	<TL.Smoothflight>Smoothflight</TL.Smoothflight>
+	<TL.highflight>Highflight</TL.highflight>
+	<TL.noflight>Repair mode</TL.noflight>
+	<entityname.sonarbeacon_TL>Advanced Handheld Sonar Beacon</entityname.sonarbeacon_TL>
+	<TL.Recycle>Recycle</TL.Recycle>
+	<!--提示-->
+	<itemmsgweldingfuelrequiredorJetaircraftfuel_tanks>Welding oil or jet high-pressure fuel tank required</itemmsgweldingfuelrequiredorJetaircraftfuel_tanks>
+	<TL_WeaponChips_medicalRequired>Need for medical chips</TL_WeaponChips_medicalRequired>
+	<Insufficientenergy>Insufficient energy</Insufficientenergy>
+	<fabricationheader.1130box>Terra Close-In Weapon System Spare Ammunition Box</fabricationheader.1130box>
+	<fabricationdescription.1130box>Terra Close-In Weapon System (CIWS) Spare Ammunition Boxes, Durability Requirement: 0-90%</fabricationdescription.1130box>
+	<fabricationheader.LaserCloseSystem_ammobox>Empty Ammunition Box for Heavy Laser Defense System</fabricationheader.LaserCloseSystem_ammobox>
+	<fabricationdescription.LaserCloseSystem_ammobox>Empty Ammunition Box for Heavy Laser Defense System</fabricationdescription.LaserCloseSystem_ammobox>
+	<fabricationheader.LaserCloseSystem_HeavyLasersBox>Energy-Focused Air Ammunition Pod for Heavy Laser Defense Systems</fabricationheader.LaserCloseSystem_HeavyLasersBox>
+	<fabricationdescription.LaserCloseSystem_HeavyLasersBox>Only energy-focused blank ammunition boxes may be used for reloading.</fabricationdescription.LaserCloseSystem_HeavyLasersBox>
+	<!--势力-->
+	<faction.TLCompany>Terra Technology Group</faction.TLCompany>
+	<faction.TLCompany.description>A newly emerging tech company on Europa, it wields powerful technological capabilities but has a small workforce. Most of its facilities and armaments are controlled by artificial intelligence, and its relationship with the Alliance is somewhat strained. According to unreliable reports, it is supporting some illegal activities and separatist forces.</faction.TLCompany.description>
+	<faction.TLCompany.shortdescription>A neutral technology company with the strength of advanced technology support and the rigor of artificial intelligence decision-making. Most of its facilities and weapons are controlled by artificial intelligence, and its relationship with the alliance is somewhat strained. According to unreliable sources, it is supporting some illegal activities and separatist forces.</faction.TLCompany.shortdescription>
+	<!--对话-->
+	<Dialogue.TL.XIGUAN.GetMissions.1>Hello, I am a straw from Terra Group. How can I help you?</Dialogue.TL.XIGUAN.GetMissions.1>
+	<Dialogue.TL.XIGUAN.GetMissions.2>Are there any tasks available? I've been spending a lot on Red Romance lately and am a bit short on cash.</Dialogue.TL.XIGUAN.GetMissions.2>
+	<Dialogue.TL.XIGUAN.GetMissions.3>Sure, no problem. Do you need any help from the group?</Dialogue.TL.XIGUAN.GetMissions.3>
+	<Dialogue.TL.XIGUAN.GetMissions.4>Of course you need it. Who wouldn't want something for free?</Dialogue.TL.XIGUAN.GetMissions.4>
+	<Dialogue.TL.XIGUAN.GetMissions.5>(First, I checked the reputation of this fleet in the group network.) Um... well... resources are a bit tight lately... You can apply later... (OS: With such a low reputation, what supplies are you even asking for?)</Dialogue.TL.XIGUAN.GetMissions.5>
+	<Dialogue.TL.XIGUAN.GetMissions.6>(First, I checked the reputation of this fleet on the group network.) Okay, I have requested assistance for you from the computer. Terra Technology wishes you a safe journey and good health.</Dialogue.TL.XIGUAN.GetMissions.6>
+	<Dialogue.TL.XIGUAN.GetMissions.7>Aid? What the hell kind of aid? The only ones who need aid are those with lung fog.</Dialogue.TL.XIGUAN.GetMissions.7>
+	<Dialogue.TL.XIGUAN.GetMissions.8>Um... okay, good luck...</Dialogue.TL.XIGUAN.GetMissions.8>
+	<Dialogue.HX.HQ.1>Station-wide announcement: Attention! The facility is under attack! Research and logistics personnel, prepare to evacuate! Security patrol teams, prepare to engage the enemy! Rapid response teams are on their way!</Dialogue.HX.HQ.1>
+	<Dialogue.HX.HQ.2>The rapid response team is on the scene! Prepare to counterattack!</Dialogue.HX.HQ.2>
+	<Dialogue.TL.Leo.1>看什么看，没见过帅豹吗（瞪）</Dialogue.TL.Leo.1>
+	<Dialogue.TL.Leo.2>见过见过，现在就见到了</Dialogue.TL.Leo.2>
+	<Dialogue.TL.Leo.3>切...神经病（好感+1）</Dialogue.TL.Leo.3>
+	<Dialogue.TL.Leo.4>帅你大坝</Dialogue.TL.Leo.4>
+	<Dialogue.TL.Leo.5>你TM！（好感-1）</Dialogue.TL.Leo.5>
+	<Dialogue.TL.Leo.6>哦嘿！我记得你，最近可还安好？</Dialogue.TL.Leo.6>
+	<Dialogue.TL.Leo.7>凑合过吧，集团给的也太少了...而且还天天让我们送死啥的</Dialogue.TL.Leo.7>
+	<Dialogue.TL.Leo.8>额嗯...这...木卫二谁也不容易嘛...好了好了别哭穷了，给你点行了吧...去买点好吃的...（好感+1）</Dialogue.TL.Leo.8>
+	<Dialogue.TL.Leo.9>还不错呢，在泰拉的援助下最近过得蛮滋润的</Dialogue.TL.Leo.9>
+	<Dialogue.TL.Leo.10>嘿嘿啊♡，是吗，加油看好你们哦（好感+2）</Dialogue.TL.Leo.10>
+	<Dialogue.TL.Leo.11>又见面了，下午好啊，你们已经入了集团的眼中了哦</Dialogue.TL.Leo.11>
+	<Dialogue.TL.Leo.12>哦下午好啊，那个...补给...</Dialogue.TL.Leo.12>
+	<Dialogue.TL.Leo.13>嘶...你怎么上来就知道和人家要补给，脑子里只剩下物资和钱了是吧...？好了好了拿去就是了...（不耐烦）\n-可能在后续更新后续写</Dialogue.TL.Leo.13>
+	<Dialogue.TL.Leo.14>是吗，那以后能不能少让我们送死？</Dialogue.TL.Leo.14>
+	<Dialogue.TL.Leo.15>嗯嘛...这个我尽量，集团以后给予你们的支援逐渐会越来越大，甚至可以单兵呼叫支援哦♡</Dialogue.TL.Leo.15>
+	<Dialogue.TL.Leo.16>你这家伙又在画饼是吗？</Dialogue.TL.Leo.16>
+	<Dialogue.TL.Leo.17>没有没有...唉啊这个给你行了吧...</Dialogue.TL.Leo.17>
+	<Dialogue.TL.Leo.18>此次航行还算顺利吗？怎么了...怎么这样看我？</Dialogue.TL.Leo.18>
+	<Dialogue.TL.Leo.19>我想和你了解一下集团能源采集塔的故事...</Dialogue.TL.Leo.19>
+	<Dialogue.TL.Leo.20>怎...么...能源站是集团开采木卫二资源的重要设施，坐落在整颗星球的各个角落，它们通过雇佣大量低价劳工为集团提供了重要的后勤资源...（讲话突然被玩家打断）</Dialogue.TL.Leo.20>
+	<Dialogue.TL.Leo.21>（打断豹的讲话）为什么我收到了清理能源站的任务，你们不是说所有的人都撤离了吗！但是那些被我们击毙的人身上有你们的工作牌！这就是你们集团对待自己员工的态度吗？你们甚至不如那些分离野人！（越讲越气愤，语气越来越犀利激动）</Dialogue.TL.Leo.21>
+	<Dialogue.TL.Leo.22>不不...这一定是有什么误会在里面...（眼神闪躲，脸颊侧面有几滴不易察觉的冷汗冒了出来）那些人也许是入侵的海盗，然后捡到了我们员工在撤离时候遗失的工作牌，正好你们把他们击毙了...对对！一定是这样！</Dialogue.TL.Leo.22>
+	<Dialogue.TL.Leo.23>哦是嘛，为什么在你这里有这么多巧合？那么好，那些终端日志和那些家伙的日记你怎么解释，他们甚至在你们集团的网络中已经被除名！瞧瞧那些感染脓毒的人，瞧瞧你们拿几百条人命干了什么！</Dialogue.TL.Leo.23>
+	<Dialogue.TL.Leo.24>日...日记？？！怎么可能有日记？！（明显慌了神）不不不，绝对没有此事！能源站的实验都是严格保密执行的，那些人是他们自己...</Dialogue.TL.Leo.24>
+	<Dialogue.TL.Leo.25>（猛然抽豹一巴掌）你承认你在能源站做实验了？那几百人在你这里连畜生都不如是吗？你怎么不在自己身上扎那傻逼病毒？（把豹劈头盖脸骂一顿）</Dialogue.TL.Leo.25>
+	<Dialogue.TL.Leo.26>呃...呃呜...我...（被抽宕机了，捂着脸半天说不出话）我不是那个意思...那些实验都是幻星他们...（呆呆的自顾自讲了两句，回过神发现玩家已经走远了）\n-可能在后续更新后续写</Dialogue.TL.Leo.26>
+	<Dialogue.TL.Leo.27></Dialogue.TL.Leo.27>
+	<!--任务-->
+	<missionname.hunting>Flowers and Death</missionname.hunting>
+	<sonarlabel.hunting>Lost Vessel</sonarlabel.hunting>
+	<missiondescription.hunting>Depart among flowers</missiondescription.hunting>
+	<missionsuccess.hunting>The lost ship has been sunk.</missionsuccess.hunting>
+	<missionfailure.hunting>Sinking failed, frigate has departed.</missionfailure.hunting>
+	<header.hunting>Flowers and...</header.hunting>
+	<text.hunting>Depart among flowers</text.hunting>
+	<missionname.mudraptors_small>Venomous Plesiosaur Hunter</missionname.mudraptors_small>
+	<missionname.mudraptors>Venomous Plesiosaur Hunter</missionname.mudraptors>
+	<sonarlabel.mudraptors_small>Velociraptor</sonarlabel.mudraptors_small>
+	<missiondescription.mudraptors_small>We found several venomous pterosaurs roaming between [location1] and [location2]. They are affecting ship traffic. Afterward, [reward] mk reward.</missiondescription.mudraptors_small>
+	<missionsuccess.mudraptors_small>The Velociraptor has been eliminated.</missionsuccess.mudraptors_small>
+	<missionfailure.mudraptors_small>We will not pay for the ship's repair costs.</missionfailure.mudraptors_small>
+	<header.mudraptors_small>Target killed</header.mudraptors_small>
+	<text.mudraptors_small>It's easy~ Come to the outpost and get your money.</text.mudraptors_small>
+	<missionname.mudraptors_gun>Strange Poisonous Raptor Hunt</missionname.mudraptors_gun>
+	<missiondescription.mudraptors_gun>Several strange poisonous punch velociraptors were found wandering between the channels. They are really different... Please go and clean it up, and [reward] mk reward afterwards</missiondescription.mudraptors_gun>
+	<missionsuccess.mudraptors_gun>The armed velociraptor has been eliminated</missionsuccess.mudraptors_gun>
+	<missionfailure.mudraptors_gun>We won't pay for the boat's repairs.</missionfailure.mudraptors_gun>
+	<header.mudraptors_gun>Target eliminated</header.mudraptors_gun>
+	<text.mudraptors_gun>Ah, damn, does your family's raptor get hurt by gunfire?!</text.mudraptors_gun>
+	<missionname.TLNest1>Clearing out the nest of the venomous swift dragon</missionname.TLNest1>
+	<missiondescription.TLNest1>We have detected a nest of venomous swift dragons nearby. Please go and clear it out.</missiondescription.TLNest1>
+	<missionsuccess.TLNest1>The Velociraptor has been eliminated.</missionsuccess.TLNest1>
+	<header.TLNest1>completely cleared out</header.TLNest1>
+	<text.TLNest1>The waterways in this area have returned to silence.</text.TLNest1>
+	<missionname.TLrescue1>Exploring distress signals</missionname.TLrescue1>
+	<missionname.TLrescue2>Exploring distress signals</missionname.TLrescue2>
+	<missionname.TLrescue3>Exploring distress signals</missionname.TLrescue3>
+	<sonarlabel.TLrescue1>automatic distress signal</sonarlabel.TLrescue1>
+	<missiondescription.TLrescue1>The automatic distress system of a Phantasia Science Expedition team has been activated. Our radar detected it in advance. Please go and check if there are any survivors.</missiondescription.TLrescue1>
+	<missionsuccess.TLrescue1>Sure enough, they're just a bunch of guys who only know how to hide in their labs....</missionsuccess.TLrescue1>
+	<header.TLrescue1>Sure enough, they're just a bunch of guys who only know how to hide in their labs....</header.TLrescue1>
+	<text.TLrescue1>I will report these matters. Please go to the site to collect your reward. Please treat today as if you had not been here.</text.TLrescue1>
+	<header.TLrescue2>It seems like an unexpected situation...</header.TLrescue2>
+	<text.TLrescue2>The speed of the Phantom Star is still beyond doubt...</text.TLrescue2>
+	<header.TLrescue3>It seems like an unexpected situation...</header.TLrescue3>
+	<text.TLrescue3>Pirates are idiots, right?</text.TLrescue3>
+	<missionname.TLceshiji>Destroy the test machine</missionname.TLceshiji>
+	<sonarlabel.TLceshiji>Test machine signal</sonarlabel.TLceshiji>
+	<missiondescription.TLceshiji>There was a minor hiccup in the experiment, and the remote commands are no longer effective. Please go directly to destroy these madmen. The remote coordinates have been synchronized to your terminals.</missiondescription.TLceshiji>
+	<missionsuccess.TLceshiji>The out-of-control testing machine has been cleared.</missionsuccess.TLceshiji>
+	<missionfailure.TLceshiji>We will remember your efforts. It is time to dispatch the group's attack ships.</missionfailure.TLceshiji>
+	<header.TLceshiji>The test machine has been damaged.</header.TLceshiji>
+	<text.TLceshiji>The road to success for any cutting-edge technology is fraught with obstacles, and we can only tread it barefoot.</text.TLceshiji>
+	<missionname.TLRS>[LUA]日落未落，天暗非暮</missionname.TLRS>
+	<sonarlabel.RS>Solar Eclipse Striker</sonarlabel.RS>
+	<missiondescription.RS>风止鸟静，树影不动，日蚀遮蔽世界的双眼</missiondescription.RS>
+	<missionsuccess.RS>日蚀散去，天地如释重负</missionsuccess.RS>
+	<missionfailure.RS>You cannot break this silence.</missionfailure.RS>
+	<header.RS>日蚀散去，天地如释重负</header.RS>
+	<text.RS>You have succeeded. The waterway remains as it was, yet it is even more tranquil.</text.RS>
+	<missionname.TLhunting>candlelight dinner</missionname.TLhunting>
+	<sonarlabel.TLhunting>guest of honor</sonarlabel.TLhunting>
+	<missiondescription.TLhunting>别离的歌早已哼在嘴边  是你 为我 题词</missiondescription.TLhunting>
+	<missionsuccess.TLhunting>The flickering candlelight illuminated the stars of the evening, the crew members. Congratulations!</missionsuccess.TLhunting>
+	<missionfailure.TLhunting>Sorry, crew members, you don't have enough experience yet.</missionfailure.TLhunting>
+	<header.TLhunting>Silence is golden.</header.TLhunting>
+	<text.TLhunting>The brave warrior who fights for survival in the candlelight, you deserve our admiration.</text.TLhunting>
+	<missionname.TLhaidao>Abandon ship, or abandon hope</missionname.TLhaidao>
+	<missiondescription.TLhaidao>(This mission is a pirate mission, so it's best to only take one mission of this type.)\nThis is extremely urgent. A frigate carrying the group's weapon of mass destruction has defected. Do not let this weapon fall into the hands of the Alliance. I don't care what methods you use, just make sure they stay at the bottom of the sea!</missiondescription.TLhaidao>
+	<header1.TLhaidao>探测到彼岸花信号</header1.TLhaidao>
+	<text1.TLhaidao>给我把它留在海底！</text1.TLhaidao>
+	<header.TLhaidao>叛逃锤头鲨级护卫舰已被击沉</header.TLhaidao>
+	<text.TLhaidao>非常感谢，你们最好不要碰那东西，我们会派出专人来回收它</text.TLhaidao>
+	<missionname.Pirate>运输阻断-联盟使者</missionname.Pirate>
+	<missiondescription.Pirate>(This mission is a pirate mission, so it's best to only take one mission of this type.)\n Alliance Liaison Officer: Damn that group, always opposing us. According to the detector, an old group transport ship will pass through the route ahead. Let's show them what we're made of! You can do whatever you want with the sunken ship!</missiondescription.Pirate>
+	<header1.Pirate>Group transport ship：</header1.Pirate>
+	<text1.Pirate>You guys are crazy! Alliance dogs! You'll eventually be swallowed up by the group!</text1.Pirate>
+	<header.Pirate>The old Moroccan-class transport ship has been sunk.</header.Pirate>
+	<text.Pirate>It's finally over. We've cut off one of their supply lines... just one...</text.Pirate>
+	<missionname.TLyiliaojian>Missing medical ship</missionname.TLyiliaojian>
+	<missiondescription.TLyiliaojian>(This mission is a pirate mission, so it's best to only take one mission of this type.)\nWe have captured the medical ship that recently lost contact while en route to the energy station. Please go and investigate.</missiondescription.TLyiliaojian>
+	<header1.TLyiliaojian>Medical ship discovered</header1.TLyiliaojian>
+	<text1.TLyiliaojian>Authorization complete, you can enter</text1.TLyiliaojian>
+	<header.TLyiliaojian>Unknown intruder has been cleared.</header.TLyiliaojian>
+	<text.TLyiliaojian>It seems that some people want to die more than you do....</text.TLyiliaojian>
+	<missionname.TLFaultyMech>Faulty Mecha Recycling Protocol</missionname.TLFaultyMech>
+	<missiondescription.TLFaultyMech>(This is a pirate mission; it's best to only accept one mission of this type at a time.) \nOne of our experimental mechs suddenly lost connection during testing. Please investigate immediately.\n This unit is equipped with our new anti-ship missiles. We cannot confirm whether they've been activated, but this model's missile sensors have a limited range. Good luck.</missiondescription.TLFaultyMech>
+	<header1.TLFaultyMech>Mecha detected</header1.TLFaultyMech>
+	<text1.TLFaultyMech>Recycling can begin.</text1.TLFaultyMech>
+	<header.TLFaultyMech>The unknown intruder has been eliminated.</header.TLFaultyMech>
+	<text.TLFaultyMech>Control of the mecha has been regained.</text.TLFaultyMech>
+	<missionname.TLEnergyTowers_1>Energy station recovery（low difficulty）</missionname.TLEnergyTowers_1>
+	<missionname.TLEnergyTowers>Energy station recovery（standard difficulty）</missionname.TLEnergyTowers>
+	<missiondescription.TLEnergyTowers>Please go and clear the Group Energy Station. All employees have been evacuated. Remember that your task is to clear out all living forces. Only the front half needs to be cleared.</missiondescription.TLEnergyTowers>
+	<header.TLEnergyTowers>Cleanup complete</header.TLEnergyTowers>
+	<text.TLEnergyTowers>The first half has already been cleaned up, and the rest has been handed over to the group. Leaving is an option; of course, you can also choose to thoroughly clean up the mining area.</text.TLEnergyTowers>
+	<missionname.DMissions>Reinforcement Operation “D”</missionname.DMissions>
+	<missiondescription.DMissions>This site is under attack from a wave of skin-changing creatures. Hostile life forms have been detected inside, and the automatic defense system has been overwhelmed. Please go there immediately to provide support.\nAn attack ship nearby is on standby, and the control console in the station's control room is connected to the attack ship's support system. You have full command of the ship's firepower.</missiondescription.DMissions>
+	<header.DMissions>Enemy life signals have disappeared, recovery protocol initiated.</header.DMissions>
+	<text.DMissions>The attack ship is in position, and you have full command of its firepower.</text.DMissions>
+	<missionname.TLMine>Abandoned Mine Cleanup Program</missionname.TLMine>
+	<missiondescription.TLMine>This area was once a rich mining district occupied by the Group. Although it has been abandoned for a long time, there are still some residual minerals that can be mined. Consider it a gift from the Group. Of course, there are also some unfriendly creatures here.</missiondescription.TLMine>
+	<header.TLMine>Cleanup complete</header.TLMine>
+	<text.TLMine>After the excavation is complete, you can return at any time to report back.</text.TLMine>
+	<missionname.TLxue>Watching the snow-covered mountains together</missionname.TLxue>
+	<missiondescription.TLxue>雪后山间静谧多， 银装素裹映长河。 携手同行观美景， 却忆往昔泪婆娑\nOur secret research station has suddenly been attacked by an unknown fleet. Please rush to the scene immediately and provide support. Under no circumstances should they be allowed to seize the prototype of the Beyond Flower!</missiondescription.TLxue>
+	<header.TLxue>静</header.TLxue>
+	<text.TLxue>寒风吹尽旧时梦， 雪落无声人独愁。 山河虽美心难静， 空对银装泪自流</text.TLxue>
+	<missionname.TLAbandonedOutpostMission1>The wind and snow have subsided.</missionname.TLAbandonedOutpostMission1>
+	<missiondescription.TLAbandonedOutpostMission1>It seems that Terra has been running rampant on Europa! It's time to put an end to their arrogance! Do you want to confront the group head-on? Let them know that the Alliance is not to be trifled with! (Please detonate the reactor to complete the mission.)</missiondescription.TLAbandonedOutpostMission1>
+	<header.TLAbandonedOutpostMission1>岁寒过后终见暖，人生如斯自有情...</header.TLAbandonedOutpostMission1>
+	<text.TLAbandonedOutpostMission1>风雪消霁天地清， 梅花点点映寒冰。 遥望山川银装褪， 心随冬去盼春明</text.TLAbandonedOutpostMission1>
+	<missionname.TLHQToweroutpost>Cherry Snow Teeth</missionname.TLHQToweroutpost>
+	<missiondescription.TLHQToweroutpost>You want to take the prototype of the Beyond Flower from the Group? Fine, let's see if this bunch of old, weak, and disabled people from Phantom Star have the strength to do so. (Please detonate the reactor to complete the mission.)</missiondescription.TLHQToweroutpost>
+	<header.TLHQToweroutpost>The Phantom Star Squad has been eliminated, and the reactor has been destroyed!</header.TLHQToweroutpost>
+	<text.TLHQToweroutpost>Keep fighting! Avenge your defeat! From the moment you entered “Cherry,” our revenge was destined to succeed. You can retreat now! Of course, you can also pull out all their teeth and clear this place!</text.TLHQToweroutpost>
+	<missionname.Cargo1_TL>Fleet Replenishment Agreement-A1</missionname.Cargo1_TL>
+	<missionname.Cargo2_TL>Fleet Replenishment Agreement-A2</missionname.Cargo2_TL>
+	<missionname.Cargo3_TL>Fleet Replenishment Agreement-A3</missionname.Cargo3_TL>
+	<missionname.Cargo4_TL>Fleet Replenishment Agreement-A4</missionname.Cargo4_TL>
+	<missionname.Cargo5_TL>Fleet Replenishment Agreement-A5</missionname.Cargo5_TL>
+	<missionname.Escort1_TL>Fleet Security Agreement-A1</missionname.Escort1_TL>
+	<missiondescription.Cargo1_TL>The Group will provide support to every loyal fleet. Please promptly receive supplies in the cargo hold.</missiondescription.Cargo1_TL>
+	<missiondescription.Escort1_TL>The Group is willing to provide escort services during this voyage.</missiondescription.Escort1_TL>
+</infotexts>

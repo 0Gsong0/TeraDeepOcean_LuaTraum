@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Randomevents>
+	<EventSprites>
+		<!--Sprite identifier="MedicalPump" texture="%ModDir%/Content/Items/Medicals/MedicalPump.png" sourcerect="0,0,620,860" origin="0.5,0.5" /-->
+	</EventSprites>
+	<EventPrefabs>
+		<ScriptedEvent identifier="TLCyb_LycorisChip_Recovery_ues">
+			<TagAction criteria="player" tag="player" />
+			<MessageBoxAction tag="TLCyb_LycorisChip_Recovery_ues"
+                text="TLCyb_LycorisChip_Recovery_ues" iconstyle="GUITLCyb_LycorisChip" targettag="triggerer_player"
+                HideCloseButton="false"/>
+			<WaitAction time="5" />
+			<MessageBoxAction type="close" tag="TLCyb_LycorisChip_Recovery_ues" />
+		</ScriptedEvent>
+	</EventPrefabs>
+</Randomevents>

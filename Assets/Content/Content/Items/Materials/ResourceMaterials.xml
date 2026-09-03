@@ -1,0 +1,2627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--低价值回收-->
+  <Item name="A.回收-低价值-1金币-酒精" identifier="Recycle_ethanol" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="ethanol" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,768,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-2金币-塑料" identifier="Recycle_plastic" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,128,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-0.5金币-废料" identifier="Recycle_scrap" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="scrap" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas2.png" sourcerect="448,384,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-弹性蛋白" identifier="Recycle_elastin" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="elastin" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="772,771,52,59" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-橡胶" identifier="Recycle_rubber" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="rubber" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,770,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-活性纤维" identifier="Recycle_organicfiber" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="organicfiber" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,768,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-0.5金币-爆弹石榴" identifier="Recycle_creepingorange" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="creepingorange" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="971,649,43,55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-0.5金币-盐木鳞" identifier="Recycle_saltbulb" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="saltbulb" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="968,712,49,55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-硅" identifier="Recycle_silicon" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="silicon" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,128,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-0.5金币-自愈囊泡" identifier="Recycle_swimbladder" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="swimbladder" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.5" sourcerect="64,0,44,52" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-迅猛龙杀手" identifier="Recycle_raptorbane" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="raptorbane" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="971,777,44,50" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-突变迅猛龙杀手" identifier="Recycle_badraptorbane" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="badraptorbane" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="971,777,44,50" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-氯" identifier="Recycle_chlorine" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="chlorine" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,256,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-钍" identifier="Recycle_thorium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="thorium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-钙" identifier="Recycle_calcium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="calcium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-碳" identifier="Recycle_carbon" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="carbon" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="384,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-磷" identifier="Recycle_phosphorus" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="phosphorus" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-钛" identifier="Recycle_titanium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="titanium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-钠" identifier="Recycle_sodium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="sodium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-钾" identifier="Recycle_potassium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="potassium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-铀" identifier="Recycle_uranium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="uranium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="898,192,61,63" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-铁" identifier="Recycle_iron" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="iron" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-铅" identifier="Recycle_lead" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="lead" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="768,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-铜" identifier="Recycle_copper" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="copper" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-铝" identifier="Recycle_aluminium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="aluminium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-2金币-铝合金" identifier="Recycle_AluminumAlloy" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" count="2" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="4,235,55,27" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-锌" identifier="Recycle_zinc" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="zinc" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-锡" identifier="Recycle_tin" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="tin" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-镁" identifier="Recycle_magnesium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="magnesium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-2金币-防弹纤维" identifier="Recycle_ballisticfiber" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="ballisticfiber" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="706,770,62,61" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-2金币-画皮卵" identifier="Recycle_huskeggs" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="huskeggs" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,448,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-锂" identifier="Recycle_lithium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="lithium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-低价值-1金币-异星血浆" identifier="Recycle_alienblood" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="alienblood" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,771,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <!--中等价值回收-->
+  <Item name="A.回收-中价值-3金币-硝化甘油" identifier="Recycle_nitroglycerin" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="nitroglycerin" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="3" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,768,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="3" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-4金币-发射药稳定剂" identifier="Recycle_Stabilizers_DNT" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="Stabilizers_DNT" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="4" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="5,267,24,44" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="4" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-2金币-复合果实" identifier="Recycle_Compositefruit" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="Compositefruit" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Materials/Minerals.png" sourcerect="601,393,61,47" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-4金币-普通三基发射药" identifier="Recycle_Triple_BasePropellant" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="Triple_BasePropellant" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="4" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="2,2,27,51" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="4" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-5金币-氧矿碎片" identifier="Recycle_oxygeniteshard" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="oxygeniteshard" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="5" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="200,835,50,56" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="5" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-5金币-燃素水晶" identifier="Recycle_incendium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="incendium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="5" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="260,835,53,61" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="5" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-3金币-肾上腺素" identifier="Recycle_adrenaline" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="adrenaline" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="3" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,448,62,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="3" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-2金币-钛铝合金" identifier="Recycle_titaniumaluminiumalloy" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,768,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-2金币-钢筋" identifier="Recycle_steel" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="steel" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-2金币-闪光粉" identifier="Recycle_flashpowder" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="flashpowder" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,256,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-4金币-雷素块" identifier="Recycle_fulgurium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="fulgurium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="4" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="328,833,51,63" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="4" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-3金币-麻痹源" identifier="Recycle_paralyxis" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="paralyxis" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="3" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,832,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="3" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-2金币-叠氮化合物" identifier="Recycle_compoundn" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="compoundn" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,64,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-中价值-2金币-硫酸" identifier="Recycle_sulphuricacid" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="sulphuricacid" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,768,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="2" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <!--高等价值回收-->
+  <Item name="A.回收-高价值-6金币-刚素棒" identifier="Recycle_physicorium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="physicorium" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="6" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="70,835,52,59" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="6" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-10金币-打印耗材" identifier="Recycle_PrintingMaterials" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="10" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="4,314,38,35" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="10" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-5金币-摄魂矿" identifier="Recycle_dementonite" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="dementonite" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="5" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,830,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="5" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-6金币-高级三基发射药" identifier="Recycle_Triple_BasePropellant_Pro" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="6" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="37,264,36,47" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="6" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-10金币-泰拉合金" identifier="Recycle_Steel_TL" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="Steel_TL" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="10" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="62,235,55,27" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="10" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-7金币-泰拉工程塑料" identifier="Recycle_TL_EngineeringPlastics" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="7" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="111,365,62,31" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="7" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-5金币-泰拉数据蓝图" identifier="Recycle_TL_blueprint" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="TL_blueprint" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="5" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="93,477,81,71" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="5" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-8金币-纳米凝胶" identifier="Recycle_nanogel" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="nanogel" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="8" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Medicals/icon.png" sourcerect="577,412,100,124" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="8" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-9金币-破坏性纳米凝胶" identifier="Recycle_nanogel_cr" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="nanogel_cr" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="9" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Medicals/icon.png" sourcerect="467,411,95,121" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="9" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-15金币-泰拉数据库安全密钥" identifier="Recycle_TL_Keys" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="TL_Keys" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="15" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="172,426,59,51" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="15" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="A.回收-高价值-10金币-辐射脑珠" identifier="Recycle_Radiation_ball" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="Radiation_ball" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="GoldCoin" amount="10" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="0,478,78,79" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" count="10" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <!--高等价值兑换-->
+  <Item name="B.兑换-高价值-20金币-刚素棒" identifier="Exchange_physicorium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="20" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="physicorium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="70,835,52,59" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="physicorium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-35金币-打印耗材" identifier="Exchange_PrintingMaterials" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="35" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="PrintingMaterials" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="4,314,38,35" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="PrintingMaterials" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-18金币-摄魂矿" identifier="Exchange_dementonite" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="18" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="dementonite" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,830,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="dementonite" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-20金币-高级三基发射药" identifier="Exchange_Triple_BasePropellant_Pro" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="20" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Triple_BasePropellant_Pro" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="37,264,36,47" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Triple_BasePropellant_Pro" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-30金币-泰拉合金" identifier="Exchange_Steel_TL" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="30" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Steel_TL" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="62,235,55,27" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Steel_TL" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-25金币-泰拉工程塑料" identifier="Exchange_TL_EngineeringPlastics" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="25" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_EngineeringPlastics" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="111,365,62,31" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="TL_EngineeringPlastics" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-18金币-泰拉数据蓝图" identifier="Exchange_TL_blueprint" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="18" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_blueprint" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="93,477,81,71" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="TL_blueprint" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-25金币-纳米凝胶" identifier="Exchange_nanogel" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="25" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="nanogel" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Medicals/icon.png" sourcerect="577,412,100,124" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="nanogel" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-40金币-辐射脑珠" identifier="Exchange_Radiation_ball" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="40" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Radiation_ball" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="0,478,78,79" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Radiation_ball" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-高价值-30金币-耶德里斯控制芯片" identifier="Exchange_Yedris_1" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="30" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Yedris_1" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Weapons/TLItems1.png" sourcerect="12,22,116,38" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Yedris_1" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <!--中等价值兑换-->
+  <Item name="B.兑换-中价值-8金币-硝化甘油" identifier="Exchange_nitroglycerin" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="8" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="nitroglycerin" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,768,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="nitroglycerin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-11金币-发射药稳定剂" identifier="Exchange_Stabilizers_DNT" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="11" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Stabilizers_DNT" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="5,267,24,44" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Stabilizers_DNT" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-3金币-复合果实" identifier="Exchange_Compositefruit" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Compositefruit" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Materials/Minerals.png" sourcerect="601,393,61,47" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Compositefruit" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-10金币-普通三基发射药" identifier="Exchange_Triple_BasePropellant" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="10" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="Triple_BasePropellant" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="2,2,27,51" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="Triple_BasePropellant" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-15金币-氧矿碎片" identifier="Exchange_oxygeniteshard" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="15" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="oxygeniteshard" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="200,835,50,56" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="oxygeniteshard" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-16金币-燃素水晶" identifier="Exchange_incendium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="16" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="incendium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="260,835,53,61" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="incendium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-9金币-肾上腺素" identifier="Exchange_adrenaline" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="9" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="adrenaline" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,448,62,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="adrenaline" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-6金币-钛铝合金" identifier="Exchange_titaniumaluminiumalloy" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="6" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="titaniumaluminiumalloy" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,768,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="titaniumaluminiumalloy" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-5金币-钢筋" identifier="Exchange_steel" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="5" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="steel" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="steel" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-6金币-闪光粉" identifier="Exchange_flashpowder" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="6" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="flashpowder" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,256,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="flashpowder" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-15金币-雷素块" identifier="Exchange_fulgurium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="15" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="fulgurium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="328,833,51,63" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="fulgurium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-10金币-麻痹源" identifier="Exchange_paralyxis" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="10" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="paralyxis" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,832,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="paralyxis" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-5金币-叠氮化合物" identifier="Exchange_compoundn" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="5" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="compoundn" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,64,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="compoundn" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-中价值-6金币-硫酸" identifier="Exchange_sulphuricacid" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="6" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="sulphuricacid" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,768,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="sulphuricacid" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <!--低价值兑换-->
+  <Item name="B.兑换-低价值-2金币-酒精" identifier="Exchange_ethanol" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="ethanol" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,768,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="ethanol" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-4金币-塑料" identifier="Exchange_plastic" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="4" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="plastic" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,128,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="plastic" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-1金币-废料" identifier="Exchange_scrap" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="1" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="scrap" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas2.png" sourcerect="448,384,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="scrap" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-弹性蛋白" identifier="Exchange_elastin" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="elastin" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="772,771,52,59" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="elastin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-橡胶" identifier="Exchange_rubber" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="rubber" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,770,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="rubber" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-活性纤维" identifier="Exchange_organicfiber" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="organicfiber" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,768,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="organicfiber" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-爆弹石榴" identifier="Exchange_creepingorange" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="creepingorange" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="971,649,43,55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-盐木鳞" identifier="Exchange_saltbulb" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="saltbulb" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="968,712,49,55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="GoldCoin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-硅" identifier="Exchange_silicon" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="silicon" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,128,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="silicon" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-自愈囊泡" identifier="Exchange_swimbladder" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="swimbladder" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/CreatureLoot/CreatureLoot.png" depth="0.5" sourcerect="64,0,44,52" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="swimbladder" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-迅猛龙杀手" identifier="Exchange_raptorbane" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="raptorbane" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="971,777,44,50" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="raptorbane" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-突变迅猛龙杀手" identifier="Exchange_badraptorbane" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="badraptorbane" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" depth="0.5" sourcerect="971,777,44,50" origin="0.5,0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="badraptorbane" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-氯" identifier="Exchange_chlorine" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="chlorine" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,256,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="chlorine" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-钍" identifier="Exchange_thorium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="thorium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="thorium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-钙" identifier="Exchange_calcium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="calcium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="calcium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-碳" identifier="Exchange_carbon" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="carbon" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="384,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="carbon" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-磷" identifier="Exchange_phosphorus" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="phosphorus" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="phosphorus" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-钛" identifier="Exchange_titanium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="titanium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="titanium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-钠" identifier="Exchange_sodium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="sodium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="sodium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-钾" identifier="Exchange_potassium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="potassium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="potassium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-铀" identifier="Exchange_uranium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="uranium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="898,192,61,63" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="uranium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-铁" identifier="Exchange_iron" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="iron" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="iron" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-铅" identifier="Exchange_lead" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="lead" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="768,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="lead" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-铜" identifier="Exchange_copper" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="copper" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="copper" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-铝" identifier="Exchange_aluminium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="aluminium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="aluminium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-5金币-铝合金" identifier="Exchange_AluminumAlloy" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="5" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="AluminumAlloy" amount="1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/Materials/Minerals.png" sourcerect="4,235,55,27" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="AluminumAlloy" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-锌" identifier="Exchange_zinc" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="zinc" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="zinc" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-锡" identifier="Exchange_tin" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="tin" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="tin" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-镁" identifier="Exchange_magnesium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="magnesium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="magnesium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-4金币-防弹纤维" identifier="Exchange_ballisticfiber" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="4" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="ballisticfiber" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="706,770,62,61" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="ballisticfiber" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-5金币-画皮卵" identifier="Exchange_huskeggs" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="5" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="huskeggs" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,448,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="huskeggs" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-3金币-锂" identifier="Exchange_lithium" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="3" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="lithium" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,192,64,64" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="lithium" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <Item name="B.兑换-低价值-2金币-异星血浆" identifier="Exchange_alienblood" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="64" maxstacksizecharacterinventory="32" Tags="smallitem" hideinmenus="true" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1">
+      <RequiredItem identifier="GoldCoin" amount="2" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="alienblood" amount="1" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="448,771,64,64" origin="0.5,0.5" depth="0.5" />
+    <Body width="50" height="50" density="10" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+        <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" absoluteoffset="0,140" style="ItemUI" />
+        <Button text="TL.Recycle">
+          <StatusEffect type="OnUse" target="This">
+            <Sound file="%ModDir%/Content/Sounds/Other/叮.ogg" type="OnUse" range="250" volume="0.3" />
+            <SpawnItem identifiers="alienblood" spawnposition="SameInventory" />
+            <Remove />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+    </Holdable>
+  </Item>
+  <!--金币-->
+  <Item name="金币" identifier="GoldCoin" description="集团发行的内部兑换货币，用于在资源兑换仪中换取资源" tags="smallitem,disallowduplicatedeconstructoutput" category="TL_MaterialRecycle" maxstacksize="1024" maxstacksizecharacterinventory="512" Tags="mediumitem,GoldCoin" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.14" impactsoundtag="impact_metal_light">
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab" minamount="2" maxamount="6" spawnprobability="0.08" />
+    <PreferredContainer primary="storagecab" />
+    <Sprite name="GoldCoin" texture="%ModDir%/Content/Items/Materials/金币.png" sourcerect="637,206,171,101" depth="0.5" origin="0.5,0.5" />
+    <Body width="100" height="100" density="15" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--说明书-->
+  <Item name="回收仪说明书" identifier="InstructionManual" description="" allowstealingalways="true" category="Misc" hideinmenus="false" Tags="smallitem" scale="0.1" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="ResourceMaterialsRecycle" requiredtime="1" />
+    <Sprite texture="%ModDir%/Content/Items/Materials/金币.png" sourcerect="55,973,387,424" origin="0.5,0.5" depth="0.8" />
+    <Body width="35" height="40" density="8" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.5,0.75" anchor="Center" style="InstructionManual" hidedragicons="true" />
+    </Terminal>
+  </Item>
+  <Item name="资源回收仪" identifier="ResourceMaterialsRecycle" tags="ResourceMaterialsRecycle" category="Machine" linkable="false" description="将你无用的冗余材料上传至泰拉集团网络，集团会给你发放代币，允许你进行兑换需要的资源。但请注意，此回收仪会受到天赋的加成影响，可能会破坏游戏物资平衡，请斟酌使用" scale="0.2" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+    <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="true">
+      <RequiredSkill identifier="mechanical" level="65" />
+      <RequiredItem identifier="steel_TL" amount="5" />
+      <RequiredItem identifier="TL_blueprint" />
+      <RequiredItem identifier="fpgacircuit" amount="30" />
+    </Fabricate>
+    <BrokenSprite name="ResourceMaterialsRecycle_BROKEN" texture="%ModDir%/Content/Items/Materials/资源回收Broken.png" sourcerect="252,53,775,1166" depth="0.55" origin="0.5,0.5" maxcondition="15" />
+    <Sprite texture="%ModDir%/Content/Items/Materials/资源回收.png" sourcerect="252,53,775,1166" depth="0.55" origin="0.5,0.5" />
+    <Body width="1280" height="1280" density="25" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="10" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+      <requireditem items="wrench" type="Equipped" />
+    </Holdable>
+    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
+      <sprite texture="%ModDir%/Content/Items/Materials/资源回收light.png" depth="0.025" sourcerect="252,53,775,1166" alpha="1.0" />
+    </LightComponent>
+    <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.83" offset="-117,71" sourcerect="805,537,54,54" origin="0.5,0.5" rotationspeed="800">
+      <AnimationConditional Voltage="gt 0.5" targetitemcomponent="Fabricator" />
+      <AnimationConditional IsActive="True" targetitemcomponent="Fabricator" />
+      <IsActiveConditional Condition="gt 0.0" />
+    </DecorativeSprite>
+    <Fabricator canbeselected="true" powerconsumption="250" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.6,0.7" style="ItemUI" anchor="Center" />
+      <sound file="%ModDir%/Content/Sounds/Other/Print.ogg" type="OnActive" range="1000.0" volumeproperty="RelativeVoltage" loop="true" />
+      <poweronsound file="%ModDir%/Content/Sounds/Other/PrintPower.ogg" range="600" loop="false" />
+      <StatusEffect type="InWater" target="This" condition="-0.5" />
+      <StatusEffect type="OnActive" target="Contained" targetSlot="7" condition="-0.01">
+        <RequiredItem items="TL_Keys" type="Contained" />
+      </StatusEffect>
+    </Fabricator>
+    <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredSkill identifier="electrical" level="55" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="%ModDir%/Content/Sounds/Other/PrintError.ogg" range="1000" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
+        <Affliction identifier="burn" strength="5" />
+      </StatusEffect>
+      <input name="power_in" displayname="connection.powerin" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+    </ConnectionPanel>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.50" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="%ModDir%/Content/Sounds/Other/PrintError.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <ItemContainer capacity="1" canbeselected="true" hideitems="false" slotsperrow="3" uilabel="" allowuioverlap="true">
+      <Containable itempos="33,-168" hide="false" items="Material,smallitem,weapon,handheldammo,Gatlingun_TL,ammobox,diving,deepdiving,deepdivinglarge,depthchargeammo,deepdiving,turretammosource,railgunammo,extinguisher,explosive,vest,tool,stackbox" excludeitems="GoldCoin" />
+      <!--SlotIcon slotindex="0" texture="%ModDir%/Content/Items/Sundrys/Crate.png" sourcerect="0,0,419,300" origin="0.5,0.5" /-->
+      <SlotIcon slotindex="1" texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,256,64,64" origin="0.5,0.6" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Content/Items/Materials/金币.png" sourcerect="1043,161,329,221" origin="0.5,0.5" />
+      <!--0箱，1垃圾，2金币-->
+      <SubContainer slots="1" maxstacksize="1">
+        <Containable items="StackBox" hide="true" />
+      </SubContainer>
+      <SubContainer slots="1" maxstacksize="1024">
+        <Containable items="GoldCoin" itempos="125,-168" />
+      </SubContainer>
+    </ItemContainer>
+    <ItemContainer capacity="1" canbeselected="true" hideitems="true" slotsperrow="1" uilabel="" allowuioverlap="true" />
+  </Item>
+</Items>

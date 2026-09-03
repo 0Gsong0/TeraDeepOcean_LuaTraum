@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OutpostGenerationParameters>
+  <OutpostConfig identifier="TL_reside" replaceinradiation="abandonedoutpost" totalmodulecount="5" appendtoreachtotalmodulecount="false" minhallwaylength="400" allowedlocationtypes="TL_reside">
+    <modulecount flag="Airlock_TL" count="1" />
+    <modulecount flag="EngineeringModule_TL" count="1" />
+    <modulecount flag="AdminModule_TL" count="1" />
+    <modulecount flag="CrewModule_TL" count="1" />
+    <modulecount flag="MedicalModule_TL" count="1" />
+    <npcs>
+      <npc from="TL_mission_npcs" identifier="TL_mission_npcs_Commander" faction="TLCompany" />
+      <npc from="TL_mission_npcs" identifier="TL_mission_npcs_SpecialCombat" faction="TLCompany" />
+      <npc from="TL_mission_npcs" identifier="TL_mission_npcs_SpecialCombat" faction="TLCompany" />
+      <npc from="outpostnpcs1" identifier="hrmanager" />
+      <npc from="outpostnpcs1" identifier="subupgradenpc" />
+      <npc from="outpostnpcs1" identifier="subsalesnpc" />
+      <npc from="outpostnpcs1" identifier="reactoroperator" />
+      <npc from="outpostnpcs1" identifier="merchantcity" />
+      <npc from="outpostnpcs1" identifier="merchantarmory" />
+      <npc from="outpostnpcs1" identifier="merchantmedical" />
+      <npc from="outpostnpcs1" identifier="merchantengineering" />
+      <npc from="outpostnpcs1" identifier="outpostdoctor" />
+      <npc from="TLnpc" identifier="TLarmory" />
+      <npc from="TLnpc" identifier="TLnpc4" />
+      <npc from="TLnpc" identifier="TLnpc3" />
+    </npcs>
+  </OutpostConfig>
+  <OutpostConfig identifier="TLEnergyTowers" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="TLEnergyTowers" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="Towers_Airlock" count="1" />
+    <modulecount flag="Towers_EngineeringModule" count="1" />
+  </OutpostConfig>
+  <OutpostConfig identifier="TLEnergyTowers_1" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="TLEnergyTowers_1" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="Towers_Airlock" count="1" />
+    <modulecount flag="Towers_EngineeringModule_1" count="1" />
+  </OutpostConfig>
+  <!--OutpostConfig identifier="TLshipyard" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="TLshipyard" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="TLshipyard_Airlock" count="1" />
+    <modulecount flag="TLshipyard_EngineeringModule" count="1" />
+  </OutpostConfig-->
+  <OutpostConfig identifier="TLxue" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="TLxue" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="TLxue_Airlock" count="1" />
+    <modulecount flag="TLxue_Main" count="1" />
+  </OutpostConfig>
+  <OutpostConfig identifier="TLHQ" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="TLHQ" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="TLHQ_Airlock" count="1" />
+    <modulecount flag="TLHQ_Main" count="1" />
+  </OutpostConfig>
+  <OutpostConfig identifier="TLMine" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="TLMine" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="TLMine_Airlock" count="1" />
+    <modulecount flag="TLMine_Main" count="1" />
+  </OutpostConfig>
+  <OutpostConfig identifier="DMissions" totalmodulecount="2" minhallwaylength="0" allowedlocationtypes="DMissions" spawncrewinsideoutpost="false" alwaysdestructible="true" alwaysrewireable="true" allowstealing="true">
+    <modulecount flag="DMissions_Airlock" count="1" />
+    <modulecount flag="DMissions_Main" count="1" />
+  </OutpostConfig>
+</OutpostGenerationParameters>

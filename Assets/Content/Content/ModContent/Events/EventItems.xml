@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="" identifier="千山鸟飞绝bgm-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+    <Body width="128" height="128" density="10" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+    <ItemComponent characterusable="false">
+      <StatusEffect type="Always" target="This">
+        <sound file="%ModDir%/Content/Sounds/Music/Musics/Aii - 乘霄山-千山鸟飞绝.ogg" range="10000" dontmuffle="true" loop="false" volume="1.1" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" delay="78">
+        <Remove/>
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+	<Item name="" identifier="山霁浮古今bgm-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Music/Musics/山霁浮古今.ogg" range="10000" dontmuffle="true" loop="false" volume="0.7" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="78">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.1-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情1.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="15">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.2-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情2.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="15">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.3-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情3.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="15">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.4-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情4.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="8">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.5-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情5.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="20">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.6-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情6.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="5">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.7-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情7.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="15">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.8-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情8.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="10">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="哨站剧情.9-E" description="" subcategory="渊洋唱片" category="Misc" tags="smallitem,TLrecord" cargocontaineridentifier="metalcrate" impactsoundtag="impact_soft" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="TLsafe.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/ModContent/Events/Sound/第二哨站剧情9.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="5">
+				<Remove/>
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+</Items>

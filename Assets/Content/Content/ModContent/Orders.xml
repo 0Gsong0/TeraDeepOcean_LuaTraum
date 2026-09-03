@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Orders>
+  <Override>
+    <Order name="躺床上" identifier="restandrecover" assignmentpriority="10" mustsettarget="true" targetitems="medbed,bunk,bunkwrecked,opdeco_bunkbeds,opdeco_bunks1,opdeco_prisonbed,opdeco_hospitalbed,probed" targetitemtype="controller" appropriatejobs="assistant" appropriateskill="medical" category="operate">
+      <Sprite name="Command_Rest" texture="restandrecover.png" sourcerect="0,0,200,152" />
+    </Order>
+	  <Order name="躺床上2" identifier="restandrecover_B" assignmentpriority="10" mustsettarget="true" targetitems="probed" targetitemtype="controller" appropriatejobs="assistant" appropriateskill="medical" category="operate">
+		  <Sprite name="Command_Rest" texture="restandrecover.png" sourcerect="0,0,200,152" />
+	  </Order>
+  </Override>
+</Orders>

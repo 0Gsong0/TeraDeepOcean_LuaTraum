@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<style>
+  <GUILYcorisPicture
+    color="255,255,255,255" hovercolor="200,214,223,255" selectedcolor="163,186,203,255"
+    pressedcolor="90,130,158,255" disabledcolor="125,125,125,125">
+    <Sprite name="GUILYcorisPicture" texture="%ModDir%/Content/ModContent/Events/Lycoris.png"
+      sourcerect="0,0,1024,1024" tile="false" maintainaspectratio="true" origin="0.5,0.5" />
+  </GUILYcorisPicture>
+  <GUILEngineerPicture
+    color="255,255,255,255" hovercolor="200,214,223,255" selectedcolor="163,186,203,255"
+    pressedcolor="90,130,158,255" disabledcolor="125,125,125,125">
+    <Sprite name="GUILEngineerPicture" texture="Content/Map/Outposts/Art/Event_pic4.png" sourcerect="0,512,256,256"
+     tile="false" maintainaspectratio="true" origin="0.5,0.5" />
+  </GUILEngineerPicture>
+  <GUIMedicalPump
+	  color="255,255,255,255" hovercolor="200,214,223,255" selectedcolor="163,186,203,255"
+    pressedcolor="90,130,158,255" disabledcolor="125,125,125,125">
+    <Sprite name="GUILMedicalPump" texture="%ModDir%/Content/Items/Medicals/MedicalPump.png" sourcerect="0,0,620,860"
+     tile="false" maintainaspectratio="true" origin="0.5,0.5" />
+  </GUIMedicalPump>
+  <GUITLCyb_LycorisChip
+	  color="255,255,255,255" hovercolor="200,214,223,255" selectedcolor="163,186,203,255"
+    pressedcolor="90,130,158,255" disabledcolor="125,125,125,125">
+    <Sprite name="GUITLCyb_LycorisChip" texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354"
+     tile="false" maintainaspectratio="true" origin="0.5,0.5" />
+  </GUITLCyb_LycorisChip>
+	<MiningRouteIcon>
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/mining_flag.png" sourcerect="0,0,225,415"
+				origin="0.5,0.5" />
+	</MiningRouteIcon>
+	<MiningRouteIconStarted>
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/采矿平台logo.png" sourcerect="0,0,614,410"
+				origin="0.5,0.5" />
+	</MiningRouteIconStarted>
+	<TLConfigLogo color="255,255,255,255" hovercolor="200,214,223,255" selectedcolor="163,186,203,255" pressedcolor="90,130,158,255" disabledcolor="125,125,125,125">
+		<Sprite name="TLConfigLogo" texture="%ModDir%/Content/UI/泰拉logo.png" sourcerect="0,0,1536,1024"
+		tile="false" maintainaspectratio="true" origin="0.5,0.5" />
+	</TLConfigLogo>
+	<TLConfigGUIButton color="255,255,255,255" hovercolor="255,255,255,255" selectedcolor="255,255,255,255" disabledcolor="125,125,125,255" pressedcolor="230,230,230,255">
+		<Sprite name="GUIButton.None" texture="%ModDir%/Content/UI/Menu/UIAtlasGeneral.png" state="None" sourcerect="6,216,164,45" slice="11,221,165,256" origin="0.5,0.5"/>
+		<Sprite name="GUIButton.Hover" texture="%ModDir%/Content/UI/Menu/UIAtlasGeneral.png" state="Hover" sourcerect="6,281,164,45" slice="11,286,165,321" origin="0.5,0.5"/>
+		<Sprite name="GUIButton.Selected" texture="%ModDir%/Content/UI/Menu/UIAtlasGeneral.png" state="Selected" sourcerect="6,346,164,45" slice="11,351,165,386" origin="0.5,0.5"/>
+		<Sprite name="GUIButton.Pressed" texture="%ModDir%/Content/UI/Menu/UIAtlasGeneral.png" state="Pressed" sourcerect="6,410,164,45" slice="11,415,165,450" origin="0.5,0.5"/>
+		<GUITextBlock textcolor="16,34,33,255" padding="10.0, 0.0, 10.0, 0.0" font="subheading"/>
+		<Size maxresolution="1024,768" height="30"/>
+		<Size maxresolution="1280,800" height="35"/>
+		<Size maxresolution="1920,1080" height="37"/>
+		<Size maxresolution="2048,1440" height="40"/>
+		<Size maxresolution="2560,1600" height="45"/>
+		<Size height="3.4vh"/>
+	</TLConfigGUIButton>
+</style>

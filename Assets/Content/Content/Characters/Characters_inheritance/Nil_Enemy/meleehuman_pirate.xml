@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="BNZHuman_HX" displayname="" speciesname="meleehuman_pirate" group="pirate">
+    <health Vitality="150" stunimmunity="false">
+      <Limb name="Head">
+        <VitalityMultiplier type="damage" multiplier="2.0" />
+        <VitalityMultiplier type="burn" multiplier="2.0" />
+      </Limb>
+      <Limb name="Torso" />
+      <Limb name="LeftArm">
+        <VitalityMultiplier type="damage" multiplier="0.4" />
+      </Limb>
+      <Limb name="RightArm">
+        <VitalityMultiplier type="damage" multiplier="0.4" />
+      </Limb>
+      <Limb name="LeftLeg">
+        <VitalityMultiplier type="damage" multiplier="0.4" />
+        <VitalityMultiplier type="burn" multiplier="0.4" />
+      </Limb>
+      <Limb name="RightLeg">
+        <VitalityMultiplier type="damage" multiplier="0.4" />
+        <VitalityMultiplier type="burn" multiplier="0.4" />
+      </Limb>
+    </health>
+    <attack damagemultiplier="0" />
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="7">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="securityuniform2" slot="InnerClothes" />
+      <Item identifier="bodyarmor_TLAI" slot="OuterClothes" />
+      <Item identifier="riotshield_TLAI" slot="LeftHand" />
+      <Item identifier="divingknifeunique_TLAI" slot="RightHand" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="6">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="securityuniform2" slot="InnerClothes" />
+      <Item identifier="bodyarmor_TLAI" slot="OuterClothes" />
+      <Item identifier="HurugeeShield_TLAI" slot="LeftHand" />
+      <Item identifier="divingknife" slot="RightHand" />
+    </inventory>
+    <StatusEffect type="OnDeath" target="This">
+      <SpawnItem identifiers="coalitioncommendation" spawnposition="This" probability="0.1" />
+    </StatusEffect>
+  </Charactervariant>
+</Override>

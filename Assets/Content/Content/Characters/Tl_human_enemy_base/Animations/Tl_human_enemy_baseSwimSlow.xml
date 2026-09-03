@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tl_human_enemy_baseSwimSlow LegMoveAmount="0.5" LegCycleLength="13.121421" FootAngle="0" HandMoveAmount="0.26523814,0.10988554" HandCycleSpeed="1.0609525" HandMoveOffset="0,0" ArmMoveStrength="1" HandMoveStrength="1" FixedHeadAngle="True" SteerTorque="25" LegTorque="25" AnimationType="SwimSlow" MovementSpeed="1.0283718" CycleSpeed="1.0283718" HeadAngle="NaN" TorsoAngle="NaN" HeadTorque="50" TorsoTorque="50" FootTorque="25" ArmIKStrength="1" HandIKStrength="1" />

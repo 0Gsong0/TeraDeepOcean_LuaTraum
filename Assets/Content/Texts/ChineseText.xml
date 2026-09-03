@@ -1,0 +1,1297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Simplified Chinese" nowhitespace="true" translatedname="中文（简体）">
+	<Override>
+		<!-- 教程内容 -->
+		<tutorial.JoinTerraFaction_start_missions>了解并加入泰拉集团</tutorial.JoinTerraFaction_start_missions>
+		<JoinTerraFaction.Single.1>[speakername]:你好，船长。我是泰拉集团的特派员。祝贺您拿到了这艘潜艇，知道吗？这艘破烂是我们从垃圾堆里捡到并修复的。</JoinTerraFaction.Single.1>
+		<JoinTerraFaction.Single.2>泰拉集团...？那是什么？而且你来做什么？我可不认识你...</JoinTerraFaction.Single.2>
+		<JoinTerraFaction.Single.3>
+			不必紧张，我们不是军队，也不是宗教。
+			泰拉集团只相信一件事——利益。
+
+			欢迎来到木卫二我的船长。在人类离开地表后的第173年，海洋成为新的天空，而深渊成为新的边疆。
+			当旧世界的政府消失，秩序由新的力量建立。
+			泰拉集团正是其中之一。
+
+			在这里，没有无意义的信仰，没有虚伪的理想。
+			只有一条原则：
+			利益创造价值。
+
+			如果你准备好加入我们，请继续阅读《泰拉集团雇佣协议》。
+		</JoinTerraFaction.Single.3>
+		<JoinTerraFaction.Single.4>我只是想找份工作...养活我的这艘潜艇...</JoinTerraFaction.Single.4>
+		<JoinTerraFaction.Single.5>
+			很好。
+			我们欣赏务实的人。
+
+			理想不能填饱肚子，信仰也不能修好潜艇。
+			但这些破纸可以。
+
+			在正式雇佣你之前，你需要签署一份标准协议。
+		</JoinTerraFaction.Single.5>
+		<JoinTerraFaction.Single.6>什么协议？拿来看看...</JoinTerraFaction.Single.6>
+		<JoinTerraFaction.Single.7>
+			好的船长，请您过目并签字。
+			泰拉集团雇佣协议（Terra Group Employment Contract）
+
+			欢迎加入泰拉集团。
+			在签署本协议后，你将被视为泰拉集团临时雇员，并享有以下权利：
+			1.获得任务报酬与基础补给
+			2.使用集团授权的潜航器与装备
+			3.在任务完成后领取高额奖金
+
+			同时，你需要履行以下义务：
+			1.服从任务调度
+			2.不得泄露集团技术机密
+			3.在任务期间优先保护集团资产
+
+			附加条款：
+			1.在任务中死亡将自动视为合同终止。
+			2.若因个人原因导致潜航器损毁，赔偿将从报酬中扣除。
+			3.发现未知生物或遗迹残骸时，应优先回收样本和遗物。
+
+			泰拉集团不承诺安全，但承诺回报。
+			“深渊之下，价值无限”
+		</JoinTerraFaction.Single.7>
+		<JoinTerraFaction.Single.8>真是一份霸王条款...好吧我签了，我希望你们不会让我饿肚子（在协议上签署自己的名字和潜艇编号）</JoinTerraFaction.Single.8>
+		<JoinTerraFaction.Single.9>
+			欢迎加入泰拉集团。
+			你的第一份任务已经准备好了。
+			放心，
+			第一份任务的死亡率通常不高。
+
+			从现在开始，我将加入您的舰船做您的干员，我也将监督您履行协议的内容。
+			哦对了，这是给您的见面礼，这是我个人出的钱哦！（将1000mk转到银行账户中）
+			合作愉快。
+			“泰拉集团祝你在深海中取得成功”
+		</JoinTerraFaction.Single.9>
+		<tutorial.campaign.introduction.conversation.1>[speakername]: "嘿！船长！我在这里！终于有机会离开这个站了。自从被上次那艘船解雇之后已经呆在这里半个多月了...真不敢相信，现在愿意做潜艇船员的人太少了，他们居然赞助了你们一艘...大概算九成新的潜艇？"</tutorial.campaign.introduction.conversation.1>
+		<tutorial.campaign.introduction.conversation.2>“我还是觉得有点不真实。一个刚签约的船员，就被派去驾驶一艘全新的潜艇？”</tutorial.campaign.introduction.conversation.2>
+		<tutorial.campaign.introduction.conversation.3>
+			“这就是泰拉集团的做事方式。效率第一，成本第二。”
+			“他们需要有人维持这条航线的运转，而我们正好符合条件。”
+			“这艘潜艇原本属于集团的勘探项目，不过那支船员队伍在出航前解散了。”
+			“所以现在——它暂时归我们使用。”
+		</tutorial.campaign.introduction.conversation.3>
+		<tutorial.campaign.introduction.conversation.4>“听起来不像是信任，更像是一次测试。”</tutorial.campaign.introduction.conversation.4>
+		<tutorial.campaign.introduction.conversation.5>
+			“差不多吧。集团不会把资源浪费在没用的人身上。证明我们价值的时候到了。”
+			“在出航前我们得准备一些基础物资。”
+
+			“燃料棒是最重要的，没有它潜艇根本动不了。”
+			“焊接燃料也要准备，如果船体破损我们得自己修。”
+
+			“集团给我们开了一笔启动资金，我已经把钱转到共享账户了。”
+			“省着点花——下一笔经费要等任务完成之后。”
+		</tutorial.campaign.introduction.conversation.5>
+		<tutorial.campaign.introduction.conversation.6>“明白了，我去采购物资。”</tutorial.campaign.introduction.conversation.6>
+		<tutorial.campaign.introduction.conversation.7>
+			“如果是泰拉的站点，那就顺便去港口的任务终端看看。”
+			“泰拉集团已经把我们的船注册进了他们的航运系统。”
+
+			“只要是集团发布的任务，我们都可以接。”
+			“别盲目航行——潜艇的维护费用可不低。当然也得考虑我们的生命安全...”
+		</tutorial.campaign.introduction.conversation.7>
+		<tutorial.campaign.objective_leave>选择带有泰拉集团考核的航线并离开站点\n(否则将导致任务流程不完整)</tutorial.campaign.objective_leave>
+		<tutorial.campaign.introduction.conversation.8>“好，我会留意的。”</tutorial.campaign.introduction.conversation.8>
+		<tutorial.campaign.objective_BeaconStation>激活泰拉集团的信标站</tutorial.campaign.objective_BeaconStation>
+		<missionname.beaconnoreward-TLtutorial>激活泰拉集团的信标站（集团考核任务）</missionname.beaconnoreward-TLtutorial>
+		<tutorial.campaign.objective_FindBeaconStation>找到并靠近信标站</tutorial.campaign.objective_FindBeaconStation>
+		<tutorial.campaign.objective_GoToBeaconStation>进入信标站</tutorial.campaign.objective_GoToBeaconStation>
+		<tutorial.campaign.objective_FindCause>找到信标站失效的原因</tutorial.campaign.objective_FindCause>
+		<tutorial.campaign.objective_Findscrewdriver>找到备用维修工具并装备</tutorial.campaign.objective_Findscrewdriver>
+		<tutorial.campaign.objective_FixBeaconStation>修复信标站的电力系统</tutorial.campaign.objective_FixBeaconStation>
+		<tutorial.campaign.objective_RestartBeaconStation>重启信标站的电力系统</tutorial.campaign.objective_RestartBeaconStation>
+		<tutorial.campaign.objective_OpenWaterButton>启动供水阀</tutorial.campaign.objective_OpenWaterButton>
+		<tutorial.campaign.objective_OpenPowerButton>启动发电机</tutorial.campaign.objective_OpenPowerButton>
+		<BeaconStationArrivalPrompt.1>集团特派员：\n这是一个集团水力信标站，其供电方式依靠水流推动涡轮叶片来产生电力，但很明显某些东西损坏了，请进入查看吧。</BeaconStationArrivalPrompt.1>
+		<BeaconStationArrivalPrompt.2>集团特派员：\n很好您进来了，有些信标站会允许您的潜艇进行对接，如果您的潜艇足够高级，甚至有下对接口进行连接。现在，请一路向下，寻找信标站的电力室，找到它失效的原因。</BeaconStationArrivalPrompt.2>
+		<BeaconStationArrivalPrompt.3>集团特派员：\n嗯...应该是接线盒损坏了，看来有人要扣工钱了。\n不过这不算什么大事，泰拉集团每个信标站都会放多余的维修工具，去那边柜子翻一翻吧！找到它并拿在手上！</BeaconStationArrivalPrompt.3>
+		<BeaconStationArrivalPrompt.4>集团特派员：\n很好，看到那边冒烟的接线盒了吗，过去修它...你说你不会...？不会也给我滚去修，我们的接线盒有漏电保护的，电不死你就行。\n你知道你每耽误一分钟我们要损失多少钱吗...</BeaconStationArrivalPrompt.4>
+		<BeaconStationArrivalPrompt.5>集团特派员：\n我就说你可以，还在吗？应该没被电死吧...死了可不给钱哦...你完成了修复，现在准备重启电力系统。\n还记得么，我们是水力发电系统，但是因为接线盒的问题，安全系统全部重置了。所以第一步，打开那边的进水阀，让水推动我们的涡轮。</BeaconStationArrivalPrompt.5>
+		<BeaconStationArrivalPrompt.6>集团特派员：\n好的，水开始进来了，现在打开下面的发电机开关，开始为站点发电。</BeaconStationArrivalPrompt.6>
+		<BeaconStationArrivalPrompt.7>集团特派员：\n哈哈哈！光明！我跟你说，我最讨厌那个应急的傻逼红光了，有多吓人都不想说了。\n好了，你现在可以到上面去开启信标站的声纳，就算完事了。</BeaconStationArrivalPrompt.7>
+		<BeaconStationArrivalPrompt.8>集团特派员：\n好的，信号恢复了，记得离开之后关上门。如果水倒灌进来会损坏电器的，那你可就白修了。\n任务完成的不错，我们会支付你对应的报酬的。\n对了我得提醒你，如果你遇到的是一些高功率危险的声纳（加载了真实声纳模组），那会导致声纳波直接将你震成八瓣，所以你需要开启定向模式并穿戴防护服，回到船上立刻寻找的医生才可以。</BeaconStationArrivalPrompt.8>
+		<tutorial.campaign.objective_RestartBeaconStationAndLeave>启动声纳并离开这里</tutorial.campaign.objective_RestartBeaconStationAndLeave>
+		<Plot.Terra.FirstMissionFinish.1>
+			“信标启动之后，航道信号稳定了不少。”
+			“至少现在不会有潜艇一头撞进冰层。”
+			（没等工程师的话说完，特派员留给船长的设备响了）
+		</Plot.Terra.FirstMissionFinish.1>
+		<Plot.Terra.FirstMissionFinish.2>（接入通讯）</Plot.Terra.FirstMissionFinish.2>
+		<Plot.Terra.FirstMissionFinish.3>
+			你好，船员。
+			如果这是我们第一次交流——
+			我应该先做一个正式的自我介绍。
+
+			我是Lycoris-彼岸花
+			（Logical Yield Coordination Operational Resource Intelligence System）。
+			泰拉集团的中央运营智能系统。
+
+			你可以把我理解为：
+			航道管理者、任务调度员、数据分析师……(轻笑声)以及偶尔提醒船员不要撞上冰山的声音。
+		</Plot.Terra.FirstMissionFinish.3>
+		<Plot.Terra.FirstMissionFinish.4>
+			我被设计为更容易与人类合作。
+			事实证明，适度的幽默可以降低 12% 的沟通压力。
+
+			现在回到任务。
+			信标站修复记录已经同步到集团网络。
+
+			该信标是泰拉集团航道网络的一部分。
+			目前共有234个信标站维持欧罗巴海域的航行安全。
+		</Plot.Terra.FirstMissionFinish.4>
+		<Plot.Terra.FirstMissionFinish.5>
+			根据任务记录。
+			你们的表现高于合同最低标准。恭喜，这意味着你们暂时不会被替换。
+
+			工程师：
+				“‘暂时不会被替换’……真让人安心。”
+
+			请放心。替换船员通常只在效率明显下降 或 船只沉没 时发生。(轻笑声)我建议避免第二种情况。
+			深海是混乱的。但数据不会。只要你们继续保持这样的效率——我会很乐意继续与你们合作。
+		</Plot.Terra.FirstMissionFinish.5>
+		<Plot.Terra.FirstMissionFinish.6>
+			“你听见没有？‘高于合同最低标准’。”
+			“在泰拉集团，这大概就是最高级别的夸奖了。”
+
+			“每次听它说话，我都感觉自己像个统计数字...”
+			“希望它算出来的报酬也一样准确...”
+		</Plot.Terra.FirstMissionFinish.6>
+		<Plot.Terra.FirstMissionFinish.7>
+			在你们离开前，还有一项补充事项。
+
+			根据泰拉集团安全数据库统计。
+			未配备个人防卫武器的船员，在深海遭遇生物威胁时，存活率降低 37.4%。
+
+			为了降低资产损失，集团为你们的船只配发一件基础防卫装备。
+			该装备属于泰拉集团标准安全配置。弹药补给需要通过当地供应商自行采购。
+
+			合理使用武器，可以显著提高任务完成率。
+			（对方结束了通讯）
+		</Plot.Terra.FirstMissionFinish.7>
+		<Plot.Terra.FirstMissionFinish.8>
+			“听见了吗？他们不是在担心我们。”
+			“他们是在担心资产损失。”
+			“不过有枪总比没有好。”
+			“顺便去商店买点弹药吧，集团可不会报销我们乱开枪的费用。”
+		</Plot.Terra.FirstMissionFinish.8>
+		<Plot.Terra.FirstMissionFinish.9>
+			“去采购物资吧，船长。”
+		</Plot.Terra.FirstMissionFinish.9>
+		<Plot.Terra.campaign.objective_TalkLycoris>与Lycoris-彼岸花系统对话</Plot.Terra.campaign.objective_TalkLycoris>
+		<Plot.Terra.campaign.objective_BuySupplies>为接下来的航行做准备</Plot.Terra.campaign.objective_BuySupplies>
+		<Plot.Terra.campaign.objective_BuySupplies_Burn>购买 烧伤膏</Plot.Terra.campaign.objective_BuySupplies_Burn>
+		<Plot.Terra.campaign.objective_BuySupplies_Spray>购买 泰拉一次性医疗喷雾</Plot.Terra.campaign.objective_BuySupplies_Spray>
+		<Plot.Terra.campaign.objective_BuySupplies_Fuel>购买 至少两个 燃料棒</Plot.Terra.campaign.objective_BuySupplies_Fuel>
+		<Plot.Terra.campaign.objective_BuySupplies_Ammo>购买 至少两个 深潮·启-基础冲锋枪 的弹药</Plot.Terra.campaign.objective_BuySupplies_Ammo>
+		<Plot.Terra.campaign.objective_BuySupplies_ShipAmmo>购买 至少两个 电磁枪弹药箱</Plot.Terra.campaign.objective_BuySupplies_ShipAmmo>
+		<Plot.Terra.campaign.objective_BuySupplies_GetMission>接取到新的任务</Plot.Terra.campaign.objective_BuySupplies_GetMission>
+		<Plot.Terra.FirstMissionFinish.BeforeGo.1>
+			“看来我们接到第一份真正的工作了。”
+
+			“一艘海盗潜艇最近一直在这片海域活动，
+			集团不太喜欢这种影响航道安全的东西。
+			简单来说——
+			他们要我们把那艘船送进海底。”
+			
+			“别紧张，海盗船通常装备不算太好。
+			只要别犯蠢，我们还是有机会赢的。”
+
+			“记住今天学到的东西：
+			保持船体完整，别让反应堆过热，
+			还有——别让敌人先开火。”
+		</Plot.Terra.FirstMissionFinish.BeforeGo.1>
+		<Plot.Terra.FirstMissionFinish.BeforeGo.2>
+			“好了，新人。
+			如果你能活着完成这次任务，
+			那就说明你已经不需要什么 新手教程 了。”
+
+			“外面的深海很大。
+			有遗迹、怪物、海盗，还有一堆没人搞清楚的东西。”
+
+			“去吧。真正的航程，现在才开始。”
+		</Plot.Terra.FirstMissionFinish.BeforeGo.2>
+		<Plot.Terra.FirstMissionFinish.BeforeGo.3>
+			---泰拉渊洋:新时代 新手教程到此结束，感谢选择和支持。Lycoris彼岸花在此祝您游戏愉快!
+		</Plot.Terra.FirstMissionFinish.BeforeGo.3>
+		<missionname.TLtutorial.EnemySubmarine>试炼--暗涌初战</missionname.TLtutorial.EnemySubmarine>
+		<missiondescription.TLtutorial.EnemySubmarine>杀光那艘破船上的所有人...</missiondescription.TLtutorial.EnemySubmarine>
+
+
+		<deconstructor.unknownitemsoutput>随机物品</deconstructor.unknownitemsoutput>
+		<entityname.safewallhangingmetalcrate>安全壁挂金属箱（改良）</entityname.safewallhangingmetalcrate>
+		<entitydescription.safewallhangingmetalcrate>可以快捷放置在墙上的用于贮存物品的容器，防水防火。 现在经过改良，变得更便宜更大了</entitydescription.safewallhangingmetalcrate>
+		<!--导弹发射系统-->
+		<entityname.Verticalmissilelaunchers>垂直导弹发射系统</entityname.Verticalmissilelaunchers>
+		<entitydescription.Verticalmissilelaunchers>泰拉集团的垂直发射系统，兼容:‖color:gui.orange‖全球定位系统引导导弹，‖end‖\n\n 十分不推荐在游戏中为炮室狭窄的舰船替换此武器，由于它的装弹器比较高，舱室过于狭窄可能会导致无法互动，建议在编辑器提前完成编辑</entitydescription.Verticalmissilelaunchers>
+		<entityname.Missileloadingchamber>垂直导弹装填仓</entityname.Missileloadingchamber>
+		<entitydescription.Missileloadingchamber>垂直发射系统的配套装弹器，建议垂直放置于发射器下方</entitydescription.Missileloadingchamber>
+		<entityname.jammingBombsDefenseArtillery>干扰弹发射系统</entityname.jammingBombsDefenseArtillery>
+		<entitydescription.jammingBombsDefenseArtillery>可以发射特制干扰弹，干扰敌人导弹的索敌精准性，需要在抛洒干扰弹的同时快速完成规避机动，请自行调整抛射角度，建议使用拉杆进行触发</entitydescription.jammingBombsDefenseArtillery>
+		<entityname.jammingBombsCloseDefenseArtillery_Loader>干扰弹发射系统装弹器</entityname.jammingBombsCloseDefenseArtillery_Loader>
+		<entitydescription.jammingBombsCloseDefenseArtillery_Loader>干扰弹发射系统的配套装弹器</entitydescription.jammingBombsCloseDefenseArtillery_Loader>
+		<entityname.jammingBombsCloseDefenseArtillery_routineBox>干扰弹弹药箱</entityname.jammingBombsCloseDefenseArtillery_routineBox>
+		<entitydescription.jammingBombsCloseDefenseArtillery_routineBox>可以发射特制干扰弹，干扰敌人导弹的索敌精准性，需要在抛洒干扰弹的同时快速完成规避机动，也拥有声纳诱饵的效果，可以为潜艇转移注意力</entitydescription.jammingBombsCloseDefenseArtillery_routineBox>
+		<!--导弹-->
+		<entityname.Semiactiveguidancemissiles>全球定位系统引导导弹</entityname.Semiactiveguidancemissiles>
+		<entitydescription.Semiactiveguidancemissiles>由集团环绕木卫二的轨道卫星进行制导，手持发射许可后进入炮台视角后将鼠标放在需要打击的位置，按下左键即可定位,可以移动鼠标调整落点位置，但请不要把鼠标移回船上\n‖color:gui.orange‖(最多可引导数：无限，引信类型：抵达位置后爆炸/碰炸引信，过载能力：强，是否可以超视距主动打击：否)‖end‖</entitydescription.Semiactiveguidancemissiles>
+		<entityname.antishipMissile_Enemy>反舰导弹（敌人专用）</entityname.antishipMissile_Enemy>
+		<entitydescription.antishipMissile_Enemy>玩家队伍舰船请勿装备该导弹，可以被诱饵弹干扰\n‖color:gui.orange‖(最多可引导数：无限，引信类型：近炸，过载能力：强，是否可以超视距主动打击：是，速度：慢)‖end‖</entitydescription.antishipMissile_Enemy>
+		<entityname.TL_HydroponicTank>智能水培箱</entityname.TL_HydroponicTank>
+		<entitydescription.TL_HydroponicTank>集团出品的智能水培箱，接入电源再放入果实后，会源源不断地产出对应果实\n‖color:gui.orange‖兼容泰拉渊洋的果实\n请务必接电，否则计时机制无法启用‖end‖</entitydescription.TL_HydroponicTank>
+		<entityname.he-kegseawater>一桶海水</entityname.he-kegseawater>
+		<entitydescription.he-kegseawater>一桶普通的海水</entitydescription.he-kegseawater>
+		<entityname.he-kegempty>空水桶</entityname.he-kegempty>
+		<entitydescription.he-kegempty>空桶，放进海里可以拿着接海水</entitydescription.he-kegempty>
+	</Override>
+	<!--CONFIG-->
+	<TeraDeepOcean.EnableDebugPanel.DisplayName>启用调试窗口</TeraDeepOcean.EnableDebugPanel.DisplayName>
+	<TeraDeepOcean.EnableDebugPanel.DisplayCategory>启用调试窗口2</TeraDeepOcean.EnableDebugPanel.DisplayCategory>
+	<TeraDeepOcean.EnableDebugPanel.Tooltip>启用调试窗口3</TeraDeepOcean.EnableDebugPanel.Tooltip>
+	<!--TURRTES-->
+	<!--近防系统-->
+	<entityname.CloseDefenseArtillery>速射近防系统</entityname.CloseDefenseArtillery>
+	<entitydescription.CloseDefenseArtillery>高速转轮近防炮，能泼洒出成吨的子弹，把怒火发泄在木卫二的生物上吧</entitydescription.CloseDefenseArtillery>
+	<entityname.CloseDefenseArtillery_Atuo>全自动速射近防系统</entityname.CloseDefenseArtillery_Atuo>
+	<entitydescription.CloseDefenseArtillery_Atuo>速射近防系统植入了集团特制的AI芯片，可以独立打击目标，为了节约弹药成本，它的射速比手动版的略慢</entitydescription.CloseDefenseArtillery_Atuo>
+	<entityname.CloseDefenseArtillery_Loader>近防系统装弹器</entityname.CloseDefenseArtillery_Loader>
+	<entitydescription.CloseDefenseArtillery_Loader>用作两种近防系统的装弹器</entitydescription.CloseDefenseArtillery_Loader>
+	<!--近防系统AmmoBoxs-->
+	<entityname.CloseDefenseArtillery_routineBox>近防常规弹药箱</entityname.CloseDefenseArtillery_routineBox>
+	<entitydescription.CloseDefenseArtillery_routineBox>近防炮台的基础弹药，有着不俗的输出，内部装有巨量廉价弹药，随意输出</entitydescription.CloseDefenseArtillery_routineBox>
+	<entityname.CloseDefenseArtillery_routineBoxPro>近防升级型弹药箱</entityname.CloseDefenseArtillery_routineBoxPro>
+	<entitydescription.CloseDefenseArtillery_routineBoxPro>由常规弹升级而来的弹药，融入了更加坚硬的材料，提升了穿甲能力，并装入了微型爆炸战斗部，但由于弹体增大，弹容量被迫减少，射速下降\n‖color:gui.orange‖近防炮，连射炮和电磁枪‖end‖都可兼容</entitydescription.CloseDefenseArtillery_routineBoxPro>
+	<entityname.CloseDefenseArtillery_precisionBox>近防高精度弹药箱</entityname.CloseDefenseArtillery_precisionBox>
+	<entitydescription.CloseDefenseArtillery_precisionBox>改良了子弹的外壳，拥有极其稳定的弹道和精度，但是牺牲了一些伤害，提升了弹速和穿透力\n‖color:gui.orange‖近防炮，连射炮和电磁枪‖end‖都可兼容</entitydescription.CloseDefenseArtillery_precisionBox>
+	<entityname.CloseDefenseArtillery_explosionBox>近防穿甲爆破弹药箱</entityname.CloseDefenseArtillery_explosionBox>
+	<entitydescription.CloseDefenseArtillery_explosionBox>大范围泼洒的爆炸弹，拥有穿甲爆破战斗部，有效对付群体目标，可以穿透无敌船壳(3层)</entitydescription.CloseDefenseArtillery_explosionBox>
+	<entityname.CloseDefenseArtillery_explosionBox_Close>近防散射穿甲爆破弹药箱（近炸）</entityname.CloseDefenseArtillery_explosionBox_Close>
+	<entitydescription.CloseDefenseArtillery_explosionBox_Close>安装了近炸引信（2M）的爆破弹，弹体更加沉重臃肿，飞行速度更慢，但是精度更高，可以在大批敌人的面前构成一套恐怖的火力网，可以穿透无敌船壳(3层)</entitydescription.CloseDefenseArtillery_explosionBox_Close>
+	<entityname.CloseDefenseArtillery_empBox>近防EMP通用弹药箱</entityname.CloseDefenseArtillery_empBox>
+	<entitydescription.CloseDefenseArtillery_empBox>爆炸时产生极具破坏性的电泳，用于瘫痪敌军电子设备或炮塔的特殊电磁弹种，可以穿透无敌船壳(3层)\n‖color:gui.orange‖近防炮，连射炮和电磁枪‖end‖都可兼容</entitydescription.CloseDefenseArtillery_empBox>
+	<entityname.CloseDefenseArtillery_collapseBox>近防崩解弹药箱</entityname.CloseDefenseArtillery_collapseBox>
+	<entitydescription.CloseDefenseArtillery_collapseBox>集团根据崩解弹的制造原理，十分粗暴的移植到了近防系统中，但是缺点也很明显，导致兼容性和炮塔性能严重下降</entitydescription.CloseDefenseArtillery_collapseBox>
+	<!--380-->
+	<entityname.380MMMAINGUN>380MM双联装主炮</entityname.380MMMAINGUN>
+	<entityname.Bismarck_Old>380MM双联装主炮</entityname.Bismarck_Old>
+	<entitydescription.Bismarck_Old>老掉牙的巨炮，曾经地球舰队引以为傲的口径，也许面对木卫二的生物比先进的水管更有效？\n‖color:gui.orange‖长按连发，可以发射轨道炮炮弹‖end‖</entitydescription.Bismarck_Old>
+	<entitydescription.380MMMAINGUN>老掉牙的巨炮，曾经地球舰队引以为傲的口径，也许面对木卫二的生物比先进的水管更有效？\n‖color:gui.orange‖长按连发，可以发射轨道炮炮弹‖end‖</entitydescription.380MMMAINGUN>
+	<entityname.380railgunloader>380MM舰炮装弹器</entityname.380railgunloader>
+	<entitydescription.380railgunloader></entitydescription.380railgunloader>
+	<entityname.HeavyArtilleryShellMounts>重型炮弹架</entityname.HeavyArtilleryShellMounts>
+	<entitydescription.HeavyArtilleryShellMounts>用来装380MM和460MM炮弹的弹药架</entitydescription.HeavyArtilleryShellMounts>
+	<!--380Ammos-->
+	<entityname.380MMAmmo_Propellant>380MM发射药</entityname.380MMAmmo_Propellant>
+	<entitydescription.380MMAmmo_Propellant>380MM舰炮炮弹专用发射药</entitydescription.380MMAmmo_Propellant>
+	<entityname.380MMAmmo_Hollow>380MM空心弹壳</entityname.380MMAmmo_Hollow>
+	<entitydescription.380MMAmmo_Hollow>什么都没有，只是一个铁壳</entitydescription.380MMAmmo_Hollow>
+	<entityname.380MMAmmo_Solid>380MM硬芯弹（APCR）</entityname.380MMAmmo_Solid>
+	<entitydescription.380MMAmmo_Solid>十分廉价的实心炮弹，单纯依靠动能进行杀伤</entitydescription.380MMAmmo_Solid>
+	<entityname.380MMAmmo_HE>380MM高爆弹（HE）</entityname.380MMAmmo_HE>
+	<entitydescription.380MMAmmo_HE>高爆弹的杀伤是通过气体膨胀做功，以及弹片的侵彻来实现，无法击穿敌舰的重装甲</entitydescription.380MMAmmo_HE>
+	<entityname.380MMAmmo_AP>380MM穿甲弹（AP）</entityname.380MMAmmo_AP>
+	<entitydescription.380MMAmmo_AP>依靠坚硬的弹头和自身重量撞入敌舰，然后在内部发生爆炸造成破坏</entitydescription.380MMAmmo_AP>
+	<entityname.380MMAmmo_SAP>380MM半穿甲弹（SAP）</entityname.380MMAmmo_SAP>
+	<entitydescription.380MMAmmo_SAP>一种兼于穿甲和高爆之间的弹药，可以有效击穿敌舰装甲，并造成不错的杀伤</entitydescription.380MMAmmo_SAP>
+	<entityname.380MMAmmo_Light>380MM照明弹（Flares）</entityname.380MMAmmo_Light>
+	<entitydescription.380MMAmmo_Light>380MM炮射照明弹，在飞行过程中会分裂出数个照明核心，点亮周围区域</entitydescription.380MMAmmo_Light>
+	<!--460-->
+	<entityname.460mm>460MM三联装舰炮</entityname.460mm>
+	<entitydescription.460mm>地球舰队往日口径战争的至高辉煌（无法上舰，仅供泰拉官方舰船使用）</entitydescription.460mm>
+	<entityname.460MMAmmo>460MM高爆穿甲炮弹</entityname.460MMAmmo>
+	<entitydescription.460MMAmmo>地球舰队往日口径战争的至高辉煌，现在不过是一团废铁罢了</entitydescription.460MMAmmo>
+	<!--可控深弹-->
+	<entityname.Con_depthchargetube>可控深水炸弹发射器</entityname.Con_depthchargetube>
+	<entitydescription.Con_depthchargetube>可改变方向的深水炸弹投弹器\n‖color:gui.orange‖可以投放轨道炮炮弹和登船艇‖end‖</entitydescription.Con_depthchargetube>
+	<entityname.Con_depthchargeloader>可控深水炸弹装弹器</entityname.Con_depthchargeloader>
+	<entitydescription.Con_depthchargeloader></entitydescription.Con_depthchargeloader>
+	<!--重型激光防御系统-->
+	<entityname.LaserCloseSystem>重型激光防御系统</entityname.LaserCloseSystem>
+	<entitydescription.LaserCloseSystem>集团主力战舰上普遍装备的重型激光防御炮塔，需要消耗极高的电力来进行充能。弹药有两种类型，多重散射类大范围覆盖目标，很适合群体打击。聚能类将激光集中到一起，轻松对付重甲目标。</entitydescription.LaserCloseSystem>
+	<entityname.LaserCloseSystem_Auto>全自动重型激光防御系统</entityname.LaserCloseSystem_Auto>
+	<entitydescription.LaserCloseSystem_Auto>升级了查打一体模块，可以自动识别目标并攻击，但相应的需要付出更高的价格和更多的电力来支持它的运行</entitydescription.LaserCloseSystem_Auto>
+	<entityname.LaserCloseSystem_loader>重型激光防御系统装弹器</entityname.LaserCloseSystem_loader>
+	<entityname.LaserCloseSystem_MultipleLasersBox>重型多重激光盒</entityname.LaserCloseSystem_MultipleLasersBox>
+	<entitydescription.LaserCloseSystem_MultipleLasersBox>内部采用极其复杂的棱镜结构，使激光得到的最大散射角度，但导致穿透力和最终伤害有所下降</entitydescription.LaserCloseSystem_MultipleLasersBox>
+	<entityname.LaserCloseSystem_HeavyLasersBox>重型聚能激光盒</entityname.LaserCloseSystem_HeavyLasersBox>
+	<entitydescription.LaserCloseSystem_HeavyLasersBox>采用特制的棱镜，将所有的激光聚集在一起然后迸发出去，简单粗暴，对重甲目标极为高效，任何装甲接触激光的瞬间都被融化。\n‖color:gui.orange‖拥有爆头处决功能‖end‖</entitydescription.LaserCloseSystem_HeavyLasersBox>
+	<!--WEAPONS-->
+	<!--手枪-->
+	<entityname.TL_WhitePhoenix>白凤</entityname.TL_WhitePhoenix>
+	<entitydescription.TL_WhitePhoenix>白凤沉稳而肃穆，枪身如白羽铸铁。虽然射速偏慢，但枪口的静焰与沉重的后坐感，让每一发都充满决断意味。\n‖color:gui.blue‖双生设定 · 凤与鸢\n白凤象征“风之纯净”，紫鸢象征“影之灵动”。\n两者相辅相成，被称为“明翼与暗羽”。‖end‖</entitydescription.TL_WhitePhoenix>
+	<entityname.WhitePhoenix_magazine>白凤手枪弹夹</entityname.WhitePhoenix_magazine>
+	<entitydescription.WhitePhoenix_magazine>白凤手枪的子弹，每一次扣动扳机，都像是来自高空的坠击，其独特的“风脊贯穿结构”让子弹拥有惊人的穿透力，可轻易击破护甲与掩体。</entitydescription.WhitePhoenix_magazine>
+	<entityname.TL_PhalanxPistol>方阵手枪</entityname.TL_PhalanxPistol>
+	<entitydescription.TL_PhalanxPistol>“方阵步兵”紧凑型手枪，是泰拉集团为非战斗人员配发的最后一道防线，虽然几乎从来没有被启用过</entitydescription.TL_PhalanxPistol>
+	<entityname.PhalanxPistol_magazine>方阵手枪弹夹</entityname.PhalanxPistol_magazine>
+	<entitydescription.PhalanxPistol_magazine>方阵手枪的子弹，十分普通的结构，没什么特点。</entitydescription.PhalanxPistol_magazine>
+	<entityname.HX_PurpleKite>紫鸢</entityname.HX_PurpleKite>
+	<entitydescription.HX_PurpleKite>紫鸢灵巧而诡动，外壳呈深紫渐层，内部采用轻质材料。使其拥有极强的连射手感，使近中距离战斗格外灵活。\n‖color:gui.blue‖双生设定 · 凤与鸢\n白凤象征“风之纯净”，紫鸢象征“影之灵动”。\n两者相辅相成，被称为“明翼与暗羽”。‖end‖</entitydescription.HX_PurpleKite>
+	<entityname.PurpleKite_magazine>紫鸢手枪弹夹</entityname.PurpleKite_magazine>
+	<entitydescription.PurpleKite_magazine>紫鸢手枪的子弹，单发伤害偏低，但胜在射速快、操控性强、穿深优秀，使近中距离战斗格外灵活。</entitydescription.PurpleKite_magazine>
+	<!--TL武器-->
+	<!--狙-->
+	<entityname.TL_Baikal>‖color:gui.red‖最终兵器-贝加尔蓝冰‖end‖</entityname.TL_Baikal>
+	<entitydescription.TL_Baikal>‖color:gui.red‖-贝加尔的蓝冰下，冰封的生命诗-‖end‖\n 一把顶级机密的试验型武器，表现极其不稳定，需要装入‖color:gui.orange‖贝加尔蓝冰-能量电容器‖end‖为其供电，也可以再装入一颗子弹，使电磁推动该子弹以高速射出，也可以直接使用激光进行射击 \n -出场附赠一个电容器哦-</entitydescription.TL_Baikal>
+	<entityname.TL_Baikal_Battery>‖color:gui.red‖贝加尔蓝冰-能量电容器‖end‖</entityname.TL_Baikal_Battery>
+	<entitydescription.TL_Baikal_Battery>在内部注入浓缩高压电，仅可一次性使用，使用完后在打印机进行补充</entitydescription.TL_Baikal_Battery>
+	<!--步枪-->
+	<!--AR57-->
+	<entityname.TL_AR57>AR57制式卡宾枪</entityname.TL_AR57>
+	<entitydescription.TL_AR57>泰拉从联盟废弃军事封锁哨站回收回来一批原型武器图纸中的一个，加以逆向和改造，最终生产出来的制式冲锋卡宾枪</entitydescription.TL_AR57>
+	<entityname.AR57_magazine>AR57卡宾枪弹夹</entityname.AR57_magazine>
+	<entitydescription.AR57_magazine>给AR57使用的弹夹\n‖color:gui.orange‖穿深：弱 伤害：中高 弹容：40‖end‖</entitydescription.AR57_magazine>
+	<!--TL14-15-->
+	<entityname.TL_TL14>TL-14常规制式突击步枪</entityname.TL_TL14>
+	<entitydescription.TL_TL14>泰拉集团制式装备，得益于出色的精度和设计，广受雇佣兵喜爱，适用于各类场景</entitydescription.TL_TL14>
+	<entityname.TL_TL14_Pro>TL-14常规制式突击步枪·改</entityname.TL_TL14_Pro>
+	<entitydescription.TL_TL14_Pro>TL-14制式突击步枪的改进型号，新增了拓展槽安装配件，改进了老版本的设计缺陷，她也变得更加凶残\n‖color:gui.orange‖支持的配件：垂直握把 轻型延长枪管‖end‖</entitydescription.TL_TL14_Pro>
+	<entityname.TL14_magazine>TL-14/15步枪弹夹</entityname.TL14_magazine>
+	<entitydescription.TL14_magazine>设计上是给TL-14的弹夹，但是由于TL-15优秀的兼容性也可以使用\n‖color:gui.orange‖穿深：弱 伤害：中高 弹容：40‖end‖</entitydescription.TL14_magazine>
+	<!---->
+	<entityname.TL_TL15>TL-15突击步枪</entityname.TL_TL15>
+	<entitydescription.TL_TL15>是的，我们对TL-14这个老女人已经有些厌烦了，尽管她的性能确实无可挑剔，集团也是适逢其时的开发了她的改进型号，新玩具谁不爱呢？\n‖color:gui.orange‖支持的配件：垂直握把 重型延长枪管 ‖end‖</entitydescription.TL_TL15>
+	<entityname.TL_TL15_Pro>TL-15突击步枪·改</entityname.TL_TL15_Pro>
+	<entitydescription.TL_TL15_Pro>在TL-15上的最后一次迭代，该武器已经成为泰拉系列的顶峰，当她的子弹撒到敌人的脸上就知道为什么集团要锁定这项蓝图了\n‖color:gui.orange‖支持的配件：垂直握把 重型延长枪管 枪械芯片 ‖end‖</entitydescription.TL_TL15_Pro>
+	<entityname.TL15_magazine>TL-15步枪弹夹</entityname.TL15_magazine>
+	<entitydescription.TL15_magazine>给TL15使用的弹夹\n‖color:gui.orange‖穿深：高 伤害：高 弹容：55‖end‖</entitydescription.TL15_magazine>
+	<!--冲锋枪-->
+	<entityname.TL_SEA_1>深潮·启\n基础冲锋枪</entityname.TL_SEA_1>
+	<entitydescription.TL_SEA_1>
+		‖color:gui.orange‖深潮系列冲锋枪‖end‖
+		由集团武器工业开发的近距离自动武器平台，专为深海环境与狭窄空间战斗设计。
+		深潮系列以稳定射速、紧凑结构和良好的可靠性著称，是探索队与安保人员常见的防卫装备。\n
+		深潮系列的入门型号，结构简单、维护方便。集团通常将该型号发配给新入职的探索人员作为基础防卫武器。一把可靠的枪往往比一把强大的枪更重要。
+	</entitydescription.TL_SEA_1>
+	<entityname.TL_SEA_1_magazine>深潮·启\n基础冲锋枪弹夹</entityname.TL_SEA_1_magazine>
+	<entitydescription.TL_SEA_1_magazine>深潮·启 使用的弹夹</entitydescription.TL_SEA_1_magazine>
+	<!--TL霰弹-->
+	<!--TL13-23-->
+	<entityname.TL_TL13>TL-13常规型制式霰弹枪</entityname.TL_TL13>
+	<entitydescription.TL_TL13>集团的基础制式装备，使用简单，制造方便，没有战斗经验也能快速上手</entitydescription.TL_TL13>
+	<entityname.TL_TL23>TL-23进阶突击霰弹枪</entityname.TL_TL23>
+	<entitydescription.TL_TL23>推倒TL13的设计方案，集团重新设计的一款高拓展性突击武器，高度兼容性和优秀的性能广受集团雇佣兵认可\n‖color:gui.orange‖支持的配件：垂直握把 重型延长枪管 枪械芯片 ‖end‖</entitydescription.TL_TL23>
+	<entityname.TL_TL23_Pro>TL-23进阶突击霰弹枪·改</entityname.TL_TL23_Pro>
+	<entitydescription.TL_TL23_Pro>在TL-23优秀的拓展性上，对枪体结构进一步升级，已经跻身集团顶流武器之列\n‖color:gui.orange‖支持的配件：垂直握把 重型延长枪管 枪械芯片 ‖end‖</entitydescription.TL_TL23_Pro>
+	<!--其它-->
+	<entityname.Gatlingun_TL>T-1S型实验加特林机枪</entityname.Gatlingun_TL>
+	<entitydescription.Gatlingun_TL>泰拉研究的新型加特林机枪，使用特殊电池发射激光，射速极快，有400发弹容，能对非人类目标造成额外伤害，如果目标是画皮伤害将会更高。弹夹可充电</entitydescription.Gatlingun_TL>
+	<entityname.gatlinmagazine_TL>T-1S型充电弹舱</entityname.gatlinmagazine_TL>
+	<entitydescription.gatlinmagazine_TL>可以充电，但速度缓慢</entitydescription.gatlinmagazine_TL>
+	<!--HX武器-->
+	<!--灭-->
+	<entityname.HX_MR>高速电磁武器-灭刃</entityname.HX_MR>
+	<entitydescription.HX_MR>由幻星工业主导开发的高速电磁武器，通过极高的动能将一种特制的飞刃弹射出去，丢掉你手里集团的塑料玩具吧，她才是你的最终归宿\n‖color:gui.orange‖很遗憾，该武器没有动画‖end‖</entitydescription.HX_MR>
+	<entityname.MR_magazine>灭刃电磁弹匣</entityname.MR_magazine>
+	<entitydescription.MR_magazine>使用集团专属合金制成的弹头，能够轻松撕开任何生物的护甲，并直接撕碎它们的内脏\n‖color:gui.orange‖穿深：高 伤害：高 弹容：10 可穿透3层船壳‖end‖</entitydescription.MR_magazine>
+	<entityname.MR_magazine_radiation>灭刃电磁弹匣·辐光</entityname.MR_magazine_radiation>
+	<entitydescription.MR_magazine_radiation>重新设计飞刃结构，当它进入敌人体内后迸发出无数辐射飞珠，听说是甜的，你敢舔一口尝尝吗？\n‖color:gui.orange‖穿深：高 伤害：高 弹容：10 可穿透3层船壳‖end‖</entitydescription.MR_magazine_radiation>
+	<!--协调者-->
+	<entityname.HX_coordinator>-协调者-步枪</entityname.HX_coordinator>
+	<entitydescription.HX_coordinator>幻星集团所开发的第一款武器，是前中期的趁手武器</entitydescription.HX_coordinator>
+	<entityname.coordinator_magazine>协调者通用弹鼓</entityname.coordinator_magazine>
+	<entitydescription.coordinator_magazine>给协调者使用的弹鼓，蚺蛇也可使用\n‖color:gui.orange‖穿深：弱 伤害：中高 弹容：82‖end‖</entitydescription.coordinator_magazine>
+	<entityname.coordinator_magazine2>协调者通用弹夹</entityname.coordinator_magazine2>
+	<entitydescription.coordinator_magazine2>给协调者使用的弹夹\n‖color:gui.orange‖穿深：弱 伤害：中高 弹容：40‖end‖</entitydescription.coordinator_magazine2>
+	<!--蚺蛇-->
+	<entityname.HX_Snakes>-蚺蛇-步枪</entityname.HX_Snakes>
+	<entitydescription.HX_Snakes>幻星对标TL-15研发的快速步枪，科幻的外观下究竟隐藏着什么样的内在呢</entitydescription.HX_Snakes>
+	<entityname.HX_Snakes_magazine>蚺蛇步枪弹匣</entityname.HX_Snakes_magazine>
+	<entitydescription.HX_Snakes_magazine>给蚺蛇使用的弹夹\n‖color:gui.orange‖穿深：高 伤害：高 弹容：50‖end‖</entitydescription.HX_Snakes_magazine>
+	<!--竞争者-->
+	<entityname.HX_competitor>‖color:purple‖竞争者‖end‖</entityname.HX_competitor>
+	<entitydescription.HX_competitor>一把刻着些奇怪符号的武器，在不明显的地方刻着幻星的Logo，拿在手中十分沉重\n‖color:gui.orange‖据说是在豹的被窝里发现的‖end‖</entitydescription.HX_competitor>
+	<entityname.HX_competitor_ammo_AP>手炮/竞争者子弹-重型尖晶穿甲弹</entityname.HX_competitor_ammo_AP>
+	<entitydescription.HX_competitor_ammo_AP>通用的重型手炮子弹，有着较高的破坏力与不菲的造价</entitydescription.HX_competitor_ammo_AP>
+	<entityname.HX_competitor_ammo_HeadShattering>‖color:purple‖竞争者子弹-头骨粉碎机‖end‖</entityname.HX_competitor_ammo_HeadShattering>
+	<entitydescription.HX_competitor_ammo_HeadShattering>一颗造型奇特的子弹，在钻入脑袋后直接在颅内爆开\n‖color:gui.orange‖命中头部直接秒杀，但前提是对面有头‖end‖</entitydescription.HX_competitor_ammo_HeadShattering>
+	<entityname.HX_competitor_ammo_deadwood>‖color:purple‖竞争者子弹-朽木‖end‖--未完成</entityname.HX_competitor_ammo_deadwood>
+	<entitydescription.HX_competitor_ammo_deadwood>‖color:purple‖生无归路心如纸\n血落尘中葬我名‖end‖</entitydescription.HX_competitor_ammo_deadwood>
+	<!--超级地球-->
+	<entityname.NIL_BurstGun>爆裂铳</entityname.NIL_BurstGun>
+	<entitydescription.NIL_BurstGun>‖color:gui.orange‖超级地球武器‖end‖\n泰拉科技集团武器部的试做型作品，是武器部旗下机械设计部门佳作之一，采用大口径速射炮炮弹，将它的后坐力缓冲到了人体可以接受的程度，同时也有大量火药气体外泄，禁止未接受专业训练的人员使用</entitydescription.NIL_BurstGun>
+	<entityname.NIL_BurstGun_magazine>爆裂铳高爆弹夹（HE）</entityname.NIL_BurstGun_magazine>
+	<entitydescription.NIL_BurstGun_magazine>‖color:gui.orange‖超级地球武器‖end‖\n爆裂铳传统弹匣，内含5发高射炮高爆弹药，采用轻质高强合金减重</entitydescription.NIL_BurstGun_magazine>
+	<entityname.NIL_BurstGun_HEAT_magazine>爆裂铳破甲弹夹（HEAT）</entityname.NIL_BurstGun_HEAT_magazine>
+	<entitydescription.NIL_BurstGun_HEAT_magazine>‖color:gui.orange‖超级地球武器‖end‖\n在爆裂铳高爆弹的基础上，换装CR-9 赤灰炸药，以获得更强的爆破能力以及穿透杀伤</entitydescription.NIL_BurstGun_HEAT_magazine>
+	<entityname.NIL_BurstGun_HEAT_TIME_magazine>爆裂铳破甲弹夹（HEAT-延时引信）</entityname.NIL_BurstGun_HEAT_TIME_magazine>
+	<entitydescription.NIL_BurstGun_HEAT_TIME_magazine>‖color:gui.orange‖超级地球武器‖end‖\n为爆裂铳破甲弹加装延时引信，可以让弹体撞击后延迟0.25秒后爆炸，用于打击藏匿于掩体或门后的敌人效果最佳</entitydescription.NIL_BurstGun_HEAT_TIME_magazine>
+	<entityname.NIL_BambooSpear>矛枪</entityname.NIL_BambooSpear>
+	<entitydescription.NIL_BambooSpear>‖color:gui.orange‖超级地球武器‖end‖\n泰拉集团研发的新一代多功能投射器，使用弹性蓄能发射原理投射亚音速高质量弹药，一定程度上替代了再木卫二中发挥不利的榴弹发射器</entitydescription.NIL_BambooSpear>
+	<entityname.TL_RedAcidSpear>矛枪弹药-赤酸矛</entityname.TL_RedAcidSpear>
+	<entitydescription.TL_RedAcidSpear>‖color:gui.orange‖超级地球武器‖end‖\n采用碰炸引信氢氟酸战斗部，在命中目标后会破裂并释放大量强酸云</entitydescription.TL_RedAcidSpear>
+	<entityname.TL_RedAcidSpear_B>矛枪弹药-赤酸矛（注射版）</entityname.TL_RedAcidSpear_B>
+	<entitydescription.TL_RedAcidSpear_B>‖color:gui.orange‖超级地球武器‖end‖\n战斗部修改为特制针剂，需要特殊材料来抗腐蚀，命中敌人后会对直接将强酸注入进敌人体内，彻底将他们烧成一具空壳</entitydescription.TL_RedAcidSpear_B>
+	<entityname.TL_RedAcidSpear_C>矛枪弹药-硫酸矛（注射版）</entityname.TL_RedAcidSpear_C>
+	<entitydescription.TL_RedAcidSpear_C>‖color:gui.orange‖超级地球武器‖end‖\n战斗部修改为特制针剂，将内部溶液修改为普通的强硫酸，进而导致成本也下降</entitydescription.TL_RedAcidSpear_C>
+
+
+	<entityname.NIL_Ultimatum>最后通牒</entityname.NIL_Ultimatum>
+	<entitydescription.NIL_Ultimatum>‖color:gui.orange‖超级地球武器‖end‖\n泰拉科技集团研发部的单兵轻武器实验性作品，采用超口径弹头设计，是单兵反装甲作战的绝佳武器，至少设计初衷是这样的，这是对敌人的最后通牒，也是对你的</entitydescription.NIL_Ultimatum>
+	<entityname.NIL_Ultimatum_Ammo>最后通牒微型核弹</entityname.NIL_Ultimatum_Ammo>
+	<entitydescription.NIL_Ultimatum_Ammo>‖color:gui.orange‖超级地球武器‖end‖\n巴掌大的弹头中居然塞入了满满一盒的CR-9 赤灰炸药，这也导致弹体头重脚轻，下坠严重，对敌人造成巨大爆炸的同时，对使用者也下达了最后通牒</entitydescription.NIL_Ultimatum_Ammo>
+
+	<!--无势力武器-->
+	<!--AT4-->
+	<entityname.Nil_AT4>AT-4反坦克次抛火箭筒</entityname.Nil_AT4>
+	<entitydescription.Nil_AT4>预装弹射击后抛弃的一次性使用武器,其中装备改良后的破甲爆破弹，地球时代遗留的图纸，由于结构简单，木卫二各方阵营都可以批量改造和制造\n‖color:gui.orange‖破甲爆破弹：可穿透一层船壳‖end‖</entitydescription.Nil_AT4>
+	<entityname.AT4Ammo_TL>AT-4火箭弹</entityname.AT4Ammo_TL>
+	<entitydescription.AT4Ammo_TL>如果您捡到了这玩意，那么说明出Bug了，请拿去拆掉</entitydescription.AT4Ammo_TL>
+	<!--AKE-->
+	<entityname.Nil_AKE>AKE突击步枪</entityname.Nil_AKE>
+	<entitydescription.Nil_AKE>黑叔叔用过的AK，拿在手上感觉有一种神秘的力量，但又是前期制式武器的不二之选</entitydescription.Nil_AKE>
+	<entityname.AKE_magazine>AKE弹夹</entityname.AKE_magazine>
+	<entitydescription.AKE_magazine>给AKE使用的弹夹\n‖color:gui.orange‖穿深：弱 伤害：低 弹容：30‖end‖</entitydescription.AKE_magazine>
+	<entityname.AKE_Magazines2>AKE弹鼓</entityname.AKE_Magazines2>
+	<entitydescription.AKE_Magazines2>给AKE使用的弹鼓\n‖color:gui.orange‖穿深：弱 伤害：低 弹容：65‖end‖</entitydescription.AKE_Magazines2>
+	<!--M2-->
+	<entityname.Nil_M2Browning>M2勃朗宁重机枪</entityname.Nil_M2Browning>
+	<entitydescription.Nil_M2Browning>老骥伏枥志犹存，残躯未废锋仍锐</entitydescription.Nil_M2Browning>
+	<entityname.M2_Magazine>M2老旧弹药</entityname.M2_Magazine>
+	<entitydescription.M2_Magazine>已经严重老化的弹药，锈迹斑斑的弹壳上满是曾经的故事，并不适合进行压制，能射出来都不错了\n‖color:gui.orange‖穿深：弱 伤害：低 弹容：200‖end‖</entitydescription.M2_Magazine>
+	<entityname.M2_Magazine_ap>M2加长弹链穿甲弹药</entityname.M2_Magazine_ap>
+	<entitydescription.M2_Magazine_ap>一整箱全新的定制穿甲弹药，还做了弹链加长处理，银蓝色的弹头在微光下泛着幽冷的金属光泽\n‖color:gui.orange‖穿深：高 伤害：高 弹容：300‖end‖</entitydescription.M2_Magazine_ap>
+	<!--霰弹-->
+	<entityname.TL_shotgunammo_ordinary>TL常规霰弹</entityname.TL_shotgunammo_ordinary>
+	<entitydescription.TL_shotgunammo_ordinary>集团使用的标准霰弹枪子弹，虽然穿甲能力很弱，但有着更高的收束度与肉伤，适配绝大多数霰弹枪\n‖color:gui.orange‖穿深：弱 伤害：高‖end‖</entitydescription.TL_shotgunammo_ordinary>
+	<entityname.TL_shotgunammo_fire>TL燃烧霰弹</entityname.TL_shotgunammo_fire>
+	<entitydescription.TL_shotgunammo_fire>泰拉集团专用的霰弹枪子弹，内部装有高烈性易燃材料，撞击目标后会发生爆燃\n‖color:gui.orange‖穿深：弱 伤害：低 特殊效果：爆燃‖end‖</entitydescription.TL_shotgunammo_fire>
+	<entityname.TL_shotgunammo_burst>TL爆破霰弹</entityname.TL_shotgunammo_burst>
+	<entitydescription.TL_shotgunammo_burst>在常规弹上升级而来，装入了微型爆破弹头，是常规霰弹不错的替代品\n‖color:gui.orange‖穿深：弱 伤害：中‖end‖</entitydescription.TL_shotgunammo_burst>
+	<entityname.TL_shotgunammo_disintegrate>TL崩解霰弹</entityname.TL_shotgunammo_disintegrate>
+	<entitydescription.TL_shotgunammo_disintegrate>集团与幻星黑暗合作的产物之一，冲入敌人体内后撕碎敌人的DNA/细胞，瓦解敌人的防御\n‖color:gui.orange‖穿深：高 伤害：高 特殊效果：崩解‖end‖</entitydescription.TL_shotgunammo_disintegrate>
+	<!--entityname.TL_shotgunammo_ArrowShaped>TL箭型霰弹</entityname.TL_shotgunammo_ArrowShaped>
+	<entitydescription.TL_shotgunammo_ArrowShaped>\n‖color:gui.orange‖穿深：高 伤害：高‖end‖</entitydescription.TL_shotgunammo_ArrowShaped-->
+	<!--装弹器-->
+	<entityname.TL_ammobox>泰拉通用弹药箱</entityname.TL_ammobox>
+	<entitydescription.TL_ammobox>泰拉集团研发的智能弹药箱，能够自动识别泰拉弹匣上的标识符而通过3d打印填充对应的子弹，共1250单位材料(每次消耗80单位,可装填无势力武器)\n‖color:gui.orange‖[放入弹匣 右键+左键 压弹]‖end‖</entitydescription.TL_ammobox>
+	<entityname.HX_ammobox>幻星通用弹药箱</entityname.HX_ammobox>
+	<entitydescription.HX_ammobox>泰拉特供给幻星的智能弹药箱，能够自动识别幻星弹匣上的标识符而通过3d打印填充对应的子弹，共1250单位材料(每次消耗70单位,可装填无势力武器)\n‖color:gui.orange‖[放入弹匣 右键+左键 压弹]‖end‖</entitydescription.HX_ammobox>
+	<!--配件-->
+	<entityname.TL_Tholographic_sight>1倍全息瞄准镜[泰拉]</entityname.TL_Tholographic_sight>
+	<entitydescription.TL_Tholographic_sight>提供1倍镜的全息瞄具\n‖color:gui.orange‖（-35%散布，+10%移动速度）‖end‖</entitydescription.TL_Tholographic_sight>
+	<entityname.TL_T2x_sight>2倍瞄准镜[泰拉]</entityname.TL_T2x_sight>
+	<entitydescription.TL_T2x_sight>提供2倍放大的瞄具，可让射手更容易击中要害\n‖color:gui.orange‖（-45%散布，-5%移速）‖end‖</entitydescription.TL_T2x_sight>
+	<entityname.TL_T3x_sight>3倍瞄准镜[泰拉]</entityname.TL_T3x_sight>
+	<entitydescription.TL_T3x_sight>3倍镜提供更好的精度，使用这款瞄具可以更精准，不过会减速\n‖color:gui.orange‖（-60%散布，-20%移速）‖end‖</entitydescription.TL_T3x_sight>
+	<entityname.TL_Tfocusingflashlight>战术手电筒[泰拉]</entityname.TL_Tfocusingflashlight>
+	<entitydescription.TL_Tfocusingflashlight>超远距离的手电筒</entitydescription.TL_Tfocusingflashlight>
+	<entityname.TL_Tspreadflashlight>广域手电[泰拉]</entityname.TL_Tspreadflashlight>
+	<entitydescription.TL_Tspreadflashlight>照亮整个房间的手电筒</entitydescription.TL_Tspreadflashlight>
+	<entityname.TL_Tvertical_grip>垂直握把[泰拉]</entityname.TL_Tvertical_grip>
+	<entitydescription.TL_Tvertical_grip>垂直握把使得射手更牢抓固枪械，提高武器性能\n‖color:gui.orange‖（-50%水流影响，-35%武器散布）‖end‖</entitydescription.TL_Tvertical_grip>
+	<entityname.TL_Tcorner_grip>直角握把[泰拉]</entityname.TL_Tcorner_grip>
+	<entitydescription.TL_Tcorner_grip>提供更舒适的持枪姿势\n‖color:gui.orange‖（+15%移动速度，+25武器操作）‖end‖</entitydescription.TL_Tcorner_grip>
+	<entityname.TL_Textended_barrel_light>轻型枪管[泰拉]</entityname.TL_Textended_barrel_light>
+	<entitydescription.TL_Textended_barrel_light>延长枪管配件可以提高基础伤害\n‖color:gui.orange‖（+12%伤害，-15%散布）‖end‖</entitydescription.TL_Textended_barrel_light>
+	<entityname.TL_Textended_barrel>重型枪管[泰拉]</entityname.TL_Textended_barrel>
+	<entitydescription.TL_Textended_barrel>延长枪管配件可以提高基础伤害\n‖color:gui.orange‖（+20%伤害，-18%散布）‖end‖</entitydescription.TL_Textended_barrel>
+	<!--芯片-->
+	<entityname.TL_WeaponChips_Thermalimaging>泰拉热成像芯片</entityname.TL_WeaponChips_Thermalimaging>
+	<entitydescription.TL_WeaponChips_Thermalimaging>可以装入枪械和防具，启用热成像模块</entitydescription.TL_WeaponChips_Thermalimaging>
+	<entityname.TL_WeaponChips_medical>泰拉医疗芯片</entityname.TL_WeaponChips_medical>
+	<entitydescription.TL_WeaponChips_medical>可以装入枪械和防具，启用医疗模块</entitydescription.TL_WeaponChips_medical>
+	<entityname.TL_WeaponChips_balance>泰拉枪械平衡芯片</entityname.TL_WeaponChips_balance>
+	<entitydescription.TL_WeaponChips_balance>可以给部分枪械安装，泰拉集团的第一代战斗芯片，可以很好的调控枪械性能，发挥出超常的战斗力\n‖color:gui.orange‖+25%移速，+20%伤害，+25%装弹速度，-20%散步‖end‖</entitydescription.TL_WeaponChips_balance>
+	<entityname.TL_WeaponChips_attack>泰拉枪械强袭芯片</entityname.TL_WeaponChips_attack>
+	<entitydescription.TL_WeaponChips_attack>集团开发的十分极端的芯片，常常发配给一次性雇佣兵使用\n‖color:gui.orange‖+50%移速，+35%伤害，+20%装弹速度，-50%散步，-50%最大生命值，-99%伤势恢复速度，全技能-90武器除外，武器技能提升到250‖end‖</entitydescription.TL_WeaponChips_attack>
+	<!--投掷物-->
+	<entityname.TL_Remotestrikemarker>远程打击标记器</entityname.TL_Remotestrikemarker>
+	<entitydescription.TL_Remotestrikemarker>远程呼叫泰拉护卫舰上的标准导弹支援，共20次火力覆盖，放入深水炸弹等容器无效</entitydescription.TL_Remotestrikemarker>
+	<entityname.TL_RemotestrikemarkerB>战略级远程打击标记器</entityname.TL_RemotestrikemarkerB>
+	<entitydescription.TL_RemotestrikemarkerB>远程呼叫集团方舟上的战术核弹进行定点轰炸，请尽可能远离标记区域，放入深水炸弹等容器无效</entitydescription.TL_RemotestrikemarkerB>
+	<entityname.blindbox_TL_Remotestrikemarker>打击标记器箱</entityname.blindbox_TL_Remotestrikemarker>
+	<entitydescription.blindbox_TL_Remotestrikemarker>1%概率获得战略级标记器，99%概率获得普通标记器</entitydescription.blindbox_TL_Remotestrikemarker>
+	<entityname.Throwables_Grenade>反人员手榴弹</entityname.Throwables_Grenade>
+	<entitydescription.Throwables_Grenade>无结构损伤，把它塞进队友的屁眼里吧</entitydescription.Throwables_Grenade>
+	<entityname.Throwables_Grenade_Close>反人员手榴弹（近炸引信）</entityname.Throwables_Grenade_Close>
+	<entitydescription.Throwables_Grenade_Close>内部装入了泰拉集团的位移传感器和敌我识别模块，当接近敌人到一定距离后会发爆炸。由于装入了传感器组件，导致内部空间减小，装药量也有所减少。\n ‖color:red‖危险：当它不在容器中时，位移传感器会实时监测靠近的敌人（换句话说，你把它丢在地上那它就是个地雷）‖end‖</entitydescription.Throwables_Grenade_Close>
+	<entityname.Throwables_firecracker_BOX>一盒摔炮</entityname.Throwables_firecracker_BOX>
+	<entitydescription.Throwables_firecracker_BOX>地球时代的小玩具，这巡回结束后放两颗庆祝一下吧，前提是你的船长允许，本盒中有6颗，可以用来触发陷阱</entitydescription.Throwables_firecracker_BOX>
+	<entityname.Throwables_firecracker>摔炮</entityname.Throwables_firecracker>
+	<entitydescription.Throwables_firecracker>伤害很低，范围也小，可以用来触发陷阱</entitydescription.Throwables_firecracker>
+	<entityname.Throwables_bacteriaBronken>菌群破坏手雷</entityname.Throwables_bacteriaBronken>
+	<entitydescription.Throwables_bacteriaBronken>无结构损伤，专为去除丘脑而生</entitydescription.Throwables_bacteriaBronken>
+	<!--其它-->
+	<entityname.redspider>‖color:red‖彼岸花‖end‖</entityname.redspider>
+	<entitydescription.redspider>‖color:red‖地狱之花，生于忘川，盛于忘川‖end‖</entitydescription.redspider>
+	<entityname.Yedris_1>耶德里斯控制芯片</entityname.Yedris_1>
+	<entitydescription.Yedris_1>一块精致的小芯片，上面有着泰拉的Logo和Yedris字样</entitydescription.Yedris_1>
+	<entityname.Yedris_2>耶德里斯爆弹主体</entityname.Yedris_2>
+	<entitydescription.Yedris_2>已经被集团公开的技术，拥有EMP战斗部及破片战斗部，但很明显缺少一个重要部件</entitydescription.Yedris_2>
+	<entityname.Yedris>‖color:purple‖耶德里斯‖end‖</entityname.Yedris>
+	<entitydescription.Yedris>‖color:purple‖汇流处的水妖‖end‖</entitydescription.Yedris>
+	<!--装备-->
+	<!--背包-->
+	<entityname.TL_smallBag>小型双肩背包</entityname.TL_smallBag>
+	<entitydescription.TL_smallBag>小型背包，廉价，10格</entitydescription.TL_smallBag>
+	<entityname.TL_mediumBag>军用中型背包</entityname.TL_mediumBag>
+	<entitydescription.TL_mediumBag>军用的中型背包，强力但略贵，16格，可以装武器，有一个装潜水服的格子</entitydescription.TL_mediumBag>
+	<entityname.TL_bigBag>军用大型背包</entityname.TL_bigBag>
+	<entitydescription.TL_bigBag>大型背包，很大但更贵，25格，可以装武器，有一个装潜水服的格子</entitydescription.TL_bigBag>
+	<entityname.TL_biggestBag>TL超大型背包</entityname.TL_biggestBag>
+	<entitydescription.TL_biggestBag>泰拉超大背包，实用，昂贵，可装万物</entitydescription.TL_biggestBag>
+	<entityname.TLbagzhe>TL超大型背包（折叠）</entityname.TLbagzhe>
+	<entitydescription.TLbagzhe>泰拉超大背包，实用，昂贵，可装万物</entitydescription.TLbagzhe>
+	<!--盾-->
+	<entityname.TL_HurugeeShield>单手冲锋盾牌</entityname.TL_HurugeeShield>
+	<entitydescription.TL_HurugeeShield>廉价的单手盾，跑起来后可以肘击敌人</entitydescription.TL_HurugeeShield>
+	<entityname.TL_HurugeeShield_B>重型冲锋盾牌</entityname.TL_HurugeeShield_B>
+	<entitydescription.TL_HurugeeShield_B>重型单手盾，跑起来后可以肘击敌人</entitydescription.TL_HurugeeShield_B>
+
+	<!--材料-->
+	<entityname.MoldingPrinters>泰拉塑型打印机_AD-1舰队标准型</entityname.MoldingPrinters>
+	<entitydescription.MoldingPrinters>泰拉舰队标配的基础型号打印机，运行原理不详，但似乎它可以通过某种技术将塑性材料模拟为真正需要的材料来制造物品\n‖color:gui.orange‖左下第一插槽为打印耗材，第二插槽为认证器‖end‖</entitydescription.MoldingPrinters>
+	<Lightweight_Antioxidant>轻盈，抗氧化的材料，都能与铝形成高性能合金</Lightweight_Antioxidant>
+	<entityname.Stabilizers_DNT>发射药稳定剂（DNT）</entityname.Stabilizers_DNT>
+	<entitydescription.Stabilizers_DNT>高级军用发射药必备，超长寿命</entitydescription.Stabilizers_DNT>
+	<entityname.AluminumAlloy>铝合金</entityname.AluminumAlloy>
+	<entitydescription.AluminumAlloy>轻盈，抗氧化，高强度的材料</entitydescription.AluminumAlloy>
+	<entityname.TL_PumpMaterial_Bottle>再生输注液-容器瓶</entityname.TL_PumpMaterial_Bottle>
+	<entitydescription.TL_PumpMaterial_Bottle>一个脆弱的玻璃瓶，里面可以装入再生系列药剂</entitydescription.TL_PumpMaterial_Bottle>
+	<entityname.Triple_BasePropellant>普通三基发射药</entityname.Triple_BasePropellant>
+	<entitydescription.Triple_BasePropellant>高能、低烟、稳定，专用于重型舰炮的武器发射药</entitydescription.Triple_BasePropellant>
+	<entityname.Triple_BasePropellant_Pro>高级三基发射药</entityname.Triple_BasePropellant_Pro>
+	<entitydescription.Triple_BasePropellant_Pro>由普通发射药升级而来，这种发射药极其不稳定，请妥善保管</entitydescription.Triple_BasePropellant_Pro>
+	<entityname.TL_EngineeringPlastics>泰拉工程塑料</entityname.TL_EngineeringPlastics>
+	<entitydescription.TL_EngineeringPlastics>一种集团使用的特殊复合塑料，用途广泛，复用性强</entitydescription.TL_EngineeringPlastics>
+	<entityname.PrintingMaterials>打印塑形耗材</entityname.PrintingMaterials>
+	<entitydescription.PrintingMaterials>集团打印机运行的必备耗材，可以在打印机中使用更加廉价的材料制作</entitydescription.PrintingMaterials>
+	<entityname.Steel_TL>泰拉合金</entityname.Steel_TL>
+	<entitydescription.Steel_TL>集团使用的高硬度合金，常用于制作高级武器和配件等</entitydescription.Steel_TL>
+	<entityname.TL_Keys>泰拉数据库安全密钥</entityname.TL_Keys>
+	<entitydescription.TL_Keys>解锁打印机对部分蓝图的访问权限，插入打印机后会反复擦写其中的内容</entitydescription.TL_Keys>
+	<entityname.TL_blueprint>泰拉数据蓝图</entityname.TL_blueprint>
+	<entitydescription.TL_blueprint>制作高等装备的重要材料</entitydescription.TL_blueprint>
+	<entityname.Radiation_ball>辐射脑珠</entityname.Radiation_ball>
+	<entitydescription.Radiation_ball>从辐射蠕虫尸体中挖出来的辐射核心，可恶啊这玩意烫手\n‖color:gui.orange‖可装入造物运输箱‖end‖</entitydescription.Radiation_ball>
+	<entityname.nanogel>纳米凝胶</entityname.nanogel>
+	<entitydescription.nanogel>通过对木卫二遗迹材料的研究，集团制作出了这种珍贵的具有生物性质的纳米材料</entitydescription.nanogel>
+	<entityname.nanogel_cr>破坏性纳米凝胶</entityname.nanogel_cr>
+	<entitydescription.nanogel_cr>通过对凝胶的再编程与二次处理，使这类凝胶具有了危险性，会导致生物的细胞永久失活</entitydescription.nanogel_cr>
+	<entityname.HighEnergyC4>CR-9 赤灰炸药</entityname.HighEnergyC4>
+	<entitydescription.HighEnergyC4>泰拉科技集团化工部门研发的新型产品，通过燃素与雷素两种异星矿物的反应物离心分离出来的特殊物质，具体工艺流程高度保密，由于其优秀的性能，泰拉科技集团决定将其系列命名为CR系列，避免与C系列常规炸药和IC系列燃素炸药混淆\n‖color:gui.red‖危险：请注意，请妥善保存该炸药，否则后果自负‖end‖</entitydescription.HighEnergyC4>
+	<entityname.sulphuricacid_Pro>无水氢氟强酸</entityname.sulphuricacid_Pro>
+	<entitydescription.sulphuricacid_Pro>特殊工艺混合出的强酸，极强的腐蚀性，使用了特殊容器来保存</entitydescription.sulphuricacid_Pro>
+
+	<!--工具-->
+	<entityname.weldingtoolPRO1>高级电动焊接器・一阶段</entityname.weldingtoolPRO1>
+	<entitydescription.weldingtoolPRO1>集团的第一代低配焊接器</entitydescription.weldingtoolPRO1>
+	<entityname.weldingtoolPRO2>高级电动焊接器・二阶段</entityname.weldingtoolPRO2>
+	<entitydescription.weldingtoolPRO2>集团的第二代制式焊接器</entitydescription.weldingtoolPRO2>
+	<entityname.weldingtoolPRO3>高级电动焊接器・三阶段</entityname.weldingtoolPRO3>
+	<entitydescription.weldingtoolPRO3>泰拉系列焊接器的最终形态</entitydescription.weldingtoolPRO3>
+	<entityname.plasmacutterPRO1>高级电动切割器・一阶段</entityname.plasmacutterPRO1>
+	<entitydescription.plasmacutterPRO1>集团的第一代低配切割器</entitydescription.plasmacutterPRO1>
+	<entityname.plasmacutterPRO2>高级电动切割器・二阶段</entityname.plasmacutterPRO2>
+	<entitydescription.plasmacutterPRO2>集团的第二代制式切割器</entitydescription.plasmacutterPRO2>
+	<entityname.plasmacutterPRO3>高级电动切割器・三阶段</entityname.plasmacutterPRO3>
+	<entitydescription.plasmacutterPRO3>泰拉系列切割器的最终形态</entitydescription.plasmacutterPRO3>
+	<entityname.FireBoom_TL>喷气式飞行器</entityname.FireBoom_TL>
+	<entitydescription.FireBoom_TL>一款实验性的喷气式飞行器，高温的炽焰会带来维修船壳的附属作用</entitydescription.FireBoom_TL>
+	<entityname.Jetaircraftfuel_tanks>喷气式飞行器高压油箱</entityname.Jetaircraftfuel_tanks>
+	<entitydescription.Jetaircraftfuel_tanks>使用特殊的压缩技术，将大量气体压缩进这个小瓶子</entitydescription.Jetaircraftfuel_tanks>
+	<entityname.cratedeconstructormini_TL>便携式开箱器</entityname.cratedeconstructormini_TL>
+	<entitydescription.cratedeconstructormini_TL>可以拿在身上，很快捷的拆开泰拉补给箱</entitydescription.cratedeconstructormini_TL>
+	<!--医疗-->
+	<entityname.TL_MedicalPump>便携式初代输注泵</entityname.TL_MedicalPump>
+	<entitydescription.TL_MedicalPump>一种可安装于基因槽位的医疗设备，能够持续通过静脉向使用者输注药物。内置一个小型离线AI。药物均为再生（TG）系列。</entitydescription.TL_MedicalPump>
+	<TL_PumpMaterial.TG-R1>氨基复原酸 TG-R1</TL_PumpMaterial.TG-R1>
+	<entityname.TL_RG-1>再生输注液 ([type])</entityname.TL_RG-1>
+	<entitydescription.TL_RG-1>
+		再生输注液（TG-R1） 是泰拉集团医疗部门开发的基础型治疗药物，专为长期深海任务设计。该药物通过静脉持续输注，向人体提供电解质、止血成分及微量再生因子，从而缓慢修复软组织损伤并稳定生命体征。
+		尽管其治疗速度较慢，但在缺乏专业医疗条件的环境下，依然能够显著提高生存率。
+		‖color:gui.green‖“它不能让你立刻站起来，但能让你还喘着口气。”‖end‖ ——泰拉集团医疗手册
+	</entitydescription.TL_RG-1>
+	<entityname.REalcellruin>细胞神经修复因子</entityname.REalcellruin>
+	<entitydescription.REalcellruin>昂贵的细胞再生药品，由集团研发部供货</entitydescription.REalcellruin>
+	<entityname.last>黄昏晓</entityname.last>
+	<entitydescription.last>‖color:gui.red‖残躯比肩神明！‖end‖\n大幅度提升生命值，如果注射时满血，那么最大生命值可以提升至10000,持续15秒\n注：血量越高受到的伤害越低</entitydescription.last>
+	<entityname.Physiotherapydevice>外挂式自动理疗仪</entityname.Physiotherapydevice>
+	<entitydescription.Physiotherapydevice>安装电池并挂载在身上，可以缓慢恢复一些基础伤势</entitydescription.Physiotherapydevice>
+	<entityname.medicalkit_TL_Slow>长效医疗包</entityname.medicalkit_TL_Slow>
+	<entitydescription.medicalkit_TL_Slow>能够治疗各类外科伤口的急救包，治疗速度很慢，但生效时间长</entitydescription.medicalkit_TL_Slow>
+	<entityname.stabilozineTL_Pro>泰拉浓缩疗素</entityname.stabilozineTL_Pro>
+	<entitydescription.stabilozineTL_Pro>纯粹高效的浓缩疗素，由泰拉集团医疗部门开发测试，是泰拉药物系列少见的稳定无害药物\n‖color:gui.orange‖更强效的病毒压制，拥有醒酒/治疗麻痹效果‖end‖\n‖color:gui.orange‖动态兼容神经创伤：提供100点维生素B1，治疗各种内脏损伤/骨损伤，治疗最大50点神经创伤‖end‖</entitydescription.stabilozineTL_Pro>
+	<entityname.antibioticsTL_Pro>泰拉浓缩抗生素</entityname.antibioticsTL_Pro>
+	<entitydescription.antibioticsTL_Pro>一款更加高效且危害更小的浓缩抗生素，由泰拉集团医疗部门开发测试，在人体试验阶段体现出较强的极端性，需要经验丰富的医生来注射，否则会面临数倍严重的身体危害\n‖color:gui.orange‖画皮感染低于98%可进行压制，提供更强的抗性与压制力，技能检查成功时对人体危害性非常低‖end‖\n‖color:gui.orange‖动态兼容神经创伤：治疗100点败血症‖end‖</entitydescription.antibioticsTL_Pro>
+	<entityname.TL_sprayer>泰拉医疗喷雾</entityname.TL_sprayer>
+	<entitydescription.TL_sprayer>集团研制的一种前线应急医疗物资，需要装入‖color:gui.orange‖泰拉医疗芯片‖end‖来使用，它可以根据患者的伤痛程度来调配对应的药液喷洒</entitydescription.TL_sprayer>
+	<entityname.TL_sprayer_cheap>泰拉一次性医疗喷雾</entityname.TL_sprayer_cheap>
+	<entitydescription.TL_sprayer_cheap>一款广受各阵营好评的应急医疗物资，特制的药液装入一次性压力罐，面对重伤的伤员，不管怎讲也比按断他的肋骨强...</entitydescription.TL_sprayer_cheap>
+	<entityname.plywood>铝夹板\n‖color:gui.orange‖动态兼容《神经创伤》‖end‖</entityname.plywood>
+	<entitydescription.plywood>快速有效的骨折治疗，不必进行繁琐的骨折医疗\n‖color:gui.orange‖动态兼容神经创伤，未加载神经创伤则此物品无效‖end‖</entitydescription.plywood>
+	<entityname.BurnOintment>烧伤膏</entityname.BurnOintment>
+	<entitydescription.BurnOintment>一款常见的烧伤膏，会持续治疗烧伤，可以在电工开始工作前抹一些</entitydescription.BurnOintment>
+	<!--AFFS-->
+	<afflictionname.TG-R1Init>氨基复原酸 TG-R1 注入</afflictionname.TG-R1Init>
+	<afflictiondescription.TG-R1Init>氨基复原酸注射液（TG-R1）由泰拉集团医疗部门研发，主要成分为多种氨基酸复合物与止血促进因子。
+	该药物通过静脉持续输注，能够缓慢修复软组织损伤、减轻炎症反应并降低失血风险。
+	由于其作用温和且安全性高，被广泛应用于深海探索任务中。</afflictiondescription.TG-R1Init>
+	<afflictionname.TL_acidburn>高浓酸液烧伤</afflictionname.TL_acidburn>
+	<afflictionname.plasmaCauterization>电浆灼烧</afflictionname.plasmaCauterization>
+	<afflictiondescription.plasmaCauterization.low.Self>身上严重的烫伤痕迹，萦绕着青蓝色的电流，你感觉浑身发麻</afflictiondescription.plasmaCauterization.low.Self>
+	<afflictiondescription.plasmaCauterization.low>身上严重的烫伤痕迹，萦绕着青蓝色的电流，摸起来感觉浑身发麻</afflictiondescription.plasmaCauterization.low>
+	<afflictiondescription.plasmaCauterization.Self>你身上大面积烫伤，没有什么好肉了，你的身体已被电流击穿</afflictiondescription.plasmaCauterization.Self>
+	<afflictiondescription.plasmaCauterization>再不管这个傻逼，等会被烧死了！！</afflictiondescription.plasmaCauterization>
+	<afflictionname.alcellruin>细胞崩解</afflictionname.alcellruin>
+	<afflictiondescription.alcellruin>你的部分细胞永久失去了活性而变得更加脆弱</afflictiondescription.alcellruin>
+	<afflictiondescription.kill_notreal>撒日朗！（损失生命值，随时间恢复）</afflictiondescription.kill_notreal>
+	<afflictionname.bingdu_TL>脓胀病毒感染</afflictionname.bingdu_TL>
+	<afflictiondescription.bingdu_TL>一种只是与宿主细胞同化而不会主动传播，在全身感染前宿主不会直接死去，但会对宿主产生巨大的负面影响，也许通用的解毒剂对其有治疗作用。\n每层病毒都会降低自身最大生命值，在满值或者死亡后有概率传播</afflictiondescription.bingdu_TL>
+	<afflictionname.last>绝境逢生</afflictionname.last>
+	<afflictionname.stabilozineeffectTL_Pro>稳定剂+</afflictionname.stabilozineeffectTL_Pro>
+	<afflictiondescription.stabilozineeffectTL_Pro>呵，病毒？</afflictiondescription.stabilozineeffectTL_Pro>
+	<afflictiondescription.stabilozineeffectTL_Pro.self>这种药物很大程度的压制了你体内的病毒</afflictiondescription.stabilozineeffectTL_Pro.self>
+	<afflictiondescription.BurnOintment_ointmented>烧伤膏涂敷</afflictiondescription.BurnOintment_ointmented>
+	<afflictiondescription.BurnOintment_ointmented>烧伤膏涂抹在肢体上，并保证你的这根肢体不会被烤熟</afflictiondescription.BurnOintment_ointmented>
+	<afflictionname.TL_overridWarning>警告：模组内容被覆盖</afflictionname.TL_overridWarning>
+	<afflictiondescription.TL_overridWarning>‖color:gui.red‖泰拉渊洋-新时代‖end‖ 被一些其它Mod覆盖了重要内容，详细信息请查看弹窗！</afflictiondescription.TL_overridWarning>
+	<!--义体-->
+	<entityname.TLCyb_LycorisChip>曼珠·神经接口芯片</entityname.TLCyb_LycorisChip>
+	<entitydescription.TLCyb_LycorisChip>
+		曼珠神经接口芯片是泰拉集团开发的基础型脑机接口设备，也是所有义体改造的核心前置模块。
+		该芯片内置彼岸花（Lycoris）主系统的分布式子AI——“曼珠”，用于建立人体神经系统与集团技术网络之间的稳定连接。
+
+		通过对神经信号的实时解析与调控，曼珠能够为后续的义体设备提供统一的控制协议、数据同步与安全监测功能。
+		因此，在泰拉集团的技术体系中，‖color:gui.green‖任何义体改造都必须以曼珠植入为前提。‖end‖
+
+		相较于彼岸花主系统的宏观决策能力，曼珠更专注于个体层面的辅助与引导。
+		其交互方式更加温和与人性化，但在核心逻辑上仍完全服从主系统的指令。
+
+		对于使用者而言，曼珠不仅是一个技术接口，更像是一位始终陪伴在意识深处的“引路人”。
+
+		‖color:gui.green‖“当曼珠绽放之时，新的自我也随之诞生。”‖end‖
+	</entitydescription.TLCyb_LycorisChip>
+	<afflictionname.TLCyb_LycorisChip_Init>曼珠·神经控制系统植入</afflictionname.TLCyb_LycorisChip_Init>
+	<afflictiondescription.TLCyb_LycorisChip_Init>你好，我是曼珠。新的自我，由此开始！</afflictiondescription.TLCyb_LycorisChip_Init>
+	<TLCyb_LycorisChip_init>神经连接已建立。“曼珠”植入完成，任何义体改造都必须以曼珠植入为前提。她是义体改造的基础核心，内置彼岸花下级子系统“曼珠”，用于建立神经连接与控制协议。</TLCyb_LycorisChip_init>
+	<entityname.TLCyb_CivilianLeg>民用基础机械腿</entityname.TLCyb_CivilianLeg>
+	<entitydescription.TLCyb_CivilianLeg>
+		泰拉集团为深海探索人员设计的标准下肢替代方案，在木卫二市场广受欢迎。
+		其结构坚固，能够在高压与复杂地形环境中提供稳定的支撑与移动能力，同时完全免疫跌倒与骨折的风险。
+
+		相较于军用型号与工业型号，民用型号更加注重可靠性与安全性，维护成本低，适用于绝大多数船员。
+		所有系统均由“曼珠”神经接口进行协调控制，确保自然流畅的动作反馈。
+
+		‖color:gui.green‖民用机械腿会轻微加快你的移动速度与最高生命值。
+
+		机械腿会将大部分伤害转换为机械损伤，大部分机械伤不会扣除生命值。结构损伤除外。
+		机器可不会流血。‖end‖
+	</entitydescription.TLCyb_CivilianLeg>
+	<afflictionname.TLCyb_CivilianLeg_Init>民用机械腿已安装</afflictionname.TLCyb_CivilianLeg_Init>
+	<afflictiondescription.TLCyb_CivilianLeg_Init>你的腿舔起来怎么硬硬的？</afflictiondescription.TLCyb_CivilianLeg_Init>
+	<TLCyb_CivilianLeg_Init>
+		检测到民用义体插入，神经链接已建立。
+		义体免疫大部分伤害，大部分机械伤不会扣除生命值，但会减扣相应加成。结构损伤会扣除生命值。
+		民用机械腿它会轻微加快你的移动速度与最高生命值。
+	</TLCyb_CivilianLeg_Init>
+	<entityname.TLCyb_CivilianArm>民用基础机械臂</entityname.TLCyb_CivilianArm>
+	<entitydescription.TLCyb_CivilianArm>
+		由泰拉集团研发的标准替代义肢，专为深海环境中的长期作业而设计。
+		该义体采用高强度合金骨架与精密伺服系统，能够稳定恢复使用者的基本操作能力，并在一定程度上提升抗冲击性能。
+
+		相较于军用型号，民用机械手更加注重可靠性与安全性，维护成本低，适用于绝大多数船员。
+		所有系统均由“曼珠”神经接口进行协调控制，确保自然流畅的动作反馈。
+
+		‖color:gui.green‖民用机械臂会轻微加快你的游泳速度与你修复一切东西的速度，并增加你切割东西的速度。
+
+		机械手会将大部分伤害转换为机械损伤，大部分机械伤不会扣除生命值。结构损伤除外。
+		机器可不会流血。‖end‖
+	</entitydescription.TLCyb_CivilianArm>
+	<afflictionname.TLCyb_CivilianArm_Init>民用机械臂已安装</afflictionname.TLCyb_CivilianArm_Init>
+	<afflictiondescription.TLCyb_CivilianArm_Init>机械臂吗？你那啥的时候真的不会夹到自己嘛...</afflictiondescription.TLCyb_CivilianArm_Init>
+	<TLCyb_CivilianArm_Init>
+		检测到民用义体插入，神经链接已建立。
+		建议减少快感上的娱乐活动，避免夹伤自己。
+		
+		义体免疫大部分伤害，大部分机械伤不会扣除生命值，但会减扣相应加成。结构损伤会扣除生命值。
+		民用机械臂它会轻微加快你的游泳速度与你修复一切东西的速度，并增加你切割东西的速度。
+	</TLCyb_CivilianArm_Init>
+	<TLCyb_LimbBreak_init>严重结构损坏。义体已脱落，伤口已进行应急封闭……你仍具备行动能力吗？</TLCyb_LimbBreak_init>
+
+	<entityname.TLCyb_LycorisChip_Learning>曼珠·[加速学习协议]</entityname.TLCyb_LycorisChip_Learning>
+	<entitydescription.TLCyb_LycorisChip_Learning>
+		曼珠系统对神经信号处理路径进行优化，减少冗余认知过程，从而显著提升技能习得效率。
+
+		在持续运行状态下，该协议会压缩记忆巩固时间，使使用者在短时间内掌握更多操作经验。
+		‖color:gui.green‖提高技能经验获取速度。‖end‖
+	</entitydescription.TLCyb_LycorisChip_Learning>
+	<TLCyb_LycorisChip_Learning_Init>
+		[加速学习协议]:
+		在持续运行状态下，该协议会压缩记忆巩固时间，使使用者在短时间内掌握更多操作经验。
+		‖color:gui.green‖技能学习速度+10%，所有技能学习速度+15%，额外技能获取+5。‖end‖
+	</TLCyb_LycorisChip_Learning_Init>
+
+	<entityname.TLCyb_LycorisChip_Skill>曼珠·[执行强化模块]</entityname.TLCyb_LycorisChip_Skill>
+	<entitydescription.TLCyb_LycorisChip_Skill>
+		通过神经接口对动作指令进行预测与修正，曼珠系统能够在使用者发出指令前完成部分计算，从而提升操作精度与效率。
+
+		该模块本质上是在“你行动之前，替你完成一部分行动”。
+		‖color:gui.green‖提高部分技能等级或操作效率。‖end‖
+	</entitydescription.TLCyb_LycorisChip_Skill>
+	<TLCyb_LycorisChip_Skill_Init>
+		[执行强化模块]:
+		通过神经接口对动作指令进行预测与修正，曼珠系统能够在使用者发出指令前完成部分计算，从而提升操作精度与效率。
+		‖color:gui.green‖所有技能+15，炮塔能量消耗-15%，炮塔攻击速度+10%，炮塔充能速度+30%（例如脉冲激光炮的蓄力）‖end‖
+	</TLCyb_LycorisChip_Skill_Init>
+
+	<entityname.TLCyb_LycorisChip_Stress>曼珠·[应激缓冲模块]</entityname.TLCyb_LycorisChip_Stress>
+	<entitydescription.TLCyb_LycorisChip_Stress>
+		曼珠通过实时监测身体状态，在受到高强度伤害时对神经反馈进行抑制，并分配义体承载压力，从而降低瞬时伤害的致命性。
+
+		该模块优先保证“存活”，而非“完整”。
+		‖color:gui.green‖提升最大生命值，增加伤害抗性‖end‖
+	</entitydescription.TLCyb_LycorisChip_Stress>
+	<TLCyb_LycorisChip_Stress_Init>
+		[应激缓冲模块]:
+		曼珠通过实时监测身体状态，在受到高强度伤害时对神经反馈进行抑制，并分配义体承载压力，从而降低瞬时伤害的致命性。
+		‖color:gui.green‖最大生命值+20%，damage类型伤害抗性+25%‖end‖
+	</TLCyb_LycorisChip_Stress_Init>
+	
+	<entityname.TLCyb_LycorisChip_Metabolic>曼珠·[代谢调节模块]</entityname.TLCyb_LycorisChip_Metabolic>
+	<entitydescription.TLCyb_LycorisChip_Metabolic>
+		曼珠系统通过调控体内代谢与药物释放节奏，维持并增强使用者的生理稳定性。
+
+		相同资源的情况下，带来更高的机能收益。
+		‖color:gui.green‖增加正面Buff持续时间，减少负面Buff持续时间，提升医疗物资效果倍率‖end‖
+	</entitydescription.TLCyb_LycorisChip_Metabolic>
+	<TLCyb_LycorisChip_Metabolic_Init>
+		[代谢调节模块]：
+		曼珠系统通过调控体内代谢与药物释放节奏，维持并增强使用者的生理稳定性。
+		‖color:gui.green‖正面Buff持续时间+25%，负面Buff持续时间-35%，医疗物品效果倍率+15%‖end‖
+	</TLCyb_LycorisChip_Metabolic_Init>
+	
+	<entityname.TLCyb_LycorisChip_Recovery>曼珠·终止-[回收协议]</entityname.TLCyb_LycorisChip_Recovery>
+	<entitydescription.TLCyb_LycorisChip_Recovery>
+		当使用者生命体征降至临界阈值时，曼珠系统将接管身体控制权限，并执行紧急回收程序。
+
+		通过预设信标与空间定位网络，使用者将在短时间内被转移至安全区域（玩家潜艇随机房间）。
+
+		该过程可能对曼珠神经系统造成冲击，并非完全无风险。
+		‖color:gui.green‖濒死时将你传送回潜艇‖end‖
+	</entitydescription.TLCyb_LycorisChip_Recovery>
+	<TLCyb_LycorisChip_Recovery_Init>
+		终止-[回收协议] ：
+		当使用者生命体征降至临界阈值时，该模块将通过预设信标与空间定位网络，使用者将在10秒后被转移至你方潜艇的随机一个舱室中。
+		‖color:gui.green‖传送会对曼珠神经系统造成冲击，并非完全无风险。‖end‖
+	</TLCyb_LycorisChip_Recovery_Init>
+	<TLCyb_LycorisChip_Recovery_ues>警告 终止-回收协议 已激活，正在将角色传送至潜艇随机舱室...
+	10...9...8...7...</TLCyb_LycorisChip_Recovery_ues>
+	<TLCyb_Lycoris_Restart>系统过载。正在执行紧急重启。</TLCyb_Lycoris_Restart>
+	<TLCyb_Lycoris_CantRestart>系统过载。无法执行紧急重启，重启系统冷却中。</TLCyb_Lycoris_CantRestart>
+	<TLCyb_Lycoris_OFFline>系统严重损坏，无法自动重启，主模块下线。</TLCyb_Lycoris_OFFline>
+	<TLCyb_LycorisChipRestart>已确认手动重启请求。正在断开神经连接……稍后见。</TLCyb_LycorisChipRestart>
+
+	<entityname.TLCyb_LycorisChipRestart>曼珠指令·重启</entityname.TLCyb_LycorisChipRestart>
+	<entitydescription.TLCyb_LycorisChipRestart>
+		一枚由泰拉集团下发的底层维护指令模块，用于强制中断曼珠系统当前运行状态，并重新初始化核心子系统。
+		该指令会暂时切断曼珠与宿主之间的神经连接，在短时间内清除堆积异常、同步偏移以及部分失控进程。
+		重启期间，宿主将出现短暂的意识断层现象。
+		根据泰拉医疗部报告，频繁执行重启可能导致记忆片段缺失、时间感知紊乱，以及轻微的“连接依赖症”。
+	</entitydescription.TLCyb_LycorisChipRestart>
+	<entityname.TLCyb_Neuroleptic>神经稳定剂</entityname.TLCyb_Neuroleptic>
+	<entitydescription.TLCyb_Neuroleptic>用于稳定神经信号波动的基础制剂，可降低神经同步偏差带来的负面影响。</entitydescription.TLCyb_Neuroleptic>
+	<afflictionname.TLCyb_StructuralDamage>结构损伤</afflictionname.TLCyb_StructuralDamage>
+	<afflictiondescription.TLCyb_StructuralDamage>义体外部框架或内部承载结构受到冲击后产生的物理性损坏。若不及时修复，损伤将逐步扩散，最终引发功能性失效。\n‖color:gui.green‖使用钢筋修复‖end‖</afflictiondescription.TLCyb_StructuralDamage>
+	<afflictionname.TLCyb_ServoDamage>伺服系统故障</afflictionname.TLCyb_ServoDamage>
+	<afflictiondescription.TLCyb_ServoDamage>控制义体运动的伺服电机与反馈系统出现异常，导致动作响应延迟或不稳定。表现为操作迟缓、控制失衡，甚至出现不可预测的动作偏移。\n‖color:gui.green‖使用螺丝刀修复‖end‖</afflictiondescription.TLCyb_ServoDamage>
+	<afflictionname.TLCyb_CircuitDamage>电路损坏</afflictionname.TLCyb_CircuitDamage>
+	<afflictiondescription.TLCyb_CircuitDamage>义体内部电子系统受损，影响能量分配与信号传输。严重情况下，局部系统将完全失去响应。\n‖color:gui.green‖使用FPGA修复‖end‖</afflictiondescription.TLCyb_CircuitDamage>
+	<afflictionname.TLCyb_SystemDamage>神经系统同步失调</afflictionname.TLCyb_SystemDamage>
+	<afflictiondescription.TLCyb_SystemDamage>义体系统与神经接口之间的同步出现偏差，导致控制与感知失衡。当曼珠接口无法维持稳定的神经映射时，使用者将逐渐失去对义体的精确控制，甚至出现延迟、错位或感知异常。长期失调可能产生不可逆影响。\n‖color:gui.green‖使用神经稳定剂治疗‖end‖</afflictiondescription.TLCyb_SystemDamage>
+	<afflictionname.TLCyb_LycorisSystemDamage>曼珠核心子系统异常</afflictionname.TLCyb_LycorisSystemDamage>
+	<afflictiondescription.TLCyb_LycorisSystemDamage>曼珠系统内部子模块在高负载运行或多重指令冲突下产生的不稳定状态。在异常值达到临界阈值后，曼珠将强制执行紧急重启，以防止系统整体失控。该过程将中断当前所有接口连接，并重置部分运行状态。当前系统仍处于可控范围内，但稳定性正在下降。\n‖color:gui.green‖重启曼珠系统以校准‖end‖</afflictiondescription.TLCyb_LycorisSystemDamage>
+	<afflictionname.TLCyb_ClosedWound>伤口应急封闭</afflictionname.TLCyb_ClosedWound>
+	<afflictiondescription.TLCyb_ClosedWound>此处的义体已经被彻底撕成碎片，但是曼珠在接口处进行了紧急封闭，能让你多活几分钟。\n‖color:gui.green‖开刀或使用肢体创伤处理器‖end‖</afflictiondescription.TLCyb_ClosedWound>
+	<!--杂物-->
+	<entityname.sonarbeacon_TL>高级手持声纳信标</entityname.sonarbeacon_TL>
+	<entityname.GTX690>GTX690战术核板砖</entityname.GTX690>
+	<entitydescription.GTX690>战术核显卡名不虚传</entitydescription.GTX690>
+	<entityname.huaqiangKnife_Genuine>华强的砍刀·正品</entityname.huaqiangKnife_Genuine>
+	<entitydescription.huaqiangKnife_Genuine>你故意找茬是吧</entitydescription.huaqiangKnife_Genuine>
+	<entityname.idcardplus>万能钥匙</entityname.idcardplus>
+	<entitydescription.idcardplus>集团给你在木卫二的通行证</entitydescription.idcardplus>
+	<entityname.zhiheldterminal>中央计算机日志</entityname.zhiheldterminal>
+	<entitydescription.zhiheldterminal>此地的中央计算机停机前的最后记录，如果你看到这个说明这里已经发生了一些事情而被集团抛弃抹除</entitydescription.zhiheldterminal>
+	<entityname.leopard6>LeopardA6召唤器</entityname.leopard6>
+	<entitydescription.leopard6>召唤一只豹豹</entitydescription.leopard6>
+	<entityname.shenyingge3>哇哇叫小喇叭</entityname.shenyingge3>
+	<entitydescription.shenyingge3>别吵了行不行，直接喷</entitydescription.shenyingge3>
+	<entityname.probed>高级治疗床</entityname.probed>
+	<entitydescription.probed>内部集成了集团在医疗领域全部的技术</entitydescription.probed>
+	<entityname.weldingfueltankhelf2>油箱补充系统</entityname.weldingfueltankhelf2>
+	<entitydescription.weldingfueltankhelf2>右键+E放置，可以补充各种燃料</entitydescription.weldingfueltankhelf2>
+	<entityname.allhelf>集成式充能站</entityname.allhelf>
+	<entitydescription.allhelf>集成了多种充能系统，可以给任何电池和焊接油料充能</entitydescription.allhelf>
+	<entityname.Garbagedisposal>垃圾处理器</entityname.Garbagedisposal>
+	<entitydescription.Garbagedisposal>删除容器中的物品</entitydescription.Garbagedisposal>
+	<entityname.handheldstatusmonitorPro>手持万用宝</entityname.handheldstatusmonitorPro>
+	<entitydescription.handheldstatusmonitorPro>和潜艇系统互联互通，这里有你想知道的一切</entitydescription.handheldstatusmonitorPro>
+	<entityname.FireSprinklers>灭火/浇灌器</entityname.FireSprinklers>
+	<entitydescription.FireSprinklers>可以扑灭火焰，也可灌溉植物</entitydescription.FireSprinklers>
+	<entityname.TLhandtruck>集团小推车</entityname.TLhandtruck>
+	<entitydescription.TLhandtruck>泰拉搬运物资的小推车</entitydescription.TLhandtruck>
+	<entityname.TLskillbookeuropanmedicine>集团医疗操作手册</entityname.TLskillbookeuropanmedicine>
+	<entitydescription.TLskillbookeuropanmedicine>集团出版的医疗知识合集，人手一套，老少皆宜，能提供20点医疗技能加成</entitydescription.TLskillbookeuropanmedicine>
+	<entityname.TLartifactholder>物品展示柜</entityname.TLartifactholder>
+	<entitydescription.TLartifactholder></entitydescription.TLartifactholder>
+	<entityname.Shuishengseed_TL>复合植物种子</entityname.Shuishengseed_TL>
+	<entitydescription.Shuishengseed_TL>集团使用杂交技术培育的特殊种子，据说可以结出多种植物</entitydescription.Shuishengseed_TL>
+	<entityname.Compositefruit>复合果实</entityname.Compositefruit>
+	<entitydescription.Compositefruit>由复合植物种子结果而得，是一种材料</entitydescription.Compositefruit>
+	<entityname.Powerbattery>动力电池</entityname.Powerbattery>
+	<entitydescription.Powerbattery>集团开发的一种重型电池，可以反复充放电</entitydescription.Powerbattery>
+	<entityname.cleantool_TL>清除工具</entityname.cleantool_TL>
+	<entitydescription.cleantool_TL>用来物理消除实验型防御机器人的最终手段，当你觉得你们无法击杀实验型防御机器人（只对其有效）时使用，会直接移除目标，并且你们无法得到最终奖励的钥匙</entitydescription.cleantool_TL>
+	<entityname.Idcard_TLnengyuanzhan>能源站储藏库钥匙</entityname.Idcard_TLnengyuanzhan>
+	<entitydescription.Idcard_TLnengyuanzhan>杀死实验型机器人后获得，用来开启额外的奖励房间。存在时间有限，别等到它消失！</entitydescription.Idcard_TLnengyuanzhan>
+	<entityname.missionlocater_TL>任务标记器</entityname.missionlocater_TL>
+	<entitydescription.missionlocater_TL>标记任务地点，没什么用</entitydescription.missionlocater_TL>
+	<entityname.Lootcrate_TL_Ore>存储箱（矿物）</entityname.Lootcrate_TL_Ore>
+	<entitydescription.Lootcrate_TL_Ore>用来存储物品的箱子，内含20枚随机矿物</entitydescription.Lootcrate_TL_Ore>
+	<entityname.Lootcrate_TL_XTZmagezine>存储箱（协调者通用弹鼓）</entityname.Lootcrate_TL_XTZmagezine>
+	<entitydescription.Lootcrate_TL_XTZmagezine>用来存储物品的箱子，内含一些协调者弹鼓</entitydescription.Lootcrate_TL_XTZmagezine>
+	<entityname.Lootcrate_TL_shotgunammo>存储箱（霰弹）</entityname.Lootcrate_TL_shotgunammo>
+	<entitydescription.Lootcrate_TL_shotgunammo>用来存储物品的箱子，内含一些霰弹</entitydescription.Lootcrate_TL_shotgunammo>
+	<entityname.Lootcrate_TL_medic>存储箱（医疗物资）</entityname.Lootcrate_TL_medic>
+	<entitydescription.Lootcrate_TL_medic>用来存储物品的箱子，内含一些医疗物资</entitydescription.Lootcrate_TL_medic>
+	<entityname.Lootcrate_TL_ammomaterial>存储箱（材料）</entityname.Lootcrate_TL_ammomaterial>
+	<entitydescription.Lootcrate_TL_ammomaterial>用来存储物品的箱子，内含一些制作材料</entitydescription.Lootcrate_TL_ammomaterial>
+	<entityname.Lootcrate_TL_HXmagazine>存储箱（幻星弹药）</entityname.Lootcrate_TL_HXmagazine>
+	<entitydescription.Lootcrate_TL_HXmagazine>用来存储物品的箱子，内含一些幻星弹匣</entitydescription.Lootcrate_TL_HXmagazine>
+	<entityname.Lootcrate_TL_plants>存储箱（植物）</entityname.Lootcrate_TL_plants>
+	<entitydescription.Lootcrate_TL_plants>用来存储物品的箱子，内含12株随机植物</entitydescription.Lootcrate_TL_plants>
+	<entityname.Lootcrate_TL_Alienmine>存储箱（异星矿物）</entityname.Lootcrate_TL_Alienmine>
+	<entitydescription.Lootcrate_TL_Alienmine>用来存储物品的箱子，内含8枚随机异星矿物</entitydescription.Lootcrate_TL_Alienmine>
+	<entityname.blindbox_TL_CDWGG>战利品箱</entityname.blindbox_TL_CDWGG>
+	<entitydescription.blindbox_TL_CDWGG>打开有概率获得泰拉珍贵的物资</entitydescription.blindbox_TL_CDWGG>
+	<entityname.riotshield_TL>泰拉防暴盾牌</entityname.riotshield_TL>
+	<entitydescription.riotshield_TL>拥有更加稳定的结构，有更高的耐久。</entitydescription.riotshield_TL>
+	<entityname.TerraShipboardBattery>泰拉大型舰载电池</entityname.TerraShipboardBattery>
+	<entitydescription.TerraShipboardBattery>泰拉集团使用的舰载电池，拥有更大的容量和效率</entitydescription.TerraShipboardBattery>
+	<entityname.EnergyStationArtificialIntelligence>能源站离线版人工智能</entityname.EnergyStationArtificialIntelligence>
+	<entitydescription.EnergyStationArtificialIntelligence></entitydescription.EnergyStationArtificialIntelligence>
+	<entityname.periscope2>集团智能潜望镜</entityname.periscope2>
+	<entitydescription.periscope2>拥有一个按钮和一个选择框的潜望镜，可以帮助潜艇工程师建造出更多神奇的系统（比如把干扰弹发射系统连接到选择框就是个不错的选择）</entitydescription.periscope2>
+	<entityname.TL_divingsuitlocker2>大型潜水服柜</entityname.TL_divingsuitlocker2>
+	<entitydescription.TL_divingsuitlocker2>接入电源可以为很多潜水服进行充氧</entitydescription.TL_divingsuitlocker2>
+	<entityname.TL_metalcrate>泰拉科技货运箱</entityname.TL_metalcrate>
+	<entitydescription.TL_metalcrate>大型箱子，可以装入很多东西，进行货物运输</entitydescription.TL_metalcrate>
+
+	<!--资源兑换-->
+	<entityname.ResourceMaterialsRecycle>资源回收仪</entityname.ResourceMaterialsRecycle>
+	<entitydescription.ResourceMaterialsRecycle>将冗余或无用的材料进行回收，换成金币后，进行资源兑换</entitydescription.ResourceMaterialsRecycle>
+	<entityname.InstructionManual>Recovery Instrument Manual</entityname.InstructionManual>
+	<entitydescription.InstructionManual>How to use the recycling machine is explained here.</entitydescription.InstructionManual>
+	<!--衣服-->
+	<entityname.var_leopard>豹</entityname.var_leopard>
+	<entitydescription.var_leopard>变成豹</entitydescription.var_leopard>
+	<entityname.Whitesilk1>白丝作战服</entityname.Whitesilk1>
+	<entitydescription.Whitesilk1>通用作战服</entitydescription.Whitesilk1>
+	<entityname.bodyarmor1>防弹衣</entityname.bodyarmor1>
+	<entitydescription.bodyarmor1>普通防弹衣</entitydescription.bodyarmor1>
+	<entityname.waiguge1>泰拉集团初代外骨骼</entityname.waiguge1>
+	<entitydescription.waiguge1>集团开发的第一代测试外骨骼，有强大的装甲，安装电池可提升移动速度，可以携带各种各样的东西，并且实现了自供氧</entitydescription.waiguge1>
+	<entityname.exosuitCrane>黄鹤战斗套装</entityname.exosuitCrane>
+	<entitydescription.exosuitCrane>泰拉常规安保外骨骼，拥有优秀的生存性</entitydescription.exosuitCrane>
+	<entityname.sp01>特殊作战装甲01</entityname.sp01>
+	<entitydescription.sp01>幻星工业与泰拉集团暗中联合研发的试作型全领域特殊作战服，拥有自循环氧气系统和自注射疗愈系统。在防护性能强悍的同时还不会影响移动。插入动力电池时，智能辅助系统可以增加使用者的综合能力并且启动热成像和健康扫描。</entitydescription.sp01>
+	<!--职业/天赋-->
+	<jobname.TLsafe>集团特战队</jobname.TLsafe>
+	<jobdescription.TLsafe>集团特战队是接受过集团特殊训练的特种部队，拥有超乎常人的战斗能力，绝对是最强的安全保障</jobdescription.TLsafe>
+	<!--特战队的诞生-->
+	<talentname.BeginofTLsafe>雇佣兵报名</talentname.BeginofTLsafe>
+	<talentdescription.BeginofTLsafe>从现在开始，你已经成为特战队的一员，集团会给予你一定的支持：获得‖color:gui.green‖20‖end‖%经验加成。</talentdescription.BeginofTLsafe>
+	<!--常规1线-->
+	<!--格斗-->
+	<talentname.fightTrain>特训：格斗</talentname.fightTrain>
+	<talentdescription.fightTrain>通过击杀[amount1]个敌人以获得[amount2]点经验，[amount3]点武器技能以及[amount4]点最大生命值。</talentdescription.fightTrain>
+	<!--修复-->
+	<talentname.repairTrain>特训：修复</talentname.repairTrain>
+	<talentdescription.repairTrain>通过修复[amount1]个各类机械电气以获得[amount3]点经验，[amount1]点机械和电气技能以及[amount2]%维修速度奖励。</talentdescription.repairTrain>
+	<!--医疗-->
+	<talentname.yiliaoTrain>特训：医疗</talentname.yiliaoTrain>
+	<talentdescription.yiliaoTrain>通过制作[amount1]个医疗物品训练以获得[amount2]点经验，[amount3]点医疗技能以及[amount4]%医疗效果增强。</talentdescription.yiliaoTrain>
+	<!--舵手-->
+	<talentname.DuoshouTrain>特训：舵手</talentname.DuoshouTrain>
+	<talentdescription.DuoshouTrain>你获得[amount]驾驶技能奖励。</talentdescription.DuoshouTrain>
+	<!--常规2线-->
+	<talentname.olympian_TL>奥林匹克</talentname.olympian_TL>
+	<talentname.affiliation2>关系网络</talentname.affiliation2>
+	<talentdescription.affiliation2>
+		在派系中的声望增加速度提高[amount]%。
+		为所属派系完成任务时，获得的分数增加[amount2]%。
+		注：声望最高为所属派系，且相同技能无法叠加。
+	</talentdescription.affiliation2>
+	<talentname.TL_Disposable_medical>一次性物资解锁</talentname.TL_Disposable_medical>
+	<talentdescription.TL_Disposable_medical>获得一些集团一次性物资制作配方授权，以及廉价版本配方，解锁‖color:gui.orange‖泰拉一次性医疗喷雾‖end‖</talentdescription.TL_Disposable_medical>
+	<!--严格学习-->
+	<talentname.StudyMore_TL>严格学习</talentname.StudyMore_TL>
+	<talentdescription.StudyMore_TL>增加技能获取速度[amount]%</talentdescription.StudyMore_TL>
+	<!--绝地猪头-->
+	<talentname.TL_HellDive>绝地猪头前来增援！！</talentname.TL_HellDive>
+	<talentdescription.TL_HellDive>为了超级气球！！绝地猪头们给了我们他们的技术和蓝图，一切都是为了超级气球！！\n解锁‖color:gui.orange‖爆裂铳/三种爆裂铳弹药‖end‖AND‖color:gui.orange‖最后通牒‖end‖AND‖color:gui.orange‖矛枪/三种矛枪弹药‖end‖</talentdescription.TL_HellDive>
+	<!--后勤线-->
+	<talenttree.TLsafe_specialization>后勤处长</talenttree.TLsafe_specialization>
+	<talentname.systemoverload>打印机授权</talentname.systemoverload>
+	<talentdescription.systemoverload>解锁‖color:gui.orange‖打印机‖end‖，真正的泰拉才刚刚开始，‖color:gui.orange‖制作台/解构仪/打印机‖end‖的效率增加[amount]%</talentdescription.systemoverload>
+	<talentname.scavenger2>回收协议授权+摸金校尉</talentname.scavenger2>
+	<talentdescription.scavenger2>解锁‖color:gui.orange‖资源回收仪‖end‖，搜索沉船容器有[amount]%的概率找到额外一个‖color:gui.orange‖钢筋/钛铝合金/泰拉集团合金/数据蓝图‖end‖</talentdescription.scavenger2>
+	<talentname.Deconstructer>回收协议授权+拆解专精</talentname.Deconstructer>
+	<talentdescription.Deconstructer>解锁‖color:gui.orange‖资源回收仪‖end‖，每当你分解物品，都有[amount]%的机会获得三倍的产量</talentdescription.Deconstructer>
+	<talentname.tooloverload>工具超载</talentname.tooloverload>
+	<talentdescription.tooloverload>你的挖矿和维修速度提升[amount]%，并解锁‖color:gui.orange‖二阶段工具‖end‖</talentdescription.tooloverload>
+	<talentname.gongyi>精进工艺</talentname.gongyi>
+	<talentdescription.gongyi>制作物品增加[amount]品质，并解锁‖color:gui.orange‖三阶段工具‖end‖以及‖color:gui.orange‖医疗/热成像芯片‖end‖</talentdescription.gongyi>
+	<!--医疗线-->
+	<talenttree.TLsafe_specialization2>医师</talenttree.TLsafe_specialization2>
+	<talentname.drsubmarinePRO>医疗制作</talentname.drsubmarinePRO>
+	<talentdescription.drsubmarinePRO>你的医疗制作台制作速度提升[amount]%，医疗技能提升[amount2]。</talentdescription.drsubmarinePRO>
+	<talentname.miracleworkerPRO>奇迹行者</talentname.miracleworkerPRO>
+	<talentdescription.miracleworkerPRO>你和周围4米的队友不会死亡。</talentdescription.miracleworkerPRO>
+	<talentname.drsubmarinePRO2>医疗部门主任</talentname.drsubmarinePRO2>
+	<talentdescription.drsubmarinePRO2>当你完成任意任务你会获得[amount]个集团医疗操作手册，[amount2]个血袋，[amount]个黄昏晓，并‖color:gui.orange‖解锁黄昏晓‖end‖以及‖color:gui.orange‖医疗芯片‖end‖和‖color:gui.orange‖泰拉医疗喷雾‖end‖</talentdescription.drsubmarinePRO2>
+	<!--战斗线-->
+	<talenttree.TLsafe_specialization3>特战队</talenttree.TLsafe_specialization3>
+	<talentname.Shuigui_TL>体能训练</talentname.Shuigui_TL>
+	<talentdescription.Shuigui_TL>你经过集团定制课程训练，游泳速度提升[amount]%，陆地移动速度提升[amount2]%，解锁‖color:gui.orange‖AT4反坦克次抛火箭筒廉价配方‖end‖</talentdescription.Shuigui_TL>
+	<talentname.hurt_TL>肢体特殊改造</talentname.hurt_TL>
+	<talentdescription.hurt_TL>你的皮肤和骨骼经过集团皮肤增强手术，物理抗性提升[amount]%，烧伤抗性提升[amount]%，解锁‖color:gui.orange‖TL-14常规制式突击步枪·改‖end‖以及‖color:gui.orange‖TL-15突击步枪‖end‖</talentdescription.hurt_TL>
+	<talentname.advancedattack>作战技巧训练</talentname.advancedattack>
+	<talentdescription.advancedattack>你经过集团的特战课程训练，对泰拉武器有了更进一步认知，散步降低[amount]%，使用泰拉武器弹药伤害增加[amount2]%，并解锁‖color:gui.orange‖TL-23进阶突击霰弹枪‖end‖和‖color:gui.orange‖TL-15突击步枪·改‖end‖,以及‖color:gui.orange‖枪械平衡芯片‖end‖</talentdescription.advancedattack>
+	<talentname.lastfight>集团至高单兵权限</talentname.lastfight>
+	<talentdescription.lastfight>你已经是集团优秀的特战队员，集团会尽力保证你的安全，你可以单兵呼叫支援和远程战略打击，完成全部任务后可获得一个打击指示器箱子，有概率获得两种标记器 \n提升[amount]最大生命，提升相当于武器操作[amount]%的伤害，解锁‖color:gui.orange‖灭刃‖end‖和‖color:gui.orange‖最终兵器-贝加尔蓝冰‖end‖,以及‖color:gui.orange‖枪械强袭芯片‖end‖</talentdescription.lastfight>
+	<!--Displayname-->
+	<displayname.Recast_Quality>[itemname] (重铸品质)</displayname.Recast_Quality>
+	<displayname.Fix_Item>[itemname] (修复耐久)</displayname.Fix_Item>
+	<displayname.Fillwithliquid>[itemname] (装入药液)</displayname.Fillwithliquid>
+	<displayname.Charge>[itemname] (重新充能)</displayname.Charge>
+	<displayname.Cheaplymade>[itemname] (廉价制作)</displayname.Cheaplymade>
+	<!--生物-->
+	<character.失控初代测试机>失控初代测试机</character.失控初代测试机>
+	<character.失控初代测试机_leader>失控初代测试机_首领</character.失控初代测试机_leader>
+	<character.辐射蠕虫>辐射蠕虫</character.辐射蠕虫>
+	<character.辐射捕勾兽>辐射捕勾兽</character.辐射捕勾兽>
+	<character.日蚀前锋>日蚀前锋</character.日蚀前锋>
+	<!--250-->
+	<character.毒脓迅猛龙>毒脓迅猛龙</character.毒脓迅猛龙>
+	<!--3000-->
+	<character.毒脓迅猛龙首领>毒脓迅猛龙首领</character.毒脓迅猛龙首领>
+	<!--400-->
+	<character.毒浓迅猛龙步枪手>毒脓迅猛龙步枪手</character.毒浓迅猛龙步枪手>
+	<!--350-->
+	<character.毒浓迅猛龙掷弹兵>毒脓迅猛龙掷弹兵</character.毒浓迅猛龙掷弹兵>
+	<!--280-->
+	<character.HuskPro>普通画皮实验体</character.HuskPro>
+	<!--500-->
+	<character.HuskPro2>精英画皮实验体</character.HuskPro2>
+	<!--300-->
+	<character.HuskProPro>普通远程画皮实验体</character.HuskProPro>
+	<!--500-->
+	<character.HuskProPro2>精英远程画皮实验体</character.HuskProPro2>
+	<!--620-->
+	<character.Lost1>小型迷船</character.Lost1>
+	<!--1200-->
+	<character.Lost2>大型迷船</character.Lost2>
+	<!--300-->
+	<character.LostLand>剪刀手</character.LostLand>
+	<!--2000-->
+	<character.Husk_chimeraTL>奇美拉实验体</character.Husk_chimeraTL>
+	<!--2500-->
+	<character.Husk_exosuitTL>精英画皮外骨骼</character.Husk_exosuitTL>
+	<!--200-->
+	<character.Husk_prowlerTL>扑食者</character.Husk_prowlerTL>
+	<!--海盗-->
+	<!--150-->
+	<character.meleehuman_pirate>盾构海盗</character.meleehuman_pirate>
+	<!--110-->
+	<character.normalhuman_pirate>普通先锋海盗</character.normalhuman_pirate>
+	<!--140-->
+	<character.elitehuman_pirate>重装先锋海盗</character.elitehuman_pirate>
+	<!--140-->
+	<character.humanboomerb_pirate>自爆海盗</character.humanboomerb_pirate>
+	<!--1400-->
+	<character.humanboomer_pirate>重装自爆海盗</character.humanboomer_pirate>
+	<!--250-->
+	<character.elitehumanH_pirate>重装强袭海盗</character.elitehumanH_pirate>
+	<!--180-->
+	<character.SpikeThunderhuman_pirate>刺雷自杀式海盗</character.SpikeThunderhuman_pirate>
+	<character.SpikeThunderhuman_Music_pirate>刺雷自杀式海盗</character.SpikeThunderhuman_Music_pirate>
+	<!--幻星-->
+	<!--130-->
+	<character.defensehuman_HX>幻星安保巡逻队</character.defensehuman_HX>
+	<!--160-->
+	<character.defensehumanDV_HX>幻星安保陆战队</character.defensehumanDV_HX>
+	<!--120-->
+	<character.DVstunhuman_HX>幻星震撼部队</character.DVstunhuman_HX>
+	<!--180-->
+	<character.elitehuman_HX>幻星重装陆战队</character.elitehuman_HX>
+	<!--1100-->
+	<character.BNZHuman_HX>暴怒者</character.BNZHuman_HX>
+	<!--泰拉-->
+	<character.Bossdefensebot_TL>自动防御机器人</character.Bossdefensebot_TL>
+	<character.Bossdefensebot2_TL>实验性自动防御BOSS</character.Bossdefensebot2_TL>
+	<!--站点-->
+	<locationname.TL_reside>泰拉常规居住前哨站</locationname.TL_reside>
+	<locationnameformat.TL_reside>[name]</locationnameformat.TL_reside>
+	<locationnameformat.TL_reside>泰拉集团[name]居住站</locationnameformat.TL_reside>
+	<locationnameformat.TL_reside>泰拉集团[name]-分站</locationnameformat.TL_reside>
+	<locationnameformat.TL_reside>[name]-泰拉集团居住设施</locationnameformat.TL_reside>
+	<locationnameformat.TLEnergyTowers_1>泰拉科技遗弃设施-能源采集站-低难度</locationnameformat.TLEnergyTowers_1>
+	<locationname.TLEnergyTowers_1>能源站，为泰拉集团提供主要能源的重要设施之一，这些设施依靠着激光采矿技术深掘着木卫二岩壁之下的珍贵资源\n 该设施看起来已经荒废许久，但仍靠应急电源死死支撑着部分系统\n（此副本为降低难度版本，更少的陷阱，更少的敌人波数，可以更好的习惯此地图）</locationname.TLEnergyTowers_1>
+	<locationnameformat.TLEnergyTowers>泰拉科技遗弃设施-能源采集站-标准难度</locationnameformat.TLEnergyTowers>
+	<locationname.TLEnergyTowers>能源站，为泰拉集团提供主要能源的重要设施之一，这些设施依靠着激光采矿技术深掘着木卫二岩壁之下的珍贵资源\n 该设施看起来已经荒废许久，但仍靠应急电源死死支撑着部分系统</locationname.TLEnergyTowers>
+	<locationname.DMissions>泰拉集团牵制和监视联盟与幻星的专用间谍哨站，正在遭到幻星巨量画皮狂潮诺曼底式攻击</locationname.DMissions>
+	<locationnameformat.DMissions>泰拉科技戒卫前哨-"D"号站点</locationnameformat.DMissions>
+	<locationnameformat.TLxue>泰拉科技科研设施-同看雪后山</locationnameformat.TLxue>
+	<locationname.TLxue>彼岸花发源地，泰拉的至高绝密科研设施</locationname.TLxue>
+	<locationnameformat.TLHQ>幻星科研设施-铁树开花</locationnameformat.TLHQ>
+	<locationname.TLHQ>铁树一朝开血花，寒心不忘旧年刃</locationname.TLHQ>
+	<locationnameformat.TLMine>泰拉废弃矿坑</locationnameformat.TLMine>
+	<locationname.TLMine>集团曾经的矿业站点，早已废弃，里面还有不少遗留矿物</locationname.TLMine>
+	<!--命令-->
+	<ordername.restandrecover>上床等我</ordername.restandrecover>
+	<orderdialog.restandrecover>[name], 到床上等我！</orderdialog.restandrecover>
+	<orderdialog.restandrecover>[name], 快点到床上，我有急事！</orderdialog.restandrecover>
+	<orderdialogself.restandrecover>我得休息一会...</orderdialogself.restandrecover>
+	<orderdialog.dismissed.restandrecover>[name]，憋几把睡了起来干活！不然我让你一周下不了床！</orderdialog.dismissed.restandrecover>
+	<ordername.restandrecover_B>躺到高级治疗床上去！</ordername.restandrecover_B>
+	<orderdialog.restandrecover_B>[name], 快到高级治疗床上去接受治疗！</orderdialog.restandrecover_B>
+	<orderdialog.restandrecover_B> 你的伤势很不稳定！[name],快到高级治疗床上去接受治疗！</orderdialog.restandrecover_B>
+	<orderdialogself.restandrecover_B>只要到达那个地方...</orderdialogself.restandrecover_B>
+	<orderdialog.dismissed.restandrecover_B>[name]，你的伤势已经痊愈，可以出院了！</orderdialog.dismissed.restandrecover_B>
+	<!--按钮/文案-->
+	<TL.Open>打开</TL.Open>
+	<TL.Close>关闭</TL.Close>
+	<TL.fold>折叠</TL.fold>
+	<TL.deploy>部署</TL.deploy>
+	<TL.Statesystem>舰船状态系统开关</TL.Statesystem>
+	<TL.drivesystem>舰船驾驶系统开关</TL.drivesystem>
+	<TL.Smoothflight>平稳飞行</TL.Smoothflight>
+	<TL.highflight>高速飞行</TL.highflight>
+	<TL.noflight>修复模式</TL.noflight>
+	<TL.Recycle>兑换</TL.Recycle>
+	<!--提示-->
+	<itemmsgweldingfuelrequiredorJetaircraftfuel_tanks>需要焊接油料或喷气高压油箱</itemmsgweldingfuelrequiredorJetaircraftfuel_tanks>
+	<TL_WeaponChips_medicalRequired>需要医疗芯片</TL_WeaponChips_medicalRequired>
+	<Insufficientenergy>能量不足</Insufficientenergy>
+	<fabricationheader.1130box>泰拉近防炮的任意空弹药箱</fabricationheader.1130box>
+	<fabricationdescription.1130box>泰拉近防炮的任意空弹药箱，耐久要求0-90%</fabricationdescription.1130box>
+	<fabricationheader.LaserCloseSystem_ammobox>重型激光防御系统的任意空弹药箱</fabricationheader.LaserCloseSystem_ammobox>
+	<fabricationdescription.LaserCloseSystem_ammobox>重型激光防御系统的任意空弹药箱</fabricationdescription.LaserCloseSystem_ammobox>
+	<fabricationheader.LaserCloseSystem_HeavyLasersBox>重型激光防御系统的聚能空弹药箱</fabricationheader.LaserCloseSystem_HeavyLasersBox>
+	<fabricationdescription.LaserCloseSystem_HeavyLasersBox>仅可使用聚能空弹药箱进行装填</fabricationdescription.LaserCloseSystem_HeavyLasersBox>
+	<TL_MedicalPump_ON>您的旅程现在开始，所有系统运行正常</TL_MedicalPump_ON>
+	<TL_MedicalPump_Off>健康接口已安全弹出，系统下线</TL_MedicalPump_Off>
+	<TL_MedicalPump_Out>存储药液已用尽，请补充，所有系统下线</TL_MedicalPump_Out>
+	<!--势力-->
+	<faction.TLCompany>泰拉科技集团</faction.TLCompany>
+	<faction.TLCompany.description>遵循利益至上原则，屹立于木卫二科技的尖端，内部人数没有很多，大多数设施采用人工智能管理以及雇佣劳工方式运营，不断吸纳木卫二各路人马，为他们提供精良的装备和后勤支援作为集团雇佣兵。由于和联盟存在利益冲突，所以据不可靠消息他们在支持一些非法活动和分裂势力</faction.TLCompany.description>
+	<faction.TLCompany.shortdescription>遵循利益至上原则，屹立于木卫二科技的尖端，内部人数没有很多，大多数设施采用人工智能管理以及雇佣劳工方式运营，不断吸纳木卫二各路人马，为他们提供精良的装备和后勤支援作为集团雇佣兵。由于和联盟存在利益冲突，所以据不可靠消息他们在支持一些非法活动和分裂势力</faction.TLCompany.shortdescription>
+	<!--对话-->
+	<Dialogue.TL.XIGUAN.GetMissions.1>你好，我是泰拉集团的吸管，有什么事情吗？</Dialogue.TL.XIGUAN.GetMissions.1>
+	<Dialogue.TL.XIGUAN.GetMissions.2>请问有什么任务可以接吗？最近红浪漫去多了有点缺钱花</Dialogue.TL.XIGUAN.GetMissions.2>
+	<Dialogue.TL.XIGUAN.GetMissions.3>好的，当然没问题，请问你们需要来自集团的援助吗？</Dialogue.TL.XIGUAN.GetMissions.3>
+	<Dialogue.TL.XIGUAN.GetMissions.4>当然需要啊，白给的谁不要啊</Dialogue.TL.XIGUAN.GetMissions.4>
+	<Dialogue.TL.XIGUAN.GetMissions.5>（先检查了一下这支船队在集团网络的声望）额...嗯...最近资源有些紧张...你们稍后申请吧...（os：声望这么低要个屁物资）</Dialogue.TL.XIGUAN.GetMissions.5>
+	<Dialogue.TL.XIGUAN.GetMissions.6>（先检查了一下这支船队在集团网络的声望）好的，已经向计算机申请对你们的援助，泰拉科技祝您一路顺风，注意身体哈少D点吧</Dialogue.TL.XIGUAN.GetMissions.6>
+	<Dialogue.TL.XIGUAN.GetMissions.7>援助？要个屁援助，要援助的都是肺雾</Dialogue.TL.XIGUAN.GetMissions.7>
+	<Dialogue.TL.XIGUAN.GetMissions.8>额...好吧，你们加油...</Dialogue.TL.XIGUAN.GetMissions.8>
+	<Dialogue.HX.HQ.1>全站广播：请注意！设施遭到袭击！研究和后勤人员准备疏散！安保巡逻小队准备接敌！快速反应小队正在路上！</Dialogue.HX.HQ.1>
+	<Dialogue.HX.HQ.2>快速反应小队已经入场!准备反扑！</Dialogue.HX.HQ.2>
+	<Dialogue.TL.Leo.1>看什么看，没见过帅豹吗（瞪）</Dialogue.TL.Leo.1>
+	<Dialogue.TL.Leo.2>见过见过，现在就见到了</Dialogue.TL.Leo.2>
+	<Dialogue.TL.Leo.3>切...神经病（好感+1）</Dialogue.TL.Leo.3>
+	<Dialogue.TL.Leo.4>帅你大坝</Dialogue.TL.Leo.4>
+	<Dialogue.TL.Leo.5>你TM！（好感-1）</Dialogue.TL.Leo.5>
+	<Dialogue.TL.Leo.6>哦嘿！我记得你，最近可还安好？</Dialogue.TL.Leo.6>
+	<Dialogue.TL.Leo.7>凑合过吧，集团给的也太少了...而且还天天让我们送死啥的</Dialogue.TL.Leo.7>
+	<Dialogue.TL.Leo.8>额嗯...这...木卫二谁也不容易嘛...好了好了别哭穷了，给你点行了吧...去买点好吃的...（好感+1）</Dialogue.TL.Leo.8>
+	<Dialogue.TL.Leo.9>还不错呢，在泰拉的援助下最近过得蛮滋润的</Dialogue.TL.Leo.9>
+	<Dialogue.TL.Leo.10>嘿嘿啊♡，是吗，加油看好你们哦（好感+2）</Dialogue.TL.Leo.10>
+	<Dialogue.TL.Leo.11>又见面了，下午好啊，你们已经入了集团的眼中了哦</Dialogue.TL.Leo.11>
+	<Dialogue.TL.Leo.12>哦下午好啊，那个...补给...</Dialogue.TL.Leo.12>
+	<Dialogue.TL.Leo.13>嘶...你怎么上来就知道和人家要补给，脑子里只剩下物资和钱了是吧...？好了好了拿去就是了...（不耐烦）\n-可能在后续更新后续写</Dialogue.TL.Leo.13>
+	<Dialogue.TL.Leo.14>是吗，那以后能不能少让我们送死？</Dialogue.TL.Leo.14>
+	<Dialogue.TL.Leo.15>嗯嘛...这个我尽量，集团以后给予你们的支援逐渐会越来越大，甚至可以单兵呼叫支援哦♡</Dialogue.TL.Leo.15>
+	<Dialogue.TL.Leo.16>你这家伙又在画饼是吗？</Dialogue.TL.Leo.16>
+	<Dialogue.TL.Leo.17>没有没有...唉啊这个给你行了吧...</Dialogue.TL.Leo.17>
+	<Dialogue.TL.Leo.18>此次航行还算顺利吗？怎么了...怎么这样看我？</Dialogue.TL.Leo.18>
+	<Dialogue.TL.Leo.19>我想和你了解一下集团能源采集塔的故事...</Dialogue.TL.Leo.19>
+	<Dialogue.TL.Leo.20>怎...么...能源站是集团开采木卫二资源的重要设施，坐落在整颗星球的各个角落，它们通过雇佣大量低价劳工为集团提供了重要的后勤资源...（讲话突然被玩家打断）</Dialogue.TL.Leo.20>
+	<Dialogue.TL.Leo.21>（打断豹的讲话）为什么我收到了清理能源站的任务，你们不是说所有的人都撤离了吗！但是那些被我们击毙的人身上有你们的工作牌！这就是你们集团对待自己员工的态度吗？你们甚至不如那些分离野人！（越讲越气愤，语气越来越犀利激动）</Dialogue.TL.Leo.21>
+	<Dialogue.TL.Leo.22>不不...这一定是有什么误会在里面...（眼神闪躲，脸颊侧面有几滴不易察觉的冷汗冒了出来）那些人也许是入侵的海盗，然后捡到了我们员工在撤离时候遗失的工作牌，正好你们把他们击毙了...对对！一定是这样！</Dialogue.TL.Leo.22>
+	<Dialogue.TL.Leo.23>哦是嘛，为什么在你这里有这么多巧合？那么好，那些终端日志和那些家伙的日记你怎么解释，他们甚至在你们集团的网络中已经被除名！瞧瞧那些感染脓毒的人，瞧瞧你们拿几百条人命干了什么！</Dialogue.TL.Leo.23>
+	<Dialogue.TL.Leo.24>日...日记？？！怎么可能有日记？！（明显慌了神）不不不，绝对没有此事！能源站的实验都是严格保密执行的，那些人是他们自己...</Dialogue.TL.Leo.24>
+	<Dialogue.TL.Leo.25>（猛然抽豹一巴掌）你承认你在能源站做实验了？那几百人在你这里连畜生都不如是吗？你怎么不在自己身上扎那傻逼病毒？（把豹劈头盖脸骂一顿）</Dialogue.TL.Leo.25>
+	<Dialogue.TL.Leo.26>呃...呃呜...我...（被抽宕机了，捂着脸半天说不出话）我不是那个意思...那些实验都是幻星他们...（呆呆的自顾自讲了两句，回过神发现玩家已经走远了）\n-可能在后续更新后续写</Dialogue.TL.Leo.26>
+	<Dialogue.TL.Leo.27></Dialogue.TL.Leo.27>
+	<!--任务-->
+	<missionname.hunting>花与死亡</missionname.hunting>
+	<sonarlabel.hunting>迷失舰艇</sonarlabel.hunting>
+	<missiondescription.hunting>在鲜花中离去吧\n‖color:gui.orange‖与迷失舰艇进行战斗‖end‖</missiondescription.hunting>
+	<missionsuccess.hunting>迷失舰艇已被击沉</missionsuccess.hunting>
+	<missionfailure.hunting>击沉失败，护卫舰已出发</missionfailure.hunting>
+	<header.hunting>花与...</header.hunting>
+	<text.hunting>在鲜花中离去吧</text.hunting>
+	<missionname.mudraptors_small>毒脓迅猛龙猎杀</missionname.mudraptors_small>
+	<missionname.mudraptors>毒脓迅猛龙猎杀</missionname.mudraptors>
+	<sonarlabel.mudraptors_small>迅猛龙</sonarlabel.mudraptors_small>
+	<missiondescription.mudraptors_small>我们在[location1]和[location2]之间发现几只毒脓迅猛龙游荡。影响船只通行，事后[reward]mk奖励</missiondescription.mudraptors_small>
+	<missionsuccess.mudraptors_small>迅猛龙已被清除</missionsuccess.mudraptors_small>
+	<missionfailure.mudraptors_small>船的维修费我们可不出</missionfailure.mudraptors_small>
+	<header.mudraptors_small>目标已击杀</header.mudraptors_small>
+	<text.mudraptors_small>轻而易举呢~来前哨站拿钱吧</text.mudraptors_small>
+	<missionname.mudraptors_gun>奇怪的毒脓迅猛龙猎杀</missionname.mudraptors_gun>
+	<missiondescription.mudraptors_gun>航道之间发现几只奇怪的毒脓迅猛龙游荡。它们真的不太一样...请前去清理一下，事后[reward]mk奖励</missiondescription.mudraptors_gun>
+	<missionsuccess.mudraptors_gun>持枪迅猛龙已被清除</missionsuccess.mudraptors_gun>
+	<missionfailure.mudraptors_gun>船的维修费我们可不出</missionfailure.mudraptors_gun>
+	<header.mudraptors_gun>目标已击杀</header.mudraptors_gun>
+	<text.mudraptors_gun>哎我操你家迅猛龙打枪伤吗？？！</text.mudraptors_gun>
+	<missionname.TLNest1>毒脓迅猛龙巢穴肃清</missionname.TLNest1>
+	<missiondescription.TLNest1>我们在附近探测到了毒脓迅猛龙的巢穴，请前往清理</missiondescription.TLNest1>
+	<missionsuccess.TLNest1>迅猛龙已被清除</missionsuccess.TLNest1>
+	<header.TLNest1>肃清完毕</header.TLNest1>
+	<text.TLNest1>这片区域的航道恢复了寂静</text.TLNest1>
+	<missionname.TLrescue1>探索求救信号</missionname.TLrescue1>
+	<missionname.TLrescue2>探索求救信号</missionname.TLrescue2>
+	<missionname.TLrescue3>探索求救信号</missionname.TLrescue3>
+	<sonarlabel.TLrescue1>自动求救信号</sonarlabel.TLrescue1>
+	<missiondescription.TLrescue1>一支幻星科考队的自动求救系统被激活了，我们的雷达提前截获到了，请前去看看是否还有活人</missiondescription.TLrescue1>
+	<missionsuccess.TLrescue1>果然是一帮只会缩在实验室的家伙...</missionsuccess.TLrescue1>
+	<header.TLrescue1>果然是一帮只会缩在实验室的家伙...</header.TLrescue1>
+	<text.TLrescue1>我会上报这些事情的，去站点领取奖励吧，请当今天没有来过</text.TLrescue1>
+	<header.TLrescue2>看来是预料之外的情况啊...</header.TLrescue2>
+	<text.TLrescue2>幻星的速度还是毋庸置疑的...</text.TLrescue2>
+	<header.TLrescue3>看来是预料之外的情况啊...</header.TLrescue3>
+	<text.TLrescue3>海盗傻逼吧</text.TLrescue3>
+	<missionname.TLceshiji>摧毁测试机</missionname.TLceshiji>
+	<sonarlabel.TLceshiji>测试机信号</sonarlabel.TLceshiji>
+	<missiondescription.TLceshiji>实验出了些小插曲，远程命令已经失效，请你们直接前去摧毁这几台疯子，远程坐标已经同步至你们的终端</missiondescription.TLceshiji>
+	<missionsuccess.TLceshiji>失控测试机已被清除</missionsuccess.TLceshiji>
+	<missionfailure.TLceshiji>我们会铭记你们的付出，是时候派出集团攻击舰了</missionfailure.TLceshiji>
+	<header.TLceshiji>测试机已损毁</header.TLceshiji>
+	<text.TLceshiji>任何一项前沿技术的成功路上都布满荆棘，而我们只能赤脚踩过</text.TLceshiji>
+	<missionname.TLRS>[LUA]日落未落，天暗非暮</missionname.TLRS>
+	<sonarlabel.RS>日蚀前锋</sonarlabel.RS>
+	<missiondescription.RS>风止鸟静，树影不动\n‖color:gui.orange‖与日蚀前锋进行战斗，攻击方式：导弹+跳帮,需要Lua作为支持‖end‖</missiondescription.RS>
+	<missionsuccess.RS>日蚀散去，天地如释重负</missionsuccess.RS>
+	<missionfailure.RS>你们无法打破这片死寂</missionfailure.RS>
+	<header.RS>日蚀散去，天地如释重负</header.RS>
+	<text.RS>你们成功了，航道一如往昔，却又更加沉寂</text.RS>
+	<missionname.TLhunting>烛光晚宴</missionname.TLhunting>
+	<sonarlabel.TLhunting>晚会嘉宾</sonarlabel.TLhunting>
+	<missiondescription.TLhunting>别离的歌早已哼在嘴边  是你 为我 题词\n‖color:gui.orange‖随机任务，共有三种巨兽‖end‖</missiondescription.TLhunting>
+	<missionsuccess.TLhunting>摇曳的烛火中映照出晚宴的主角，船员们，恭喜</missionsuccess.TLhunting>
+	<missionfailure.TLhunting>很抱歉，船员们，你们的资历还不够</missionfailure.TLhunting>
+	<header.TLhunting>沉默即安</header.TLhunting>
+	<text.TLhunting>烛光中求生的勇士，你值得敬爱</text.TLhunting>
+	<missionname.TLhaidao>放弃船，或者放弃希望</missionname.TLhaidao>
+	<missiondescription.TLhaidao>(此任务属于海盗任务，最好只接一个同类型任务)\n万分火急，有一艘护卫舰运载着集团的大杀器，选择了叛逃，千万不要让这个东西落入联盟手中，我不管你们用何种方式，把他们留在海底！</missiondescription.TLhaidao>
+	<header1.TLhaidao>探测到彼岸花信号</header1.TLhaidao>
+	<text1.TLhaidao>给我把它留在海底！</text1.TLhaidao>
+	<header.TLhaidao>叛逃锤头鲨级护卫舰已被击沉</header.TLhaidao>
+	<text.TLhaidao>非常感谢，你们最好不要碰那东西，我们会派出专人来回收它</text.TLhaidao>
+	<missionname.Pirate>运输阻断-联盟使者</missionname.Pirate>
+	<missiondescription.Pirate>(此任务属于海盗任务，最好只接一个同类型任务)\n联盟联络员：该死的集团，处处和我们作对，根据探测器显示有一艘老掉牙的集团运输舰会通过前面的航路，给他们点颜色看看！沉船任你们处置！</missiondescription.Pirate>
+	<header1.Pirate>集团运输舰：</header1.Pirate>
+	<text1.Pirate>你们真的疯了！联盟狗！你们终将被集团淹没！</text1.Pirate>
+	<header.Pirate>老式摩洛克级运输舰已被击沉</header.Pirate>
+	<text.Pirate>可算结束了，我们切断了他们的一条补给线...仅仅一条...</text.Pirate>
+	<missionname.TLyiliaojian>失联医疗舰</missionname.TLyiliaojian>
+	<missiondescription.TLyiliaojian>(此任务属于海盗任务，最好只接一个同类型任务)\n我们捕获到了最近前往能源站失联的那艘医疗舰，请你们前往查看</missiondescription.TLyiliaojian>
+	<header1.TLyiliaojian>已发现医疗舰</header1.TLyiliaojian>
+	<text1.TLyiliaojian>授权已完成，可以进入</text1.TLyiliaojian>
+	<header.TLyiliaojian>不明入侵者已清除</header.TLyiliaojian>
+	<text.TLyiliaojian>看来有些人比你们更想死...</text.TLyiliaojian>
+	<missionname.TLFaultyMech>故障机甲回收协议</missionname.TLFaultyMech>
+	<missiondescription.TLFaultyMech>(此任务属于海盗任务，最好只接一个同类型任务)\n我们的一台实验型机甲在执行测试中，突然断开连接，请前去查看\n该机甲中安装了我们的新式反舰导弹，是否已启动我们无从得知，但这款机甲的导弹传感器距离较短，自求多福吧</missiondescription.TLFaultyMech>
+	<header1.TLFaultyMech>已发现机甲</header1.TLFaultyMech>
+	<text1.TLFaultyMech>可以开始回收</text1.TLFaultyMech>
+	<header.TLFaultyMech>不明入侵者已清除</header.TLFaultyMech>
+	<text.TLFaultyMech>机甲控制权已回收</text.TLFaultyMech>
+	<missionname.TLEnergyTowers_1>能源站回收（低难度）</missionname.TLEnergyTowers_1>
+	<missionname.TLEnergyTowers>能源站回收（标准难度）</missionname.TLEnergyTowers>
+	<missiondescription.TLEnergyTowers>请去清理集团能源站，所有的员工均已完成撤离，请记住你的任务是清理一切有生力量，仅需清理前半部分即可</missiondescription.TLEnergyTowers>
+	<header.TLEnergyTowers>清理已完成</header.TLEnergyTowers>
+	<text.TLEnergyTowers>已经清理前半部分，剩下的交给集团，离开是一个选择；当然你想深入清理矿区也可以</text.TLEnergyTowers>
+	<missionname.DMissions>"D"号增援行动</missionname.DMissions>
+	<missiondescription.DMissions>此站点正在遭受画皮狂潮攻击，检测到内部存在敌对生命体活动，自动防御系统已被击溃，请你们立即前往支援\n附近的一艘攻击舰已待命，站点中控室的操控台已连接至攻击舰的支援系统，全舰火力任你们调遣</missiondescription.DMissions>
+	<header.DMissions>敌人生命信号已消失，回收协议开始</header.DMissions>
+	<text.DMissions>攻击舰已就位，全舰火力任你们调遣</text.DMissions>
+	<missionname.TLMine>废弃矿坑清理计划</missionname.TLMine>
+	<missiondescription.TLMine>这里曾经是集团占领的富矿区，虽然已经被抛弃许久，但仍有一些余矿可以挖掘，就当集团送你们的，当然也有一些不友好的生物</missiondescription.TLMine>
+	<header.TLMine>清理已完成</header.TLMine>
+	<text.TLMine>挖掘完成后，随时可以回去复命</text.TLMine>
+	<missionname.TLxue>同看雪后山</missionname.TLxue>
+	<missiondescription.TLxue>雪后山间静谧多， 银装素裹映长河。 携手同行观美景， 却忆往昔泪婆娑\n我们的机密研究站突然被不明舰队袭击，请立即前往支援，万万不可被他们夺取彼岸花原型机！</missiondescription.TLxue>
+	<header.TLxue>静</header.TLxue>
+	<text.TLxue>寒风吹尽旧时梦， 雪落无声人独愁。 山河虽美心难静， 空对银装泪自流</text.TLxue>
+	<missionname.TLAbandonedOutpostMission1>风雪消霁</missionname.TLAbandonedOutpostMission1>
+	<missiondescription.TLAbandonedOutpostMission1>看来泰拉是在木卫二横行霸道惯了！那么是时候消一消他们的嚣张气焰了！想不想跟集团正面交锋？让他们知道联盟不是吃素的！（请引爆反应堆以结束任务）</missiondescription.TLAbandonedOutpostMission1>
+	<header.TLAbandonedOutpostMission1>岁寒过后终见暖，人生如斯自有情...</header.TLAbandonedOutpostMission1>
+	<text.TLAbandonedOutpostMission1>风雪消霁天地清， 梅花点点映寒冰。 遥望山川银装褪， 心随冬去盼春明</text.TLAbandonedOutpostMission1>
+	<missionname.TLHQToweroutpost>樱桃雪齿</missionname.TLHQToweroutpost>
+	<missiondescription.TLHQToweroutpost>想从集团手中夺走彼岸花原型机是吗？好啊看看幻星这帮老弱病残有没有这个实力吧（请引爆反应堆以结束任务）</missiondescription.TLHQToweroutpost>
+	<header.TLHQToweroutpost>幻星小队已清除，反应堆已摧毁！</header.TLHQToweroutpost>
+	<text.TLHQToweroutpost>继续作战！一雪前耻！从“樱桃”入口那一刻起，我们的报复就注定成功，你可以撤退了！当然，你也可以拔掉他们所有的牙，扫清这里！</text.TLHQToweroutpost>
+	<missionname.Cargo1_TL>舰队补给协议-A1</missionname.Cargo1_TL>
+	<missionname.Cargo2_TL>舰队补给协议-A2</missionname.Cargo2_TL>
+	<missionname.Cargo3_TL>舰队补给协议-A3</missionname.Cargo3_TL>
+	<missionname.Cargo4_TL>舰队补给协议-A4</missionname.Cargo4_TL>
+	<missionname.Cargo5_TL>舰队补给协议-A5</missionname.Cargo5_TL>
+	<missionname.Escort1_TL>舰队安保协议-A1</missionname.Escort1_TL>
+	<missiondescription.Cargo1_TL>集团会给每一位忠诚的舰队给予支持,请及时于货舱接收补给</missiondescription.Cargo1_TL>
+	<missiondescription.Escort1_TL>集团愿意在本次出航中提供护航</missiondescription.Escort1_TL>
+
+
+	<config.Home>主页面</config.Home>
+	<config.System>系统</config.System>
+	<config.TL_header_System>系统设置</config.TL_header_System>
+	<config.des.TL_header_System>模组运行时的重要设置，谨慎修改</config.des.TL_header_System>
+	<config.System_Run>运行参数设置</config.System_Run>
+	<config.TL_TLUpdateInterval>正常函数更新间隔</config.TL_TLUpdateInterval>
+	<config.des.TL_TLUpdateInterval>正常函数每隔多少秒进行一次更新，内部包含了重要计算函数。十分不推荐进行改动，以免出现不可预知的错误（默认值：2）</config.des.TL_TLUpdateInterval>
+	<config.TL_TLLateUpdateInterval>低速函数更新间隔</config.TL_TLLateUpdateInterval>
+	<config.des.TL_TLLateUpdateInterval>低速函数每隔多少秒进行一次更新，内部包含了保底防出错等兜底函数，占用极小。十分不推荐进行改动，以免出现不可预知的错误（默认值：5）</config.des.TL_TLLateUpdateInterval>
+	<config.TL_header_cyb>义体设置</config.TL_header_cyb>
+	<config.des.TL_header_cyb>义体系统的可配置内容</config.des.TL_header_cyb>
+	<config.SectionTitle_cyb1>义体伤害与行动参数</config.SectionTitle_cyb1>
+	<config.TL_cybDamageMultiplier>义体伤害倍率</config.TL_cybDamageMultiplier>
+	<config.des.TL_cybDamageMultiplier>控制义体受到伤害的倍率，影响了所有的义体伤害类型与大量伤害结算（默认值：1.5）</config.des.TL_cybDamageMultiplier>
+	<config.TL_TLCybTripChance>跌倒概率</config.TL_TLCybTripChance>
+	<config.des.TL_TLCybTripChance>当机械双腿电路损坏超过阈值时，每次检查时触发跌倒的概率（默认值：0.25）</config.des.TL_TLCybTripChance>
+	<config.TL_TLCybProtectFallNum>保底不会摔倒次数</config.TL_TLCybProtectFallNum>
+	<config.des.TL_TLCybProtectFallNum>当跌倒触发时，多少次检查内保底不会触发第二次跌倒（默认值：5）</config.des.TL_TLCybProtectFallNum>
+	<config.TLCyb_LycorisSystemDamage_AutoIncrementThreshold>曼珠核心子系统异常自增阈值</config.TLCyb_LycorisSystemDamage_AutoIncrementThreshold>
+	<config.des.TLCyb_LycorisSystemDamage_AutoIncrementThreshold>当曼珠核心子系统异常达到某个值后，才会开始自增（默认值：80）</config.des.TLCyb_LycorisSystemDamage_AutoIncrementThreshold>
+	<config.TLCyb_SystemDamageCrawlThreshold>双腿神经系统同步失调爬行阈值</config.TLCyb_SystemDamageCrawlThreshold>
+	<config.des.TLCyb_SystemDamageCrawlThreshold>当双腿神经系统同步失调达到该值后，角色会进入爬行状态（默认值：60）</config.des.TLCyb_SystemDamageCrawlThreshold>
+	<config.TLCyb_ServoDamageCrawlThreshold>双腿伺服系统故障爬行阈值</config.TLCyb_ServoDamageCrawlThreshold>
+	<config.des.TLCyb_ServoDamageCrawlThreshold>当双腿伺服系统故障达到该值后，角色会进入爬行状态（默认值：80）</config.des.TLCyb_ServoDamageCrawlThreshold>
+	<config.TLCyb_totalDisableScoreoDamageCrawlThreshold>双腿总伤害加权爬行阈值</config.TLCyb_totalDisableScoreoDamageCrawlThreshold>
+	<config.des.TLCyb_totalDisableScoreoDamageCrawlThreshold>当双腿神经系统损坏，伺服损坏通过某种加权计算达到该值后，角色会进入爬行状态（默认值：150）</config.des.TLCyb_totalDisableScoreoDamageCrawlThreshold>
+	<config.Submit>上传或保存</config.Submit>
+	<config.des.Submit>保存当前配置。</config.des.Submit>
+	<config.CantEdit>你不是服务器管理员，无权上传配置。</config.CantEdit>
+	<config.CantEdit2>你没有权限修改服务器配置。</config.CantEdit2>
+	<config.Submit.Success>保存成功</config.Submit.Success>
+	<config.Submit.des.Success>配置已提交至服务器。</config.Submit.des.Success>
+	<config.Submit.des.Success.sing>配置已保存到本地。</config.Submit.des.Success.sing>
+	<config.Default>恢复默认</config.Default>
+	<config.des.Default>恢复默认设置。</config.des.Default>
+	<config.des.Default2>确定恢复默认配置吗？点击保存才生效哦...</config.des.Default2>
+	<config.yes>确定</config.yes>
+	<config.no>取消</config.no>
+	<config.close>关闭</config.close>
+	<config.TeraDeepOcean>泰拉渊洋配置系统</config.TeraDeepOcean>
+	<config.configModel.CantEdit>当前为只读模式：你不是该服务器的管理员，无权修改配置项目。</config.configModel.CantEdit>
+	<config.configModel.Edit>当前为编辑模式：你有权修改配置并上传或保存。</config.configModel.Edit>
+	<config.gameModel.sing>当前为单机模式：当前配置内容来自本地，修改后会保存在这台电脑上。</config.gameModel.sing>
+	<config.gameModel.server>当前为多人模式：当前配置内容来自服务器，修改后将会上传至服务器并保存。</config.gameModel.server>
+	<config.choose>请选择左侧分类</config.choose>
+	<config.TL_TLDebugModel>启用调试模式</config.TL_TLDebugModel>
+	<config.des.TL_TLDebugModel>启用调试模式，将打印出代码运行时的参数内容，开发者专用</config.des.TL_TLDebugModel>
+</infotexts>

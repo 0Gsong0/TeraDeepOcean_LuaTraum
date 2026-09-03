@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Charactervariant inherit="HuskPro" SpeciesName="HuskPro2" SpeciesTranslationOverride="" DisplayName="">
+  <health vitality="500">
+    <Limb name="Head">
+      <VitalityMultiplier type="damage" multiplier="2.5" />
+      <VitalityMultiplier type="burn" multiplier="6" />
+    </Limb>
+    <Limb name="Torso">
+      <VitalityMultiplier type="burn" multiplier="4" />
+    </Limb>
+    <Limb name="LeftArm">
+      <VitalityMultiplier type="damage" multiplier="0.5" />
+    </Limb>
+    <Limb name="RightArm">
+      <VitalityMultiplier type="damage" multiplier="0.5" />
+    </Limb>
+    <Limb name="LeftLeg">
+      <VitalityMultiplier type="damage" multiplier="0.5" />
+    </Limb>
+    <Limb name="RightLeg">
+      <VitalityMultiplier type="damage" multiplier="0.5" />
+    </Limb>
+  </health>
+  <ragdoll scalemultiplier="1.05" />
+  <attack damagemultiplier="2" rangemultiplier="1.5" impactmultiplier="2" />
+</Charactervariant>

@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="矿脉定位旗" identifier="TL_mining_iron_anchor" category="Misc" Tags="TLMiningIronSite" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/mining_flag.png" sourcerect="0,0,225,415" depth="0.8" origin="0.5,0.5" />
+	</Item>
+	<Item name="深海铁矿脉" identifier="TL_iron_resource_node" category="Misc" Tags="TL_resource_node,TL_resource_iron" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/iron_node.png" sourcerect="299,108,728,764" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="巨型钻头主体" identifier="TL_DrillBit" category="Misc" Tags="TL_resource_node,TL_resource_iron" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/钻头.png" sourcerect="0,0,1024,1536" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="巨型钻头1" identifier="tl_mining_drill_head_frame_0" category="Misc" Tags="tl_mining_drill_head_frame,tl_mining_drill_head_frame_0" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/钻头帧.png" sourcerect="8,309,213,317" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="巨型钻头2" identifier="tl_mining_drill_head_frame_1" category="Misc" Tags="tl_mining_drill_head_frame,tl_mining_drill_head_frame_1" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/钻头帧.png" sourcerect="215,311,213,317" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="巨型钻头3" identifier="tl_mining_drill_head_frame_2" category="Misc" Tags="tl_mining_drill_head_frame,tl_mining_drill_head_frame_2" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/钻头帧.png" sourcerect="409,311,213,317" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="巨型钻头4" identifier="tl_mining_drill_head_frame_3" category="Misc" Tags="tl_mining_drill_head_frame,tl_mining_drill_head_frame_3" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/钻头帧.png" sourcerect="608,311,213,317" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="巨型钻头5" identifier="tl_mining_drill_head_frame_4" category="Misc" Tags="tl_mining_drill_head_frame,tl_mining_drill_head_frame_4" canbepicked="false" interactable="false" isshootable="false">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/钻头帧.png" sourcerect="790,311,213,317" depth="1" origin="0.5,0.5" />
+	</Item>
+	<Item name="矿脉建设终端" identifier="tl_mining_terminal" category="Electrical" Tags="smallitem,logic" scale="0.2">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/采矿平台终端.png" sourcerect="0,0,1536,1024" depth="0.8" origin="0.5,0.5" />
+		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+			<RequiredItem items="screwdriver" type="Equipped" />
+			<input name="trigger_in" displayname="Trigger In" />
+			<input name="terminal_open_in" displayname="Open Terminal" />
+			<output name="state_out" displayname="State Out" />
+		</ConnectionPanel>
+		<TLMiningTerminalComponent canbeselected="true" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.28,0.28" minsize="420,280" anchor="Center" style="ItemUI" />
+		</TLMiningTerminalComponent>
+	</Item>
+	<Item name="" identifier="TL_mining_platform_build_sound" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Industry/platform_build.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TL_mining_platform_build_sound2" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Industry/platform_build2.ogg" range="10000" dontmuffle="true" loop="false" volume="2" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="TL_mining_platform_build_music" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Industry/platform_music.ogg" range="10000" dontmuffle="true" loop="false" volume="2.5" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" delay="1">
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="tl_mining_platform_drill_work" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Industry/platform_work.ogg" range="10000" dontmuffle="true" loop="true" volume="10" />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="" identifier="tl_mining_platform_drill_move" description="" subcategory="" category="Misc" tags="smallitem,TLrecord" scale="0.60" hideinmenus="true" nonplayerteaminteractable="True">
+		<Sprite texture="Content/Items/Medical/Medicines.png" sheetelementsize="1,1" sheetindex="1,0" depth="0.6" origin="0.5,0.5" />
+		<Body width="128" height="128" density="10" />
+		<Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" holdangle="0" handle1="0,0" msg="ItemMsgPickUpSelect" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This">
+				<sound file="%ModDir%/Content/Sounds/Industry/platform_move.ogg" range="10000" dontmuffle="true" loop="true" volume="0.5" />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="采矿机特效物品" identifier="tl_spark_emitter" tags="tl_mining_drill_SpecialEffect" category="Misc" hideinmenus="false" interactable="false" canbepicked="false" isshootable="false">
+		<Sprite texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" depth="0.9" origin="0.5,0.5" alpha="0" />
+		<ItemComponent characterusable="false">
+			<StatusEffect type="Always" target="This" interval="0.08">
+				<ParticleEmitter particle="weldspark" particleamount="2" anglemin="-25" anglemax="25" velocitymin="80" velocitymax="240" scalemin="0.5" scalemax="1.2" />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+	<Item name="采矿运输无人机" identifier="tl_mining_drone" category="Equipment" Tags="tl_mining_drone" cargocontaineridentifier="metalcrate" scale="0.5">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/无人机.png" sourcerect="848,230,538,546" depth="0.55" origin="0.5,0.5" />
+		<ItemContainer capacity="8" maxstacksize="32" canbeselected="true" hideitems="true" drawinventory="false" />
+	</Item>
+	<Item name="无人机平台" identifier="tl_mining_drone_dock_marker" category="Misc" Tags="tl_mining_drone_dock">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/无人机.png" sourcerect="145,155,565,596" depth="0.9" alpha="0" origin="0.5,0.5" />
+		<Body width="16" height="16" bodytype="Static" />
+	</Item>
+	<Item name="采矿货物接收箱" identifier="tl_mining_ore_receiver" category="Equipment" tags="container,tl_mining_ore_container" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/采矿货物接收箱.png" sourcerect="121,146,481,699" depth="0.6" origin="0.5,0.5" />
+		<Body width="481" height="699" density="20" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand+LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" attachedbydefault="false">
+			<RequiredItem items="wrench" type="Equipped" />
+		</Holdable>
+		<ItemContainer capacity="32" slotsperrow="8" maxstacksize="32" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect" />
+	</Item>
+	<Item name="工业传送带（短）" identifier="tl_Automation_conveyorbelt" category="Equipment" tags="container,tl_mining_ore_container" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/设备1.png" sourcerect="106,240,728,240" depth="0.6" origin="0.5,0.5" />
+		<Body width="160" height="40" density="20" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand+LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="3" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" attachedbydefault="false">
+			<RequiredItem items="wrench" type="Equipped" />
+		</Holdable>
+		<TLConveyorComponent canbeselected="true" msg="ItemMsgInteractSelect">
+			<GuiFrame relativesize="0.30,0.28" minsize="420,280" anchor="Center" style="ItemUI" />
+		</TLConveyorComponent>
+	</Item>
+	<Item name="矿团粉碎机" identifier="tl_Automation_ore_crusher" category="Equipment" tags="container,tl_crusher,tl_mining_ore_container" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/设备1.png" sourcerect="55,529,406,481" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand+LeftHand" msg="ItemMsgDetachWrench" MsgWhenDropped="ItemMsgPickupSelect" PickingTime="3" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true" attachedbydefault="false">
+			<RequiredItem items="wrench" type="Equipped" />
+		</Holdable>
+		<ItemContainer capacity="4" slotsperrow="4" maxstacksize="32" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+			<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+			<SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+			<SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+			<SlotIcon slotindex="3" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+		</ItemContainer>
+		<TLCrusherComponent />
+	</Item>
+	<!-- 矿团 -->
+	<Item name="深海铁矿团" identifier="tl_Industry_ore_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团.png" sourcerect="105,28,607,416" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="深海铜矿团" identifier="tl_Industry_copper_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团.png" sourcerect="824,23,580,407" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="深海硅矿团" identifier="tl_Industry_silicon_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团.png" sourcerect="819,530,603,389" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="深海钛矿团" identifier="tl_Industry_titanium_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团.png" sourcerect="113,529,599,394" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="深海钾矿团" identifier="tl_Industry_potassium_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团2.png" sourcerect="1,32,513,769" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="深海锌矿团" identifier="tl_Industry_zinc_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团2.png" sourcerect="511,33,503,769" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="深海磷矿团" identifier="tl_Industry_phosphorus_group" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/矿团2.png" sourcerect="1014,33,518,766" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="铁矿团粉末" identifier="tl_Industry_ore_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团.png" sourcerect="75,32,654,371" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="铜矿团粉末" identifier="tl_Industry_copper_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团.png" sourcerect="784,48,652,364" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="硅矿团粉末" identifier="tl_Industry_silicon_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团.png" sourcerect="778,516,649,374" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="钛矿团粉末" identifier="tl_Industry_titanium_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团.png" sourcerect="74,518,655,366" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="钾矿团粉末" identifier="tl_Industry_potassium_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团2.png" sourcerect="11,18,520,448" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="锌矿团粉末" identifier="tl_Industry_zinc_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团2.png" sourcerect="531,18,475,447" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+	<Item name="磷矿团粉末" identifier="tl_Industry_phosphorus_group_1" maxstacksize="32" category="Material" tags="smallitem,ore" cargocontaineridentifier="metalcrate" scale="0.25" waterproof="true" impactsoundtag="impact_metal_heavy" GrabWhenSelected="true">
+		<Sprite texture="%ModDir%/Content/ModContent/Industry/粉碎矿团2.png" sourcerect="1006,18,510,446" depth="0.6" origin="0.5,0.5" />
+		<Body width="180" height="60" density="20" />
+		<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
+		<LightComponent lightcolor="160,175,187,225" range="100" powerconsumption="0" flicker="0.0" flickerspeed="0.5" pulsefrequency="0.4" pulseamount="0" ison="true" drawbehindsubs="true">
+			<LightTexture texture="Content/Lights/pointlight_rays.png" origin="0.5,0.5" />
+		</LightComponent>
+	</Item>
+</Items>

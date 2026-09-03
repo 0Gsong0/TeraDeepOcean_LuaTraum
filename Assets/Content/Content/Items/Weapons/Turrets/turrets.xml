@@ -1,0 +1,1863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--速射近防系统-->
+  <Item name="速射近防系统" description="" identifier="CloseDefenseArtillery" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="750" linkable="true" allowedlinks="coilgunequipment">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.01" sourcerect="0,0,256,256" canflipy="false" origin="0.5,0.5" />
+    <MinimapIcon name="Command_Weapons_Chaingun" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,896,128,128" />
+    <SwappableItem price="6700" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
+      <SchematicSprite name="速射近防系统SchematicSprite" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="325,140,128,267" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope" />
+      <SwapConnectedItem tag="turretammosource" swapto="CloseDefenseArtillery_Loader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="2.5" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="325,140,128,267" origin="0.5,0.5" />
+    <StaticBody width="80" radius="80" />
+    <Turret launchimpulse="25" spinningbarreldistance="45.0" firingrotationspeedmodifier="0.6" usefiringoffsetformuzzleflash="true" maxchargetime="1.0" canbeselected="false" firingoffset="-10,-370" characterusable="false" linkable="true" barrelpos="128,88" rotationlimits="180,360" powerconsumption="400.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.01" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="5" MaxAngleOffset="30" AICurrentTargetPriorityMultiplier="1.1">
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot1.ogg" type="OnUse" range="10000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot2.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot3.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot4.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot5.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot6.ogg" type="OnUse" range="10000" />
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="0,435,256,123" origin="0.5,0.5" />
+      <RailSprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.011" sourcerect="256,0,212,512" origin="0.425,0.875" />
+      <SpinningBarrelSprite spriteamount="8" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.013" sourcerect="468,0,46,296" origin="0.1, 1.4" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <ChargeSound file="Content/Items/Weapons/WEAPONS_chargeUp.ogg" range="10000" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <LightComponent Flicker="0.0" range="2500" LightColor="1.0,1.0,1.0,0.7" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="%ModDir%/Content/Items/weapons/Turrets/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+      </LightComponent>
+      <ParticleEmitter particle="muzzleflashchaingun" particleamount="1" velocitymin="0" velocitymax="0" distancemin="-50" distancemax="-50" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" />
+      <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" distancemin="-100" distancemax="50" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="1500.0" structuredamage="0" force="0.0" camerashake="8" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+    </Turret>
+    <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+      <input name="set_auto_operate" displayname="connection.setautooperate" />
+      <input name="toggle_auto_operate" displayname="connection.toggleautooperate" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="50" />
+  </Item>
+  <!--全自动近防系统-->
+  <Item name="全自动近防系统" description="" identifier="CloseDefenseArtillery_Atuo" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="750" linkable="true" allowedlinks="coilgunequipment">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.01" sourcerect="0,0,256,256" canflipy="false" origin="0.5,0.5" />
+    <MinimapIcon name="Command_Weapons_Chaingun" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,896,128,128" />
+    <SwappableItem price="7500" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
+      <SchematicSprite texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="325,140,128,267" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope" />
+      <SwapConnectedItem tag="turretammosource" swapto="CloseDefenseArtillery_Loader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="2.5" texture="Content/UI/WeaponUI.png" sourcerect="387,810,106,65" origin="0.5,0.5" />
+    <StaticBody width="80" radius="80" />
+    <Turret launchimpulse="100" AutoOperate="true" RandomMovement="true" spinningbarreldistance="45.0" firingrotationspeedmodifier="0.6" usefiringoffsetformuzzleflash="true" maxchargetime="1.0" canbeselected="false" firingoffset="-10,-370" characterusable="false" linkable="true" barrelpos="128,88" rotationlimits="180,360" powerconsumption="400.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.03" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="5" MaxAngleOffset="30" AICurrentTargetPriorityMultiplier="1.1">
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot1.ogg" type="OnUse" range="10000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot2.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot3.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot4.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot5.ogg" type="OnUse" range="10000" />
+      <Sound file="Content/Items/Weapons/WEAPONS_chainGunShot6.ogg" type="OnUse" range="10000" />
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="0,435,256,123" origin="0.5,0.5" />
+      <RailSprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.011" sourcerect="256,0,212,512" origin="0.425,0.875" />
+      <SpinningBarrelSprite spriteamount="8" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.013" sourcerect="468,0,46,296" origin="0.1, 1.4" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <ChargeSound file="Content/Items/Weapons/WEAPONS_chargeUp.ogg" range="10000" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <LightComponent Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="%ModDir%/Content/Items/weapons/Turrets/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+      </LightComponent>
+      <ParticleEmitter particle="muzzleflashchaingun" particleamount="1" velocitymin="0" velocitymax="0" distancemin="-50" distancemax="-50" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" />
+      <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" distancemin="-100" distancemax="50" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="1500.0" structuredamage="0" force="0.0" camerashake="8" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+    </Turret>
+    <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+      <input name="set_auto_operate" displayname="connection.setautooperate" />
+      <input name="toggle_auto_operate" displayname="connection.toggleautooperate" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="50" />
+  </Item>
+  <Item name="近防系统装弹器" identifier="CloseDefenseArtillery_Loader" description="" tags="chaingunequipment,chaingunammosource,turretammosource" category="Machine,Weapon" linkable="true" allowedlinks="CloseDefenseArtillery,CloseDefenseArtillery_Atuo" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+    <SwappableItem canbebought="false" origin="75,356" spawnwithid="CloseDefenseArtillery_routineBox" />
+    <Sprite name="近防系统装弹器" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.78" sourcerect="701,1,148,362" origin="0.5,0.5" />
+    <BrokenSprite name="近防系统装弹器Broken" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="865,0,159,366" origin="0.5,0.5" offset="0,7" depth="0.77" fadein="false" maxcondition="15" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+    <DecorativeSprite name="Chaingun Loader Frame Back" texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-68" />
+    <DecorativeSprite name="Ammobelt" texture="Content/Items/Containers/containers.png" depth="0.79" sourcerect="499,663,52,142" origin="0.5,0.5" offset="0,12">
+      <IsActiveConditional targetcontaineditem="true" condition="gt 0.0" />
+    </DecorativeSprite>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="10" mindeteriorationdelay="60" maxdeteriorationdelay="300" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <StatusEffect type="InWater" target="This" condition="-0.25" />
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="Equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="6" itempos="75,-270" iteminterval="0,0" itemrotation="0" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.79">
+      <GuiFrame relativesize="0.18,0.23" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <Containable items="TL1130ammobox,coilgunammo,chaingunammo" />
+      <!-- when the chaingun is fired, it triggers this statuseffect, causing contained ammunition boxes to spawn new ammo -->
+      <StatusEffect type="OnUse" target="Contained">
+        <RequiredItem items="TL1130ammobox,coilgunammo,chaingunammo" type="Contained" />
+        <Use />
+      </StatusEffect>
+    </ItemContainer>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="condition_out" displayname="connection.conditionout" />
+    </ConnectionPanel>
+    <LightComponent lightcolor="219,0,36,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="1.685,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 0" />
+    </LightComponent>
+    <LightComponent lightcolor="255,170,1,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="1.135,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 20" />
+    </LightComponent>
+    <LightComponent lightcolor="246,210,2,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="0.585,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 40" />
+    </LightComponent>
+    <LightComponent lightcolor="252,230,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="0.035,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 60" />
+    </LightComponent>
+    <LightComponent lightcolor="185,214,0,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="-0.515,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 80" />
+    </LightComponent>
+    <LightComponent lightcolor="79,184,0,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="-1.065,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gte 100" />
+    </LightComponent>
+  </Item>
+  <!--近防弹药-->
+  <Item name="近防常规弹药箱" identifier="CloseDefenseArtillery_routineBox" description="" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.15" />
+    <Price baseprice="300" minavailable="1" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="lead" mincondition="0.7" />
+      <Item identifier="lead" mincondition="0.3" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="3" description="fabricationdescription.munition_core" />
+      <RequiredItem identifier="aluminium" amount="1" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="12">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="3" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="786,931,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.05">
+        <SpawnItem identifiers="CloseDefenseArtillery_routineAmmo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.1" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_routineAmmo" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_routineAmmo" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="近防炮子弹常规" identifier="CloseDefenseArtillery_routineAmmo" category="Weapon" scale="0.3" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="839,823,180,49" depth="0.55" origin="0.5,0.5" />
+    <Body width="170" height="10" density="10" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="150" spread="7.5" removeonhit="true" damagedoors="true">
+      <Attack structuredamage="5" itemdamage="9" severlimbsprobability="0.2" penetration="0.5" targetforce="3" targetimpulse="3">
+        <Affliction identifier="lacerations" strength="6" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="gunshotwound" strength="2" />
+        <Affliction identifier="stun" strength="0.01" />
+        <Affliction identifier="stun" strength="0.02" probability="0.2" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" copyentityangle="true" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="3.0" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1.5">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="近防升级型弹药箱" identifier="CloseDefenseArtillery_routineBoxPro" description="" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox,coilgunammo,chaingunammo" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.15" />
+    <Price baseprice="550" minavailable="1" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="weapons" level="80" />
+      <RequiredItem identifier="CloseDefenseArtillery_routineBox" amount="1" />
+      <RequiredItem tag="advmunition_core" amount="3" description="fabricationdescription.advmunition_core" />
+      <RequiredItem identifier="aluminium" amount="2" />
+      <RequiredItem identifier="uex" amount="1" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="35" />
+      <RequiredItem tag="advmunition_core" amount="2" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="munition_core" amount="1" description="fabricationdescription.munition_core" />
+      <RequiredItem identifier="uex" amount="1" />
+      <RequiredItem identifier="CloseDefenseArtillery_routineBoxPro" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <InventoryIcon texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="373,918,127,93" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="786,931,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.08" delay="0.05">
+        <SpawnItem identifiers="CloseDefenseArtillery_routineAmmoPro" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.165" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_routineAmmoPro" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_routineAmmoPro" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.2" />
+    </Quality>
+  </Item>
+  <Item name="近防炮升级子弹" identifier="CloseDefenseArtillery_routineAmmoPro" category="Weapon" scale="0.3" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="768,698,220,24" depth="0.55" origin="0.5,0.5" />
+    <Body width="220" height="30" density="10" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="200" spread="4" removeonhit="true" damagedoors="true" maxtargetstohit="2">
+      <Attack targetimpulse="15" structuredamage="50" itemdamage="20" severlimbsprobability="7" penetration="0.85" targetforce="10">
+        <Affliction identifier="lacerations" strength="15" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="gunshotwound" strength="4" />
+        <Affliction identifier="stun" strength="0.3" />
+        <Affliction identifier="stun" strength="0.225" probability="0.5" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="2">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Explosion range="100" ignorecover="true" ballastfloradamage="5" structuredamage="1" levelwalldamage="0" itemdamage="5" force="5" severlimbsprobability="0.2">
+          <Affliction identifier="burn" strength="5" />
+          <Affliction identifier="stun" strength="0.5" />
+          <Affliction identifier="explosiondamage" strength="0.5" />
+        </Explosion>
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--Item name="泰拉近防碎甲弹药箱" identifier="CloseDefenseArtillery_apAmmo" description="拥有无与伦比的穿透力，可以穿透无敌船壳，代价是伤害更低，但可以击碎有甲目标的护甲对其造成额外伤害，这东西价格更贵。" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.08" />
+    <Price baseprice="600" minavailable="0" displaynonempty="true" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="lead" mincondition="0.9" />
+      <Item identifier="lead" mincondition="0.6" />
+      <Item identifier="steel" mincondition="0.5" />
+      <Item identifier="lead" mincondition="0.3" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem tag="advmunition_tip" amount="3" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem tag="advmunition_core" amount="4" description="fabricationdescription.advmunition_core" />
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="12">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem tag="advmunition_tip" amount="3" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem tag="advmunition_core" amount="4" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.1" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />>
+    <Sprite texture="1130.png" depth="0.54" sourcerect="785,929,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="30" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="chaingunboltshredderap" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.167" disabledeltatime="true">
+        <RequiredItem items="chaingunboltshredderap" type="Contained" />
+      </StatusEffect>
+      <Containable items="chaingunboltshredderap" />
+    </ItemContainer>
+  </Item-->
+  <Item name="近防高精度弹药箱" identifier="CloseDefenseArtillery_precisionBox" description="" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox,coilgunammo,chaingunammo" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.08" />
+    <Price baseprice="450" minavailable="1" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="lead" mincondition="0.9" />
+      <Item identifier="lead" mincondition="0.5" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="3" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="advmunition_tip" amount="1" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="12">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="3" description="fabricationdescription.munition_core" />
+      <RequiredItem tag="advmunition_tip" amount="1" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="523,931,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.04" delay="0.1">
+        <SpawnItem identifiers="CloseDefenseArtillery_precisionAmmo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.16" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_precisionAmmo" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_precisionAmmo" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="近防炮子弹高精度" identifier="CloseDefenseArtillery_precisionAmmo" category="Misc" scale="0.3" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="792,576,198,31" depth="0.55" origin="0.5,0.5" />
+    <Body width="200" height="30" density="10" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="200" spread="0" removeonhit="true" damagedoors="true">
+      <Attack structuredamage="5" itemdamage="9" severlimbsprobability="0.2" penetration="0.5" targetforce="3" targetimpulse="3">
+        <Affliction identifier="lacerations" strength="4" />
+        <Affliction identifier="bleeding" strength="2.5" />
+        <Affliction identifier="gunshotwound" strength="1.5" />
+        <Affliction identifier="stun" strength="0.01" />
+        <Affliction identifier="stun" strength="0.02" probability="0.2" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" copyentityangle="true" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="3.0" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1.5">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="近防散射穿甲爆破弹药箱" identifier="CloseDefenseArtillery_explosionBox" description="" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.08" />
+    <Price baseprice="700" minavailable="1" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="copper" mincondition="0.9" />
+      <Item identifier="c4block" mincondition="0.5" />
+      <Item identifier="copper" mincondition="0.5" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="c4block" amount="2" />
+      <RequiredItem tag="advmunition_jacket" amount="3" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="12">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="c4block" amount="2" />
+      <RequiredItem tag="advmunition_jacket" amount="3" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="524,832,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.02" delay="0.1">
+        <SpawnItem identifiers="CloseDefenseArtillery_explosionAmmo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.17" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_explosionAmmo" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_explosionAmmo" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="近防炮散射爆炸子弹" identifier="CloseDefenseArtillery_explosionAmmo" category="Weapon" scale="0.3" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="783,617,193,70" depth="0.55" origin="0.5,0.5" />
+    <Body width="200" height="75" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="10" spread="20" removeonhit="false" damagedoors="true" interactthroughwall="true" maxtargetstohit="4">
+      <Attack structuredamage="20" itemdamage="18" severlimbsprobability="0.5" penetration="0.9">
+        <Affliction identifier="lacerations" strength="8" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="gunshotwound" strength="2.5" />
+        <Affliction identifier="stun" strength="0.02" />
+        <Affliction identifier="stun" strength="0.04" probability="0.25" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="4">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" copyentityangle="true" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="3.0" colormultiplier="255,220,220" />
+        <!--ParticleEmitter particle="weldspark" copyentityangle="true" anglemin="-40" anglemax="40" particleamount="8" velocitymin="-300" velocitymax="-800" scalemin="1" scalemax="2" /-->
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="5" velocitymin="100" velocitymax="500" scalemin="0.4" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true" delay="0.4">
+        <Explosion range="350" ballastfloradamage="50" structuredamage="20" levelwalldamage="50" itemdamage="250" force="10" severlimbsprobability="0.5">
+          <Affliction identifier="burn" strength="55" />
+          <Affliction identifier="stun" strength="5" />
+          <Affliction identifier="explosiondamage" strength="5.5" />
+          <Affliction identifier="explosiondamage" strength="10" probability="0.2" />
+        </Explosion>
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="3000" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="近防散射穿甲爆破弹药箱（近炸）" identifier="CloseDefenseArtillery_explosionBox_Close" description="" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.08" />
+    <Deconstruct time="10">
+      <Item identifier="copper" mincondition="0.9" />
+      <Item identifier="c4block" mincondition="0.5" />
+      <Item identifier="copper" mincondition="0.5" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="c4block" amount="2" />
+      <RequiredItem identifier="CloseDefenseArtillery_explosionBox" amount="1" />
+      <RequiredItem identifier="fpgacircuit" amount="3" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="12">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="c4block" amount="2" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="CloseDefenseArtillery_explosionBox_Close" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <InventoryIcon texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="519,718,131,93" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="524,832,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.02" delay="0.1">
+        <SpawnItem identifiers="CloseDefenseArtillery_explosionAmmo_Close" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.3" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_explosionAmmo_Close" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_explosionAmmo_Close" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="近防炮散射爆炸子弹-近炸" identifier="CloseDefenseArtillery_explosionAmmo_Close" category="Weapon" scale="0.3" sonarsize="2.5" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="783,617,193,70" depth="0.55" origin="0.5,0.5" />
+    <Body width="200" height="75" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="5" spread="15" removeonhit="false" damagedoors="true" interactthroughwall="true" maxtargetstohit="4">
+      <Attack structuredamage="20" itemdamage="18" severlimbsprobability="0.5" penetration="0.9">
+        <Affliction identifier="lacerations" strength="8" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="gunshotwound" strength="2.5" />
+        <Affliction identifier="stun" strength="0.02" />
+        <Affliction identifier="stun" strength="0.04" probability="0.25" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="5">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" copyentityangle="true" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="3.0" colormultiplier="255,220,220" />
+        <!--ParticleEmitter particle="weldspark" copyentityangle="true" anglemin="-40" anglemax="40" particleamount="8" velocitymin="-300" velocitymax="-800" scalemin="1" scalemax="2" /-->
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="5" velocitymin="100" velocitymax="500" scalemin="0.4" scalemax="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" Condition="-100" disabledeltatime="true" delay="0.05" />
+      <StatusEffect type="OnBroken" target="This">
+        <Explosion range="350" ballastfloradamage="50" structuredamage="20" levelwalldamage="50" itemdamage="250" force="10" severlimbsprobability="0.5">
+          <Affliction identifier="burn" strength="55" />
+          <Affliction identifier="stun" strength="5" />
+          <Affliction identifier="explosiondamage" strength="5.5" />
+          <Affliction identifier="explosiondamage" strength="10" probability="0.2" />
+        </Explosion>
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="3000" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <!-- 近炸引信 -->
+    <MotionSensor range="200" canbeselected="false" IgnoreDead="true" minimumvelocity="0" updateinterval="0.010" target="Monster" DetectOwnMotion="false">
+      <!-- Proximity Fuse Detonation -->
+      <StatusEffect type="Always" target="This" condition="-100" disabledeltatime="true" delay="0.0" stackable="false" checkconditionalalways="true" comparison="And">
+        <Conditional targetitemcomponent="MotionSensor" MotionDetected="eq true" />
+        <Conditional Condition="lte 100" />
+      </StatusEffect>
+    </MotionSensor>
+  </Item>
+  <Item name="近防EMP通用弹药箱" identifier="CloseDefenseArtillery_empBox" description="" scale="0.5" tags="coilgunequipment,TL1130ammobox,coilgunammo,chaingunammo,chaingunequipment,1130,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Price baseprice="400" minavailable="1" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" sold="false" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="copper" mincondition="0.9" />
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="1" description="fabricationdescription.munition_core" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="uex" amount="1" />
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="1" description="fabricationdescription.munition_core" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="uex" amount="1" />
+      <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="656,832,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.035" delay="0.1">
+        <SpawnItem identifiers="CloseDefenseArtillery_empAmmo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.2" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_empAmmo" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_empAmmo" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="近防炮子弹EMP" identifier="CloseDefenseArtillery_empAmmo" category="Misc" scale="0.3" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="848,518,132,47" depth="0.55" origin="0.5,0.5" />
+    <Body width="150" height="50" density="10" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="200" spread="1.5" removeonhit="false" damagedoors="true" interactthroughwall="true" maxtargetstohit="4">
+      <Attack structuredamage="25" itemdamage="18" severlimbsprobability="0.5" penetration="0.75">
+        <Affliction identifier="lacerations" strength="2" />
+        <Affliction identifier="bleeding" strength="2" />
+        <Affliction identifier="stun" strength="0.01" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="8">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true" delay="0.35">
+        <Explosion range="200.0" ballastfloradamage="50" structuredamage="20" levelwalldamage="20" empstrength="30" itemdamage="250" force="10" severlimbsprobability="0.5">
+          <Affliction identifier="burn" strength="5" />
+          <Affliction identifier="stun" strength="1" />
+          <Affliction identifier="gunshotwound" strength="2" />
+          <Affliction identifier="explosiondamage" strength="5" />
+          <Affliction identifier="explosiondamage" strength="10" probability="0.2" />
+          <Affliction identifier="emp" strength="5" multiplybymaxvitality="true" />
+          <Affliction identifier="emp" strength="10" multiplybymaxvitality="true" probability="0.2" />
+        </Explosion>
+        <sound file="%ModDir%/Content/Sounds/Turrets/电流-1.ogg" range="3000" selectionmode="random" volume="2" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/电流-2.ogg" range="3000" volume="2" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/电流-3.ogg" range="3000" volume="2" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="近防崩解弹药箱" description="" identifier="CloseDefenseArtillery_collapseBox" scale="0.5" tags="coilgunequipment,TL1130ammobox,chaingunequipment,1130,ammobox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Fabricate suitablefabricators="fabricator" requiredtime="40">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="1" description="fabricationdescription.munition_core" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="nanogel_cr" amount="1" />
+      <RequiredItem identifier="aluminium" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="120">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_core" amount="1" description="fabricationdescription.munition_core" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="nanogel_cr" amount="1" />
+      <RequiredItem tag="TL1130ammobox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.1130box" header="fabricationheader.1130box" />
+    </Fabricate>
+    <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.54" sourcerect="657,931,95,78" origin="0.5,0.5" />
+    <Body width="90" height="72" density="50" />
+    <Holdable slots="Any,RightHand,LeftHand" canBeCombined="true" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true" interval="0.15" delay="0.1">
+        <SpawnItem identifiers="CloseDefenseArtillery_collapseAmmo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" condition="-0.25" disabledeltatime="true">
+        <RequiredItem items="CloseDefenseArtillery_collapseAmmo" type="Contained" />
+      </StatusEffect>
+      <Containable items="CloseDefenseArtillery_collapseAmmo" />
+    </ItemContainer>
+    <Quality>
+      <QualityStat stattype="Condition" value="0.05" />
+    </Quality>
+  </Item>
+  <Item name="近防炮子弹崩解" identifier="CloseDefenseArtillery_collapseAmmo" category="Misc" scale="0.3" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" sourcerect="790,459,233,43" depth="0.55" origin="0.5,0.5" />
+    <Body width="250" height="45" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" launchimpulse="100" spread="1" removeonhit="true" damagedoors="true">
+      <Attack structuredamage="10" itemdamage="12" severlimbsprobability="1" penetration="0.35" targetforce="0.8">
+        <Affliction identifier="lacerations" strength="6" />
+        <Affliction identifier="organdamage" strength="3" />
+        <Affliction identifier="gunshotwound" strength="6" />
+        <Affliction identifier="alcellruin" strength="0.2" multiplybymaxvitality="true" />
+        <Affliction identifier="stun" strength="0.01" />
+        <Affliction identifier="stun" strength="0.01" probability="0.2" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="4">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" copyentityangle="true" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="3.0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--舰炮380-->
+  <Item name="380MM双联装主炮" description="" identifier="Bismarck_Old" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.7" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="1000" linkable="true" allowedlinks="380railgunloader">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/380_old.png" depth="0.01" sourcerect="11,4,587,235" canflipy="false" origin="0.5,0.5" />
+    <MinimapIcon name="Command_Weapons_FlakCannon" texture="Content/UI/CommandUIBackground.png" sourcerect="512,768,128,128" />
+    <SwappableItem price="34599" replacementonuninstall="largeturrethardpoint" origin="256,438" swapidentifier="largeturret">
+      <SchematicSprite name="380MMSchematicSprite" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="294,0,504,107" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope" />
+      <SwapConnectedItem tag="turretammosource" swapto="380railgunloader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="3.5" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="294,0,504,107" origin="0.5,0.5" />
+    <StaticBody width="80" radius="80" />
+    <Turret shotsperburst="2" delaybetweenbursts="6" canbeselected="false" spread="5.0" launchimpulse="60" characterusable="false" linkable="true" barrelpos="530,110" rotationlimits="-25,5" powerconsumption="10000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="80" reload="0.3" springstiffnesslowskill="1" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8" firingoffset="0,-510" MaxAngleOffset="5" AICurrentTargetPriorityMultiplier="1" recoiltime="0.4" retractiondelay="1">
+      <sound file="%ModDir%/Content/Sounds/Turrets/380.1.ogg" range="10000" type="OnUse" volume="4" />
+      <sound file="%ModDir%/Content/Sounds/Turrets/380.2.ogg" range="10000" type="OnUse" volume="4" />
+      <sound file="%ModDir%/Content/Sounds/Turrets/380.3.ogg" range="10000" type="OnUse" volume="4" />
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="294,0,504,107" origin="0.5,0.5" />
+      <RailSprite name="380布" texture="%ModDir%/Content/Items/weapons/Turrets/380_old.png" depth="0.011" sourcerect="426,300,146,138" origin="0.50915843,0.4629098" />
+      <BarrelSprite name="380管" texture="%ModDir%/Content/Items/weapons/Turrets/380_old.png" depth="0.2" sourcerect="803,5,69,756" origin="0.4951417,0.5130901" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <RequiredSkill identifier="weapons" level="80" />
+      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+      </LightComponent>
+      <ParticleEmitter particle="muzzleflashflakcannon" particleamount="1" velocitymin="50" velocitymax="100" distance="-20" />
+      <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="10" scalemax="15" distancemin="-100" distancemax="50" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="1000.0" structuredamage="0" force="0.0" camerashake="100" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+    </Turret>
+    <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <Item name="380MM双联装主炮2" description="" identifier="380MMMAINGUN" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.7" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="1000" linkable="true" allowedlinks="380railgunloader">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/380.png" depth="0.01" sourcerect="1269,17,682,491" canflipy="false" origin="0.5,0.35" />
+    <MinimapIcon name="Command_Weapons_FlakCannon" texture="Content/UI/CommandUIBackground.png" sourcerect="512,768,128,128" />
+    <SwappableItem price="34599" replacementonuninstall="largeturrethardpoint" origin="256,438" swapidentifier="largeturret">
+      <SchematicSprite name="380MM2SchematicSprite" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="0,0,285,428" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope" />
+      <SwapConnectedItem tag="turretammosource" swapto="380railgunloader" />
+    </SwappableItem>
+    <UpgradePreviewSprite name="380MM2UpgradePreviewSprite" scale="3.5" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="0,0,285,428" origin="0.5,0.5" />
+    <StaticBody width="80" radius="80" />
+    <Turret shotsperburst="2" delaybetweenbursts="6" canbeselected="false" spread="5.0" launchimpulse="10" characterusable="false" linkable="true" barrelpos="341,150" rotationlimits="-180,0" powerconsumption="10000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="80" reload="0.3" springstiffnesslowskill="1" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8" firingoffset="0,-510" MaxAngleOffset="5" AICurrentTargetPriorityMultiplier="1" recoiltime="0.4" retractiondelay="1">
+      <sound file="%ModDir%/Content/Sounds/Turrets/380.1.ogg" range="10000" type="OnUse" volume="4" />
+      <sound file="%ModDir%/Content/Sounds/Turrets/380.2.ogg" range="10000" type="OnUse" volume="4" />
+      <sound file="%ModDir%/Content/Sounds/Turrets/380.3.ogg" range="10000" type="OnUse" volume="4" />
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="325,428,457,309" origin="0.5,0.5" />
+      <RailSprite name="380布" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" depth="0.011" sourcerect="0,0,20,20" origin="0.5,0.5" />
+      <BarrelSprite name="380管" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" depth="0.2" sourcerect="925,31,239,708" origin="0.5,0.85" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <RequiredSkill identifier="weapons" level="80" />
+      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+      </LightComponent>
+      <ParticleEmitter particle="muzzleflashflakcannon" particleamount="1" velocitymin="50" velocitymax="100" distance="-20" />
+      <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="10" scalemax="15" distancemin="-100" distancemax="50" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="1000.0" structuredamage="0" force="0.0" camerashake="100" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+    </Turret>
+    <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <Item name="380MM舰炮装弹器" identifier="380railgunloader" tags="turretammosource,380MMammoloader" category="Machine,Weapon" linkable="true" allowedlinks="380MMMAINGUN" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+    <SwappableItem canbebought="false" origin="110,353" spawnwithid="Leo2,leo2,leo2,leo2" />
+    <Sprite name="380MMloader" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" depth="0.78" sourcerect="711,0,314,470" origin="0.5,0.5" />
+    <BrokenSprite name="380MMloaderBroken" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" sourcerect="357,0,317,472" origin="0.5,0.5" offset="0,0" depth="0.77" fadein="false" maxcondition="15" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+    <DecorativeSprite name="Railgun Loader Frame Front" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-30" />
+    <ItemContainer hideitems="false" drawinventory="true" maxstacksize="1" capacity="4" slotsperrow="6" itempos="58,-255" iteminterval="65,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepths="0.79,0.791,0.792,0.793,0.794,0.795">
+      <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <Containable items="380MMammo,railgunammo" />
+    </ItemContainer>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="20" mindeteriorationdelay="5" maxdeteriorationdelay="15" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <StatusEffect type="InWater" target="This" condition="-0.25" />
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="Equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="condition_out" displayname="connection.conditionout" />
+    </ConnectionPanel>
+  </Item>
+  <!--380MMAmmos-->
+  <Item name="380MM发射药" identifier="380MMAmmo_Propellant" tags="mediumitem,380MMammo_Propellant," category="Weapon" maxstacksize="8" sonarsize="1" scale="0.5" impactsoundtag="impact_metal_heavy">
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="2">
+      <RequiredSkill identifier="weapons" level="35" />
+      <!--外壳-铜，主装药-三基发射药，增能剂-uex-->
+      <RequiredItem identifier="copper" amount="2" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.25" usecondition="true" />
+      <RequiredItem identifier="uex" amount="4" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="copper" amount="1" />
+    </Deconstruct>
+    <InventoryIcon name="380MMAmmo_Propellant_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="565,8,100,87" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_Propellant" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="14,845,211,66" depth="0.55" origin="0.5,0.5" />
+    <Body width="210" height="70" density="10" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-50" handle1="0,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="255,140,15,255" Flicker="1.0" range="100" IsOn="false">
+      <StatusEffect type="OnActive" target="This" IsOn="false">
+        <Conditional target="This" InWater="false" />
+      </StatusEffect>
+      <StatusEffect type="InWater" target="This" IsOn="true">
+        <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="0.5" scalemax="1" />
+        <ParticleEmitter particle="TLBubble" particlespersecond="2" scalemin="0.5" scalemax="0.7" anglemin="0" anglemax="360" velocitymin="-10" velocitymax="10" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/漏气.ogg" type="OnActive" range="500.0" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="InWater" target="This" delay="10" setvalue="true" condition="0" stackable="false" checkconditionalalways="true">
+        <!-- check the item is still in water after the delay has run out-->
+        <Conditional InWater="true" />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This" Condition="-10" />
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Conditional InWater="false" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
+        <Explosion range="750.0" ballastfloradamage="150" structuredamage="300" itemdamage="1000" force="20" severlimbsprobability="2" debris="true" decal="explosion" decalsize="0.75" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="250" />
+          <Affliction identifier="burn" strength="15" probability="0.2" dividebylimbcount="false" />
+          <Affliction identifier="bleeding" strength="40" probability="0.05" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+  <Item name="380MM空心弹壳" identifier="380MMAmmo_Hollow" tags="380MMammo" category="Weapon" subcategory="ek_gunnery_r" maxstacksize="2" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy">
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="1">
+      <RequiredSkill identifier="weapons" level="25" />
+      <!--钢筋+铝合金-->
+      <RequiredItem identifier="steel" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="iron" />
+    </Deconstruct>
+    <InventoryIcon name="380MMAmmo_Hollow_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="445,333,100,87" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_Hollow" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,751,446,75" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="70" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-50" handle1="0,0" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatValue stattype="MovementSpeed" value="-0.1" />
+    </Holdable>
+    <Projectile characterusable="false" launchimpulse="80.0" maxtargetstohit="1" damagedoors="true">
+      <Attack structuredamage="50" itemdamage="50" severlimbsprobability="1.5" penetration="0.4" targetforce="250">
+        <Affliction identifier="blunttrauma" strength="60" />
+        <Affliction identifier="explosiondamage" strength="15" />
+        <Affliction identifier="bleeding" strength="15" />
+        <Affliction identifier="stun" strength="5" />
+      </Attack>
+      <!-- 射擊起跳加速 -->
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" stackable="false" condition="-1">
+        <Conditional condition="eq 100" />
+        <Use />
+      </StatusEffect>
+      <!-- 命中後0.02秒扣100耐久，製造一種炮彈嵌入敵人體內的效果 -->
+      <StatusEffect type="OnImpact" target="This" condition="-100" disabledeltatime="true" stackable="false" delay="0.02" />
+      <!-- 8秒後自動引爆 -->
+      <StatusEffect type="OnActive" target="This" condition="-100" disabledeltatime="true" delay="8.0" stackable="false" />
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-15" anglemax="15" particleamount="4" velocitymin="-10" velocitymax="-200" scalemin="1.5" scalemax="2" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-30" anglemax="30" particleamount="3" velocitymin="10" velocitymax="300" scalemin="1.5" scalemax="2" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="-20" anglemax="20" particleamount="3" velocitymin="50" velocitymax="300" scalemin="1" scalemax="2" />
+      </StatusEffect>
+      <!-- 耐久歸零時自爆 -->
+      <StatusEffect type="OnBroken" target="This">
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="4" velocitymin="100" velocitymax="2000" scalemin="0.15" scalemax="0.30" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="10" velocitymin="100" velocitymax="2000" scalemin="0.10" scalemax="0.25" />
+        <!-- 震暈 -->
+        <Explosion range="100.0" structuredamage="0" itemdamage="0" camerashake="0" force="5.0" severlimbsprobability="0.0" decal="explosion" decalsize="0.1" penetration="0.5" flames="false" smoke="false" flash="false" underwaterbubble="false" shockwave="false">
+          <Affliction identifier="stun" strength="0.1" />
+        </Explosion>
+        <Explosion range="50.0" structuredamage="0" itemdamage="0" camerashake="0" force="5.0" severlimbsprobability="0.0" decal="explosion" decalsize="0.1" penetration="0.5" flames="false" smoke="false" flash="false" underwaterbubble="false" shockwave="false">
+          <Affliction identifier="stun" strength="0.1" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="380MM实心炮弹" identifier="380MMAmmo_Solid" tags="380MMammo" category="Weapon" subcategory="ek_gunnery_r" maxstacksize="1" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy">
+    <Fabricate suitablefabricators="fabricator" requiredtime="35" amount="1">
+      <RequiredSkill identifier="weapons" level="35" />
+      <!--空心壳+钢筋+发射药-->
+      <RequiredItem identifier="380MMAmmo_Hollow" />
+      <RequiredItem identifier="steel" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="380MMAmmo_Propellant" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="380MMAmmo_Hollow" />
+      <Item identifier="380MMAmmo_Propellant" />
+    </Deconstruct>
+    <InventoryIcon name="380MMAmmo_Solid_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="565,340,116,104" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_Solid" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,751,446,75" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="70" density="15" />
+    <!-- 沒有搬炮彈的話，拿手上的減速效果是軌道炮的一半 -->
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-50" handle1="0,0" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatValue stattype="MovementSpeed" value="-0.1" />
+    </Holdable>
+    <Projectile characterusable="false" launchimpulse="200" maxtargetstohit="1" damagedoors="true">
+      <Attack structuredamage="50" itemdamage="50" severlimbsprobability="1.5" penetration="0.4" targetforce="250">
+        <Affliction identifier="blunttrauma" strength="600" />
+        <Affliction identifier="explosiondamage" strength="150" />
+        <Affliction identifier="bleeding" strength="150" />
+        <Affliction identifier="stun" strength="5" />
+      </Attack>
+      <!-- 射擊起跳加速 -->
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" stackable="false" condition="-1">
+        <Conditional condition="eq 100" />
+        <Use />
+      </StatusEffect>
+      <!-- 80耐久以上0.25秒加速一次 -->
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" delay="0.25" stackable="false" checkconditionalalways="true">
+        <Conditional Condition="gt 80" />
+        <Use />
+      </StatusEffect>
+      <!-- 70耐久以上特效 -->
+      <StatusEffect type="OnActive" target="This" condition="-10">
+        <ParticleEmitter particle="TLGunneFireMedium" colormultiplier="255,125,100,255" copyentityangle="true" anglemin="0" anglemax="360" particlespersecond="60" velocitymin="0" velocitymax="400" scalemin="0.5" scalemax="1.1" />
+        <ParticleEmitter particle="TLGunneLightsmall" colormultiplier="255,175,125,150" particlespersecond="60" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" />
+        <Conditional Condition="gt 70" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" condition="-20">
+        <ParticleEmitter particle="TLBubble" anglemin="0" anglemax="360" particlespersecond="30" velocitymin="0" velocitymax="50" scalemin="1" scalemax="2" />
+      </StatusEffect>
+      <!-- 命中後0.02秒扣100耐久，製造一種炮彈嵌入敵人體內的效果 -->
+      <StatusEffect type="OnImpact" target="This" condition="-100" disabledeltatime="true" stackable="false" delay="0.02" />
+      <!-- 8秒後自動引爆 -->
+      <StatusEffect type="OnActive" target="This" condition="-100" disabledeltatime="true" delay="8.0" stackable="false" />
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-15" anglemax="15" particleamount="4" velocitymin="-10" velocitymax="-200" scalemin="1.5" scalemax="2" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-30" anglemax="30" particleamount="3" velocitymin="10" velocitymax="300" scalemin="1.5" scalemax="2" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="-20" anglemax="20" particleamount="3" velocitymin="50" velocitymax="300" scalemin="1" scalemax="2" />
+      </StatusEffect>
+      <!-- 耐久歸零時自爆 -->
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="7500" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="7500" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="7500" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="4" velocitymin="100" velocitymax="2000" scalemin="0.15" scalemax="0.30" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="10" velocitymin="100" velocitymax="2000" scalemin="0.10" scalemax="0.25" />
+        <!-- 震暈 -->
+        <Explosion range="100.0" structuredamage="0" itemdamage="0" camerashake="0" force="5.0" severlimbsprobability="0.0" decal="explosion" decalsize="0.1" penetration="0.5" flames="false" smoke="false" flash="false" underwaterbubble="false" shockwave="false">
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+        <Explosion range="50.0" structuredamage="0" itemdamage="0" camerashake="0" force="5.0" severlimbsprobability="0.0" decal="explosion" decalsize="0.1" penetration="0.5" flames="false" smoke="false" flash="false" underwaterbubble="false" shockwave="false">
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.1" />
+      <QualityStat stattype="ExplosionDamage" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="380MM高爆弹" identifier="380MMAmmo_HE" description="" tags="380MMammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="80" />
+      <!--空心壳+C4+发射药-->
+      <RequiredItem identifier="380MMAmmo_Hollow" />
+      <RequiredItem identifier="c4block" amount="4" />
+      <RequiredItem identifier="380MMAmmo_Propellant" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="c4block" amount="1" />
+      <Item identifier="380MMAmmo_Hollow" />
+      <Item identifier="380MMAmmo_Propellant" />
+    </Deconstruct>
+    <InventoryIcon name="380MMAmmo_HE_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="568,103,112,108" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_HE" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,952,515,76" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="80" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="40" damagedoors="true" hitscancount="1" spread="10" maxtargetstohit="1">
+      <Attack structuredamage="10" itemdamage="500" severlimbsprobability="100" penetration="2" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="450" />
+        <Affliction identifier="blunttrauma" strength="400" />
+        <Affliction identifier="organdamage" strength="100" />
+        <Affliction identifier="bleeding" strength="100" />
+        <Affliction identifier="stun" strength="20" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="2500" ignorecover="true" ballastfloradamage="1000" structuredamage="50" itemdamage="1000" force="100.0" severlimbsprobability="50" decal="explosion" decalsize="0.5" penetration="0.6">
+          <Affliction identifier="explosiondamage" strength="450" />
+          <Affliction identifier="burn" strength="600" />
+          <Affliction identifier="stun" strength="100" />
+          <Affliction identifier="organdamage" strength="150" />
+          <Affliction identifier="organdamage" strength="5" multiplybymaxvitality="true" />
+          <Affliction identifier="bleeding" strength="100" />
+        </Explosion>
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.12" />
+      <QualityStat stattype="ExplosionDamage" value="0.05" />
+    </Quality>
+  </Item>
+  <Item name="380MM穿甲弹" identifier="380MMAmmo_AP" description="" tags="380MMammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="80" />
+      <!--空心壳+C4+铝合金+发射药-->
+      <RequiredItem identifier="380MMAmmo_Hollow" />
+      <RequiredItem identifier="c4block" amount="2" />
+      <RequiredItem identifier="AluminumAlloy" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="380MMAmmo_Propellant" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="c4block" amount="1" />
+      <Item identifier="380MMAmmo_Hollow" />
+      <Item identifier="380MMAmmo_Propellant" />
+    </Deconstruct>
+    <InventoryIcon name="380MMAmmo_APE_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="565,221,116,108" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_AP" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,1028,515,76" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="80" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="160" damagedoors="true" hitscancount="1" spread="0" maxtargetstohit="3">
+      <Attack structuredamage="500" itemdamage="200" severlimbsprobability="100" penetration="4" targetforce="800">
+        <Affliction identifier="explosiondamage" strength="200" />
+        <Affliction identifier="blunttrauma" strength="200" />
+        <Affliction identifier="organdamage" strength="50" />
+        <Affliction identifier="bleeding" strength="40" />
+        <Affliction identifier="stun" strength="10" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true" delay="0.5">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="700" ignorecover="true" ballastfloradamage="1000" structuredamage="400" itemdamage="100" force="100.0" severlimbsprobability="50" decal="explosion" decalsize="0.2" penetration="1">
+          <Affliction identifier="explosiondamage" strength="200" />
+          <Affliction identifier="burn" strength="250" />
+          <Affliction identifier="stun" strength="50" />
+          <Affliction identifier="organdamage" strength="60" />
+          <Affliction identifier="organdamage" strength="2" multiplybymaxvitality="true" />
+          <Affliction identifier="bleeding" strength="40" />
+        </Explosion>
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.12" />
+      <QualityStat stattype="ExplosionDamage" value="0.05" />
+    </Quality>
+  </Item>
+  <Item name="380MM半穿甲弹" identifier="380MMAmmo_SAP" description="" tags="380MMammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="100" />
+      <!--空心壳+C4+铝合金+钛铝合金+发射药-->
+      <RequiredItem identifier="380MMAmmo_Hollow" />
+      <RequiredItem identifier="c4block" amount="4" />
+      <RequiredItem identifier="AluminumAlloy" amount="2" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="380MMAmmo_Propellant" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="c4block" amount="2" />
+      <Item identifier="380MMAmmo_Hollow" />
+      <Item identifier="380MMAmmo_Propellant" />
+    </Deconstruct>
+    <InventoryIcon name="380MMAmmo_SAP_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="570,450,111,105" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_SAP" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,749,447,79" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="80" density="10" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="200" damagedoors="true" hitscancount="1" spread="0" maxtargetstohit="2">
+      <Attack structuredamage="200" itemdamage="200" severlimbsprobability="100" penetration="2" targetforce="800">
+        <Affliction identifier="explosiondamage" strength="200" />
+        <Affliction identifier="blunttrauma" strength="200" />
+        <Affliction identifier="organdamage" strength="50" />
+        <Affliction identifier="bleeding" strength="40" />
+        <Affliction identifier="stun" strength="10" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true" delay="0.3">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="1500" ignorecover="true" ballastfloradamage="1000" structuredamage="250" itemdamage="100" force="100.0" severlimbsprobability="50" decal="explosion" decalsize="0.2" penetration="1">
+          <Affliction identifier="explosiondamage" strength="300" />
+          <Affliction identifier="burn" strength="350" />
+          <Affliction identifier="stun" strength="70" />
+          <Affliction identifier="organdamage" strength="80" />
+          <Affliction identifier="organdamage" strength="2" multiplybymaxvitality="true" />
+          <Affliction identifier="bleeding" strength="70" />
+        </Explosion>
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.12" />
+      <QualityStat stattype="ExplosionDamage" value="0.05" />
+    </Quality>
+  </Item>
+  <Item name="380MM照明弹" identifier="380MMAmmo_Light" aliases="flare railgun shell" tags="railgunequipment,railgunammo" subcategory="ekr_armory_Weapons" category="Weapon" sonarsize="7" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer primary="railgunammoloader,railgunammocontainer" mincondition="1" />
+    <PreferredContainer secondary="wreckrailgunammocontainer" amount="1" spawnprobability="0.2" />
+    <Price baseprice="160" sold="false" minleveldifficulty="10">
+      <Price storeidentifier="merchantoutpost" multiplier="1.2" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="1.2" />
+      <Price storeidentifier="merchantmilitary" sold="true" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmine" multiplier="1.2" />
+      <Price storeidentifier="merchantarmory" sold="true" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="flare" amount="2" />
+      <Item identifier="380MMAmmo_Hollow" />
+      <Item identifier="380MMAmmo_Propellant" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="25" />
+      <RequiredSkill identifier="mechanical" level="45" />
+      <!--空心壳+照明弹+发射药-->
+      <RequiredItem identifier="380MMAmmo_Hollow" />
+      <RequiredItem identifier="flare" amount="3" />
+      <RequiredItem identifier="380MMAmmo_Propellant" />
+    </Fabricate>
+    <InventoryIcon name="380MMAmmo_Light_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="572,561,108,101" origin="0.5,0.5" />
+    <Sprite name="380MMAmmo_Light" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,752,447,75" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="80" density="15" />
+    <Holdable canbecombined="false" slots="Any,LeftHand,RightHand" holdpos="0,-15" handle1="-30,-5" holdangle="170" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatValue stattype="MovementSpeed" value="-0.20" />
+      <!-- 游泳時調整握持位置 -->
+      <StatusEffect type="OnActive" target="This" holdpos="-10,-15" handle1="0,-5" holdangle="70" setvalue="true" interval="1.1">
+        <Conditional InWater="true" />
+      </StatusEffect>
+      <!-- 行走時恢復保持位置調整 -->
+      <StatusEffect type="OnActive" target="This" holdpos="0,-15" handle1="-30,-5" holdangle="170" setvalue="true" interval="1.1">
+        <Conditional InWater="false" />
+      </StatusEffect>
+    </Holdable>
+    <Projectile characterusable="false" launchimpulse="1" maxtargetstohit="3" damagedoors="true">
+      <Attack structuredamage="10" severlimbsprobability="0.3" damagetype="Blunt" targetforce="350">
+        <Affliction identifier="gunshotwound" strength="65" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="stun" strength="5" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" stackable="false">
+        <Conditional condition="eq 100" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" disabledeltatime="true" delay="0.3" stackable="false">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" condition="-50" disabledeltatime="true" stackable="false" checkconditionalalways="true" delay="0.01">
+        <Conditional Condition="gt 80" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-10" disabledeltatime="true" stackable="false" checkconditionalalways="true" delay="0.2">
+        <Conditional Condition="eq 50" />
+        <Explosion range="500.0" structuredamage="10" itemdamage="150" stun="1.5" force="10.0" severlimbsprobability="0.1" underwaterbubble="false">
+          <Affliction identifier="burn" strength="15" />
+        </Explosion>
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/LightAmmo.1.ogg" range="6500" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/LightAmmo.2.ogg" range="6500" />
+        <SpawnItem identifier="LightAmmo_centre" spawnposition="This" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-20" disabledeltatime="true" stackable="false" checkconditionalalways="true" delay="0.3">
+        <Conditional Condition="eq 40" />
+        <Explosion range="500.0" structuredamage="10" itemdamage="150" stun="1.5" force="10.0" severlimbsprobability="0.1" underwaterbubble="false">
+          <Affliction identifier="burn" strength="20" />
+        </Explosion>
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/LightAmmo.1.ogg" range="6500" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/LightAmmo.2.ogg" range="6500" />
+        <SpawnItem identifier="LightAmmo_centre" spawnposition="This" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" condition="-20" disabledeltatime="true" stackable="false" checkconditionalalways="true" delay="0.35">
+        <Conditional Condition="eq 20" />
+        <Explosion range="500.0" structuredamage="10" itemdamage="150" stun="1.5" force="10.0" severlimbsprobability="0.1" underwaterbubble="false">
+          <Affliction identifier="burn" strength="20" />
+        </Explosion>
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/LightAmmo.1.ogg" range="6500" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/Ammo/LightAmmo.2.ogg" range="6500" />
+        <SpawnItem identifier="LightAmmo_centre" spawnposition="This" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" disabledeltatime="true" delay="0.10">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="照明弹内核" identifier="LightAmmo_centre" tags="decoy,light,provocative" Scale="0.5" impactsoundtag="impact_soft" sonarsize="5" hideinmenus="true" noninteractable="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="5" />
+    <AiTarget sightrange="6000.0" maxsoundrange="7500" minsoundrange="0" fadeouttime="15" sonardisruption="0.4" />
+    <LightComponent characterusable="false" LightColor="255,50,50,255" Flicker="0.5" range="2048" IsOn="true" shadows="false" drawbehindsubs="true">
+      <LightTexture texture="%ModDir%/Content/UI/Lights/pointlight_bright_q4.png" origin="0.0,0.0" size="1.1,1.1" />
+      <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="2048.0" loop="true" />
+      <StatusEffect type="OnActive" target="This" Condition="-1">
+        <Conditional PhysicsBodyActive="eq true" />
+        <ParticleEmitter particle="flare" particlespersecond="5" scalemin="5" scalemax="5" />
+        <ParticleEmitter particle="TLRedFlash" particlespersecond="30" scalemin="2.0" scalemax="2.75" velocitymin="0" velocitymax="35" distancemin="0" distancemax="32" />
+        <ParticleEmitter particle="TLRapidlyRisingBubbles" particlespersecond="6" />
+      </StatusEffect>
+    </LightComponent>
+    <LightComponent characterusable="false" LightColor="255,50,50,255" Flicker="0.4" range="2048" IsOn="true" shadows="false" drawbehindsubs="true">
+      <LightTexture texture="%ModDir%/Content/UI/Lights/pointlight_bright_q3.png" origin="1.0,0.0" size="1.1,1.1" />
+    </LightComponent>
+    <LightComponent characterusable="false" LightColor="255,50,50,255" Flicker="0.4" range="2048" IsOn="true" shadows="false" drawbehindsubs="true">
+      <LightTexture texture="%ModDir%/Content/UI/Lights/pointlight_bright_q2.png" origin="0.0,1.0" size="1.1,1.1" />
+    </LightComponent>
+    <LightComponent characterusable="false" LightColor="255,50,50,255" Flicker="0.4" range="2048" IsOn="true" shadows="false" drawbehindsubs="true">
+      <LightTexture texture="%ModDir%/Content/UI/Lights/pointlight_bright_q1.png" origin="1.0,1.0" size="1.1,1.1" />
+    </LightComponent>
+    <ItemComponent>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--舰炮460-->
+  <Item name="460MM三联装舰炮" description="" identifier="460mm" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.4" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="900" linkable="true" allowedlinks="460railgunloader">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/460MM.png" depth="0.01" sourcerect="0,0,2076,568" canflipy="false" />
+    <MinimapIcon name="Command_Weapons_IJN_type94_46cm_triple_gun_mount" texture="Content/UI/CommandUIAtlas.png" sourcerect="640,0,128,128" />
+    <SwappableItem canbebought="false" replacementonuninstall="largeturrethardpoint" origin="256,438" swapidentifier="largeturret">
+      <SchematicSprite texture="%ModDir%/Content/Items/weapons/Turrets/460MM.png" sourcerect="0,0,2076,568" />
+      <SwapConnectedItem tag="periscope" swapto="periscope" />
+      <SwapConnectedItem tag="turretammosource" swapto="IJN_type94_46cm_triple_gun_mountloader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="3" texture="%ModDir%/Content/Items/weapons/Turrets/460MM.png" sourcerect="0,0,2076,568" origin="0.5,0.5" />
+    <StaticBody width="692" radius="190" />
+    <Turret projectilecount="1" alternatingfiringoffset="false" firingoffset="0,-1750" launchimpulse="260" damagemultiplier="1.0" canbeselected="false" characterusable="false" linkable="true" barrelpos="1644,321" rotationlimits="-50,15" powerconsumption="100000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" recoiltime="0.1" reload="0.2" shotsperburst="3" delaybetweenbursts="14" springstiffnesslowskill="1" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="0.05" rotationspeedhighskill="0.5">
+      <StatusEffect type="OnUse" target="This">
+        <sound file="%ModDir%/Content/Sounds/Turrets/380.1.ogg" range="10000" type="OnUse" volume="6" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/380.2.ogg" range="10000" type="OnUse" volume="6" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/380.3.ogg" range="10000" type="OnUse" volume="6" />
+        <Explosion range="1000.0" structuredamage="0" force="0.01" camerashake="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <WeaponIndicator texture="Content/UI/WeaponUI.png" sourcerect="653,908,73,44" origin="0.24, 0.472" />
+      <RailSprite texture="%ModDir%/Content/Items/weapons/Turrets/460.png" origin="0.5, 0.5" sourcerect="0,0,1,1" depth="0.011" />
+      <BarrelSprite texture="%ModDir%/Content/Items/weapons/Turrets/460.png" origin="0.5, 0.973" sourcerect="0,0,120,1740" depth="0.012" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2048" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="1.0,1.0" />
+      </LightComponent>
+      <ParticleEmitter particle="muzzleflashflakcannon" particleamount="1" velocitymin="50" velocitymax="100" distance="-50" />
+      <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="80" scalemax="140" distancemin="300" distancemax="1000" />
+    </Turret>
+    <aitarget maxsightrange="6500" maxsoundrange="20000" fadeouttime="10" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="50" />
+  </Item>
+  <Item name="460MM装弹器" identifier="460railgunloader" tags="turretammosource" category="Machine,Weapon" linkable="true" allowedlinks="460mm" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+    <SwappableItem canbebought="false" origin="82,352" spawnwithid="railgunshell,railgunshell,railgunshell,railgunshell,railgunshell" />
+    <Sprite name="460railgunloader" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" depth="0.78" sourcerect="711,0,314,471" origin="0.5,0.5" />
+    <BrokenSprite name="380MMloaderBroken" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" sourcerect="357,0,317,472" origin="0.5,0.5" offset="0,0" depth="0.77" fadein="false" maxcondition="15" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+    <DecorativeSprite name="Railgun Loader Frame Front" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-30" />
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="10" mindeteriorationdelay="60" maxdeteriorationdelay="300" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <StatusEffect type="InWater" target="This" condition="-0.25" />
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="Equipped" />
+      <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="3" maxstacksize="1" slotsperrow="6" itempos="58,-255" iteminterval="65,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.79">
+      <GuiFrame relativesize="0.18,0.23" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="97,0,100,65" origin="0.5,0.5" />
+      <Containable items="460MMammo" />
+    </ItemContainer>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="condition_out" displayname="connection.conditionout" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="460MM高爆穿甲炮弹" identifier="460MMAmmo" description="" tags="460MMammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.75" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Deconstruct time="10">
+      <Item identifier="steel" amount="5" />
+      <Item identifier="titaniumaluminiumalloy" amount="3" />
+      <Item identifier="c4block" amount="2" />
+    </Deconstruct>
+    <InventoryIcon name="460MMAmmo_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="414,432,130,119" origin="0.5,0.5" />
+    <Sprite name="460MMAmmo" texture="%ModDir%/Content/Items/weapons/Turrets/380.png" sourcerect="0,1114,502,80" depth="0.55" origin="0.5,0.5" />
+    <Body width="300" height="80" density="30" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="80" maxtargetstohit="1" damagedoors="true">
+      <Attack structuredamage="1500" itemdamage="1000" severlimbsprobability="5" penetration="3" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="500" />
+        <Affliction identifier="blunttrauma" strength="500" />
+        <Affliction identifier="bleeding" strength="200" />
+        <Affliction identifier="stun" strength="35" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="500" ballastfloradamage="100" structuredamage="1500" itemdamage="5000" force="10.0" severlimbsprobability="0.5" decal="explosion" decalsize="0.3" penetration="1">
+          <Affliction identifier="explosiondamage" strength="1000" />
+          <Affliction identifier="stun" strength="100" />
+          <Affliction identifier="burn" strength="1000" />
+          <Affliction identifier="organdamage" strength="250" />
+          <Affliction identifier="bleeding" strength="300" />
+        </Explosion>
+        <Explosion range="1500" ballastfloradamage="100" structuredamage="500" itemdamage="5000" force="10.0" severlimbsprobability="0.5" decal="explosion" decalsize="0.3" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="200" />
+          <Affliction identifier="stun" strength="10" />
+          <Affliction identifier="burn" strength="200" />
+          <Affliction identifier="bleeding" strength="100" />
+        </Explosion>
+      </StatusEffect>
+      <!-- Trigger explosions on contained items -->
+      <StatusEffect type="OnBroken" target="Contained">
+        <Use />
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <ItemContainer hideitems="true" capacity="3" maxstacksize="1" canbeselected="false">
+      <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+  </Item>
+  <Item name="重型炮弹架" identifier="HeavyArtilleryShellMounts" description="" tags="container,railgunammocontainer" pickdistance="120" scale="0.5" canflipx="false" canflipy="false">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/380.png" depth="0.84" sourcerect="4,473,394,229" origin="0.5,0.5" />
+    <Body width="380" height="220" density="30" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="steel" amount="3" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="steel" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="itemmsgforceopencrowbar" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem identifier="crowbar" type="Equipped" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+    </Holdable>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="1" slotsperrow="6" itempos="200,-5" itemrotation="0" canbeselected="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.3,0.2" anchor="Center" style="ItemUI" />
+      <Containable items="380MMammo,460MMammo" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="380MMammo,460MMammo" itempos="100,-30" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="380MMammo,460MMammo" itempos="100,-56" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="380MMammo,460MMammo" itempos="100,-88" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <!--可控深水炸弹-->
+  <Item name="可控深水炸弹发射器" description="" identifier="Con_depthchargetube" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="900" linkable="true" allowedlinks="coilgunequipment">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.01" sourcerect="0,0,256,256" canflipy="false" origin="0.5,0.5" />
+    <MinimapIcon name="Command_Weapons_Chaingun" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,896,128,128" />
+    <SwappableItem price="6000" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
+      <SchematicSprite name="Con_depthchargetube_SchematicSprite" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="460,139,134,270" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope" />
+      <SwapConnectedItem tag="turretammosource" swapto="Con_depthchargeloader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="2.5" texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="460,139,134,270" origin="0.5,0.5" />
+    <StaticBody width="80" radius="80" />
+    <Turret launchimpulse="100" spinningbarreldistance="45.0" firingrotationspeedmodifier="0.6" usefiringoffsetformuzzleflash="true" maxchargetime="1.0" canbeselected="false" firingoffset="-10,-370" characterusable="false" linkable="true" barrelpos="128,88" rotationlimits="180,360" powerconsumption="1000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="6" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="5" MaxAngleOffset="30" AICurrentTargetPriorityMultiplier="1.1">
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/TurretsIcon.png" sourcerect="0,570,225,119" origin="0.5,0.5" />
+      <sound file="%ModDir%/Content/Sounds/Turrets/depthchargetube.1.ogg" range="10000" type="OnUse" volume="2.0" />
+      <sound file="%ModDir%/Content/Sounds/Turrets/depthchargetube.2.ogg" range="10000" type="OnUse" volume="2.0" />
+      <ChargeSound file="Content/Items/Weapons/WEAPONS_chargeUp.ogg" range="10000" />
+      <RailSprite texture="%ModDir%/Content/Items/weapons/Turrets/1130.png" depth="0.011" sourcerect="256,0,212,512" origin="0.425,0.875" />
+      <BarrelSprite texture="Content/Items/Weapons/TurretsAndDepthCharges.png" depth="0.02" sourcerect="259,1,85,149" origin="0.5,2.3" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <LightComponent Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="%ModDir%/Content/Items/weapons/Turrets/lightcone.png" origin="0.0,0.5" size="1.0,1.0" />
+      </LightComponent>
+      <ParticleEmitter particle="muzzleflashchaingun" particleamount="1" velocitymin="0" velocitymax="0" distancemin="-50" distancemax="-50" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" />
+      <ParticleEmitter particle="swirlysmoke" particleamount="10" velocitymin="0" velocitymax="0" scalemin="2" scalemax="3" distancemin="-100" distancemax="50" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="1500.0" structuredamage="0" force="0.0" camerashake="8" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+    </Turret>
+    <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="70" />
+  </Item>
+  <Item name="可控深水炸弹装弹器" identifier="Con_depthchargeloader" tags="railgunequipment,railgunammosource,turretammosource,railgunammoloader" category="Machine,Weapon" linkable="true" allowedlinks="Con_depthchargetube" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+    <SwappableItem canbebought="false" origin="110,353" spawnwithid="railgunshell,railgunshell,railgunshell,railgunshell,railgunshell" />
+    <Sprite name="Con_depthchargeloaderSprite" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" depth="0.78" sourcerect="711,0,314,471" origin="0.5,0.5" />
+    <BrokenSprite name="Con_depthchargeloaderBroken" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" sourcerect="357,0,317,472" origin="0.5,0.5" offset="0,0" depth="0.77" fadein="false" maxcondition="15" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+    <DecorativeSprite name="Railgun Loader Frame Front" texture="%ModDir%/Content/Items/weapons/Turrets/Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-30" />
+    <ItemContainer hideitems="false" drawinventory="true" capacity="4" slotsperrow="6" itempos="58,-255" iteminterval="65,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepths="0.79,0.791,0.792,0.793,0.794,0.795,0.796,0.797">
+      <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="6" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <SlotIcon slotindex="7" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="215,0,100,76" origin="0.5,0.5" />
+      <Containable items="depthchargeammo,railgunammo" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="depthchargeammo,railgunammo" itempos="30,-200" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="depthchargeammo,railgunammo" itempos="60,-200" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="depthchargeammo,railgunammo" itempos="90,-200" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="depthchargeammo,railgunammo" itempos="120,-200" />
+      </SubContainer>
+    </ItemContainer>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="20" mindeteriorationdelay="5" maxdeteriorationdelay="15" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <StatusEffect type="InWater" target="This" condition="-0.25" />
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="Equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="condition_out" displayname="connection.conditionout" />
+    </ConnectionPanel>
+  </Item>
+  <!--重型激光防御系统-->
+  <Item name="重型激光防御系统" description="" identifier="LaserCloseSystem" Tags="turret" category="Machine,Weapon" subcategory="subweapons" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="900" linkable="true" allowedlinks="pulselaserequipment">
+    <InventoryIcon name="LaserCloseSystem_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.012" sourcerect="580,71,293,194" canflipy="false" origin="0.53,0.3" />
+    <MinimapIcon name="LaserCloseSystem_Weapons_Pulselaser" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,768,128,128" />
+    <SwappableItem price="18000" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
+      <SchematicSprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="580,439,295,235" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope2" />
+      <SwapConnectedItem tag="turretammosource" swapto="LaserCloseSystem_loader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="2.5" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="580,422,295,235" origin="0.5,0.5" />
+    <StaticBody width="80" radius="100" />
+    <Turret singlechargedshot="true" maxchargetime="4" canbeselected="false" characterusable="false" usefiringoffsetformuzzleflash="true" linkable="true" barrelpos="128,88" firingoffset="15,-120" rotationlimits="180,360" powerconsumption="20000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.5" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8" MaxAngleOffset="10" AICurrentTargetPriorityMultiplier="1" retractiondurationmultiplier="5" retractiondelay="0.5">
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot1.ogg" range="10000" type="OnUse" />
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot2.ogg" range="10000" type="OnUse" />
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot3.ogg" range="10000" type="OnUse" />
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot4.ogg" range="10000" type="OnUse" />
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="580,422,295,235" origin="0.5, 0.5" />
+      <RailSprite name="LaserCloseSystem_RailSprite" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.011" sourcerect="951,0,73,76" origin="0.5,0.5" />
+      <BarrelSprite name="LaserCloseSystem_BarrelSprite" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.014" sourcerect="330,28,184,236" origin="0.5,0.5" />
+      <ChargeSprite name="LaserCloseSystem_ChargeSprite" chargetarget="25, -10" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.013" sourcerect="920,100,104,111" origin="0.6,1.3" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <ChargeSound file="%ModDir%/Content/Sounds/Turrets/激光充能.ogg" range="10000" volume="5" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <RequiredSkill identifier="weapons" level="80" />
+      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="0.1,1.0" />
+      </LightComponent>
+      <!--<ParticleEmitter particle="FlareBubbles" scalemin="0.5" scalemax="0.5" particleamount="20" distancemin="0" distancemax="500" velocitymin="0" velocitymax="5"/>-->
+      <ParticleEmitter particle="FlareBubbles" scalemin="1.4" scalemax="1.8" particleamount="14" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+      <ParticleEmitter particle="pulselasermist" particleamount="30" anglemin="-10" anglemax="10" scalemin="1" scalemax="1" distancemin="0" distancemax="250" velocitymin="0" velocitymax="100" />
+      <ParticleEmitter particle="GlowDot" scalemin="4.0" scalemax="4.0" particleamount="20" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" colormultiplier="255,0,0,255" />
+      <!--<ParticleEmitter particle="chargepulselaser" particleamount="30" scalemin="2.0" scalemax="2.0"/>-->
+      <ParticleEmitterCharge particle="chargepulselaser" particlespersecond="60" scalemin="1.0" scalemax="1.0" anglemax="360" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5000.0" structuredamage="0" force="0.0" camerashake="15.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255" />
+      </StatusEffect>
+      <Upgrade gameversion="0.15.12.0" powerconsumption="1400.0" />
+    </Turret>
+    <aitarget maxsightrange="3000" maxsoundrange="8000" fadeouttime="5" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+      <input name="set_auto_operate" displayname="connection.setautooperate" />
+      <input name="toggle_auto_operate" displayname="connection.toggleautooperate" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <Item name="全自动重型激光防御系统" description="" identifier="LaserCloseSystem_Auto" Tags="turret" category="Machine,Weapon" subcategory="subweapons" interactthroughwalls="true" Scale="0.5" interactdistance="10" spritecolor="1.0,1.0,1.0,1.0" focusonselected="true" offsetonselected="900" linkable="true" allowedlinks="pulselaserequipment">
+    <InventoryIcon name="LaserCloseSystem_ICON" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="0,0,256,256" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.012" sourcerect="580,71,293,194" canflipy="false" origin="0.53,0.3" />
+    <MinimapIcon name="LaserCloseSystem_Weapons_Pulselaser" texture="Content/UI/CommandUIAtlas.png" sourcerect="384,768,128,128" />
+    <SwappableItem price="28000" replacementonuninstall="turrethardpoint" origin="128,215" swapidentifier="basicturret">
+      <SchematicSprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="580,439,295,235" origin="0.5,0.5" />
+      <SwapConnectedItem tag="periscope" swapto="periscope2" />
+      <SwapConnectedItem tag="turretammosource" swapto="LaserCloseSystem_loader" />
+    </SwappableItem>
+    <UpgradePreviewSprite scale="2.5" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="580,422,295,235" origin="0.5,0.5" />
+    <StaticBody width="80" radius="100" />
+    <Turret singlechargedshot="true" AutoOperate="true" maxchargetime="5" canbeselected="false" characterusable="false" usefiringoffsetformuzzleflash="true" linkable="true" barrelpos="128,88" firingoffset="15,-120" rotationlimits="180,360" powerconsumption="25500.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="50" reload="0.5" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8" MaxAngleOffset="10" AICurrentTargetPriorityMultiplier="1" retractiondurationmultiplier="5" retractiondelay="0.5">
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot1.ogg" range="10000" type="OnUse" />
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot2.ogg" range="10000" type="OnUse" />
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot3.ogg" range="10000" type="OnUse" />
+      <sound file="Content/Items/Weapons/WEAPONS_laserGunShot4.ogg" range="10000" type="OnUse" />
+      <WeaponIndicator texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="580,422,295,235" origin="0.5, 0.5" />
+      <RailSprite name="LaserCloseSystem_RailSprite" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.011" sourcerect="951,0,73,76" origin="0.5,0.5" />
+      <BarrelSprite name="LaserCloseSystem_BarrelSprite" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.014" sourcerect="330,28,184,236" origin="0.5,0.5" />
+      <ChargeSprite name="LaserCloseSystem_ChargeSprite" chargetarget="25, -10" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.013" sourcerect="920,100,104,111" origin="0.6,1.3" />
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
+      <ChargeSound file="%ModDir%/Content/Sounds/Turrets/激光充能.ogg" range="10000" volume="5" />
+      <MoveSound file="Content/Items/Weapons/RailgunLoop.ogg" />
+      <StartMoveSound file="Content/Items/Weapons/RailgunStart.ogg" />
+      <EndMoveSound file="Content/Items/Weapons/RailgunStop.ogg" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" directional="true" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true" InheritParentIsActive="false">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="0.1,1.0" />
+      </LightComponent>
+      <!--<ParticleEmitter particle="FlareBubbles" scalemin="0.5" scalemax="0.5" particleamount="20" distancemin="0" distancemax="500" velocitymin="0" velocitymax="5"/>-->
+      <ParticleEmitter particle="FlareBubbles" scalemin="1.4" scalemax="1.8" particleamount="14" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+      <ParticleEmitter particle="pulselasermist" particleamount="30" anglemin="-10" anglemax="10" scalemin="1" scalemax="1" distancemin="0" distancemax="250" velocitymin="0" velocitymax="100" />
+      <ParticleEmitter particle="GlowDot" scalemin="4.0" scalemax="4.0" particleamount="20" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0" colormultiplier="255,0,0,255" />
+      <!--<ParticleEmitter particle="chargepulselaser" particleamount="30" scalemin="2.0" scalemax="2.0"/>-->
+      <ParticleEmitterCharge particle="chargepulselaser" particlespersecond="60" scalemin="1.0" scalemax="1.0" anglemax="360" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5000.0" structuredamage="0" force="0.0" camerashake="15.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255" />
+      </StatusEffect>
+      <Upgrade gameversion="0.15.12.0" powerconsumption="1400.0" />
+    </Turret>
+    <aitarget maxsightrange="8000" maxsoundrange="8000" fadeouttime="2" />
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+      <input name="position_in" displayname="connection.turretaimingin" />
+      <input name="trigger_in" displayname="connection.turrettriggerin" />
+      <input name="toggle_light" displayname="connection.togglelight" />
+      <input name="set_light" displayname="connection.setlight" />
+      <input name="set_auto_operate" displayname="connection.setautooperate" />
+      <input name="toggle_auto_operate" displayname="connection.toggleautooperate" />
+    </ConnectionPanel>
+    <SkillRequirementHint identifier="weapons" level="50" />
+  </Item>
+  <Item name="重型激光防御系统装弹器" identifier="LaserCloseSystem_loader" tags="pulselaserequipment,turretammosource,LaserCloseSystem_loader" category="Machine,Weapon" subcategory="subweapons" linkable="true" allowedlinks="LaserCloseSystem" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
+    <SwappableItem canbebought="false" origin="82,358" spawnwithid="LaserCloseSystem_MultipleLasersBox" />
+    <Sprite name="LaserCloseSystem_loader Front" texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.78" sourcerect="0,384,165,358" origin="0.5,0.5" />
+    <BrokenSprite texture="Content/Items/Weapons/Loaders.png" sourcerect="163,563,153,351" origin="0.5,0.5" offset="5,6" depth="0.77" fadein="true" maxcondition="99" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
+    <DecorativeSprite name="LaserCloseSystem_loader Frame Back" texture="Content/Items/Weapons/Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-68" />
+    <LightComponent range="150.0" lightcolor="255,100,100,255" pulsefrequency="12" pulseamount="0.8" powerconsumption="0" IsOn="false" castshadows="true" allowingameediting="false" characterusable="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="0,791,165,358" depth="0.1" origin="0.5,0.5" alpha="1.0" />
+      <StatusEffect type="OnActive" target="This" stackable="false" delay="0.25" IsOn="false" />
+    </LightComponent>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="10" mindeteriorationdelay="60" maxdeteriorationdelay="300" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <StatusEffect type="InWater" target="This" condition="-0.25" />
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="-0.1,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="Equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="6" itempos="83,-260" iteminterval="0,0" itemrotation="0" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.75">
+      <GuiFrame relativesize="0.18,0.23" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+      <Containable items="LaserCloseSystem_MultipleLasersBox,LaserCloseSystem_HeavyLasersBox" />
+      <!-- when the laser is fired, it triggers this statuseffect, causing contained ammunition boxes to spawn new ammo -->
+      <StatusEffect type="OnUse" target="Contained">
+        <RequiredItem items="LaserCloseSystem_MultipleLasersBox,LaserCloseSystem_HeavyLasersBox" type="Contained" />
+        <Use />
+      </StatusEffect>
+      <!-- trigger the flashing light component -->
+      <StatusEffect type="OnUse" target="This,Contained" IsOn="True">
+        <Conditional condition="gt 0.0" TargetContainedItem="true" />
+      </StatusEffect>
+    </ItemContainer>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="condition_out" displayname="connection.conditionout" />
+      <output name="contained_conditions" displayname="connection.ammunitionout" />
+    </ConnectionPanel>
+    <LightComponent lightcolor="219,0,36,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="1.685,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 0" />
+    </LightComponent>
+    <LightComponent lightcolor="255,170,1,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="1.135,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 20" />
+    </LightComponent>
+    <LightComponent lightcolor="246,210,2,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="0.585,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 40" />
+    </LightComponent>
+    <LightComponent lightcolor="252,230,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="0.035,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 60" />
+    </LightComponent>
+    <LightComponent lightcolor="185,214,0,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="-0.515,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gt 80" />
+    </LightComponent>
+    <LightComponent lightcolor="79,184,0,150" castshadows="false" range="0.0" IsOn="true" powerconsumption="0" alphablend="true" allowingameediting="false">
+      <sprite texture="Content/Items/Weapons/Loaders.png" sourcerect="348,921,25,27" origin="-1.065,-4.88" alpha="1.0" />
+      <IsActiveConditional targetcontaineditem="true" conditionpercentage="gte 100" />
+    </LightComponent>
+  </Item>
+  <Item name="重型多重激光盒" identifier="LaserCloseSystem_MultipleLasersBox" scale="0.5" tags="ammobox,LaserCloseSystem_ammobox,LaserCloseSystem_loader" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer primary="LaserCloseSystem_loader" mincondition="1" />
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.04" />
+    <Price baseprice="650" minleveldifficulty="10">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.2" />
+      <Price storeidentifier="TLarmory" multiplier="1.0" minavailable="1" maxavailable="2" sold="true" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="weapons" level="80" />
+      <RequiredItem identifier="fulgurium" />
+      <RequiredItem identifier="AluminumAlloy" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="Triple_BasePropellant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="25">
+      <RequiredSkill identifier="weapons" level="80" />
+      <RequiredItem identifier="fulgurium" />
+      <RequiredItem identifier="titaniumaluminiumalloy" />
+      <RequiredItem identifier="Triple_BasePropellant" />
+      <RequiredItem tag="LaserCloseSystem_ammobox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.LaserCloseSystem_ammobox" header="fabricationheader.LaserCloseSystem_ammobox" defaultitem="LaserCloseSystem_MultipleLasersBox" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.54" sourcerect="912,921,111,102" origin="0.5,0.5" />
+    <Body width="90" height="72" density="30" />
+    <Holdable canbecombined="true" removeoncombined="false" slots="RightHand,LeftHand" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatValue stattype="MovementSpeed" value="-0.2" />
+    </Holdable>
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" condition="-10" disabledeltatime="true">
+        <RequiredItem items="LaserCloseSystem_MultipleLasers" type="Contained" />
+        <Conditional condition="gt 0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="LaserCloseSystem_MultipleLasers" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <Containable items="LaserCloseSystem_MultipleLasers" />
+    </ItemContainer>
+  </Item>
+  <Item name="多重激光9" identifier="LaserCloseSystem_MultipleLasers" nameidentifier="pulselaserbolt" category="Weapon" scale="0.5" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="0,0,1,1" depth="0.55" />
+    <Body width="170" height="10" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" spread="4" staticspread="true" hitscancount="9" damagedoors="true" penetration="1" maxtargetstohit="4">
+      <ParticleEmitter particle="tracerpulselaser" particleamount="1" colormultiplier="0,80,225,255" velocitymin="0" velocitymax="0" />
+      <Attack structuredamage="100" targetforce="250" itemdamage="100" severlimbsprobability="1.0" penetration="1">
+        <Affliction identifier="explosiondamage" strength="35" />
+        <Affliction identifier="stun" strength="1" />
+        <Affliction identifier="plasmaCauterization" strength="10" />
+        <Affliction identifier="plasmaCauterization" strength="25" probability="0.2" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
+        <ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="255,200,225,180" />
+        <ParticleEmitter particle="FlareBubbles" particleamount="3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+        <Explosion range="100.0" ballastfloradamage="500" structuredamage="30" levelwalldamage="50" itemdamage="200" force="20" flames="false" smoke="false" sparks="true" underwaterbubble="false" flashcolor="255,0,0,255">
+          <Affliction identifier="burn" strength="160" />
+          <Affliction identifier="stun" strength="4" />
+          <Affliction identifier="plasmaCauterization" strength="15" />
+          <Affliction identifier="plasmaCauterization" strength="25" probability="0.1" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="重型聚能激光盒" identifier="LaserCloseSystem_HeavyLasersBox" health="4" scale="0.5" tags="ammobox,LaserCloseSystem_ammobox,LaserCloseSystem_loader,LaserCloseSystem_HeavyLasersBox" category="Weapon" linkable="true" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <PreferredContainer secondary="wreckammoboxcontainer" amount="1" spawnprobability="0.01" />
+    <Price baseprice="1000" minleveldifficulty="15">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.2" />
+      <Price storeidentifier="TLarmory" multiplier="1.0" minavailable="1" maxavailable="2" sold="true" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="Steel_TL" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="40">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="fulgurium" amount="4" />
+      <RequiredItem identifier="physicorium" amount="4" />
+      <RequiredItem identifier="Steel_TL" amount="2" />
+      <RequiredItem identifier="LaserCloseSystem_MultipleLasersBox" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="fulgurium" amount="4" />
+      <RequiredItem identifier="physicorium" amount="4" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="2" />
+      <RequiredItem tag="LaserCloseSystem_HeavyLasersBox" mincondition="0.0" maxcondition="0.9" usecondition="false" description="fabricationdescription.LaserCloseSystem_HeavyLasersBox" header="fabricationheader.LaserCloseSystem_HeavyLasersBox" defaultitem="LaserCloseSystem_HeavyLasersBox" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" depth="0.54" sourcerect="790,921,111,102" origin="0.5,0.5" />
+    <Body width="90" height="72" density="30" />
+    <Holdable canbecombined="true" removeoncombined="false" slots="RightHand,LeftHand" holdpos="0,-30" handle1="0,-30" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatValue stattype="MovementSpeed" value="-0.2" />
+    </Holdable>
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <RequiredItem items="LaserCloseSystem_HeavyLasers" type="Contained" />
+        <Conditional condition="gt 0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="LaserCloseSystem_HeavyLasers" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <Containable items="LaserCloseSystem_HeavyLasers" />
+    </ItemContainer>
+  </Item>
+  <Item name="重型激光" identifier="LaserCloseSystem_HeavyLasers" nameidentifier="pulselaserbolt" category="Weapon" scale="0.5" sonarsize="2" hideinmenus="true">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Turrets/LaserCloseSystem.png" sourcerect="0,0,1,1" depth="0.55" />
+    <Body width="250" height="100" density="15" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" spread="1" staticspread="true" hitscancount="8" damagedoors="true" penetration="1.5" maxtargetstohit="10">
+      <ParticleEmitter particle="tracerpulselaser" particleamount="1" colormultiplier="255,0,0,200" velocitymin="0" velocitymax="0" scalemultiplier="1,5" LifeTimeMultiplier="20" />
+      <Attack structuredamage="800" targetforce="500" itemdamage="800" severlimbsprobability="1.0" penetration="1.5">
+        <Affliction identifier="explosiondamage" strength="125" />
+        <Affliction identifier="stun" strength="20" />
+        <Affliction identifier="plasmaCauterization" strength="30" />
+        <Affliction identifier="plasmaCauterization" strength="60" probability="0.2" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
+        <ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="255,200,225,180" />
+        <ParticleEmitter particle="FlareBubbles" particleamount="3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+        <Explosion range="250.0" ballastfloradamage="500" structuredamage="300" levelwalldamage="500" itemdamage="200" force="200" flames="false" smoke="false" sparks="true" underwaterbubble="false" flashcolor="255,0,0,255">
+          <Affliction identifier="burn" strength="320" />
+          <Affliction identifier="stun" strength="10" />
+          <Affliction identifier="plasmaCauterization" strength="50" />
+          <Affliction identifier="plasmaCauterization" strength="60" probability="0.1" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget,Character,Limb">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,255,250" />
+        <Hook name="TLLuaFunction.LimbShattering" NeedHitLimb="Head" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+</Items>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!--注射器Buff-->
+  <Affliction name="氨基复原酸 TG-R1 注入" identifier="TG-R1Init" type="TL_PumpMaterial_Buff" limbspecific="false" indicatorlimb="Torso" hideiconafterdelay="true" showiconthreshold="0" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true">
+    <Description textidentifier="afflictiondescription.TG-R1Init" target="Self" />
+    <Description textidentifier="afflictiondescription.TG-R1Init" target="OtherCharacter " />
+    <Effect minstrength="0" maxstrength="10" strengthchange="-1">
+      <StatusEffect target="Character">
+        <ReduceAffliction type="damage" amount="1.5" />
+        <ReduceAffliction type="infection" amount="0.5" />
+      </StatusEffect>
+      <!--iconcolors="94,54,95;163,73,164;200,191,231"-->
+    </Effect>
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="895,8,137,133" origin="0.5,0.5" />
+  </Affliction>
+  <!--辅助性质aff-->
+  <last name="绝境逢生" isbuff="false" identifier="last" description="只要到达那个地方..." type="last" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="22" affectmachines="false" indicatorlimb="Torso">
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1852,9,137,133" origin="0,0" />
+    <Effect minstrength="0" maxstrength="22" multiplybymaxvitality="true" strengthchange="-1" minspeedmultiplier="1.5" maxspeedmultiplier="1.5" minvitalitydecrease="-11" maxvitalitydecrease="-11" resistancefor="last" minresistance="1" maxresistance="1">
+      <AbilityFlag flagtype="AlwaysStayConscious" />
+    </Effect>
+  </last>
+  <last name="绝境逢生" isbuff="true" identifier="last_B" description="你觉得你可以杀死我？" type="last_B" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="20" affectmachines="false" indicatorlimb="Torso">
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1852,9,137,133" origin="0,0" />
+    <Effect minstrength="0" maxstrength="30" multiplybymaxvitality="true" strengthchange="-1" minspeedmultiplier="1.5" maxspeedmultiplier="1.5" minvitalitydecrease="-400" maxvitalitydecrease="-500">
+      <AbilityFlag flagtype="AlwaysStayConscious" />
+    </Effect>
+  </last>
+  <Affliction name="A稳定剂+" identifier="stabilozineeffectTL_Pro" type="resistance" isbuff="true" limbspecific="false" indicatorlimb="Torso" maxstrength="120" affectmachines="false" MedicalSkillGain="0.01">
+    <Description textidentifier="afflictiondescription.stabilozineeffectTL_Pro.self" target="Self" />
+    <Description textidentifier="afflictiondescription.stabilozineeffectTL_Pro" target="OtherCharacter " />
+    <Effect minstrength="0" maxstrength="120" strengthchange="-0.6">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <ReduceAffliction type="poison" amount="3" />
+        <ReduceAffliction type="Paralysis" amount="10" />
+      </StatusEffect>
+    </Effect>
+    <Icon texture="Content/UI/TalentsIcons4.png" sourcerect="896,256,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="烧伤膏涂敷" identifier="BurnOintment_ointmented" description="" healableinmedicalclinic="false" targets="human" limbspecific="true" maxstrength="100" type="resistance" showiconthreshold="1" showinhealthscannerthreshold="2000" isbuff="true">
+    <Description textidentifier="afflictiondescription.BurnOintment_ointmented" target="Self" />
+    <Description textidentifier="afflictiondescription.BurnOintment_ointmented" target="OtherCharacter " />
+    <Effect minstrength="0" maxstrength="100" strengthchange="-0.6">
+      <StatusEffect target="Limb">
+        <ReduceAffliction type="burn" amount="2" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Content/Afflictions/AfflictionIcons.png" origin="0.5,0.5" sourcerect="512,385,128,128" />
+  </Affliction>
+  <!--伤害性质aff-->
+  <AcidBurn name="高浓酸液烧伤" identifier="TL_acidburn" type="damage_TL" limbspecific="true" maxstrength="10" burnoverlayalpha="0" causeofdeathdescription="causeofdeathdescription.damage" selfcauseofdeathdescription="self_causeofdeathdescription.damage" healcostmultiplier="4" WeaponsSkillGain="0.1" MedicalSkillGain="0.1">
+    <Description textidentifier="afflictiondescription.acidburn.low" minstrength="0" maxstrength="3" />
+    <Description textidentifier="afflictiondescription.acidburn" minstrength="3" maxstrength="6" />
+    <Description textidentifier="afflictiondescription.acidburn.high" minstrength="6" maxstrength="10" />
+    <Effect minstrength="0" maxstrength="3" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="0.2" strengthchange="-0.01" />
+    <Effect minstrength="3" maxstrength="6" multiplybymaxvitality="true" minvitalitydecrease="0.2" maxvitalitydecrease="0.4" strengthchange="-0.004">
+      <StatusEffect target="Limb" interval="5" disabledeltatime="true">
+        <Conditional IsHuman="true" />
+        <Affliction identifier="infection" amount="5" probability="0.015" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="6" maxstrength="10" multiplybymaxvitality="true" minvitalitydecrease="0.4" maxvitalitydecrease="0.55" strengthchange="-0.001">
+      <StatusEffect target="Limb" interval="5" disabledeltatime="true" ConditionalComparison="And">
+        <Conditional IsHuman="true" />
+        <Affliction identifier="infection" amount="8" probability="0.03" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/CommandUIBackground.png" sourcerect="640,768,128,128" color="100,0,0,255" origin="0,0" />
+  </AcidBurn>
+  <!--stundebuff_TL name="眩晕削弱" isbuff="false" identifier="stundebuff_TL" description="" type="stundebuff_TL" limbspecific="false" showinhealthscannerthreshold="10000" showiconthreshold="10000" showicontoothersthreshold="10000" maxstrength="5" affectmachines="True" indicatorlimb="Torso">
+		<Effect minstrength="0" maxstrength="5" strengthchange="-1" resistancefor="stun" minresistance="-10" maxresistance="-10" />
+	</stundebuff_TL>
+	<PT_TL name="伤害减免" isbuff="false" identifier="PT_TL" description="" type="PT_TL" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="5" affectmachines="True" indicatorlimb="Torso">
+		<Effect minstrength="0" maxstrength="5" strengthchange="-1" resistancefor="burn,damage" minresistance="0.2" maxresistance="0.2" />
+	</PT_TL-->
+  <xibao name="细胞崩解" isbuff="false" identifier="alcellruin" description="你因部分细胞永久失去了活性而变得更加脆弱了" type="alcellruin" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="30" affectmachines="false" indicatorlimb="Torso">
+    <Effect minstrength="0" maxstrength="29" strengthchange="0" resistancefor="damage,burn,poison" minresistance="0" maxresistance="-1.16" />
+    <Effect minstrength="29" maxstrength="30" strengthchange="0" resistancefor="damage,burn,poison" minresistance="-1.16" maxresistance="-250" />
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1526,10,128,128" origin="0,0" />
+  </xibao>
+  <kill name="华强一怒" isbuff="false" identifier="kill" description="撒日朗！" type="kill" limbspecific="false" causeofdeathdescription="被华强剁了" selfcauseofdeathdescription="被华强剁了" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="10" affectmachines="true" indicatorlimb="Torso">
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1678,27,136,106" origin="0,0" />
+    <Effect minstrength="0" maxstrength="10" strengthchange="0" minvitalitydecrease="0" maxvitalitydecrease="200" multiplybymaxvitality="true" />
+  </kill>
+  <!--killnotreal name="华强一怒" isbuff="false" identifier="kill_notreal" description="" type="kill" causeofdeathdescription="被华强剁了" selfcauseofdeathdescription="被华强剁了" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="200" affectmachines="true" indicatorlimb="Torso">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1678,27,136,106" origin="0,0" />
+		<Effect minstrength="0" maxstrength="200" strengthchange="-0.5" minvitalitydecrease="0" maxvitalitydecrease="2" multiplybymaxvitality="true" />
+	</killnotreal-->
+  <Plasma_cauterization name="电浆灼烧" isbuff="false" identifier="plasmaCauterization" description="" type="damage_TL" causeofdeathdescription="被电浆灼烧致死" selfcauseofdeathdescription="被电浆灼烧致死" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="100" affectmachines="true" indicatorlimb="Torso">
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1060,8,129,129" origin="0.5,0.5" />
+    <Description textidentifier="afflictiondescription.plasmaCauterization.low.Self" minstrength="0" maxstrength="50" target="Self" />
+    <Description textidentifier="afflictiondescription.plasmaCauterization.low" minstrength="0" maxstrength="50" target="OtherCharacter" />
+    <Description textidentifier="afflictiondescription.plasmaCauterization" minstrength="50" maxstrength="100" target="OtherCharacter" />
+    <Description textidentifier="afflictiondescription.plasmaCauterization.Self" minstrength="50" maxstrength="100" target="Self" />
+    <Effect minstrength="0" maxstrength="100" strengthchange="-0.5" minvitalitydecrease="0" maxvitalitydecrease="0.5" multiplybymaxvitality="true" minspeedmultiplier="1.0" maxspeedmultiplier="0.6">
+      <StatusEffect target="Character">
+        <Affliction identifier="burn" amount="0.1" />
+      </StatusEffect>
+    </Effect>
+  </Plasma_cauterization>
+  <!--kill_button name="自杀！" isbuff="false" identifier="kill_button" description="撒日朗！有人自杀啦！" type="killself" limbspecific="false" causeofdeathdescription="自杀!" selfcauseofdeathdescription="自杀!" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="10" affectmachines="true" indicatorlimb="Torso">
+		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1678,27,136,106" origin="0,0" />
+		<Effect minstrength="0" maxstrength="10" strengthchange="0" minvitalitydecrease="0" maxvitalitydecrease="4" multiplybymaxvitality="true" />
+	</kill_button>
+	<InternalDamage name="损害" identifier="damage_TL" description="" type="damage_TL" causeofdeathdescription="已死亡！" selfcauseofdeathdescription="" limbspecific="false" maxstrength="200" damageoverlayalpha="1" WeaponsSkillGain="1.0">
+		<Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="2" />
+		<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,0,128,128" color="195,136,60,255" origin="0,0" />
+	</InternalDamage>
+	<Affliction name="减速" identifier="Jiansu_TL" description="" type="jiansu_TL" limbspecific="false" causeofdeathdescription="" selfcauseofdeathdescription="" showinhealthscannerthreshold="1000" showiconthreshold="1000" showicontoothersthreshold="1000" maxstrength="20" affectmachines="True" indicatorlimb="Torso" healcostmultiplier="0">
+		<Effect minstrength="0" maxstrength="5" strengthchange="-1">
+			<StatValue stattype="Movementspeed" minvalue="-0.10" maxvalue="-0.10" />
+		</Effect>
+		<Effect minstrength="5" maxstrength="20" strengthchange="-1">
+			<StatValue stattype="Movementspeed" minvalue="-0.25" maxvalue="-0.80" />
+		</Effect>
+	</Affliction-->
+	<InternalDamage name="身体损伤" identifier="explosiondamage_TLAI" description="" type="damage_TL" causeofdeathdescription="承受过量伤害而死！" selfcauseofdeathdescription="" limbspecific="false" maxstrength="200" damageoverlayalpha="1" WeaponsSkillGain="1.0">
+		<Description textidentifier="afflictiondescription.explosiondamage.low" minstrength="0" maxstrength="40" />
+		<Description textidentifier="afflictiondescription.explosiondamage" minstrength="40" maxstrength="200" />
+		<Effect minstrength="0" maxstrength="200" strengthchange="-0.5" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="2" />
+		<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,0,128,128" color="195,136,60,255" origin="0,0" />
+	</InternalDamage>
+  <Affliction name="脓胀病毒感染" identifier="bingdu_TL" description="" type="poison" limbspecific="false" causeofdeathdescription="病毒侵入了大脑" selfcauseofdeathdescription="病毒侵入了大脑" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="100" affectmachines="false" indicatorlimb="Torso" healcostmultiplier="11" damageoverlayalpha="2">
+    <Effect minstrength="0" maxstrength="99" strengthchange="0">
+      <StatValue stattype="MaximumHealthMultiplier" minvalue="-0.0" maxvalue="-0.99" />
+    </Effect>
+    <Effect minstrength="99" maxstrength="100" strengthchange="0" tag="virus">
+      <StatValue stattype="MaximumHealthMultiplier" minvalue="-0.99" maxvalue="-0.99" />
+      <StatusEffect target="NearbyCharacters" range="800" interval="1" disabledeltatime="true" stackable="false" ConditionalComparison="And">
+        <Conditional hastag="neq virus" />
+        <Affliction identifier="bingdu_TL" amount="2" probability="0.1" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true" delay="30">
+        <Affliction identifier="viral_dmg_TL" strength="10" multiplybymaxvitality="true" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="Character">
+        <SpawnItem identifier="Virus_transmission" spawnposition="This" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1220,10,128,128" origin="0,0" />
+  </Affliction>
+  <Affliction name="病毒导致死亡（不显示）" identifier="viral_dmg_TL" description="" type="poison" causeofdeathdescription="病毒彻底侵入大脑导致了死亡" selfcauseofdeathdescription="病毒彻底侵入大脑导致了死亡" limbspecific="false" indicatorlimb="Torso" maxstrength="200" showinhealthscannerthreshold="1000" showiconthreshold="1000" showicontoothersthreshold="1000">
+    <Effect minstrength="0" maxstrength="200" multiplybymaxvitality="true" minvitalitydecrease="0" maxvitalitydecrease="2" />
+  </Affliction>
+  <Affliction name="一口炫了" identifier="tl_consumed" target="human" description="你能看到我喵？你不应该已经死了吗？" type="consumed" limbspecific="false" indicatorlimb="Torso" causeofdeathdescription="被巨兽当小零食炫啦" selfcauseofdeathdescription="你被巨兽当小零食炫啦" activationthreshold="0" showinhealthscannerthreshold="1" showiconthreshold="1" showicontoothersthreshold="1" maxstrength="1">
+    <Effect minstrength="0.1" maxstrength="1" minvitalitydecrease="0" maxvitalitydecrease="2" multiplybymaxvitality="true" strengthchange="0.1">
+      <StatusEffect target="Character" comparison="and">
+        <Conditional speciesname="human" />
+        <Affliction identifier="Bleeding" strength="450" />
+      </StatusEffect>
+      <StatusEffect type="OnDeath" target="Character">
+        <RemoveCharacter />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,512,128,128" color="195,136,60,255" origin="0,0" />
+  </Affliction>
+  <!--纳米侵蚀，逐渐增加并侵蚀到身体内部。
+    早期（侵蚀刚开始少许）：降低身体部分抗性（可自动恢复），注：没有崩解那么狠
+    中期（侵蚀进入骨骼和部分内脏）：无法自己恢复并逐渐降低血量和移动速度，
+    后期（侵蚀完全蔓延至身体内部和外部）：略微增加流血效果，无法移动-->
+  <qinshi name="纳米侵蚀" identifier="nmqs" description="" type="nmqs" limbspecific="false" showinhealthscannerthreshold="1" showiconthreshold="10" showicontoothersthreshold="1" maxstrength="100" healcostmultiplier="8" affectmachines="false" indicatorlimb="Torso">
+    <Effect minstrength="0" maxstrength="20" strengthchange="-1" resistancefor="damage,poison,burn" minresistance="0" maxresistance="-0.20" minvitalitydecrease="0" maxvitalitydecrease="0.1" minspeedmultiplier="1" maxspeedmultiplier="0.5" multiplybymaxvitality="true" />
+    <Effect minstrength="20" maxstrength="40" strengthchange="-0.5" resistancefor="damage,poison,burn" minresistance="-0.20" maxresistance="-0.40" minvitalitydecrease="0.1" maxvitalitydecrease="0.3" minspeedmultiplier="0.5" maxspeedmultiplier="0.3" multiplybymaxvitality="true" />
+    <Effect minstrength="40" maxstrength="60" strengthchange="1" resistancefor="damage,poison,burn" minresistance="-0.40" maxresistance="-0.80" minvitalitydecrease="0.3" maxvitalitydecrease="0.6" minspeedmultiplier="0.3" maxspeedmultiplier="0.1" multiplybymaxvitality="true" />
+    <Effect minstrength="60" maxstrength="80" strengthchange="2" resistancefor="damage,poison,burn" minresistance="-0.80" maxresistance="-1.2" minvitalitydecrease="0.6" maxvitalitydecrease="1.3" minspeedmultiplier="0.1" maxspeedmultiplier="0.0" multiplybymaxvitality="true" />
+    <Effect minstrength="80" maxstrength="100" strengthchange="4" resistancefor="damage,poison,burn" minresistance="-1.2" maxresistance="-2" minvitalitydecrease="1.3" maxvitalitydecrease="2" minspeedmultiplier="0.0" maxspeedmultiplier="0.0" multiplybymaxvitality="true" />
+    <Description textidentifier="afflictiondescription.qinshi.low" minstrength="0" maxstrength="20" />
+    <Description textidentifier="afflictiondescription.qinshi.m" minstrength="20" maxstrength="40" />
+    <Description textidentifier="afflictiondescription.qinshi.h" minstrength="40" maxstrength="60" />
+    <Description textidentifier="afflictiondescription.qinshi.d" minstrength="60" maxstrength="100" />
+    <icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="1377,7,128,128" origin="0,0" />
+  </qinshi>
+  <Affliction identifier="01BUFF" description="" isbuff="true" type="01BUFF" limbspecific="false" indicatorlimb="Head" showiconthreshold="1000" showicontoothersthreshold="40" showinhealthscannerthreshold="20" karmachangeonapplied="0" maxstrength="1" affectmachines="false">
+    <Effect minstrength="0" maxstrength="1" strengthchange="-1">
+      <StatValue stattype="walkingSpeed" value="0.1" />
+      <StatValue stattype="SwimmingSpeed" value="0.6" />
+      <StatValue stattype="RangedSpreadReduction" value="0.2" />
+      <StatValue stattype="TeamAttackMultiplier" value="-1" />
+    </Effect>
+  </Affliction>
+	<Affliction name="模组被覆盖" identifier="TL_overridWarning" description="" type="TL_overridWarning" limbspecific="false" indicatorlimb="Head" showiconthreshold="0" showicontoothersthreshold="0" showinhealthscannerthreshold="0" karmachangeonapplied="0" maxstrength="1" affectmachines="false" iconcolors="255,255,255">
+		<icon texture="%ModDir%/Content/Afflictions/overridWarning.png" sourcerect="0,0,1024,1024" origin="0,0" />
+	</Affliction>
+</Afflictions>

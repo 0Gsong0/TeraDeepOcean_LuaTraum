@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="单手冲锋盾牌" identifier="TL_HurugeeShield" HideConditionBar="true" category="Weapon,Equipment" tags="smallitem" health="100" cargocontaineridentifier="metalcrate" allowasextracargo="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbymonsters="true" damagedbyrepairtools="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1" scale="0.4" impactsoundtag="impact_metal_heavy">
+    <Price baseprice="250" >
+      <Price storeidentifier="merchantoutpost" multiplier="0.8" />
+      <Price storeidentifier="merchantcity" multiplier="0.7" sold="false"/>
+      <Price storeidentifier="merchantresearch" multiplier="2.1" sold="false"/>
+      <Price storeidentifier="merchantmilitary" multiplier="1.4" sold="false"/>
+      <Price storeidentifier="merchantmine" multiplier="0.7" sold="false"/>
+	  <Price storeidentifier="TLarmory" multiplier="1.2" minavailable="1" />
+    </Price>
+	  <Fabricate suitablefabricators="fabricator" requiredtime="10">
+		  <RequiredSkill identifier="mechanical" level="50" />
+		  <RequiredItem identifier="steel" amount="3" />
+		  <RequiredItem identifier="plastic" amount="2" />
+	  </Fabricate>
+	  <Deconstruct time="20">
+		  <Item identifier="steel" amount="1"/>
+	  </Deconstruct>
+    <Sprite texture="weapons2.png" sourcerect="220,334,43,123" origin="0.5,0.5" depth="0.55" />
+    <Body width="80" height="200" density="10.1" />
+    <Holdable slots="Any,LeftHand" aimpos="48,-24" holdangle="5" holdpos="36,-24" handle2="-20,-5" controlpose="true" blocksplayers="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="This" interval="0.1" IsActive="true" reloadtimer="0.13" setvalue="true">
+        <SpawnItem identifiers="epicarsenal.mudraptorshellcollider" spawnposition="ThisInventory" />
+        <Conditional InWater="true" />
+        <Conditional Speed="lt 4.0" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="This" displaysidebysidewhenlinked="false" comparison="and">
+        <Conditional displaysidebysidewhenlinked="true" />
+        <Conditional targetitemcomponent="RangedWeapon" reloadtimer="lt 0.13" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" reloadtimer="0.13" setvalue="true">
+        <Conditional displaysidebysidewhenlinked="true" />
+      </StatusEffect>
+      <StatusEffect type="OnDamaged" target="This">
+        <particleemitter particle="brownchunks" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
+        <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/HitArmor2.ogg" range="800" />
+        <Explosion range="150.0" force="3.0" showeffects="false" camerashake="4.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <particleemitter particle="brownchunks" drawontop="true" particleamount="50" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="30" scalemin="0.2" scalemax="0.7" />
+        <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" selectionmode="random" />
+        <Sound file="Content/Sounds/Damage/HitArmor2.ogg" range="800" />
+        <Explosion range="150.0" force="4.0" showeffects="false" camerashake="8.0" />
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon reload="0.13" reloadnoskill="0.13" holdtrigger="true" barrelpos="40,0" combatPriority="10">
+      <StatusEffect type="OnUse" target="This" displaysidebysidewhenlinked="true" reloadtimer="0.13" setvalue="true">
+        <Sound file="Content/Sounds/Footsteps/Monsters/FootstepMudraptor2.ogg" range="800" volume="2.0" />
+        <Explosion range="200.0" force="-4.0" showeffects="false" camerashake="6.0" />
+      </StatusEffect>
+      <RequiredItems items="epicarsenal.mudraptorshellcollider" type="Contained" />
+    </RangedWeapon>
+    <ItemContainer canbeselected="false" drawinventory="false" capacity="1" msg="ItemMsgInteractSelect">
+      <Containable tags="epicarsenal.mudraptorshellcollider" />
+    </ItemContainer>
+  </Item>
+	<Item name="重型冲锋盾牌" identifier="TL_HurugeeShield_B" HideConditionBar="true" category="Weapon,Equipment" tags="smallitem" health="350" cargocontaineridentifier="metalcrate" allowasextracargo="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbymonsters="true" damagedbyrepairtools="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1" scale="1" impactsoundtag="impact_metal_heavy">
+		<Price baseprice="590" >
+			<Price storeidentifier="merchantoutpost" multiplier="0.8" sold="false"/>
+			<Price storeidentifier="merchantcity" multiplier="0.7" sold="false"/>
+			<Price storeidentifier="merchantresearch" multiplier="1.8" sold="false"/>
+			<Price storeidentifier="merchantmilitary" multiplier="1.4" sold="false"/>
+			<Price storeidentifier="merchantmine" multiplier="0.7" sold="false"/>
+			<Price storeidentifier="TLarmory" multiplier="1.5" minavailable="1" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="30">
+			<RequiredSkill identifier="mechanical" level="60" />
+			<RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+			<RequiredItem identifier="Steel_TL" amount="1" />
+			<RequiredItem identifier="TL_HurugeeShield" amount="1" />
+		</Fabricate>
+		<Deconstruct time="20">
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<Sprite texture="weapons2.png" sourcerect="220,334,43,123" origin="0.5,0.5" depth="0.55" />
+		<Body width="100" height="350" density="10.1" />
+		<Holdable slots="Any,LeftHand" aimpos="48,-24" holdangle="5" holdpos="36,-24" handle2="-20,-5" controlpose="true" blocksplayers="true" msg="ItemMsgPickUpSelect">
+			<StatusEffect type="OnActive" target="This" interval="0.1" IsActive="true" reloadtimer="0.13" setvalue="true">
+				<SpawnItem identifiers="epicarsenal.mudraptorshellcollider" spawnposition="ThisInventory" />
+				<Conditional InWater="true" />
+				<Conditional Speed="lt 4.0" />
+			</StatusEffect>
+			<StatusEffect type="OnActive" target="This" displaysidebysidewhenlinked="false" comparison="and">
+				<Conditional displaysidebysidewhenlinked="true" />
+				<Conditional targetitemcomponent="RangedWeapon" reloadtimer="lt 0.13" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This" reloadtimer="0.13" setvalue="true">
+				<Conditional displaysidebysidewhenlinked="true" />
+			</StatusEffect>
+			<StatusEffect type="OnDamaged" target="This">
+				<particleemitter particle="brownchunks" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
+				<Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" selectionmode="random" />
+				<Sound file="Content/Sounds/Damage/HitArmor2.ogg" range="800" />
+				<Explosion range="150.0" force="3.0" showeffects="false" camerashake="4.0" />
+			</StatusEffect>
+			<StatusEffect type="OnBroken" target="This">
+				<particleemitter particle="brownchunks" drawontop="true" particleamount="50" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="30" scalemin="0.2" scalemax="0.7" />
+				<Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" selectionmode="random" />
+				<Sound file="Content/Sounds/Damage/HitArmor2.ogg" range="800" />
+				<Explosion range="150.0" force="4.0" showeffects="false" camerashake="8.0" />
+				<Remove />
+			</StatusEffect>
+		</Holdable>
+		<RangedWeapon weapondamagemodifier="2" reload="0.2" reloadnoskill="0.3" holdtrigger="true" barrelpos="40,0" combatPriority="10">
+			<StatusEffect type="OnUse" target="This" displaysidebysidewhenlinked="true" reloadtimer="0.13" setvalue="true">
+				<Sound file="Content/Sounds/Footsteps/Monsters/FootstepMudraptor2.ogg" range="800" volume="2.0" />
+				<Explosion range="200.0" force="-4.0" showeffects="false" camerashake="6.0" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" stackable="false" delay="5">
+				<Remove />
+			</StatusEffect>
+			<RequiredItems items="epicarsenal.mudraptorshellcollider" type="Contained" />
+		</RangedWeapon>
+		<ItemContainer canbeselected="false" drawinventory="false" capacity="1" msg="ItemMsgInteractSelect">
+			<Containable tags="epicarsenal.mudraptorshellcollider" />
+		</ItemContainer>
+	</Item>
+  
+</Items>

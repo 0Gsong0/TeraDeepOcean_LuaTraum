@@ -1,0 +1,38 @@
+材料内容：
+硬化金属：钢筋/钛/铝合金
+高密度金属：钢筋/铜/铅/铝合金
+
+<!普通材料!>
+发射药稳定剂（DNT）Stabilizers_DNT x2：闪光粉x0.5，硫酸x0.25，某种植物（待定）
+铝合金 AluminumAlloy ：铝x2， 镁/硅/铜，钢筋
+普通三基发射药 Triple_BasePropellant x2：
+	加工台：活性纤维x7，硝化甘油x0.5，塑料x4
+	打印机：活性纤维x5，硝化甘油x0.25，打印耗材x0.1
+无水氢氟强酸 sulphuricacid_Pro
+再生输注液-容器瓶 TL_PumpMaterial_Bottle
+复合果实 Compositefruit
+<!高级材料!>
+CR-9 赤灰炸药 HighEnergyC4：
+	打印机：泰拉合金x2，稳定剂x0.5，打印耗材x0.5，Ic4x6，挥发雷素燃料棒x3
+高级三基发射药 Triple_BasePropellant_Pro x2：
+	加工台：普通发射药x2，活性纤维x20，稳定剂，铝合金x8，钛铝合金x4
+	打印机：普通发射药x2，活性纤维x7，稳定剂x0.5，打印耗材x0.5，钛铝合金x2
+打印耗材 PrintingMaterials x1：
+	加工台：铝合金x2，硬化金属x6，工程塑料x1，铀x2
+	打印机：钛铝合金x2，硬化金属x3，铀x2，打印耗材x0.5
+泰拉工程塑料 TL_EngineeringPlastics x2：
+	加工台：钛铝合金x4，高密度金属x7，塑料x7
+	打印机：钛铝合金，高密度金属x4，塑料x4，打印塑形耗材x0.1
+泰拉合金 Steel_TL 
+	打印机：钛铝合金x4，铝合金x2，打印材料x0.5，钢筋x4
+泰拉科技安全密钥 TL_Keys：
+	能源塔x1
+	测试机任务
+泰拉数据蓝图 TL_blueprint
+辐射脑珠 Radiation_ball：
+	无法制作
+	每 30 秒会向 15 米内的附近角色发射一次精神病6，辐射病20
+	可被造物运输箱收容
+纳米凝胶 nanogel
+破坏性纳米凝胶 nanogel_cr：
+	纳米凝胶，异形血浆，fpga，打印塑形耗材x0.1

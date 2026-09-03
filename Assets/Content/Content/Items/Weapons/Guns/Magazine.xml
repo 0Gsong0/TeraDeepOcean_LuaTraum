@@ -1,0 +1,1870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--也许该添加专属工作台-->
+  <!--分离-->
+  <!--AK101普通-->
+  <Item name="AK 101 5.56×45mm NATO 弹夹" identifier="AK101_Magazine_nor" subcategory="TL_separatists" scale="0.08" category="weapon" maxstacksize="10" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,magazine,handheldammo,AK101556,556NATO" impactsoundtag="impact_metal_light" health="35">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" depth="0.56" sourcerect="383,501,211,369" origin="0.5,0.5" />
+    <Body width="80" height="107" density="10" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="556NATO_B" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="556NATO_B" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="556NATO_B" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Price baseprice="250" buyingpricemultiplier="1" minleveldifficulty="0">
+      <Price locationtype="outpost" multiplier="1.5" minavailable="0" maxavailable="5" />
+      <Price locationtype="city" multiplier="1.35" minavailable="1" maxavailable="5" />
+      <Price locationtype="research" multiplier="1.25" sold="false" />
+      <Price locationtype="military" multiplier="1.10" minavailable="2" maxavailable="6" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" amount="4">
+      <RequiredItem identifier="plastic" amount="4" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" amount="2" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" amount="2" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="4" amount="2">
+      <RequiredItem tag="556NATO" mincondition="0.0" maxcondition="90" amount="2" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" mincondition="1" />
+      <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" outcondition="1" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" mincondition="1" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="plastic" amount="1" />
+      <Item identifier="copper" mincondition="0.9" />
+    </Deconstruct>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+	<Item name="5.56×45mmNATO" identifier="556NATO_B" subcategory="bullet" category="Equipment" interactthroughwalls="true" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullet.png" sourcerect="33,100,57,15" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="1" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,175,115,175" scalemultiplier="1,0.6" />
+			<Attack structuredamage="1" targetforce="1" itemdamage="9" penetration="0.2" severlimbsprobability="0.3">
+				<Affliction identifier="gunshotwound" strength="18" />
+				<Affliction identifier="gunshotwound" strength="10" probability="0.25" />
+				<Affliction identifier="bleeding" strength="18" />
+				<Affliction identifier="bleeding" strength="6" probability="0.2" />
+				<Affliction identifier="stun" strength="0.02" />
+				<Affliction identifier="stun" strength="0.15" probability="0.1" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+				<ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="600" velocitymax="800" scalemin="0.75" scalemax="1" drawontop="true" colormultiplier="255,175,115,175" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
+				<Remove />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	<!--AK103-->
+	<Item name="AK 103 7.62×39mm 普通弹夹" identifier="AK103_Magazine_nor" subcategory="TL_separatists" scale="0.08" category="weapon" maxstacksize="10" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,magazine,handheldammo,AK103762,762mm" impactsoundtag="impact_metal_light" health="35">
+		<PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+		<InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" depth="0.56" sourcerect="383,501,211,369" origin="0.5,0.5" />
+		<Body width="80" height="107" density="10" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="556NATO_B" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="556NATO_B" />
+			<StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+				<SpawnItem identifiers="556NATO_B" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Price baseprice="280" buyingpricemultiplier="1" minleveldifficulty="0">
+			<Price locationtype="outpost" multiplier="1.5" minavailable="0" maxavailable="5" />
+			<Price locationtype="city" multiplier="1.35" minavailable="1" maxavailable="5" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="1.10" minavailable="2" maxavailable="6" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" amount="4">
+			<RequiredItem identifier="plastic" amount="4" />
+			<RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" amount="2" />
+			<RequiredItem tag="munition_core" description="fabricationdescription.munition_core" amount="2" />
+			<RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" amount="2" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="4" amount="2">
+			<RequiredItem tag="762mm" mincondition="0.0" maxcondition="90" amount="2" />
+			<RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" mincondition="1" />
+			<RequiredItem tag="munition_core" description="fabricationdescription.munition_core" outcondition="1" />
+			<RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" mincondition="1" />
+		</Fabricate>
+		<Deconstruct time="5">
+			<Item identifier="plastic" amount="1" />
+			<Item identifier="copper" mincondition="0.9" />
+		</Deconstruct>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="AK 103 7.62×39mm 穿甲弹夹" identifier="AK103_Magazine_ap" subcategory="TL_separatists" scale="0.08" category="weapon" maxstacksize="10" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,magazine,handheldammo,AK103762,762mm" impactsoundtag="impact_metal_light" health="35">
+		<PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+		<InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" depth="0.56" sourcerect="383,501,211,369" origin="0.5,0.5" />
+		<Body width="80" height="107" density="10" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="76239AP_B" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="76239AP_B" />
+			<StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+				<SpawnItem identifiers="76239AP_B" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Price baseprice="500" buyingpricemultiplier="1" minleveldifficulty="0" sold="false">
+			<Price locationtype="outpost" multiplier="1.5"/>
+			<Price locationtype="city" multiplier="1.35"/>
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="1.10"/>
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="4" amount="2">
+			<RequiredItem tag="762mm" mincondition="0.0" maxcondition="90" amount="2" />
+			<RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" mincondition="1" />
+			<RequiredItem tag="munition_core" description="fabricationdescription.munition_core" outcondition="1" />
+			<RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" mincondition="1" />
+		</Fabricate>
+		<Deconstruct time="5">
+			<Item identifier="plastic" amount="1" />
+			<Item identifier="copper" mincondition="0.9" />
+		</Deconstruct>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="7.62×39mmAP" identifier="76239AP_B" subcategory="bullet" category="Equipment" interactthroughwalls="true" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullet.png" sourcerect="33,100,57,15" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="1" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,175,115,175" scalemultiplier="1,0.6" />
+			<Attack structuredamage="1" targetforce="1" itemdamage="9" penetration="0.5" severlimbsprobability="0.3">
+				<Affliction identifier="gunshotwound" strength="20" />
+				<Affliction identifier="gunshotwound" strength="10" probability="0.25" />
+				<Affliction identifier="bleeding" strength="20" />
+				<Affliction identifier="bleeding" strength="6" probability="0.2" />
+				<Affliction identifier="stun" strength="0.02" />
+				<Affliction identifier="stun" strength="0.15" probability="0.1" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+				<ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="600" velocitymax="800" scalemin="0.75" scalemax="1" drawontop="true" colormultiplier="255,175,115,175" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
+				<Remove />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	<!--AK12-->
+	<Item name="AK 12 5.45×39mm 普通弹夹" identifier="AK12_Magazine_nor" subcategory="TL_separatists" scale="0.08" category="weapon" maxstacksize="10" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,magazine,handheldammo,AK12545,545mm" impactsoundtag="impact_metal_light" health="35">
+		<PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+		<InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" depth="0.56" sourcerect="383,501,211,369" origin="0.5,0.5" />
+		<Body width="80" height="107" density="10" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="54539_B" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="54539_B" />
+			<StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+				<SpawnItem identifiers="54539_B" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Price baseprice="280" buyingpricemultiplier="1" minleveldifficulty="0">
+			<Price locationtype="outpost" multiplier="1.5" minavailable="0" maxavailable="5" />
+			<Price locationtype="city" multiplier="1.35" minavailable="1" maxavailable="5" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="1.10" minavailable="2" maxavailable="6" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" amount="4">
+			<RequiredItem identifier="plastic" amount="4" />
+			<RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" amount="2" />
+			<RequiredItem tag="munition_core" description="fabricationdescription.munition_core" amount="2" />
+			<RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" amount="2" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="4" amount="2">
+			<RequiredItem tag="545mm" mincondition="0.0" maxcondition="90" amount="2" />
+			<RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" mincondition="1" />
+			<RequiredItem tag="munition_core" description="fabricationdescription.munition_core" outcondition="1" />
+			<RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" mincondition="1" />
+		</Fabricate>
+		<Deconstruct time="5">
+			<Item identifier="plastic" amount="1" />
+			<Item identifier="copper" mincondition="0.9" />
+		</Deconstruct>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="5.45×39mm" identifier="54539_B" subcategory="bullet" category="Equipment" interactthroughwalls="true" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullet.png" sourcerect="33,100,57,15" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="1" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,175,115,175" scalemultiplier="1,0.6" />
+			<Attack structuredamage="1" targetforce="3" itemdamage="15" penetration="0.35" severlimbsprobability="0.5">
+				<Affliction identifier="gunshotwound" strength="25" />
+				<Affliction identifier="gunshotwound" strength="15" probability="0.25" />
+				<Affliction identifier="bleeding" strength="20" />
+				<Affliction identifier="bleeding" strength="8" probability="0.2" />
+				<Affliction identifier="stun" strength="0.025" />
+				<Affliction identifier="stun" strength="0.2" probability="0.1" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+				<ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="600" velocitymax="800" scalemin="0.75" scalemax="1" drawontop="true" colormultiplier="255,175,115,175" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+			<StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
+				<Remove />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+  <!--TL-->
+  <!--火箭弹-->
+  <Item name="AT4火箭弹" description="" identifier="AT4Ammo_TL" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,shotgunammo,TL_shotgunammo,TL_ammo" hideinmenus="true" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Deconstruct time="1" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/launcherammo.png" sourcerect="10,191,205,34" depth="0.55" origin="0.5,0.5" />
+    <Body width="200" height="30" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" launchimpulse="30.0" hitscancount="1" maxtargetstohit="2" removeonhit="false" spread="0">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="0.5" targetforce="4" itemdamage="15" severlimbsprobability="0.3" penetration="0.13">
+        <Affliction identifier="stun" strength="0.04" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="gunshotwound" strength="15" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" delay="0.5">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris4.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="10000" />
+        <Explosion range="650.0" ballastfloradamage="100" structuredamage="500" levelwalldamage="500" itemdamage="500" force="20" severlimbsprobability="0.9" debris="true" decal="explosion" decalsize="0.6" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="400" />
+          <Affliction identifier="burn" strength="450" />
+          <Affliction identifier="bleeding" strength="250" />
+          <Affliction identifier="bleeding" strength="450" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="5" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--手枪-->
+  <Item name="白凤手枪弹夹" identifier="WhitePhoenix_magazine" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.3" category="Weapon" health="8" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general,TL_ammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.001" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.001" />
+    <PreferredContainer secondary="outpostsecarmcab" amount="1" spawnprobability="0.001" />
+    <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" amount="1" spawnprobability="0.001" />
+    <PreferredContainer secondary="wreckweaponholder" amount="1" spawnprobability="0.001" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="Steel_TL" amount="1" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.1" usecondition="true" />
+      <RequiredItem identifier="WhitePhoenix_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.2" />
+    </Deconstruct>
+    <InventoryIcon name="WhitePhoenix_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/TL/WeaponsIcon2.png" sourcerect="0,846,169,178" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/Weapons.png" depth="0.65" sourcerect="117,451,25,61" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="WhitePhoenix_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="WhitePhoenix_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="WhitePhoenix_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="WhitePhoenix_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true" maxtargetstohit="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="200,200,200,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="20" targetforce="25" itemdamage="40" penetration="0.5" severlimbsprobability="0.8">
+        <Affliction identifier="gunshotwound" strength="35" />
+        <Affliction identifier="gunshotwound" strength="30" probability="0.2" />
+        <Affliction identifier="bleeding" strength="25" />
+        <Affliction identifier="stun" strength="0.05" />
+        <Affliction identifier="stun" strength="0.15" probability="0.2" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="1" targetlimb="torso">
+          <Conditional speciesname="neq human" />
+          <Affliction identifier="gunshotwound" amount="10" probability="0.2" />
+          <Affliction identifier="bleeding" amount="10" probability="0.2" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="方阵手枪弹夹" identifier="PhalanxPistol_magazine" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.3" category="Weapon" health="17" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general,TL_ammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.01" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.01" />
+    <PreferredContainer secondary="outpostsecarmcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" amount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="wreckweaponholder" amount="1" spawnprobability="0.01" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="25" />
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="PhalanxPistol_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.2" />
+    </Deconstruct>
+    <InventoryIcon name="PhalanxPistol_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/TL/WeaponsIcon2.png" sourcerect="204,848,169,178" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/Weapons.png" depth="0.65" sourcerect="185,449,26,63" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL14_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL14_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="TL14_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="紫鸢手枪弹夹" identifier="PurpleKite_magazine" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.1" category="Weapon" health="26" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general,TL_ammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.001" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.001" />
+    <PreferredContainer secondary="outpostsecarmcab" amount="1" spawnprobability="0.001" />
+    <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" amount="1" spawnprobability="0.001" />
+    <PreferredContainer secondary="wreckweaponholder" amount="1" spawnprobability="0.001" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="Steel_TL" amount="1" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.1" usecondition="true" />
+      <RequiredItem identifier="PurpleKite_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.2" />
+    </Deconstruct>
+    <InventoryIcon name="PurpleKite_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/pistol.png" sourcerect="0,939,207,212" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" depth="0.65" sourcerect="441,198,63,209" origin="0.5,0.5" />
+    <Body width="100" height="200" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL14_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL14_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="TL14_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--冲锋枪-->
+  <Item name="深潮·启-基础冲锋枪弹夹" identifier="TL_SEA_1_magazine" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.25" category="Weapon" health="26" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general,TL_ammo" impactsoundtag="impact_metal_light">
+    <Price baseprice="200" soldeverywhere="true">
+      <Price storeidentifier="merchantoutpost" multiplier="0.8" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="0.75" minavailable="5" />
+      <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="TLarmory" multiplier="0.6" minavailable="4" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="1">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem identifier="aluminium" amount="2" />
+      <RequiredItem tag="munition_core" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem tag="munition_core" amount="1" />
+      <RequiredItem identifier="TL_SEA_1_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.2" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/Weapons.png" depth="0.65" sourcerect="153,450,22,63" origin="0.5,0.5" />
+    <Body width="100" height="200" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL15_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL15_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="TL15_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <!--霰弹-->
+  <Item name="TL常规霰弹" description="" identifier="TL_shotgunammo_ordinary" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,shotgunammo,TL_shotgunammo,TL_ammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="shotgun,autoshotgun,shotgununique" />
+    <PreferredContainer primary="armcab" minamount="6" maxamount="12" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="6" spawnprobability="0.5" />
+    <PreferredContainer secondary="wreckarmcab,wrecksecarmcab,abandonedarmcab,abandonedsecarmcab" minamount="1" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="6">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+      <RequiredItem identifier="aluminium" amount="2" />
+      <RequiredItem tag="munition_core" amount="2" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="steel" outcondition="0.5" />
+    </Deconstruct>
+    <InventoryIcon name="TL_shotgunammo_ordinary_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bulletsIcon.png" sourcerect="0,0,47,32" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="122,390,45,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="20" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="6" removeonhit="true" spread="6">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="0.5" targetforce="4" itemdamage="15" severlimbsprobability="0.3" penetration="0.13">
+        <Affliction identifier="stun" strength="0.04" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="bleeding" strength="15" probability="0.2" />
+        <Affliction identifier="gunshotwound" strength="15" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,130" />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="TL燃烧霰弹" description="" identifier="TL_shotgunammo_fire" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="1" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_shotgunammo,TL_ammo,handheldammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="shotgun,autoshotgun,shotgununique" />
+    <PreferredContainer primary="armcab" minamount="6" maxamount="12" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="6" spawnprobability="0.5" />
+    <PreferredContainer secondary="wreckarmcab,wrecksecarmcab,abandonedarmcab,abandonedsecarmcab" minamount="1" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Price baseprice="1000">
+      <Price locationtype="outpost" multiplier="1.5" sold="false" />
+      <Price locationtype="city" multiplier="1" sold="false" />
+      <Price locationtype="research" multiplier="1.05" sold="false" />
+      <Price locationtype="military" multiplier="0.9" sold="false" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+      <Price storeidentifier="TLarmory" multiplier="0.7" minavailable="3" maxavailable="6" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="1">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="Triple_BasePropellant" />
+      <RequiredItem identifier="c4block" amount="2" />
+      <RequiredItem identifier="Stabilizers_DNT" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="Triple_BasePropellant" outcondition="0.5" />
+      <Item identifier="Stabilizers_DNT" outcondition="0.5" />
+    </Deconstruct>
+    <InventoryIcon name="TL_shotgunammo_burn_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bulletsIcon.png" sourcerect="0,138,49,30" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="122,469,49,19" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="15" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="4" removeonhit="true" spread="5">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="0.5" targetforce="4" itemdamage="15" severlimbsprobability="0.3" penetration="0.1">
+        <Affliction identifier="stun" strength="0.04" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="gunshotwound" strength="10" />
+        <Affliction identifier="burn" strength="3" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,130" />
+        <Explosion range="100" ignorecover="true" ballastfloradamage="5" structuredamage="1" levelwalldamage="0" itemdamage="5" force="5" severlimbsprobability="0.2">
+          <Affliction identifier="burn" strength="5" />
+          <Affliction identifier="stun" strength="0.5" />
+          <Affliction identifier="explosiondamage" strength="0.5" />
+        </Explosion>
+        <Fire size="0.1" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="TL爆破霰弹" description="" identifier="TL_shotgunammo_burst" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="16" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_shotgunammo,TL_ammo,handheldammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="shotgun,autoshotgun,shotgununique" />
+    <PreferredContainer primary="armcab" minamount="6" maxamount="12" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="6" spawnprobability="0.5" />
+    <PreferredContainer secondary="wreckarmcab,wrecksecarmcab,abandonedarmcab,abandonedsecarmcab" minamount="1" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Price baseprice="450">
+      <Price locationtype="outpost" multiplier="1.5" />
+      <Price locationtype="city" multiplier="1" />
+      <Price locationtype="research" multiplier="1.05" />
+      <Price locationtype="military" multiplier="0.9" />
+      <Price locationtype="mine" multiplier="1.25" />
+      <Price storeidentifier="TLarmory" multiplier="0.8" minavailable="3" maxavailable="6" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="2">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.2" usecondition="true" />
+      <RequiredItem tag="munition_core" amount="2" />
+      <RequiredItem identifier="uex" amount="2" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="aluminium" />
+    </Deconstruct>
+    <InventoryIcon name="TL_shotgunammo_burst_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bulletsIcon.png" sourcerect="0,172,57,37" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="176,470,56,19" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="15" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="2" removeonhit="true" spread="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="0.5" targetforce="4" itemdamage="15" severlimbsprobability="0.3" penetration="0.1">
+        <Affliction identifier="stun" strength="0.04" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="burn" strength="10" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,130" />
+        <Explosion range="50" ignorecover="true" ballastfloradamage="5" structuredamage="1" levelwalldamage="0" itemdamage="5" force="5" severlimbsprobability="0.2">
+          <Affliction identifier="burn" strength="15" />
+          <Affliction identifier="stun" strength="0.5" />
+          <Affliction identifier="explosiondamage" strength="5" />
+        </Explosion>
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="TL崩解弹" description="" identifier="TL_shotgunammo_disintegrate" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_shotgunammo,TL_ammo,handheldammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Price baseprice="2500" sold="false">
+      <Price locationtype="outpost" multiplier="1.5" sold="false" />
+      <Price locationtype="city" multiplier="1" sold="false" />
+      <Price locationtype="research" multiplier="1.05" sold="false" />
+      <Price locationtype="military" multiplier="0.9" sold="false" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+      <Price storeidentifier="TLarmory" multiplier="0.8" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="50" amount="2">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="2" />
+      <RequiredItem identifier="Steel_TL" amount="2" />
+      <RequiredItem identifier="nanogel_cr" amount="1" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <Deconstruct time="8" />
+    <InventoryIcon name="TL_shotgunammo_disintegrate_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bulletsIcon.png" sourcerect="0,214,62,40" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="173,445,61,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="30" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" maxtargetstohit="3" hitscan="true" hitscancount="10" removeonhit="true" spread="3">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="1" targetforce="6" itemdamage="600" severlimbsprobability="0.2" penetration="1.0">
+        <!--每颗子弹赋予1崩解-->
+        <Affliction identifier="alcellruin" strength="1" multiplybymaxvitality="true" />
+        <Affliction identifier="organdamage" strength="25" />
+        <Affliction identifier="gunshotwound" strength="25" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,130" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--狙击枪-->
+  <!--蓝冰-->
+  <Item name="贝加尔蓝冰脉冲激光" identifier="TL_Baikal_Battery_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true" maxtargetstohit="5">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,150,150,175" scalemultiplier="1,0.6" />
+      <ParticleEmitter particle="tracerpulselaser2" particleamount="1" velocitymin="0" velocitymax="0" ColorMultiplier="0,255,255,255" />
+      <Attack structuredamage="20" targetforce="500" itemdamage="100" penetration="0.99" severlimbsprobability="0.99">
+        <Affliction identifier="gunshotwound" strength="20" />
+        <Affliction identifier="gunshotwound" strength="40" probability="0.1" />
+        <Affliction identifier="bleeding" strength="20" />
+        <Affliction identifier="bleeding" strength="40" probability="0.1" />
+        <Affliction identifier="burn" strength="20" />
+        <Affliction identifier="burn" strength="40" probability="0.1" />
+        <Affliction identifier="stun" strength="2" />
+        <Affliction identifier="stun" strength="2" probability="0.1" />
+        <Affliction identifier="explosiondamage" strength="20" />
+        <Affliction identifier="explosiondamage" strength="40" probability="0.1" />
+        <Affliction identifier="plasmaCauterization" strength="10" />
+        <Affliction identifier="plasmaCauterization" strength="20" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--步枪-->
+  <!--TL14-->
+  <Item name="TL14弹夹" identifier="TL14_magazine" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.21" category="Weapon" health="40" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" amount="2">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem tag="munition_core" amount="4" />
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.2" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="AluminumAlloy" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.1" usecondition="true" />
+      <RequiredItem identifier="TL14_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="plastic" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.1" />
+    </Deconstruct>
+    <InventoryIcon name="TL14_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/TL/TL14.png" sourcerect="523,1047,93,104" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/TL14.png" depth="0.65" sourcerect="391,1088,106,53" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL14_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL14_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="TL14_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="TL14_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,150,150,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="20" targetforce="25" itemdamage="40" penetration="0.4" severlimbsprobability="0.8">
+        <Affliction identifier="gunshotwound" strength="25" />
+        <Affliction identifier="gunshotwound" strength="20" probability="0.2" />
+        <Affliction identifier="bleeding" strength="15" />
+        <Affliction identifier="stun" strength="0.05" />
+        <Affliction identifier="stun" strength="0.15" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--TL15-->
+  <Item name="TL15弹夹" identifier="TL15_magazine" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.21" category="Weapon" health="45" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general,TL15_magazine,TL_ammo" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="40" amount="2">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="2" />
+      <RequiredItem identifier="Steel_TL" amount="2" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" mincondition="0.4" usecondition="true" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.4" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.2" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="Steel_TL" amount="1" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" mincondition="0.4" usecondition="true" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.2" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.1" usecondition="true" />
+      <RequiredItem identifier="TL15_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.2" />
+    </Deconstruct>
+    <InventoryIcon name="TL15_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/TL/TL14.png" sourcerect="523,1047,93,104" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/TL14.png" depth="0.65" sourcerect="391,1088,106,53" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL15_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL15_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="TL15_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="TL15_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,0,255,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="20" targetforce="25" itemdamage="40" penetration="0.5" severlimbsprobability="0.8">
+        <Affliction identifier="gunshotwound" strength="35" />
+        <Affliction identifier="gunshotwound" strength="30" probability="0.2" />
+        <Affliction identifier="bleeding" strength="25" />
+        <Affliction identifier="stun" strength="0.05" />
+        <Affliction identifier="stun" strength="0.15" probability="0.2" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="1" targetlimb="torso">
+          <Conditional speciesname="neq human" />
+          <Affliction identifier="gunshotwound" amount="10" probability="0.2" />
+          <Affliction identifier="bleeding" amount="10" probability="0.2" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--AR57-->
+  <Item name="AR57弹夹" identifier="AR57_magazine" maxstacksize="40" maxstacksizecharacterinventory="8" scale="0.2" category="Weapon" health="50" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="secarmcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" amount="1">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.15" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.15" usecondition="true" />
+      <RequiredItem identifier="AR57_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="1">
+      <Item identifier="plastic" />
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" depth="0.65" sourcerect="370,1119,240,22" origin="0.5,0.5" />
+    <Body width="200" height="25" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="AR57_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AR57_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="AR57_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="AR57_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="10" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,150,150,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="0.5" targetforce="8" itemdamage="20" penetration="0.1" severlimbsprobability="0.25">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="gunshotwound" strength="20" probability="0.2" />
+        <Affliction identifier="bleeding" strength="15" />
+        <Affliction identifier="stun" strength="0.05" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--HX-->
+  <!--灭刃弹匣-->
+  <Item name="灭刃电磁弹匣" identifier="MR_magazine" description="" maxstacksize="32" maxstacksizecharacterinventory="6" scale="0.5" category="Weapon" health="10" allowasextracargo="true" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="60" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="1" />
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="2" />
+      <RequiredItem identifier="Steel_TL" amount="6" />
+      <RequiredItem identifier="physicorium" amount="6" />
+      <RequiredItem identifier="Stabilizers_DNT" amount="2" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="40" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="MR_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="1" />
+      <RequiredItem identifier="Steel_TL" amount="6" />
+      <RequiredItem identifier="Stabilizers_DNT" amount="2" />
+      <RequiredItem identifier="physicorium" amount="6" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/Weapons.png" depth="0.65" sourcerect="0,447,44,65" origin="0.5,0.5" />
+    <Body width="50" height="70" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="MR_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="MR_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="MR_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="MR_Ammo" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="190,117,111,24" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" maxtargetstohit="4">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+      <Attack structuredamage="20" targetforce="20" itemdamage="77" severlimbsprobability="0.5" penetration="1.5">
+        <Affliction identifier="bleeding" strength="40" />
+        <Affliction identifier="lacerations" strength="100" />
+        <Affliction identifier="organdamage" strength="15" />
+        <Affliction identifier="lacerations" strength="50" probability="0.2" />
+        <Affliction identifier="bleeding" strength="30" probability="0.2" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="1" targetlimb="torso">
+          <Conditional speciesname="neq human" />
+          <Affliction identifier="organdamage" amount="40" />
+          <Affliction identifier="lacerations" amount="180" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="灭刃电磁弹匣·辐光" identifier="MR_magazine_radiation" description="" maxstacksize="32" maxstacksizecharacterinventory="6" scale="0.5" category="Weapon" health="10" allowasextracargo="true" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="60" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="MR_magazine" amount="1" />
+      <RequiredItem identifier="Steel_TL" amount="8" />
+      <RequiredItem identifier="physicorium" amount="8" />
+      <RequiredItem identifier="Stabilizers_DNT" amount="4" />
+      <RequiredItem identifier="PrintingMaterials" amount="2" />
+      <RequiredItem identifier="Radiation_ball" mincondition="0.5" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="40" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="55" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="2" />
+      <RequiredItem identifier="Steel_TL" amount="8" />
+      <RequiredItem identifier="physicorium" amount="8" />
+      <RequiredItem identifier="Stabilizers_DNT" amount="4" />
+      <RequiredItem identifier="PrintingMaterials" amount="2" />
+      <RequiredItem identifier="Radiation_ball" mincondition="0.5" usecondition="true" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="TL_EngineeringPlastics" amount="2" />
+    </Deconstruct>
+    <InventoryIcon name="MR_magazine_radiation_ICON" texture="%ModDir%/Content/Items/weapons/Guns/TL/Weapons.png" sourcerect="49,435,61,76" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/Weapons.png" depth="0.65" sourcerect="0,447,44,65" origin="0.5,0.5" />
+    <Body width="50" height="70" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="MR_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="MR_Ammo_radiation" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="MR_Ammo_radiation" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="MR_Ammo_radiation" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" hitscancount="3" maxtargetstohit="1">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+      <Attack structuredamage="20" targetforce="20" itemdamage="77" severlimbsprobability="0.5" penetration="1.5">
+        <Affliction identifier="bleeding" strength="60" />
+        <Affliction identifier="lacerations" strength="150" />
+        <Affliction identifier="organdamage" strength="35" />
+        <Affliction identifier="lacerations" strength="50" probability="0.2" />
+        <Affliction identifier="bleeding" strength="30" probability="0.2" />
+        <Affliction identifier="radiationsickness" strength="35" />
+        <Affliction identifier="radiationsickness" strength="20" probability="0.2" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="1" targetlimb="torso">
+          <Conditional speciesname="neq human" />
+          <Affliction identifier="radiationsickness" strength="30" />
+          <Affliction identifier="organdamage" amount="50" />
+          <Affliction identifier="lacerations" amount="180" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--竞争者/手炮-->
+  <Item name="手炮/竞争者子弹-重型尖晶穿甲弹" description="" identifier="HX_competitor_ammo_AP" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="4" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,HX_competitor_ammo,handcannonammo" Scale="0.5" impactsoundtag="impact_metal_light" spritecolor="255,255,255,255">
+    <PreferredContainer primary="armcab" minamount="1" maxamount="1" spawnprobability="0.01" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="0" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer secondary="wreckarmcab,wrecksecarmcab,abandonedarmcab,abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.01" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="60" amount="1">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredSkill identifier="mechanical" level="100" />
+      <!--RequiredSkill identifier="medical" level="100" /-->
+      <!--RequiredSkill identifier="electrical" level="100" /-->
+      <!--RequiredSkill identifier="helm" level="100" /-->
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="1" />
+      <RequiredItem identifier="Steel_TL" amount="1" />
+      <RequiredItem identifier="physicorium" amount="1" />
+      <RequiredItem identifier="Stabilizers_DNT" amount="1" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.5" usecondition="true" />
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="Triple_BasePropellant_Pro" />
+      <Item identifier="physicorium" amount="1" />
+      <Item identifier="Stabilizers_DNT" amount="1" />
+    </Deconstruct>
+    <InventoryIcon name="HX_competitor_ammo_AP_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="351,361,54,67" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="183,487,79,21" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="50" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="1" removeonhit="true" spread="6" maxtargetstohit="3">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <ParticleEmitter particle="weldsmoke" AngleMax="360" DistanceMax="10" VelocityMax="10" ScaleMax="1.4" ScaleMultiplier="1,1" ParticleAmount="1" ParticlesPerSecond="1" EmitAcrossRayInterval="1" ColorMultiplier="255,255,255,255" />
+      <Attack structuredamage="10" targetforce="500" itemdamage="30" severlimbsprobability="1.0" penetration="0.99">
+        <Affliction identifier="bleedingnonstop" strength="20" probability="0.2" />
+        <Affliction identifier="bleeding" strength="50" />
+        <Affliction identifier="gunshotwound" strength="80" />
+        <Affliction identifier="stun" strength="10" />
+        <Affliction identifier="blind" strength="9999" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget,Character,Limb">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,255,250" />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+  </Item>
+  <Item name="竞争者子弹-头骨粉碎机" description="" identifier="HX_competitor_ammo_HeadShattering" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,HX_competitor_ammo" Scale="0.5" impactsoundtag="impact_metal_light" spritecolor="255,255,255,255">
+    <PreferredContainer primary="armcab" minamount="1" maxamount="1" spawnprobability="0.005" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="1" spawnprobability="0.005" />
+    <PreferredContainer secondary="wreckarmcab,wrecksecarmcab,abandonedarmcab,abandonedsecarmcab" minamount="1" maxamount="1" spawnprobability="0.005" />
+    <!--Fabricate suitablefabricators="MoldingPrinters" requiredtime="20" amount="6">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredSkill identifier="mechanical" level="100" />
+      <RequiredSkill identifier="medical" level="100" />
+      <RequiredSkill identifier="electrical" level="100" />
+      <RequiredSkill identifier="helm" level="100" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" amount="1" />
+      <RequiredItem identifier="Steel_TL" amount="4" />
+      <RequiredItem identifier="physicorium" amount="1" />
+      <RequiredItem identifier="Stabilizers_DNT" amount="2" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate-->
+    <Deconstruct time="8">
+      <Item identifier="Triple_BasePropellant_Pro" />
+      <Item identifier="Steel_TL" amount="2" />
+      <Item identifier="Stabilizers_DNT" amount="1" />
+    </Deconstruct>
+    <InventoryIcon name="HX_competitor_ammo_HeadShattering_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="273,443,54,67" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="183,487,79,21" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="50" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="1" removeonhit="true" spread="6" maxtargetstohit="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="10" targetforce="500" itemdamage="30" severlimbsprobability="1.0" penetration="0.99">
+        <Affliction identifier="bleedingnonstop" strength="50" />
+        <Affliction identifier="gunshotwound" strength="60" />
+        <Affliction identifier="stun" strength="1" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget,Character,Limb">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,255,250" />
+        <Hook name="TLLuaFunction.LimbShattering" NeedHitLimb="Head" />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+  </Item>
+  <!--待修改-->
+  <Item name="竞争者子弹-朽木（待修改）" description="" identifier="HX_competitor_ammo_deadwood" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,HX_competitor_ammo" Scale="0.5" impactsoundtag="impact_metal_light" spritecolor="255,255,255,255">
+    <Deconstruct time="8" />
+    <InventoryIcon name="HX_competitor_ammo_deadwood_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="414,410,98,102" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="183,487,79,21" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="50" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="1" removeonhit="true" spread="6" maxtargetstohit="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="10" targetforce="500" itemdamage="30" severlimbsprobability="1.0" penetration="0.99">
+        <Affliction identifier="stun" strength="1" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget,Character,Limb">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,255,250" />
+        <Hook name="TLLuaFunction.WaitToKill" WaitTime="20" />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+  </Item>
+  <!--协调者-->
+  <Item name="协调者通用弹鼓" identifier="coordinator_magazine" subcategory="rifle_mag" maxstacksize="32" maxstacksizecharacterinventory="6" health="82" scale="0.43" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,coordinator_magazine,general_HX" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="secarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" amount="2">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="AluminumAlloy" amount="2" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="coordinator_magazine2" amount="2" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.4" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.4" usecondition="true" />
+      <RequiredItem identifier="coordinator_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.1" />
+      <Item identifier="plastic" outcondition="1" />
+    </Deconstruct>
+    <InventoryIcon name="coordinator_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="121,431,44,81" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" depth="0.65" sourcerect="32,447,34,65" origin="0.6,0.5" />
+    <Body width="40" height="65" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="AR57_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AKEammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="AKEammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect"></Holdable>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  <Item name="协调者通用弹夹" identifier="coordinator_magazine2" subcategory="rifle_mag" maxstacksize="32" maxstacksizecharacterinventory="6" health="42" scale="0.2" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,coordinator_magazine,general_HX" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="armcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="outpostsecarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wrecksecarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="secarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" amount="2">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="AluminumAlloy" amount="2" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.2" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="AluminumAlloy" amount="1" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="Triple_BasePropellant" mincondition="0.1" usecondition="true" />
+      <RequiredItem identifier="coordinator_magazine2" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" outcondition="0.1" />
+      <Item identifier="plastic" outcondition="1" />
+    </Deconstruct>
+    <InventoryIcon name="coordinator_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/HX.png" sourcerect="524,1039,91,111" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/HX.png" depth="0.65" sourcerect="524,1039,91,111" origin="0.5,0.5" />
+    <Body width="40" height="65" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="AR57_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AKEammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="AKEammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect"></Holdable>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+  <!--蚺蛇-->
+  <Item name="蚺蛇步枪弹匣" identifier="HX_Snakes_magazine" description="" category="Weapon" health="50" maxstacksize="32" maxstacksizecharacterinventory="6" cargocontaineridentifier="metalcrate" tags="smallitem,handheldammo,HX_Snakes_magazine,general_HX" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="wreckarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="weaponholder" spawnprobability="0.1" />
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="12" requiresrecipe="false" amount="2">
+      <RequiredSkill identifier="weapons" level="90" />
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="1" />
+      <RequiredItem identifier="Steel_TL" amount="2" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.2" usecondition="true" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" mincondition="0.4" usecondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="90" />
+      <RequiredItem identifier="HX_Snakes_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+      <RequiredItem identifier="Steel_TL" amount="1" />
+      <RequiredItem identifier="Stabilizers_DNT" mincondition="0.25" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.1" usecondition="true" />
+      <RequiredItem identifier="Triple_BasePropellant_Pro" mincondition="0.4" usecondition="true" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="TL_EngineeringPlastics" outcondition="0.5" />
+      <Item identifier="Triple_BasePropellant_Pro" mincondition="0.95" outcondition="0.2" />
+    </Deconstruct>
+    <InventoryIcon name="HX_Snakes_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" sourcerect="82,454,29,58" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/HX/Weapons.png" depth="0.65" sourcerect="0,468,24,44" origin="0.5,0.5" />
+    <Body width="35" height="70" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="Snakes_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="Snakes_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="Snakes_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="Snakes_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,0,255,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="20" targetforce="25" itemdamage="40" penetration="0.35" severlimbsprobability="0.8">
+        <Affliction identifier="gunshotwound" strength="30" />
+        <Affliction identifier="gunshotwound" strength="15" probability="0.2" />
+        <Affliction identifier="bleeding" strength="25" />
+        <Affliction identifier="bleeding" strength="10" probability="0.2" />
+        <Affliction identifier="stun" strength="0.05" />
+        <Affliction identifier="stun" strength="0.10" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--无势力-->
+  <!--AKE-->
+  <Item name="AKE弹夹" description="" identifier="AKE_magazine" category="Weapon" health="30" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" tags="smallitem,general,AKEMagazines,handheldammo,general_HX" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="wreckarmcab" minamount="0" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer primary="weaponholder" spawnprobability="0.2" />
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="3" spawnprobability="0.2" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="0" maxamount="3" spawnprobability="0.2" />
+    <!--铝，钾，铅/铜/钢筋-->
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" amount="4">
+      <RequiredSkill identifier="weapons" level="25" />
+      <Item tag="munition_core" amount="2" />
+      <Item tag="advmunition_jacket" amount="1" />
+      <Item identifier="plastic" amount="2" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="lead" mincondition="0.95" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Sprite name="AKE_magazine" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="527,6,43,49" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="40" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="AKEammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AKEammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="AKEammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="AKE弹鼓" description="" identifier="AKE_Magazines2" category="Weapon" health="65" maxstacksize="32" maxstacksizecharacterinventory="6" cargocontaineridentifier="metalcrate" tags="smallitem,general,AKEMagazines,handheldammo,general_HX" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="wreckarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="weaponholder" spawnprobability="0.1" />
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="0" maxamount="3" spawnprobability="0.1" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="2">
+      <RequiredSkill identifier="weapons" level="35" />
+      <Item tag="munition_core" amount="3" />
+      <Item tag="advmunition_jacket" amount="2" />
+      <Item identifier="plastic" amount="4" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="lead" mincondition="0.95" />
+      <Item identifier="lead" mincondition="0.5" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Sprite name="AKE_magazine2" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="583,7,24,47" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="50" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="AKEammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AKEammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="AKEammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="AKEammo" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="10" height="5" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="220,200,25,255" scalemultiplier="1,1" />
+      <Attack structuredamage="0.5" targetforce="8" itemdamage="10" severlimbsprobability="0.2" penetration="0.05">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="gunshotwound" strength="15" probability="0.2" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.07" />
+        <Affliction identifier="stun" strength="0.1" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3,3" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="爆裂铳高爆弹夹（HE）" description="" identifier="NIL_BurstGun_magazine" category="Weapon" health="5" maxstacksize="16" maxstacksizecharacterinventory="2" cargocontaineridentifier="metalcrate" tags="smallitem,general,AKEMagazines,handheldammo,general_HX" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="MoldingPrinters" requiresrecipe="true" requiredtime="60" amount="2">
+      <RequiredSkill identifier="weapons" level="100" />
+      <Item identifier="c4block" amount="6" />
+      <Item identifier="Steel_TL" amount="2" />
+      <Item identifier="Stabilizers_DNT" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="15" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="NIL_BurstGun_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+      <Item identifier="c4block" amount="6" />
+      <Item identifier="Stabilizers_DNT" amount="1" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="lead" mincondition="0.95" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Sprite name="NIL_BurstGun_magazine" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="471,8,46,49" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="40" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="NIL_BurstGun_HE_ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="NIL_BurstGun_HE_ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="NIL_BurstGun_HE_ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="NIL_BurstGun_HE_ammo" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="122,469,49,19" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="20" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" removeonhit="true" launchimpulse="20">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="220,200,25,255" scalemultiplier="1,1" />
+      <Attack structuredamage="0.5" targetforce="8" itemdamage="10" severlimbsprobability="0.2" penetration="0.0">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="gunshotwound" strength="15" probability="0.2" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.07" />
+        <Affliction identifier="stun" strength="0.1" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="10">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3,3" />
+        <Explosion range="450.0" ballastfloradamage="20" structuredamage="20" levelwalldamage="20" itemdamage="100" force="15" severlimbsprobability="0.9" debris="true" decal="explosion" decalsize="0.6" penetration="0.0">
+          <Affliction identifier="explosiondamage" strength="100" />
+          <Affliction identifier="burn" strength="80" />
+          <Affliction identifier="bleeding" strength="50" />
+          <Affliction identifier="bleeding" strength="50" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="爆裂铳破甲弹夹（HEAT）" description="" identifier="NIL_BurstGun_HEAT_magazine" category="Weapon" health="5" maxstacksize="16" maxstacksizecharacterinventory="2" cargocontaineridentifier="metalcrate" tags="smallitem,general,AKEMagazines,handheldammo,general_HX" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="MoldingPrinters" requiresrecipe="true" requiredtime="60" amount="1">
+      <RequiredSkill identifier="weapons" level="100" />
+      <Item identifier="HighEnergyC4" mincondition="0.2" usecondition="true" />
+      <Item identifier="NIL_BurstGun_magazine" amount="1" />
+      <Item identifier="Stabilizers_DNT" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="15" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="NIL_BurstGun_HEAT_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+      <Item identifier="HighEnergyC4" mincondition="0.2" usecondition="true" />
+      <Item identifier="Stabilizers_DNT" amount="2" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="lead" mincondition="0.95" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <InventoryIcon name="NIL_BurstGun_HEAT_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="475,66,51,53" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="471,8,46,49" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="40" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="NIL_BurstGun_HEAT_ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="NIL_BurstGun_HEAT_ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="NIL_BurstGun_HEAT_ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="NIL_BurstGun_HEAT_ammo" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="173,445,61,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="80" height="40" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" removeonhit="false" launchimpulse="20" maxtargetstohit="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="220,200,25,255" scalemultiplier="1,1" />
+      <Attack structuredamage="0.5" targetforce="8" itemdamage="10" severlimbsprobability="0.2" penetration="1">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="gunshotwound" strength="15" probability="0.2" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.07" />
+        <Affliction identifier="stun" strength="0.1" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="10">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This">
+        <Explosion range="350.0" ballastfloradamage="20" structuredamage="20" levelwalldamage="20" itemdamage="80" force="15" severlimbsprobability="0.9" debris="true" decal="explosion" decalsize="0.6" penetration="0.65">
+          <Affliction identifier="explosiondamage" strength="80" />
+          <Affliction identifier="burn" strength="70" />
+          <Affliction identifier="bleeding" strength="35" />
+          <Affliction identifier="bleeding" strength="50" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3,3" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="爆裂铳破甲弹夹（HEAT-延时引信）" description="" identifier="NIL_BurstGun_HEAT_TIME_magazine" category="Weapon" health="5" maxstacksize="16" maxstacksizecharacterinventory="2" cargocontaineridentifier="metalcrate" tags="smallitem,general,AKEMagazines,handheldammo,general_HX" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Fabricate suitablefabricators="MoldingPrinters" requiresrecipe="true" requiredtime="60" amount="1">
+      <RequiredSkill identifier="weapons" level="100" />
+      <Item identifier="HighEnergyC4" mincondition="0.2" usecondition="true" />
+      <Item identifier="NIL_BurstGun_magazine" amount="1" />
+      <Item identifier="Stabilizers_DNT" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="15" requiresrecipe="false" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="NIL_BurstGun_HEAT_TIME_magazine" amount="1" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+      <Item identifier="HighEnergyC4" mincondition="0.2" usecondition="true" />
+      <Item identifier="Stabilizers_DNT" amount="2" />
+    </Fabricate>
+    <Deconstruct time="8">
+      <Item identifier="lead" mincondition="0.95" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <InventoryIcon name="NIL_BurstGun_HEAT_TIME_magazine_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="532,65,51,53" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="471,8,46,49" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="40" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="NIL_BurstGun_HEAT_TIME_ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="NIL_BurstGun_HEAT_TIME_ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="NIL_BurstGun_HEAT_TIME_ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="NIL_BurstGun_HEAT_TIME_ammo" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="173,445,61,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="80" height="40" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" removeonhit="false" launchimpulse="20" maxtargetstohit="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="220,200,25,255" scalemultiplier="1,1" />
+      <Attack structuredamage="0.5" targetforce="8" itemdamage="10" severlimbsprobability="0.2" penetration="1">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="gunshotwound" strength="15" probability="0.2" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.07" />
+        <Affliction identifier="stun" strength="0.1" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="10">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="0.25">
+        <Explosion range="350.0" ballastfloradamage="20" structuredamage="20" levelwalldamage="20" itemdamage="80" force="15" severlimbsprobability="0.9" debris="true" decal="explosion" decalsize="0.6" penetration="0.65">
+          <Affliction identifier="explosiondamage" strength="80" />
+          <Affliction identifier="burn" strength="60" />
+          <Affliction identifier="bleeding" strength="30" />
+          <Affliction identifier="bleeding" strength="50" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3,3" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="最后通牒微型核弹" identifier="NIL_Ultimatum_Ammo" category="Weapon" interactthroughwalls="true" maxstacksize="2" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="false" scale="0.5">
+    <Fabricate suitablefabricators="MoldingPrinters" requiresrecipe="true" requiredtime="60" amount="1">
+      <RequiredSkill identifier="weapons" level="100" />
+      <Item identifier="HighEnergyC4" amount="1" />
+      <Item identifier="steel_TL" amount="1" />
+      <Item identifier="AluminumAlloy" amount="2" />
+      <Item identifier="Triple_BasePropellant_Pro" amount="2" />
+      <Item identifier="Stabilizers_DNT" amount="2" />
+    </Fabricate>
+    <InventoryIcon name="NIL_Ultimatum_Ammo_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="366,58,96,56" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="363,21,97,26" depth="0.55" origin="0.5,0.5" />
+    <Body width="100" height="40" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" removeonhit="false" launchimpulse="10" maxtargetstohit="1">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="220,200,25,255" scalemultiplier="1,1" />
+      <Attack structuredamage="0.5" targetforce="8" itemdamage="10" severlimbsprobability="0.2" penetration="1">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="gunshotwound" strength="15" probability="0.2" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.07" />
+        <Affliction identifier="stun" strength="0.1" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="10">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="0.1">
+        <sound file="%ModDir%/Content/Sounds/Weapons/通牒/通牒boom.ogg" volume="10" range="10000" />
+        <SteamTimeLineEvent title="Nuke detonated" description="A nuclear shell detonated!" icon="steam_explosion" />
+        <Explosion range="1000.0" structuredamage="600" itemdamage="1000" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" debris="true" decal="explosion" decalsize="1.0" camerashake="1000" camerashakerange="50000" flashrange="10000" flashduration="10.0" screencolor="255,130,130,255" screencolorrange="5000" screencolorduration="5.0" penetration="0.6">
+          <Affliction identifier="explosiondamage" strength="1000" />
+          <Affliction identifier="burn" strength="1000" />
+          <Affliction identifier="radiationsickness" strength="100" />
+          <Affliction identifier="bleeding" strength="50" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="30" />
+        </Explosion>
+        <Explosion range="1500" force="0.0" smoke="false" sparks="false" empstrength="2.5" applyfireeffects="false" ignorecover="true">
+          <Affliction identifier="emp" strength="50" multiplybymaxvitality="true" />
+        </Explosion>
+        <ParticleEmitter particle="underwaterexplosion" anglemin="0" anglemax="360" particleamount="3" velocitymin="0" velocitymax="0" scalemin="15" scalemax="15" />
+        <SpawnItem identifier="nuclearaftereffectemitter" spawnposition="This" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="M2常规弹药" identifier="M2_Magazine" description="" maxstacksize="8" maxstacksizecharacterinventory="2" scale="0.5" health="200" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,M2_Magazine,handheldammo,general,general_HX" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="hmg" minamount="1" maxamount="1" spawnprobability="1" />
+    <PreferredContainer primary="armcab" secondary="secarmcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="35">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" amount="2" />
+      <RequiredItem tag="advmunition_core" amount="2" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="steel" amount="1" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" amount="2" />
+      <RequiredItem tag="advmunition_core" amount="2" description="fabricationdescription.advmunition_core" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="M2_Magazine" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="copper" mincondition="0.95" />
+      <Item identifier="lead" mincondition="0.6" />
+      <Item identifier="copper" mincondition="0.3" />
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/M2Browning.png" sourcerect="16,1032,31,53" depth="0.55" origin="0.5,0.5" />
+    <Body width="29" height="50" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="M2_ammo_ord" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AKEammo" />
+      <StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true">
+        <SpawnItem identifiers="AKEammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="M2加长弹链穿甲弹药" identifier="M2_Magazine_ap" description="" maxstacksize="8" maxstacksizecharacterinventory="2" scale="0.5" health="300" category="Weapon" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,M2_Magazine,handheldammo,general,general_HX" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="hmg" minamount="1" maxamount="1" spawnprobability="1" />
+    <PreferredContainer primary="armcab" secondary="secarmcab" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem tag="munition_propulsion" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="Triple_BasePropellant" amount="1" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="M2_Magazine" amount="1" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35" displayname="recycleitem">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem tag="munition_propulsion" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="Triple_BasePropellant" amount="1" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="M2_Magazine_ap" mincondition="0.0" maxcondition="0.9" usecondition="false" />
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="Triple_BasePropellant" mincondition="0.95" />
+      <Item identifier="titaniumaluminiumalloy" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/M2Browning.png" sourcerect="70,1032,31,53" depth="0.55" origin="0.5,0.5" />
+    <Body width="29" height="50" density="25" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="M2_ammo_ap" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="M2_ammo_ap" />
+      <StatusEffect type="OnUse" target="This" condition="-1.5" disabledeltatime="true">
+        <SpawnItem identifiers="M2_ammo_ap" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="M2_ammo_ap" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/M2Browning.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="6" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" spread="0">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="160,255,255,200" scalemultiplier="1,0.8" />
+      <Attack structuredamage="5" targetforce="15" itemdamage="40" severlimbsprobability="0.4" penetration="0.75">
+        <Affliction identifier="gunshotwound" strength="35" />
+        <Affliction identifier="explosiondamage" strength="10" />
+        <Affliction identifier="bleeding" strength="25" />
+        <Affliction identifier="stun" strength="0.15" />
+        <Affliction identifier="stun" strength="0.25" probability="0.3" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="1" targetlimb="torso">
+          <Conditional speciesname="neq human" />
+          <Affliction identifier="organdamage" amount="10" />
+          <Affliction identifier="lacerations" amount="25" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="茅枪弹药-赤酸茅" identifier="TL_RedAcidSpear" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="6" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="mediumitem,BambooSpear_ammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="harpoongun" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer primary="armcab" maxamount="1" spawnprobability="0.01" notcampaign="true" notpvp="true" />
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab,piratearmcab" maxamount="1" spawnprobability="0.01" />
+    <Deconstruct time="1" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" amount="1" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="AluminumAlloy" amount="2" />
+      <RequiredItem identifier="sulphuricacid_Pro" amount="4" />
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="2" />
+      <RequiredItem identifier="Steel_TL" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.5" usecondition="true" />
+    </Fabricate>
+    <InventoryIcon name="TL_RedAcidSpear_ICON" texture="%ModDir%/Content/Items/weapons/Guns/NIL/Weapons.png" sourcerect="520,156,93,52" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/NIL/Weapons.png" sourcerect="498,129,117,18" depth="0.5" origin="0.5,0.5" />
+    <Body width="160" height="10" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Rope sourcepullforce="300" targetpullforce="150" projectilepullforce="5" maxlength="1500" snaponcollision="false" spritewidth="3" tile="true" origin="0.05,0.5" targetminmass="10" lerpforces="true" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
+      <Sprite texture="Content/Map/Thalamus/thalamus.png" sourcerect="617,352,174,32" depth="0.57" origin="0.5,0.5" />
+      <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
+      <ReelSound file="Content/Items/Weapons/WEAPON_harpoonGunReelLoop.ogg" range="1000" />
+      <!-- Snap after 1 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="1" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="5" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodeflective="true" sticktodoors="false" sticktolighttargets="true">
+      <Attack structuredamage="15" itemdamage="15" targetforce="20" severlimbsprobability="0.1">
+        <Affliction identifier="lacerations" strength="35" />
+        <Affliction identifier="bleeding" strength="35" />
+        <Affliction identifier="stun" strength="0.5" />
+      </Attack>
+      <StatusEffect type="OnActive" target="UseTarget,This" checkconditionalalways="true" comparison="And" disabledeltatime="true">
+        <Conditional Snapped="false" />
+        <Conditional mass="lt 30" />
+        <Affliction identifier="drag" strength="1" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This">
+        <SpawnItem identifier="TL_acidmistemitter" count="15" aimspread="360" impulse="20" rotationtype="Collider" rotation="0" spawnposition="This" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="茅枪弹药-赤酸茅（注射版）" identifier="TL_RedAcidSpear_B" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="6" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="mediumitem,BambooSpear_ammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="harpoongun" maxamount="1" spawnprobability="0.01" />
+    <PreferredContainer primary="armcab" maxamount="1" spawnprobability="0.01" notcampaign="true" notpvp="true" />
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab,piratearmcab" maxamount="1" spawnprobability="0.01" />
+    <Deconstruct time="1" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" amount="2" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="AluminumAlloy" amount="2" />
+      <RequiredItem identifier="sulphuricacid_Pro" amount="4" />
+      <RequiredItem identifier="TL_EngineeringPlastics" amount="2" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.25" usecondition="true" />
+    </Fabricate>
+    <InventoryIcon name="TL_RedAcidSpear_B_ICON" texture="%ModDir%/Content/Items/weapons/Guns/NIL/Weapons.png" sourcerect="520,156,93,52" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/NIL/Weapons.png" sourcerect="498,129,117,18" depth="0.5" origin="0.5,0.5" />
+    <Body width="160" height="10" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Rope sourcepullforce="300" targetpullforce="150" projectilepullforce="5" maxlength="1500" snaponcollision="false" spritewidth="3" tile="true" origin="0.05,0.5" targetminmass="10" lerpforces="true" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
+      <Sprite texture="Content/Map/Thalamus/thalamus.png" sourcerect="617,352,174,32" depth="0.57" origin="0.5,0.5" />
+      <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
+      <ReelSound file="Content/Items/Weapons/WEAPON_harpoonGunReelLoop.ogg" range="1000" />
+      <!-- Snap after 1 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="1" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="5" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodeflective="true" sticktodoors="false" sticktolighttargets="true">
+      <Attack structuredamage="15" itemdamage="15" targetforce="20" severlimbsprobability="0.1">
+        <Affliction identifier="lacerations" strength="35" />
+        <Affliction identifier="bleeding" strength="35" />
+        <Affliction identifier="stun" strength="0.5" />
+      </Attack>
+      <StatusEffect type="OnActive" target="UseTarget,This" checkconditionalalways="true" comparison="And" disabledeltatime="true">
+        <Conditional Snapped="false" />
+        <Conditional mass="lt 30" />
+        <Affliction identifier="drag" strength="1" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="5">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" delay="2" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="1000" />
+        <Affliction identifier="TL_acidburn" strength="4" />
+        <Affliction identifier="slow" strength="50" MultiplyByMaxVitality="true" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="茅枪弹药-硫酸茅（注射版）" identifier="TL_RedAcidSpear_C" category="Weapon" maxstacksize="16" maxstacksizecharacterinventory="6" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="mediumitem,BambooSpear_ammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="harpoongun" maxamount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="armcab" maxamount="1" spawnprobability="0.05" notcampaign="true" notpvp="true" />
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab,piratearmcab" maxamount="1" spawnprobability="0.05" />
+    <Deconstruct time="1" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="10" amount="2" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="AluminumAlloy" amount="2" />
+      <RequiredItem identifier="sulphuricacid" amount="2" />
+      <RequiredItem identifier="PrintingMaterials" mincondition="0.1" usecondition="true" />
+    </Fabricate>
+    <InventoryIcon name="TL_RedAcidSpear_B_ICON" texture="%ModDir%/Content/Items/weapons/Guns/NIL/Weapons.png" sourcerect="520,156,93,52" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/NIL/Weapons.png" sourcerect="498,129,117,18" depth="0.5" origin="0.5,0.5" />
+    <Body width="160" height="10" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Rope sourcepullforce="300" targetpullforce="150" projectilepullforce="5" maxlength="1500" snaponcollision="false" spritewidth="3" tile="true" origin="0.05,0.5" targetminmass="10" lerpforces="true" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
+      <Sprite texture="Content/Map/Thalamus/thalamus.png" sourcerect="617,352,174,32" depth="0.57" origin="0.5,0.5" />
+      <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
+      <ReelSound file="Content/Items/Weapons/WEAPON_harpoonGunReelLoop.ogg" range="1000" />
+      <!-- Snap after 1 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="1" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="5" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodeflective="true" sticktodoors="false" sticktolighttargets="true">
+      <Attack structuredamage="15" itemdamage="15" targetforce="20" severlimbsprobability="0.1">
+        <Affliction identifier="lacerations" strength="35" />
+        <Affliction identifier="bleeding" strength="35" />
+        <Affliction identifier="stun" strength="0.5" />
+      </Attack>
+      <StatusEffect type="OnActive" target="UseTarget,This" checkconditionalalways="true" comparison="And" disabledeltatime="true">
+        <Conditional Snapped="false" />
+        <Conditional mass="lt 30" />
+        <Affliction identifier="drag" strength="1" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="5">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" delay="2" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="1000" />
+        <Affliction identifier="acidburn" strength="4" />
+        <Affliction identifier="slow" strength="50" MultiplyByMaxVitality="true" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--Item name="TL箭型弹" description="" identifier="TL_shotgunammo_ArrowShaped" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_shotgunammo,TL_ammo,handheldammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer secondary="wreckarmcab,wrecksecarmcab,abandonedarmcab,abandonedsecarmcab" minamount="1" maxamount="3" spawnprobability="0.05" />
+    <PreferredContainer secondary="secarmcab" />
+    <Price baseprice="110" minleveldifficulty="20">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" sold="true" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="12" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="12" />
+      <Price storeidentifier="TLarmory" multiplier="0.6" minavailable="5" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="4">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" amount="1" />
+      <RequiredItem tag="advmunition_tip" amount="2" />
+    </Fabricate>
+    <Deconstruct time="8"></Deconstruct>
+    <InventoryIcon name="TL_shotgunammo_ArrowShaped_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bulletsIcon.png" sourcerect="0,214,62,40" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Bullets/bullets.png" sourcerect="173,445,61,20" depth="0.55" origin="0.5,0.5" />
+    <Body width="30" height="30" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" maxtargetstohit="2" hitscan="true" hitscancount="4" removeonhit="true" spread="4">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="0.5" targetforce="4" itemdamage="25" severlimbsprobability="0.5" penetration="0.5">
+        <Affliction identifier="bleeding" strength="14" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="gunshotwound" strength="5" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="2" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,130" />
+      </StatusEffect>
+    </Projectile>
+  </Item-->
+  <!--重型反器材
+  <Item name="重型反器材弹匣" identifier="fqc_magazine" maxstacksize="32" maxstacksizecharacterinventory="4" scale="0.5" category="Weapon" health="35" allowasextracargo="true" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,fqc_magazine" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="重型反器材" minamount="1" maxamount="1" spawnprobability="1" />
+    <PreferredContainer primary="armcab" secondary="secarmcab" />
+    <Price baseprice="300" minleveldifficulty="30">
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" sold="true" multiplier="1.2" minavailable="0" maxavailable="4" />
+      <Price storeidentifier="TLarmory" multiplier="0.6" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="35" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem tag="advmunition_tip" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem identifier="aluminium" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="15" displayname="recycleitem" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem tag="advmunition_tip" description="fabricationdescription.advmunition_tip" />
+      <RequiredItem identifier="aluminium" />
+      <RequiredItem tag="advmunition_jacket" description="fabricationdescription.advmunition_jacket" />
+      <RequiredItem identifier="mr_magazine" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Sprite name="灭刃弹夹" texture="weapons.png" sourcerect="313,443,47,68" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="70" density="25" />
+    <ItemContainer capacity="5" maxstacksize="5" hideitems="true" containedstateindicatorstyle="bullet">
+      <Containable items="fqc_ammo" />
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item> -->
+  <!--通用弹药箱-->
+  <Item name="泰拉通用弹药箱" description="" identifier="TL_ammobox" health="1250" category="Equipment" tags="mediumitem,ammobox,TL_ammobox" scale="0.5" pickdistance="150" impactsoundtag="impact_metal_heavy" maxstacksize="1">
+    <Sprite texture="%ModDir%/Content/Items/Weapons/Loader.png" depth="0.54" sourcerect="153,437,152,75" origin="0.5,0.5" />
+    <Body width="112" height="65" density="50" />
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="30">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem tag="munition_core" amount="7" />
+      <RequiredItem tag="advmunition_jacket" amount="6" />
+      <RequiredItem identifier="aluminium" amount="5" />
+      <RequiredItem identifier="potassium" amount="7" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="6" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <PreferredContainer primary="wreckarmcab" minamount="0" maxamount="2" spawnprobability="0.05" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="2" spawnprobability="0.05" />
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <Price baseprice="3300" minleveldifficulty="15">
+      <Price locationtype="outpost" multiplier="1.5" sold="false" />
+      <Price locationtype="city" multiplier="1" minavailable="0" maxavailable="7" sold="true" />
+      <Price locationtype="research" multiplier="1.05" minavailable="1" maxavailable="2" sold="true" />
+      <Price locationtype="military" multiplier="0.9" minavailable="1" maxavailable="3" sold="true" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+      <Price storeidentifier="TLarmory" multiplier="0.8" minavailable="4" sold="true" />
+    </Price>
+    <RangedWeapon reload="1" MaxChargeTime="20" />
+    <Holdable slots="Any,RightHand+LeftHand" canBeCombined="true" aimable="false" holdpos="50,-50" aimpos="50,-40" handle1="-0,16" handle2="0,0" swingamount="20,100" swingspeed="1" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnUse" target="Contained" Condition="100">
+        <Conditional IsFullCondition="flase" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-80" comparison="and">
+        <RequiredItems items="general" type="Contained" />
+        <Conditional IsFullCondition="flase" targetcontaineditem="true" />
+        <sound file="%ModDir%/Content/Sounds/Weapons/装填3.ogg" type="OnUse" range="300" loop="true" />
+      </StatusEffect>
+    </Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <Containable items="general" />
+    </ItemContainer>
+    <Deconstruct time="20"></Deconstruct>
+  </Item>
+  <Item name="幻星通用弹药箱" description="" identifier="HX_ammobox" health="1250" category="Equipment" tags="mediumitem,ammobox,HX_ammobox" scale="0.5" pickdistance="150" impactsoundtag="impact_metal_heavy" maxstacksize="1">
+    <Sprite texture="%ModDir%/Content/Items/Weapons/Loader.png" depth="0.54" sourcerect="0,437,150,75" origin="0.5,0.5" />
+    <Body width="112" height="65" density="50" />
+    <PreferredContainer primary="wreckarmcab" minamount="0" maxamount="2" spawnprobability="0.05" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="2" spawnprobability="0.05" />
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="0" maxamount="1" spawnprobability="0.05" />
+    <Price baseprice="3300" minleveldifficulty="15">
+      <Price locationtype="outpost" multiplier="1.5" sold="false" />
+      <Price locationtype="city" multiplier="1" minavailable="0" maxavailable="7" sold="true" />
+      <Price locationtype="research" multiplier="1.05" minavailable="1" maxavailable="2" sold="true" />
+      <Price locationtype="military" multiplier="0.9" minavailable="1" maxavailable="3" sold="true" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+      <Price storeidentifier="TLarmory" multiplier="0.8" minavailable="4" sold="true" />
+    </Price>
+    <Fabricate suitablefabricators="MoldingPrinters" requiredtime="30">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="plastic" amount="7" />
+      <RequiredItem tag="advmunition_jacket" amount="6" />
+      <RequiredItem identifier="aluminium" amount="5" />
+      <RequiredItem identifier="flashpowder" amount="7" />
+      <RequiredItem identifier="Steel_TL" amount="6" />
+      <RequiredItem identifier="PrintingMaterials" amount="1" />
+    </Fabricate>
+    <RangedWeapon reload="1" MaxChargeTime="20" />
+    <Holdable slots="Any,RightHand+LeftHand" canBeCombined="true" aimable="false" holdpos="50,-50" aimpos="50,-40" handle1="-0,16" handle2="0,0" swingamount="20,100" swingspeed="1" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnUse" target="Contained" Condition="100">
+        <Conditional IsFullCondition="flase" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-70" comparison="and">
+        <RequiredItems items="general_HX" type="Contained" />
+        <Conditional IsFullCondition="flase" targetcontaineditem="true" />
+        <sound file="%ModDir%/Content/Sounds/Weapons/装填3.ogg" type="OnUse" range="300" loop="true" />
+      </StatusEffect>
+    </Holdable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" showcontainedstateindicator="false">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <Containable items="general_HX" />
+    </ItemContainer>
+    <Deconstruct time="20"></Deconstruct>
+  </Item>
+  <!--其它-->
+  <Item name="泰拉酸烧发射器" identifier="TL_acidmistemitter" Scale="1" tags="gas" sonarsize="0" hideinmenus="true" health="40" depth="0.1" isdangerous="true" noninteractable="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <!-- Without a body, the item wouldn't stay inside the sub, and could go through sub walls from the outside -->
+    <Body radius="50" density="15" gravityscale="0.1" lineardamping="0.5" />
+    <ItemComponent>
+      <StatusEffect type="OnSpawn" target="This" duration="20">
+        <ParticleEmitter particle="acidmistgrenade" colormultiplier="150,0,0,200" particlespersecond="5" scalemin="0.9" scalemax="1.0" anglemin="0" anglemax="360" velocitymin="0" velocitymax="25" copyentityangle="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" disabledeltatime="false" condition="-1">
+        <Sound file="Content/Items/Tools/Sprayer.ogg" range="300" volume="0.1" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="200" delay="0.5" stackable="false" disabledeltatime="true">
+        <Affliction identifier="TL_acidburn" strength="0.01" />
+        <Affliction identifier="slow" strength="50" MultiplyByMaxVitality="true" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--Item name="修复激光盒" identifier="HullFixammo1" scale="0.5" tags="ammobox,crate" description="Heavy non-rechargable capacitor which supplies the isolated power modulation needed to drive an acoustic laser system. The casing includes large heatsinks to accommodate the unit's tendancy to heat up during extended use." category="Equipment,Weapon" linkable="false" impactsoundtag="impact_metal_heavy">
+    <PreferredContainer primary="ammocontainer" />
+    <Price baseprice="190" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.25" minavailable="3" />
+      <Price storeidentifier="merchantcity" multiplier="1.0" minavailable="4" />
+      <Price storeidentifier="merchantresearch" multiplier="1.2" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.8" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.5" minavailable="2" />
+    </Price>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="zinc" />
+      <Item identifier="potassium" mincondition="0.8" />
+      <Item identifier="lithium" mincondition="0.8" />
+      <Item identifier="antibloodloss1" mincondition="0.8" />
+      <Deconstructing yields degraded components>
+      <Item identifier="chlorine" maxcondition="0.8" />
+    </Deconstruct>
+    <Sprite texture="weapons.png" depth="0.54" sourcerect="153,437,152,75" origin="0.5,0.5" />
+    <Body width="112" height="65" density="50" />
+    <Holdable slots="RightHand+LeftHand" holdpos="50,-30" handle1="-15,15" handle2="-15,15" aimable="false" msg="ItemMsgPickUpSelect" canBeCombined="false" />
+    <ItemContainer autofill="False" hideitems="true" capacity="1" Spawnwithid="HullFixammo" removecontaineditemsondeconstruct="true" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true">
+      <ContainedStateIndicator texture="Content/UI/ContainerIndicators.png" sourcerect="16,64,120,24" />
+      <StatusEffect type="OnUse" target="This" condition="-0.15" disabledeltatime="true">
+        <SpawnItem identifiers="HullFixammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <Containable identifiers="HullFixammo" />
+    </ItemContainer>
+  </Item-->
+</Items>

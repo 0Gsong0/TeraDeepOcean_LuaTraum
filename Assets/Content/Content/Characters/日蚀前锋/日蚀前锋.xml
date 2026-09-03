@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Character SpeciesName="日蚀前锋" Tags="" SpeciesTranslationOverride="" DisplayName="" Group="TLship" Humanoid="False" HasInfo="False" CanInteract="False" CanClimb="False" ForceSlowClimbing="False" Husk="False" HuskedSpecies="" NonHuskedSpecies="" UseHuskAppendage="False" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="True" CanSpeak="False" ShowHealthBar="False" UseBossHealthBar="True" Noise="100" Visibility="100" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="False" EatingSpeed="10" UsePathFinding="True" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="True" SonarDisruption="500" DistantSonarRange="0" DisableDistance="25000" SoundInterval="10" DrawLast="False" AITurretPriority="0.5" AISlowTurretPriority="0.5" DespawnContainer="" MusicType="monster" MusicCommonness="1" MusicRangeMultiplier="1" UnlockKillAchievementForWholeCrew="False">
+  <ragdolls folder="%ModDir%/Characters/日蚀前锋/Ragdolls/" />
+  <animations folder="%ModDir%/Characters/日蚀前锋/Animations/" />
+  <health Vitality="10000" DoesBleed="False" CrushDepth="10000" UseHealthWindow="False" BleedingReduction="0" BurnReduction="10" ConstantHealthRegeneration="0.45" HealthRegenerationWhenEating="0" StunImmunity="True" PoisonImmunity="True" PoisonVulnerability="1" EmpVulnerability="1.5" ApplyMovementPenalties="False" DieFromBeheading="False" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="burn,gunshotwound">
+    <Limb>
+      <VitalityMultiplier type="stun" multiplier="0.0" />
+    </Limb>
+  </health>
+  <ai CombatStrength="200" Sight="10" Hearing="10" MaxPerceptionDistance="-1" AggressionHurt="100" AggressionGreed="10" FleeHealthThreshold="0" AttackWhenProvoked="True" AvoidGunfire="False" DamageThreshold="0" AvoidTime="3" MinFleeTime="20" AggressiveBoarding="False" EnforceAggressiveBehaviorForMissions="True" TargetOuterWalls="True" RandomAttack="True" CanOpenDoors="False" UsePathFindingToGetInside="False" KeepDoorsClosed="False" AvoidAbyss="True" StayInAbyss="False" PatrolFlooded="False" PatrolDry="False" StartAggression="100" MaxAggression="100" AggressionCumulation="1" WallTargetingMethod="Target" PlayDeadProbability="0">
+    <targetpriority Tag="decoy" State="Attack" Priority="5" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Circle" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <targetpriority Tag="human" State="Attack" Priority="100" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Circle" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <targetpriority Tag="sonar" State="Attack" Priority="100" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Circle" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <targetpriority Tag="room" State="Attack" Priority="100" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Circle" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <targetpriority Tag="stronger" State="Attack" Priority="100" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Circle" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+  </ai>
+  <StatusEffect type="OnActive" target="This" stackable="false" interval="40">
+    <SpawnCharacter speciesname="日蚀登陆仓1" count="1" spread="100" />
+    <Sound file="%ModDir%/Sounds/Weapons/Enemy/跟踪.ogg" range="6000" dontmuffle="true" selectionmode="Random" />
+  </StatusEffect>
+  <StatusEffect type="OnActive" target="This" stackable="false" interval="60">
+    <SpawnCharacter speciesname="日蚀登陆仓2" count="1" spread="100" />
+    <Sound file="%ModDir%/Sounds/Weapons/Enemy/跟踪.ogg" range="6000" dontmuffle="true" selectionmode="Random" />
+  </StatusEffect>
+  <StatusEffect type="OnActive" target="This" stackable="false" interval="50">
+    <SpawnItem identifier="eclipseammo" spawnposition="This" count="1" />
+  </StatusEffect>
+  <StatusEffect type="OnActive" target="this">
+    <Sound file="%ModDir%/Sounds/Music/Musics/Extinction.ogg" loop="true" range="25000" dontmuffle="true" volume="1" />
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This" disabledeltatime="true" stackable="false" delay="10">
+    <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+    <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+    <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+    <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+    <Explosion range="1800.0" structuredamage="10000" itemdamage="15000" empstrength="15000" ignorecover="true" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0" camerashake="800" camerashakerange="80000" flashrange="15000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="10.0" penetration="1">
+      <Affliction identifier="burn" strength="1100" />
+      <Affliction identifier="radiationsickness" strength="1000" />
+      <Affliction identifier="explosiondamage" strength="1000" />
+      <Affliction identifier="explosiondamage" strength="800" />
+      <Affliction identifier="stun" strength="500" />
+    </Explosion>
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This" disabledeltatime="true" stackable="false" delay="15">
+    <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+    <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+    <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+    <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+    <Explosion range="2300" structuredamage="10000" itemdamage="15000" empstrength="15000" ignorecover="true" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0" camerashake="800" camerashakerange="80000" flashrange="15000" flashduration="5.0" screencolor="0,200,255,255" screencolorrange="5000" screencolorduration="10.0" penetration="1">
+      <Affliction identifier="burn" strength="1100" />
+      <Affliction identifier="radiationsickness" strength="1000" />
+      <Affliction identifier="explosiondamage" strength="1000" />
+      <Affliction identifier="explosiondamage" strength="800" />
+      <Affliction identifier="stun" strength="500" />
+    </Explosion>
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This" disabledeltatime="true" stackable="false" delay="30">
+    <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+    <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+    <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+    <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+    <Explosion range="2500" structuredamage="10000" itemdamage="15000" empstrength="15000" ignorecover="true" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0" camerashake="800" camerashakerange="80000" flashrange="15000" flashduration="5.0" screencolor="210,255,0,255" screencolorrange="5000" screencolorduration="10.0" penetration="1">
+      <Affliction identifier="burn" strength="1100" />
+      <Affliction identifier="radiationsickness" strength="1000" />
+      <Affliction identifier="explosiondamage" strength="1000" />
+      <Affliction identifier="explosiondamage" strength="800" />
+      <Affliction identifier="stun" strength="500" />
+    </Explosion>
+  </StatusEffect>
+  <inventory Slots="Any, Any, Any, Any" AccessibleWhenAlive="False" Commonness="0.4">
+    <Item amount="4" Identifier="steel_TL" />
+    <Item amount="2" Identifier="TL_blueprint" />
+    <Item amount="1" Identifier="TL_TL23_Pro" />
+  </inventory>
+  <inventory Slots="Any, Any, Any, Any" AccessibleWhenAlive="False" Commonness="0.6">
+    <Item amount="1" Identifier="TL_Keys" />
+    <Item amount="1" Identifier="TL_TL23_Pro" />
+  </inventory>
+</Character>

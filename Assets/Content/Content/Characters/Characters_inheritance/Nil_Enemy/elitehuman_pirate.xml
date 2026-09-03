@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="Tl_human_enemy_base" displayname="" speciesname="elitehuman_pirate" group="pirate">
+    <health Vitality="140" />
+    <ai sight="100" hearing="100" />
+    <attack damagemultiplier="0" />
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="3">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="bodyarmor" slot="OuterClothes" />
+      <Item identifier="smg_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="1">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="bodyarmor" slot="OuterClothes" />
+      <Item identifier="autoshotgun_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <StatusEffect type="OnDeath" target="This">
+      <SpawnItem identifiers="coalitioncommendation" spawnposition="ThisInventory" probability="0.66" />
+    </StatusEffect>
+  </Charactervariant>
+</Override>

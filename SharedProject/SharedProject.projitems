@@ -10,6 +10,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\AssemblySettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigBridge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybData.cs" />
+    <Compile Include="..\SharedProject\SharedSource\Config\TLConfigDataEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Plugin.cs" />
   </ItemGroup>
 </Project>

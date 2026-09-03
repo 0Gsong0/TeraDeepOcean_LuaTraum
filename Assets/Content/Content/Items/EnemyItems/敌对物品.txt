@@ -1,0 +1,11 @@
+TL14(敌对) TL_TL14_Enemy
+TL15(敌对) TL_TL15_Enemy
+TL13(敌对) TL_TL13_Enemy
+TL23(敌对) TL_TL23_Enemy
+TL23崩解(敌对) TL_TL23_disintegrate_Enemy
+AKE(敌对) TL_AKE_Enemy
+
+打底服 TL_Undergarments_Enemy
+TL普通护甲（敌对）TL_bodyarmor1_Enemy
+TL精英护甲（敌对）TL_bodyarmor2_Enemy
+黄鹤战斗套装（敌对） TL_Crane_Enemy

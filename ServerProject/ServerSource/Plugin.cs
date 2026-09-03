@@ -1,4 +1,4 @@
-﻿namespace MyModName
+﻿namespace TeraDeepOcean
 {
     public partial class Plugin : IAssemblyPlugin
     {

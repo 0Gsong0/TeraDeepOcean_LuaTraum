@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <Item name="干嘛..." identifier="Poster_ganma" subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="干嘛.png" sourcerect="0,0,546,456" depth="0.95" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="看我干啥，又不是我的问题" identifier="Poster_baocuo"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/报错.png" sourcerect="0,0,450,450" depth="0.95" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="泰拉科技1" identifier="Poster_TL1"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/TL.png" sourcerect="0,0,172,195" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="泰拉科技2" identifier="Poster_TL2"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/泰拉.png" sourcerect="0,0,1008,448" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="幻星" identifier="Poster_HX"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.4" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/HX.png" sourcerect="0,0,94,104" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="燃尽..." identifier="Poster_Ranjin"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.4" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="300" height="300" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/燃尽.png" sourcerect="0,0,273,333" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="哇！爱慕超人！" identifier="Poster_MCR"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="600" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/M超人.png" sourcerect="0,0,502,674" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="??耄耋??" identifier="Poster_maodie"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.3" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="300" height="400" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/耄耋1.png" sourcerect="0,0,354,389" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="????" identifier="Poster_niaomao"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.15" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="700" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/尿猫.png" sourcerect="0,0,867,720" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="玩潜渊症被打断双腿" identifier="Poster_玩潜渊症被打断双腿"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.3" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/打断双腿.png" sourcerect="0,0,483,483" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="好豹" identifier="Poster_好豹"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.20" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/豹子.png" sourcerect="0,0,640,640" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图1" identifier="Poster_美图1"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图1.png" sourcerect="0,0,452,640" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图2" identifier="Poster_美图2"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图2.png" sourcerect="0,0,413,585" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图3" identifier="Poster_美图3"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图3.png" sourcerect="0,0,452,640" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图4" identifier="Poster_美图4"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图4.png" sourcerect="0,0,310,439" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图5" identifier="Poster_美图5"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图5.png" sourcerect="0,0,549,329" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图6" identifier="Poster_美图6"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" Aimable="True">
+        </Holdable>
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图6.png" sourcerect="0,0,452,640" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="美图7" identifier="Poster_美图7"  subcategory="泰拉壁挂海报" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+        <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+        <Body width="500" height="500" density="15" />
+        <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" />
+        <sprite texture="%ModDir%/Content/UI/Prefabs/美图7.png" sourcerect="0,0,452,640" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+    <Item name="服务器机柜_装饰品" identifier="Poster_TL_Tower_Sever"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+		<Body width="500" height="500" density="15" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/能源站.png" sourcerect="733,45,270,500" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+    </Item>
+	<Item name="服务器机柜_装饰品" identifier="Poster_TL_Tower_Sever_B"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+		<Body width="500" height="500" density="15" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/能源站.png" sourcerect="1070,50,270,500" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+	<Item name="立柜式接线仓_装饰品" identifier="Poster_TL_TW_jb_B"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+		<Body width="500" height="500" density="15" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/能源站.png" sourcerect="379,610,267,433" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+	<Item name="泰拉集团储物柜_装饰品" identifier="Poster_TL_TW_Locker_B"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="10" fabricationlimitmin="1" fabricationlimitmax="1" />
+		<Body width="500" height="500" density="15" />
+		<Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="0,0" handle1="0,0" Attachable="True" AttachedByDefault="True" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/能源站.png" sourcerect="380,52,280,500" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+    <Item name="能源站反应堆_装饰品" identifier="Poster_TL_TW_Power"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Body width="500" height="500" density="15" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/反应堆.png" sourcerect="0,0,1122,1420" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+    <Item name="能源站反应堆冷却系统_装饰品" identifier="Poster_TL_TW_Power_Cold"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Body width="500" height="500" density="15" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/冷却.png" sourcerect="0,0,1309,1201" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+    <Item name="大型服务器_装饰品" identifier="Poster_TL_TW_Sever1"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Body width="500" height="500" density="15" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/服务器.png" sourcerect="0,0,683,1188" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+    <Item name="大型服务器_装饰品" identifier="Poster_TL_TW_Sever1_B"  subcategory="" description="" texturescale="1.0,1.0" scale="0.25" category="Decorative">
+		<Body width="500" height="500" density="15" />
+		<sprite texture="%ModDir%/Content/Items/Sundrys/Scene/服务器.png" sourcerect="685,0,630,1181" depth="0.94" premultiplyalpha="false" origin="0.5,0.5" />
+	</Item>
+</Items>
