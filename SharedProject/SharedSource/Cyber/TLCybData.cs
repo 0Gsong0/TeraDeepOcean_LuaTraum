@@ -29,7 +29,11 @@ namespace TeraDeepOcean
         public float CircuitDamageMultiplier { get; }
         public float SystemDamageMultiplier { get; }
 
-        public TLCybData(string itemId,string installId,TLCybCategory category,IEnumerable<LimbType> allowLimbTypes,float structuralDamageMultiplier,float servoDamageMultiplier,float circuitDamageMultiplier,float systemDamageMultiplier)
+        public string InstallNoticeHeaderTag { get; }
+        public string InstallNoticeTextTag { get; }
+        public string InstallNoticeIconTag { get; }
+
+        public TLCybData(string itemId,string installId,TLCybCategory category,IEnumerable<LimbType> allowLimbTypes,float structuralDamageMultiplier,float servoDamageMultiplier,float circuitDamageMultiplier,float systemDamageMultiplier,string installNoticeHeaderTag="",string installNoticeTextTag="",string installNoticeIconTag="")
         {
             ItemId = itemId;
             InstallAffId = installId;
@@ -39,6 +43,9 @@ namespace TeraDeepOcean
             ServoDamageMultiplier = servoDamageMultiplier;
             CircuitDamageMultiplier = circuitDamageMultiplier;
             SystemDamageMultiplier = systemDamageMultiplier;
+            InstallNoticeHeaderTag = installNoticeHeaderTag;
+            InstallNoticeTextTag = installNoticeTextTag;
+            InstallNoticeIconTag = installNoticeIconTag;
         }
     }
     /// <summary>
@@ -56,7 +63,9 @@ namespace TeraDeepOcean
                 structuralDamageMultiplier: 1.00f,
                 servoDamageMultiplier: 1.00f,
                 circuitDamageMultiplier: 1.00f,
-                systemDamageMultiplier: 0.85f),
+                systemDamageMultiplier: 0.85f,
+                installNoticeHeaderTag: "entityname.TLCyb_CivilianArm",
+                installNoticeTextTag: "TLCyb_CivilianArm_Init"),
             new(
                 "TLCyb_CivilianLeg",
                 "TLCyb_CivilianLeg_Init",
@@ -65,7 +74,9 @@ namespace TeraDeepOcean
                 structuralDamageMultiplier: 1.00f,
                 servoDamageMultiplier: 1.00f,
                 circuitDamageMultiplier: 1.00f,
-                systemDamageMultiplier: 0.85f),
+                systemDamageMultiplier: 0.85f,
+                installNoticeHeaderTag: "entityname.TLCyb_CivilianLeg",
+                installNoticeTextTag: "TLCyb_CivilianLeg_Init"),
         };
         public static TLCybData? FindByItemId(string id)
         {

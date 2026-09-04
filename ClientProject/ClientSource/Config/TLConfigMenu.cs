@@ -330,6 +330,7 @@ namespace TeraDeepOcean
                 Enabled = canEdit,
                 ToolTip = GetPermissionToolTip(entry)
             };
+            input.ValueStep = 0.1f;
             input.OnValueChanged = num =>
             {
                 if (!canEdit) return;

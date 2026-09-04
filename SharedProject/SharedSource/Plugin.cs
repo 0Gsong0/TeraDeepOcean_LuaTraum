@@ -31,6 +31,7 @@ namespace TeraDeepOcean
 
             TLCybInstallSystem.Init(harmony);
             TLCybDamageSystem.Init(harmony);
+            TLCybRepairSystem.Init(harmony);
         }
         partial void InitializeClient(Harmony harmony);
         public void Initialize()
