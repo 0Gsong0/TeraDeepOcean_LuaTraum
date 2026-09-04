@@ -15,6 +15,9 @@ namespace TeraDeepOcean
         public static int UpdateInterval => TLConfigService.UpdateInterval;
         public static int LateUpdateInterval => TLConfigService.LateUpdateInterval;
         public static bool DebugModel => TLConfigService.DebugModel;
+        public static float CybDamageMultiplier => TLConfigService.CybDamageMultiplier;
+
+        public static IEnumerable All => TLConfigService.All;
     }
     //配置逻辑类
     /// <summary>
@@ -26,6 +29,10 @@ namespace TeraDeepOcean
         public static int UpdateInterval => Current.GetInt("TL_TLUpdateInterval");
         public static int LateUpdateInterval => Current.GetInt("TL_TLLateUpdateInterval");
         public static bool DebugModel => Current.GetBool("TL_TLDebugModel");
+
+        public static float CybDamageMultiplier => Current.GetFloat("TL_CybDamageMultiplier");
+
+        public static IEnumerable All => Current.GetAll();
 
         //以后 LuaBridge 来赋值：C# 生成 json，Lua 只负责发出去。
         public static Action<string> SendToServer;
@@ -124,7 +131,7 @@ namespace TeraDeepOcean
         /// <param name="sender"></param>
         public static void ServerHandleConfigUpdate(string json,Client sender)
         {
-            if(GameMain.NetworkMember == null || !sender.HasPermission(ClientPermissions.ManageSettings))
+            if(GameMain.NetworkMember == null || !sender.HasPermission(ClientPermissions.ManageCampaign))
             {
                 return;
             }

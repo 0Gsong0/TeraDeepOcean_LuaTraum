@@ -32,6 +32,12 @@ namespace TeraDeepOcean
                 false,0,1,
                 "config.TL_TLDebugModel",
                 "config.des.TL_TLDebugModel"),
+            new TLConfigDataEntry(
+                "TL_CybDamageMultiplier",
+                TLConfigVauleType.Float,
+                1.5f,0.1f,10f,
+                "config.TL_CybDamageMultiplier",
+                "config.des.TL_CybDamageMultiplier"),
 
         };
         public static TLConfigDataEntry? Find(string key)

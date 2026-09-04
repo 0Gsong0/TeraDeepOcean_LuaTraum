@@ -14,7 +14,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybDamageSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybInstallSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybState.cs" />
     <Compile Include="..\SharedProject\SharedSource\Config\TLConfigDataEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Plugin.cs" />

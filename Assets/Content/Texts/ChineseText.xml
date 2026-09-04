@@ -1259,8 +1259,8 @@
 	<config.TL_header_cyb>义体设置</config.TL_header_cyb>
 	<config.des.TL_header_cyb>义体系统的可配置内容</config.des.TL_header_cyb>
 	<config.SectionTitle_cyb1>义体伤害与行动参数</config.SectionTitle_cyb1>
-	<config.TL_cybDamageMultiplier>义体伤害倍率</config.TL_cybDamageMultiplier>
-	<config.des.TL_cybDamageMultiplier>控制义体受到伤害的倍率，影响了所有的义体伤害类型与大量伤害结算（默认值：1.5）</config.des.TL_cybDamageMultiplier>
+	<config.TL_CybDamageMultiplier>义体伤害倍率</config.TL_CybDamageMultiplier>
+	<config.des.TL_CybDamageMultiplier>控制义体受到伤害的倍率，影响了所有的义体伤害类型与大量伤害结算（默认值：1.5）</config.des.TL_CybDamageMultiplier>
 	<config.TL_TLCybTripChance>跌倒概率</config.TL_TLCybTripChance>
 	<config.des.TL_TLCybTripChance>当机械双腿电路损坏超过阈值时，每次检查时触发跌倒的概率（默认值：0.25）</config.des.TL_TLCybTripChance>
 	<config.TL_TLCybProtectFallNum>保底不会摔倒次数</config.TL_TLCybProtectFallNum>

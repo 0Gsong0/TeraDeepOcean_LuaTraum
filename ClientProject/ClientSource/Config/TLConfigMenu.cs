@@ -47,8 +47,8 @@ namespace TeraDeepOcean
             receivedConfig = !GameMain.IsMultiplayer;
             introVideoFinished = false;
 
-            ClearChildren(rootList.Content.RectTransform);
-            ClearChildren(buttonsRow.RectTransform);
+            ClearChildren(rootList?.Content.RectTransform);
+            ClearChildren(buttonsRow?.RectTransform);
 
             if (GameMain.IsMultiplayer)
             {
@@ -88,6 +88,7 @@ namespace TeraDeepOcean
                 }
                 return;
             }
+            if (rootList == null || buttonsRow == null || rootFrame == null) return;
             ClearChildren(rootList.Content.RectTransform);
             ClearChildren(buttonsRow.RectTransform);
             DrawLayOut(rootList.Content);
@@ -165,7 +166,7 @@ namespace TeraDeepOcean
         private static void RefreshRightPanel()
         {
             if (rightTitle == null || rightList == null) return;
-            ClearChildren(rightList.Content.RectTransform);
+            ClearChildren(rightList?.Content.RectTransform);
 
             switch (currentTab)
             {
@@ -184,7 +185,7 @@ namespace TeraDeepOcean
                     rightTitle.Text = TextManager.Get("config.TL_header_cyb").ToString();
                     rightTitle.ToolTip = TextManager.Get("config.des.TL_header_cyb").ToString();
                     AddSectionTitle(rightList.Content, TextManager.Get("config.SectionTitle_cyb1").ToString());
-
+                    AddFloat(rightList.Content, "TL_CybDamageMultiplier");
 
                     break;
             }
@@ -412,6 +413,7 @@ namespace TeraDeepOcean
         }
         private static void ClearChildren(RectTransform parent)
         {
+            if (parent == null) return;
             List<RectTransform> children = new List<RectTransform>(parent.Children);
             foreach (var child in children)
             {

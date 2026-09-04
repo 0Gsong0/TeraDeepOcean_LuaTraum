@@ -3,4 +3,8 @@
     <Text file="%ModDir%/Texts/English.xml" />
 	<Text file="%ModDir%/Texts/ChineseText.xml" />
 	<UIStyle file="%ModDir%/Content/UI/styleAdd.xml" />
+	<Afflictions file="%ModDir%/Content/Items/Cyb/CybAfflictions.xml" />
+	<Item file="%ModDir%/Content/Items/Cyb/Cybs.xml" />
+	<Item file="%ModDir%/Content/Items/Cyb/CybSounds.xml" />
+	<RandomEvents file="%ModDir%/Content/Items/Cyb/Events.xml" />
 </contentpackage>
