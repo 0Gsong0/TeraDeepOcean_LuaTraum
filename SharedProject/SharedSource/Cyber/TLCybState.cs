@@ -62,6 +62,11 @@ namespace TeraDeepOcean
 
             return false;
         }
+        public static bool HasNT()
+        {
+            AfflictionPrefab.Prefabs.TryGet("traumaticshock".ToIdentifier(), out AfflictionPrefab? aff);
+            return aff != null;
+        }
         public static bool HasAnyCyb(Character character,LimbType limbType)
         {
             return HasTLCyb(character, limbType) || HasNTCyb(character, limbType);
@@ -71,7 +76,7 @@ namespace TeraDeepOcean
             Limb? limb = GetLimbByType(character, LimbType.Head);
             return limb != null && HasAffOnLimb(character, limb, "TLCyb_LycorisChip_Init");
         }
-        public static bool HasAffOnLimb(Character character,Limb limb,string affId,float min = 0.1f)
+        public static bool HasAffOnLimb(Character character,Limb? limb,string affId,float min = 0.1f)
         {
             if (character == null || limb == null) return false;
             return character.CharacterHealth.GetAffliction(affId.ToIdentifier(), limb)?.Strength >= min;

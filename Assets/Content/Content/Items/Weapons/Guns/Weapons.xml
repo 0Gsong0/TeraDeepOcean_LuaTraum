@@ -2301,6 +2301,53 @@
       <QualityStat stattype="ExplosionDamage" value="0.15" />
     </Quality>
   </Item>
+	<Item name="TMR机炮" identifier="TMR_01Gun" description="" category="weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith" health="1800" Scale="1" damagedbyprojectiles="true" damagedbymeleeweapons="true" impactsoundtag="impact_metal_light" allowasextracargo="true">
+		<Deconstruct time="10">
+			<Item identifier="steel" amount="4" />
+			<Item identifier="plastic" amount="4" />
+		</Deconstruct>
+		<Sprite texture="%ModDir%/Content/Characters/TMR-01驮兽/TMR-01驮兽.png" sourcerect="371,265,424,98" depth="0.01" origin="0.55,0.4" />
+		<Body width="100" height="450" density="200" />
+		<Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="160,-20" holdpos="45,-30" handle1="-250,0" handle2="-450,0" holdangle="0" msg="ItemMsgPickUpSelect"></Holdable>
+		<RangedWeapon weapondamagemodifier="1.05" reload="0.15" holdtrigger="true" barrelpos="177,-20" spread="4.5" unskilledspread="40" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.22">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" colormultiplier="255,200,200,200" />
+			<StatusEffect target="This" type="OnUse" forceplaysounds="true">
+				<ParticleEmitter particle="casingfirearm" AngleMax="360" ScaleMin="2" ScaleMax="2.5" ScaleMultiplier="1,1" ParticlesPerSecond="1" ColorMultiplier="255,255,255,255" DrawOnTop="True" />
+				<Sound file="Content/Items/JobGear/Security/WEAPON_hmgShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+				<Sound file="Content/Items/JobGear/Security/WEAPON_hmgShot2.ogg" type="OnUse" range="3000" />
+				<Sound file="Content/Items/JobGear/Security/WEAPON_hmgShot3.ogg" type="OnUse" range="3000" />
+				<Sound file="Content/Items/JobGear/Security/WEAPON_hmgShot4.ogg" type="OnUse" range="3000" />
+				<Sound file="Content/Items/JobGear/Security/WEAPON_hmgShot5.ogg" type="OnUse" range="3000" />
+				<Sound file="Content/Items/JobGear/Security/WEAPON_hmgShot6.ogg" type="OnUse" range="3000" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+				<Explosion range="180.0" force="12.7" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="15.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+				<SpawnItem identifier="M2_Magazine" spawnposition="ThisInventory" />
+			</StatusEffect>
+			<RequiredItems items="M2_Magazine" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="50" />
+		</RangedWeapon>
+		<Propulsion force="-40" usablein="both" ApplyToHands="false">
+			<RequiredItems items="M2_Magazine" type="Contained" />
+		</Propulsion>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+			<Containable items="M2_Magazine" hide="false" itempos="-22,-25" />
+			<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+			<SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+		</ItemContainer>
+		<Quality>
+			<QualityStat stattype="FirepowerMultiplier" value="0.10" />
+		</Quality>
+		<SkillRequirementHint identifier="weapons" level="50" />
+	</Item>
   <!--
   <Item name="重型反器材(）" identifier="重型反器材" description="" tags="mediumitem,weapon,gun,gunsmith,specialgun,mountableweapon,bulkyweapon,provocativetohumanai" Scale="0.5" category="Weapon" impactsoundtag="weaponheavydrop">
     <PreferredContainer primary="secarmcab" />

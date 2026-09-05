@@ -1087,9 +1087,17 @@
 	<TL_MedicalPump_Off>健康接口已安全弹出，系统下线</TL_MedicalPump_Off>
 	<TL_MedicalPump_Out>存储药液已用尽，请补充，所有系统下线</TL_MedicalPump_Out>
 	<!--势力-->
-	<faction.TLCompany>泰拉科技集团</faction.TLCompany>
-	<faction.TLCompany.description>遵循利益至上原则，屹立于木卫二科技的尖端，内部人数没有很多，大多数设施采用人工智能管理以及雇佣劳工方式运营，不断吸纳木卫二各路人马，为他们提供精良的装备和后勤支援作为集团雇佣兵。由于和联盟存在利益冲突，所以据不可靠消息他们在支持一些非法活动和分裂势力</faction.TLCompany.description>
-	<faction.TLCompany.shortdescription>遵循利益至上原则，屹立于木卫二科技的尖端，内部人数没有很多，大多数设施采用人工智能管理以及雇佣劳工方式运营，不断吸纳木卫二各路人马，为他们提供精良的装备和后勤支援作为集团雇佣兵。由于和联盟存在利益冲突，所以据不可靠消息他们在支持一些非法活动和分裂势力</faction.TLCompany.shortdescription>
+	<faction.TLCompany>泰拉科技集团（Terra Technologies Group）</faction.TLCompany>
+	<faction.TLCompany.description>
+		泰拉科技集团是木卫二规模最大的独立技术与工业承包组织之一。与拥有庞大行政体系的欧罗巴联盟不同，集团的正式成员数量并不多，其生产设施、维修站和物流节点高度依赖自动化系统维持运作，而大量运输、工程、勘探与安保任务则交由签约承包商完成。
+		集团公开奉行利益优先原则，并长期从木卫二各地吸纳工程师、潜艇船员、退役军人、独立佣工以及其他拥有特殊技能的人才。只要能够证明自己的价值，无论一个人的出身、政治立场或过去如何，泰拉科技通常都愿意为其提供工作。
+		作为交换，集团能够为签约人员提供普通殖民者难以获得的先进设备、技术支持、医疗保障以及稳定的后勤供应。
+		泰拉科技并不公开挑战欧罗巴政府的统治，也几乎从不参与政治宣传。然而随着集团独立供应网络不断扩大，越来越多的殖民地开始能够绕开联盟体系获得工业设备、维修服务和关键物资，这使双方的关系日益紧张。
+		联盟方面曾多次指控泰拉科技利用复杂的承包商和贸易网络规避监管，并向未经授权的殖民地、走私团伙甚至分裂势力提供物资与技术支持。集团始终否认相关指控，并声称其业务对象的政治立场不属于合同审查范围。
+		有传闻称，在某些联盟与分离主义者交战最激烈的地区，双方使用的设备甚至来自同一条泰拉科技生产线。
+		对此，集团新闻部门拒绝发表评论。
+	</faction.TLCompany.description>
+	<faction.TLCompany.shortdescription>“我们不选择阵营。我们选择客户。”\n“在木卫二，没有永恒的盟友，也没有永恒的敌人。只有尚未结清的合同。”</faction.TLCompany.shortdescription>
 	<!--对话-->
 	<Dialogue.TL.XIGUAN.GetMissions.1>你好，我是泰拉集团的吸管，有什么事情吗？</Dialogue.TL.XIGUAN.GetMissions.1>
 	<Dialogue.TL.XIGUAN.GetMissions.2>请问有什么任务可以接吗？最近红浪漫去多了有点缺钱花</Dialogue.TL.XIGUAN.GetMissions.2>

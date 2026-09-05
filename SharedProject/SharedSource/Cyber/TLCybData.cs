@@ -31,9 +31,10 @@ namespace TeraDeepOcean
 
         public string InstallNoticeHeaderTag { get; }
         public string InstallNoticeTextTag { get; }
-        public string InstallNoticeIconTag { get; }
+        public string InstallNoticeBackImageTag { get; }
+        public string InstallSound { get; }
 
-        public TLCybData(string itemId,string installId,TLCybCategory category,IEnumerable<LimbType> allowLimbTypes,float structuralDamageMultiplier,float servoDamageMultiplier,float circuitDamageMultiplier,float systemDamageMultiplier,string installNoticeHeaderTag="",string installNoticeTextTag="",string installNoticeIconTag="")
+        public TLCybData(string itemId,string installId,TLCybCategory category,IEnumerable<LimbType> allowLimbTypes,float structuralDamageMultiplier,float servoDamageMultiplier,float circuitDamageMultiplier,float systemDamageMultiplier,string installNoticeHeaderTag="",string installNoticeTextTag="",string installNoticeBackImageTag="",string installSound="")
         {
             ItemId = itemId;
             InstallAffId = installId;
@@ -45,7 +46,8 @@ namespace TeraDeepOcean
             SystemDamageMultiplier = systemDamageMultiplier;
             InstallNoticeHeaderTag = installNoticeHeaderTag;
             InstallNoticeTextTag = installNoticeTextTag;
-            InstallNoticeIconTag = installNoticeIconTag;
+            InstallNoticeBackImageTag = installNoticeBackImageTag;
+            InstallSound = installSound;
         }
     }
     /// <summary>
@@ -65,7 +67,9 @@ namespace TeraDeepOcean
                 circuitDamageMultiplier: 1.00f,
                 systemDamageMultiplier: 0.85f,
                 installNoticeHeaderTag: "entityname.TLCyb_CivilianArm",
-                installNoticeTextTag: "TLCyb_CivilianArm_Init"),
+                installNoticeTextTag: "TLCyb_CivilianArm_Init",
+                installNoticeBackImageTag:"TLCyb_CybBack",
+                installSound:"TLCyb_CivilianLeg_Sound"),
             new(
                 "TLCyb_CivilianLeg",
                 "TLCyb_CivilianLeg_Init",
@@ -76,7 +80,9 @@ namespace TeraDeepOcean
                 circuitDamageMultiplier: 1.00f,
                 systemDamageMultiplier: 0.85f,
                 installNoticeHeaderTag: "entityname.TLCyb_CivilianLeg",
-                installNoticeTextTag: "TLCyb_CivilianLeg_Init"),
+                installNoticeTextTag: "TLCyb_CivilianLeg_Init",
+                installNoticeBackImageTag:"TLCyb_CybBack",
+                installSound:"TLCyb_CivilianLeg_Sound"),
         };
         public static TLCybData? FindByItemId(string id)
         {
