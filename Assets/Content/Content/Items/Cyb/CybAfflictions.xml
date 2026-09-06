@@ -1,9 +1,7 @@
 ﻿<Afflictions>
-	<Affliction name="测试义体植入" identifier="cyb_limb" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true">
-		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="895,8,137,133" origin="0.5,0.5" />
-	</Affliction>
 	<Affliction name="手术准备" identifier="TLCyb_Tool_Init" type="TLCyb" limbspecific="true" hideiconafterdelay="true" showiconthreshold="1" showinhealthscannerthreshold="0" treatmentthreshold="1000" maxstrength="10" isbuff="true">
 		<icon texture="%ModDir%/Content/Afflictions/AFUI.png" sourcerect="895,8,137,133" origin="0.5,0.5" />
+		<Effect minstrength="0" maxstrength="100" strengthchange="-0.1"/>
 	</Affliction>
 	<Affliction name="结构损伤" identifier="TLCyb_StructuralDamage" type="TLCyb" limbspecific="true" hideiconafterdelay="false" showiconthreshold="1" showinhealthscannerthreshold="1000" treatmentthreshold="1000" maxstrength="100">
 		<icon texture="%ModDir%/Content/Items/Cyb/AfflictionIcons.png" sheetindex="4,7" sheetelementsize="128,128" origin="0,0" />

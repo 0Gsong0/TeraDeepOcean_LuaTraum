@@ -3,6 +3,7 @@
 	<EventSprites>
 		<!--Sprite identifier="MedicalPump" texture="%ModDir%/Content/Items/Medicals/MedicalPump.png" sourcerect="0,0,620,860" origin="0.5,0.5" /-->
 		<Sprite identifier="TLCyb_CybBack" texture="%ModDir%/Content/Items/Cyb/CybBack.png" sourcerect="0,0,280,301" origin="0.5,0.5" />
+		<Sprite identifier="TL_Error" texture="%ModDir%/Content/Items/Cyb/Error.png" sourcerect="0,0,251,251" origin="0.5,0.5" />
 	</EventSprites>
 	<EventPrefabs>
 		<ScriptedEvent identifier="TLCyb_LycorisChip_Recovery_ues">

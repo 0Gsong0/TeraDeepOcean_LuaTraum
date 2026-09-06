@@ -11,7 +11,7 @@ namespace TeraDeepOcean
         public static void Init(Harmony harmony)
         {
             var applyTreatment = AccessTools.Method(typeof(Item), nameof(Item.ApplyTreatment));
-            if(applyTreatment != null)
+            if (applyTreatment != null)
             {
                 harmony.Patch(applyTreatment, postfix: new HarmonyMethod(typeof(TLCybInstallSystem), nameof(TLCybInstallSystem.OnApplyTreatment)));
             }
@@ -22,12 +22,12 @@ namespace TeraDeepOcean
                 typeof(SubmarineInfo),
                 typeof(SubmarineInfo),
             });
-            if(roundStart != null)
+            if (roundStart != null)
             {
                 harmony.Patch(roundStart, postfix: new HarmonyMethod(typeof(TLCybInstallSystem), nameof(TLCybInstallSystem.OnRoundStart)));
             }
         }
-        private static HashSet<(ushort CharacterId,string NoticeKey)>? playedInstallNotices = new();
+        private static HashSet<(ushort CharacterId, string NoticeKey)>? playedInstallNotices = new();
         private static void OnApplyTreatment(Item __instance, Character user, Character character, Limb targetLimb)
         {
             if (__instance == null || user == null || character == null || targetLimb == null) return;
@@ -37,13 +37,23 @@ namespace TeraDeepOcean
         {
             playedInstallNotices.Clear();
         }
-        private static void TryInstallCyb(Item item,Character user,Character target,Limb limb)
+        private static void TryInstallCyb(Item item, Character user, Character target, Limb limb)
         {
             string itemId = item.Prefab.Identifier.Value ?? "";
             LimbType limbType = TLCybState.NormalizeLimbType(limb.type);
             if (TLCybState.HasNT())
             {
-                if (TLCybState.HasAffOnLimb(target, TLCybState.GetLimbByType(target,limbType), "retractedskin"))
+                if (itemId == "TLCyb_Tool")
+                {
+                    if (Character.Controlled == user)
+                    {
+#if CLIENT
+                        TLCybNotice.ShowConversationNotice(user, TextManager.Get("TLCyb_Tool.HasNT"), "TL_Error");
+#endif
+                    }
+                    Entity.Spawner.AddItemToRemoveQueue(item);
+                }
+                if (TLCybState.HasAffOnLimb(target, TLCybState.GetLimbByType(target, limbType), "retractedskin"))
                 {
                     if (itemId == "TLCyb_LycorisChip")
                     {
@@ -78,7 +88,7 @@ namespace TeraDeepOcean
             }
 
         }
-        private static void InstallCyb(Character target,string itemId,LimbType limbType,Item item)
+        private static void InstallCyb(Character target, string itemId, LimbType limbType, Item item)
         {
             TLCybData? data = TLCybDataForm.FindByItemId(itemId);
             if (data == null) return;
@@ -104,7 +114,7 @@ namespace TeraDeepOcean
             Entity.Spawner.AddItemToRemoveQueue(item);
             TLCybState.AddAffOnLimb(target, targetLimb, "TLCyb_Tool_Init", -1000);
         }
-        private static void TryInstallLycoris(Character target,Item item)
+        private static void TryInstallLycoris(Character target, Item item)
         {
             if (TLCybState.HasLycoris(target)) return;
             Limb? head = TLCybState.GetLimbByType(target, LimbType.Head);

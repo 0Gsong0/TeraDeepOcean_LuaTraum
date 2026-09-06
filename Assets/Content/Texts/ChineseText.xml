@@ -793,6 +793,11 @@
 	</entitydescription.TLCyb_LycorisChipRestart>
 	<entityname.TLCyb_Neuroleptic>神经稳定剂</entityname.TLCyb_Neuroleptic>
 	<entitydescription.TLCyb_Neuroleptic>用于稳定神经信号波动的基础制剂，可降低神经同步偏差带来的负面影响。</entitydescription.TLCyb_Neuroleptic>
+	<entityname.TLCyb_Tool>义体植入手术准备工具</entityname.TLCyb_Tool>
+	<entitydescription.TLCyb_Tool>一套标准的手术工具包，仅可以为泰拉渊洋义体植入做准备。\n‖color:gui.green‖如果安装了Neurotrauma则此物品无效，请使用标准手术‖end‖</entitydescription.TLCyb_Tool>
+	<TLCyb_Tool.HasNT>当前环境安装了Neurotrauma，请使用标准手术</TLCyb_Tool.HasNT>
+	<afflictionname.TLCyb_Tool_Init>手术植入准备</afflictionname.TLCyb_Tool_Init>
+	<afflictiondescription.TLCyb_Tool_Init>此肢体已经完成义体植入前的准备，可以植入义体了</afflictiondescription.TLCyb_Tool_Init>
 	<afflictionname.TLCyb_StructuralDamage>结构损伤</afflictionname.TLCyb_StructuralDamage>
 	<afflictiondescription.TLCyb_StructuralDamage>义体外部框架或内部承载结构受到冲击后产生的物理性损坏。若不及时修复，损伤将逐步扩散，最终引发功能性失效。\n‖color:gui.green‖使用钢筋修复‖end‖</afflictiondescription.TLCyb_StructuralDamage>
 	<afflictionname.TLCyb_ServoDamage>伺服系统故障</afflictionname.TLCyb_ServoDamage>

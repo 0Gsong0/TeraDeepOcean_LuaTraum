@@ -11,6 +11,8 @@ namespace TeraDeepOcean
         static bool RequestedConfig;
         partial void InitializeClient(Harmony harmony)
         {
+            TLCharacterControlDebug.Init(harmony);
+
             var update = AccessTools.Method(typeof(GUI), nameof(GUI.Update));
             if (update != null)
             {
