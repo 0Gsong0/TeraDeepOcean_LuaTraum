@@ -17,7 +17,6 @@ namespace TeraDeepOcean
         private static readonly Dictionary<Identifier, TLCharacterAiMode> autoControlledCharacters = new()
         {
             ["Tmr-01驮兽".ToIdentifier()] = TLCharacterAiMode.Guard,
-            ["elitehumanH_pirate".ToIdentifier()] = TLCharacterAiMode.Guard,
         };
         public static void Init(Harmony harmony)
         {
