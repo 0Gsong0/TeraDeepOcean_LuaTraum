@@ -16,7 +16,7 @@ namespace TeraDeepOcean
             var update = AccessTools.Method(typeof(GUI), nameof(GUI.Update));
             if (update != null)
             {
-                harmony.Patch(update, postfix: new HarmonyMethod(typeof(Plugin), nameof(OnUpdate)));
+                harmony.Patch(update, postfix: new HarmonyMethod(typeof(Plugin), nameof(OnClientUpdate)));
             }
             //无法使用，客户端模组初始化时机太晚
             //var clientConnected = AccessTools.Method(typeof(GameClient), "OnConnectionInitializationComplete");
@@ -35,11 +35,13 @@ namespace TeraDeepOcean
             {
                 harmony.Patch(roundStarted, postfix: new HarmonyMethod(typeof(Plugin), nameof(OnRoundStarted)));
             }
+            TLRtsClient.Init(harmony);
         }
-        private static void OnUpdate(float deltaTime)
+        private static void OnClientUpdate(float deltaTime)
         {
             TLVideoPlayer.Update();
             TLConfigMenu.Update(deltaTime);
+            TLRtsClient.Update(deltaTime);
             WaitLuaCsLoad();
             OnJoinSeverRequestConfig();
         }

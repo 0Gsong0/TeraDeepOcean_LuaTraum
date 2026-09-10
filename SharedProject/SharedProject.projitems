@@ -24,7 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsRoundSubContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsUnitRegistryPermission.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsUnitState.cs" />
+    <Compile Include="..\SharedProject\SharedSource\RTS\TLRTSUnitAIState.cs" />
     <Compile Include="..\SharedProject\SharedSource\Config\TLConfigDataEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Config\TLConfigState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Plugin.cs" />

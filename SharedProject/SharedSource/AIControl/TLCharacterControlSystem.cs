@@ -9,6 +9,10 @@ namespace TeraDeepOcean
     public static class TLCharacterControlSystem
     {
         private static readonly Identifier GuardPositionTag = "GuardPos".ToIdentifier();
+        //20秒超时
+        private const float MoveToTeleportDelay = 20.0f;
+        //10米搜索范围
+        private const float FindGuardPosDis = 10f;
 
         private static readonly Dictionary<ushort, TLCharacterControlState> states = new();
 
@@ -135,6 +139,7 @@ namespace TeraDeepOcean
             {
                 //到达后转为 Guard。目标位置继续作为驻守锚点。
                 state.Mode = TLCharacterAiMode.Guard;
+                state.MoveToElapsedTime = 0.0f;
                 StopMovementOnly(character, ai);
                 //快照同步
                 return;
@@ -147,6 +152,14 @@ namespace TeraDeepOcean
                 character.AnimController.TargetMovement = Vector2.Zero;
                 return;
             }
+
+            state.MoveToElapsedTime += deltaTime;
+            if(state.MoveToElapsedTime >= MoveToTeleportDelay)
+            {
+                TeleportToGuardPosition(ai, character, state);
+                return;
+            }
+
             Vector2 targetSimPosition = ConvertUnits.ToSimUnits(state.TargetLocalPosition);
             indoors.SteeringSeek(targetSimPosition, weight: 10.0f, nodeFilter: node => node.Waypoint.Submarine != null);
             ai.SteeringManager.Update(character.AnimController.GetCurrentSpeed(true));
@@ -164,7 +177,31 @@ namespace TeraDeepOcean
                 FaceSelectedTarget(character, ai);
                 return;
             }
+            state.MoveToElapsedTime = 0.0f;
             state.Mode = TLCharacterAiMode.MoveTo;
+        }
+        private static void TeleportToGuardPosition(EnemyAIController ai, Character character, TLCharacterControlState state)
+        {
+            if (Entity.FindEntityByID(state.GuardWaypointId) is not WayPoint guardPoint || guardPoint.Removed || guardPoint.CurrentHull == null || guardPoint.Submarine != character.Submarine)
+            {
+                //防守点已经失效,交还原版
+                state.MoveToElapsedTime = 0.0f;
+                state.Mode = TLCharacterAiMode.Vanilla;
+                return;
+            }
+            ai.SteeringManager.Reset();
+            if (ai.SteeringManager is IndoorsSteeringManager indoors)
+            {
+                indoors.ResetPath();
+            }
+
+            character.TeleportTo(guardPoint.WorldPosition);
+
+            character.AnimController.Collider.ResetDynamics();
+            character.AnimController.BodyInRest = false;
+            state.MoveToElapsedTime = 0.0f;
+            state.Mode = TLCharacterAiMode.Guard;
+            StopMovementOnly(character, ai);
         }
         private static void FaceSelectedTarget(Character character, EnemyAIController ai)
         {
@@ -271,12 +308,16 @@ namespace TeraDeepOcean
             {
                 return new List<WayPoint>();
             }
+            float searchRadius = ConvertUnits.ToDisplayUnits(FindGuardPosDis);
+            float searchRadiusSquared = searchRadius * searchRadius;
+
             return WayPoint.WayPointList.Where(wayPoint =>
                 wayPoint != null &&
                 wayPoint.Removed == false &&
                 wayPoint.CurrentHull != null &&
                 wayPoint.Submarine == character.Submarine &&
-                wayPoint.Tags.Contains(GuardPositionTag)).ToList();
+                wayPoint.Tags.Contains(GuardPositionTag) &&
+                Vector2.DistanceSquared(character.WorldPosition, wayPoint.WorldPosition) <= searchRadiusSquared).ToList();
         }
         /// <summary>
         /// 随机分配防守点
@@ -296,11 +337,13 @@ namespace TeraDeepOcean
             //全部占用：退回所有点中随机，允许重复。
             List<WayPoint> selectionPool = unoccupiedPositions.Count > 0 ? unoccupiedPositions : guardPositions;
 
-            WayPoint ? selected = selectionPool.GetRandomUnsynced();
+            WayPoint? selected = selectionPool.GetRandomUnsynced();
             state.TargetSubId = character.Submarine.ID;
             state.TargetLocalPosition = selected.Position;
             state.GuardWaypointId = selected.ID;
+            state.MoveToElapsedTime = 0.0f;
             state.WaitingForInteriorAnchor = false;
+   
 
             float distanceSquared = Vector2.DistanceSquared(character.WorldPosition, selected.WorldPosition);
             if(state.Mode == TLCharacterAiMode.Guard)

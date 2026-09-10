@@ -26,6 +26,11 @@ namespace TeraDeepOcean
             {
                 TLConfigService.LoadLocal();
             }
+            var updateS = AccessTools.Method(typeof(GameSession), nameof(GameSession.Update));
+            if (updateS != null)
+            {
+                harmony.Patch(updateS, postfix: new HarmonyMethod(typeof(Plugin), nameof(OnUpdate)));
+            }
             PreInitSever(harmony);
             InitializeClient(harmony);
 
@@ -33,8 +38,13 @@ namespace TeraDeepOcean
             TLCybDamageSystem.Init(harmony);
             TLCybRepairSystem.Init(harmony);
             TLCharacterControlSystem.Init(harmony);
+            TLRtsSystem.Init(harmony);
         }
         partial void InitializeClient(Harmony harmony);
+        private static void OnUpdate(float deltaTime)
+        {
+            TLRtsSystem.Update(deltaTime);
+        }
         public void Initialize()
         {
             // When your plugin is loading, use this instead of the constructor for code relying on

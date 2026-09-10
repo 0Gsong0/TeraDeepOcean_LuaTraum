@@ -38,6 +38,12 @@ namespace TeraDeepOcean
         public float GuardRadius { get; set; } = 100.0f;
 
         /// <summary>
+        /// 移动计时器
+        /// </summary>
+        [JsonIgnore]
+        public float MoveToElapsedTime { get; set; }
+
+        /// <summary>
         /// 创建时还在等待角色进入某个 Hull。
         /// 不需要同步。
         /// </summary>
