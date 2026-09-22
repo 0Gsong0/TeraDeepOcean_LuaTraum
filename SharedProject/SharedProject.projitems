@@ -21,6 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybInstallSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybRepairSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsNetwork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsNetworkModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsRoundSubContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsUnitRegistryPermission.cs" />
