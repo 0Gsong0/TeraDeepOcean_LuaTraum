@@ -118,5 +118,24 @@
 			<Containable tags="epicarsenal.mudraptorshellcollider" />
 		</ItemContainer>
 	</Item>
-  
+		<!--
+		RTS 指挥终端：第一阶段网络测试物品。
+
+		variantof="flashlight"：
+		暂时继承手电筒的贴图、物理和手持组件，
+		省去第一阶段制作新贴图和 Holdable 配置。
+
+		rtscommanddevice：
+		客户端用它显示申请按钮，
+		服务器用它验证指挥官申请。
+	-->
+	<Item
+		name="RTS 战术指挥终端（测试）"
+		identifier="tl_rts_command_device_test"
+		description="用于申请和释放 RTS 指挥权的测试设备。必须实际拿在手中。"
+		variantof="flashlight"
+		tags="smallitem,rtscommanddevice"
+		category="Equipment"
+		allowasextracargo="true"
+		hideinmenus="false"/>
 </Items>

@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using FluentResults;
+using HarmonyLib;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -71,6 +72,23 @@ namespace TeraDeepOcean
         private static Vector2 selectionStart;
         private static Vector2 selectionCurrent;
 
+        /// <summary>
+        /// 可以申请 RTS 指挥权的设备标签。
+        /// 最终合法性仍由服务器验证。
+        /// </summary>
+        private static readonly Identifier CommandDeviceTag = "rtscommanddevice".ToIdentifier();
+        private static GUIButton? commanderButton;
+        /// <summary>
+        /// 是否已向服务器请求过当前指挥官状态。
+        /// </summary>
+        private static bool commanderSnapshotRequested;
+        private static float commanderSnapshotRetryTimer;
+        /// <summary>
+        /// 单人进入 RTS 前，原角色 AI 的启用状态。
+        /// 退出 RTS 时恢复原值，避免破坏角色原本状态。
+        /// </summary>
+        private static bool singleplayerCommanderAiStateCaptured;
+        private static bool singleplayerCommanderAiWasEnabled;
         private enum CommandMarkerType
         {
             None,
@@ -97,6 +115,11 @@ namespace TeraDeepOcean
 
             TLRtsSystem.MoveOrderIssued += OnMoveOrderIssued;
             TLRtsSystem.RoundStateCleared += OnRoundStateCleared;
+            // 服务器广播指挥官变化时通知客户端 UI。
+            TLRtsNetwork.CommanderStateChanged += OnCommanderStateChanged;
+            // 服务器单独回复本客户端的申请结果。
+            TLRtsNetwork.ClaimResultReceived += OnClaimResultReceived;
+
 
             var guiDraw = AccessTools.Method(
                 typeof(GUI),
@@ -106,6 +129,7 @@ namespace TeraDeepOcean
                     typeof(Camera),
                     typeof(SpriteBatch)
                 });
+            var gameScreenAddToGui = AccessTools.Method(typeof(GameScreen), nameof(GameScreen.AddToGUIUpdateList));
             if (guiDraw != null)
             {
                 harmony.Patch(
@@ -114,9 +138,18 @@ namespace TeraDeepOcean
                         typeof(TLRtsClient),
                         nameof(AfterGuiDraw)));
             }
+            if (gameScreenAddToGui != null)
+            {
+                harmony.Patch(
+                    gameScreenAddToGui,
+                    postfix: new HarmonyMethod(
+                        typeof(TLRtsClient),
+                        nameof(AfterGameScreenAddToGUIUpdateList)));
+            }
         }
         public static void Update(float deltaTime)
         {
+            UpdateCommanderSnapshotRequest(deltaTime);
             if (commandMarkerTimer > 0.0f)
             {
                 commandMarkerTimer -= deltaTime;
@@ -127,7 +160,7 @@ namespace TeraDeepOcean
                 }
             }
             RemoveInvalidSelections();
-            if (GUI.KeyboardDispatcher.Subscriber == null && PlayerInput.KeyHit(ToggleKey))
+            if (!GUI.InputBlockingMenuOpen && GUI.KeyboardDispatcher.Subscriber == null && PlayerInput.KeyHit(ToggleKey))
             {
                 if (IsActive)
                 {
@@ -135,6 +168,7 @@ namespace TeraDeepOcean
                 }
                 else
                 {
+                    DebugLocalHeldItems();
                     TryEnterRtsMode();
                 }
 
@@ -153,6 +187,11 @@ namespace TeraDeepOcean
             {
                 Character.Controlled = null;
             }
+            if (!GameMain.IsMultiplayer)
+            {
+                //单人模式下，FreeCam 期间持续清除原角色的残留输入。
+                KeepSingleplayerCommanderIdle();
+            }
             Camera cam = GameMain.GameScreen.Cam;
             cam.TargetPos = Vector2.Zero;
             /*
@@ -167,105 +206,514 @@ namespace TeraDeepOcean
                 return;
             }
             if (GameMain.Instance.Paused ||
-                GUI.InputBlockingMenuOpen ||
-                GUI.KeyboardDispatcher.Subscriber != null)
+             GUI.InputBlockingMenuOpen ||
+             GUI.KeyboardDispatcher.Subscriber != null)
             {
                 CancelSelectionDrag();
                 return;
             }
+
+            /*
+             * 第一阶段多人模式只测试：
+             *
+             * - 指挥官申请
+             * - 唯一指挥官权限
+             * - FreeCam 进入/退出
+             * - 指挥权释放和自动失效
+             *
+             * 移动和攻击还没有服务器网络同步，
+             * 因此不能在多人客户端执行旧的本地命令逻辑。
+             */
+            if (GameMain.IsMultiplayer)
+            {
+                CancelSelectionDrag();
+                return;
+            }
+
             HandleLeftMouse(cam);
             HandleRightMouse(cam);
         }
-        private static bool TryEnterRtsMode()
+        private static void AfterGameScreenAddToGUIUpdateList()
         {
-            if (!TLRtsSystem.IsAuthority ||
-                Screen.Selected != GameMain.GameScreen ||
+            UpdateCommanderButton();
+            if (commanderButton == null || !commanderButton.Visible) return;
+            commanderButton.AddToGUIUpdateList(order: 10);
+        }
+        /// <summary>
+        /// 按钮更新逻辑
+        /// </summary>
+        private static void UpdateCommanderButton()
+        {
+            bool shouldExistInCurrentView = GameMain.IsMultiplayer && Screen.Selected == GameMain.GameScreen && GameMain.GameSession != null && Level.IsLoadedOutpost && !GUI.DisableHUD;
+
+            if (!shouldExistInCurrentView)
+            {
+                if(commanderButton != null)
+                    commanderButton.Visible = false;
+                return;
+            }
+            EnsureCommanderButton();
+            if (commanderButton == null) return;
+            Item? device = FindHeldCommandDevice();
+            // 只有实际手持设备时才显示。
+            commanderButton.Visible = device != null;
+            if (device == null) return;
+            if (TLRtsNetwork.IsLocalCommander)
+            {
+                commanderButton.Enabled = true;
+                commanderButton.Text = "放弃 RTS 指挥权";
+                return;
+            }
+            if (TLRtsNetwork.CommanderState.HasCommander)
+            {
+                commanderButton.Enabled = false;
+                commanderButton.Text = $"当前指挥官：{TLRtsNetwork.CommanderState.CommanderName}";
+                return;
+            }
+            commanderButton.Enabled = true;
+            commanderButton.Text = "申请成为 RTS 指挥官";
+        }
+        /// <summary>
+        /// 按钮创建逻辑
+        /// </summary>
+        private static void EnsureCommanderButton()
+        {
+            if (commanderButton != null)
+            {
+                return;
+            }
+
+            commanderButton = new GUIButton(
+                new RectTransform(
+                    new Point(280, 44),
+                    GUI.Canvas,
+                    Anchor.BottomCenter)
+                {
+                    /*
+                     * BottomCenter 位于屏幕底部。
+                     * 负 Y 将按钮向屏幕上方移动。
+                     */
+                    ScreenSpaceOffset = new Point(0, -115)
+                },
+                "申请成为 RTS 指挥官",
+                Alignment.Center,
+                style: "GUIButton");
+
+            commanderButton.Visible = false;
+
+            commanderButton.OnClicked = (_, _) =>
+            {
+                if (TLRtsNetwork.IsLocalCommander)
+                {
+                    ShowReleaseCommanderConfirmation();
+                }
+                else if (!TLRtsNetwork.CommanderState.HasCommander)
+                {
+                    ShowClaimCommanderConfirmation();
+                }
+
+                return true;
+            };
+        }
+        /// <summary>
+        /// 获取本地 RTS 指挥角色。
+        /// 多人模式优先使用 MyClient.Character：它会根据服务器同步的 CharacterID 查找当前角色，
+        /// </summary>
+        /// <returns></returns>
+        private static Character? GetLocalCommanderCharacter()
+        {
+            if (GameMain.IsMultiplayer)
+            {
+                // 多人本地客户端对应的权威角色引用。
+                Character? networkCharacter = GameMain.Client?.MyClient?.Character;
+                if (IsUsableCommanderCharacter(networkCharacter)) return networkCharacter;
+                // 正常控制角色作为第一备用。
+                if (IsUsableCommanderCharacter(Character.Controlled)) return Character.Controlled;
+                // GameClient 的缓存角色作为最后备用。
+                Character? cachedCharacter = GameMain.Client?.Character;
+                if (IsUsableCommanderCharacter(cachedCharacter)) return cachedCharacter;
+            }
+            else
+            {
+                if (IsUsableCommanderCharacter(Character.Controlled)) return Character.Controlled;
+            }
+            // 进入 FreeCam 后使用进入前保存的角色。
+            if (previousControlledCharacter != null && previousControlledCharacter.TryGetTarget(out Character? previous) && IsUsableCommanderCharacter(previous)) return previous;
+            return null;
+        }
+        private static bool IsUsableCommanderCharacter(Character? character)
+        {
+            return character != null &&
+                   !character.Removed &&
+                   !character.IsDead &&
+                   character.Inventory != null;
+        }
+        /// <summary>
+        /// 只检查左右手槽。
+        /// </summary>
+        /// <returns></returns>
+        private static Item? FindHeldCommandDevice()
+        {
+            Character? character = GetLocalCommanderCharacter();
+            if (character == null || character.Removed || character.IsDead || character.Inventory == null) return null;
+            return character.HeldItems.FirstOrDefault(item => !item.Removed && item.HasTag(CommandDeviceTag));
+        }
+        /// <summary>
+        /// 申请确认窗口
+        /// </summary>
+        private static void ShowClaimCommanderConfirmation()
+        {
+            Item? device = FindHeldCommandDevice();
+
+            if (device == null)
+            {
+                GUI.AddMessage(
+                    "请先把 RTS 指挥设备拿在手中。",
+                    Color.OrangeRed);
+
+                return;
+            }
+
+            GUIMessageBox box = new(
+                "RTS 战术系统",
+                "确认申请成为本回合唯一的 RTS 指挥官吗？",
+                new LocalizedString[]
+                {
+            "确认",
+            "取消"
+                });
+
+            box.DrawOnTop = true;
+
+            box.Buttons[0].OnClicked = (_, _) =>
+            {
+                /*
+                 * 玩家打开窗口后可能已经丢弃或切换了物品，
+                 * 所以确认时再次检查。
+                 */
+                Item? currentDevice =
+                    FindHeldCommandDevice();
+
+                if (currentDevice == null ||
+                    currentDevice.ID != device.ID)
+                {
+                    GUI.AddMessage(
+                        "RTS 指挥设备已经不在手中。",
+                        Color.OrangeRed);
+
+                    ClientDebug(
+                        "申请取消：确认时已不再持有原指挥设备。");
+                }
+                else
+                {
+                    bool sent =
+                        TLRtsNetwork.ClientRequestCommander(
+                            currentDevice);
+
+                    ClientDebug(
+                        sent
+                            ? $"已发送指挥官申请，设备 ID={currentDevice.ID}。"
+                            : "指挥官申请发送失败，Lua 网络桥可能尚未就绪。");
+                }
+
+                box.Close();
+                return true;
+            };
+
+            box.Buttons[1].OnClicked = (_, _) =>
+            {
+                box.Close();
+                return true;
+            };
+        }
+        /// <summary>
+        /// 释放确认窗口
+        /// </summary>
+        private static void ShowReleaseCommanderConfirmation()
+        {
+            GUIMessageBox box = new(
+                "RTS 战术系统",
+                "确认放弃当前 RTS 指挥权吗？",
+                new LocalizedString[]
+                {
+            "确认",
+            "取消"
+                });
+
+            box.DrawOnTop = true;
+
+            box.Buttons[0].OnClicked = (_, _) =>
+            {
+                bool sent =
+                    TLRtsNetwork.ClientRequestRelease();
+
+                ClientDebug(
+                    sent
+                        ? "已向服务器发送释放指挥权请求。"
+                        : "释放请求发送失败，Lua 网络桥可能尚未就绪。");
+
+                box.Close();
+                return true;
+            };
+
+            box.Buttons[1].OnClicked = (_, _) =>
+            {
+                box.Close();
+                return true;
+            };
+        }
+        /// <summary>
+        /// 服务器状态事件
+        /// </summary>
+        /// <param name="state"></param>
+        private static void OnCommanderStateChanged(TLRtsCommanderState state)
+        {
+            ClientDebug(
+                $"收到指挥官状态：" +
+                $"HasCommander={state.HasCommander}, " +
+                $"CharacterId={state.CommanderCharacterId}, " +
+                $"DeviceId={state.DeviceItemId}, " +
+                $"Name={state.CommanderName}, " +
+                $"Revision={state.Revision}");
+            if (GameMain.IsMultiplayer && IsActive && !TLRtsNetwork.IsLocalCommander)
+            {
+                GUI.AddMessage("RTS 指挥权已经失效，正在退出战术模式。", Color.OrangeRed);
+                ExitRtsMode(restoreControlledCharacter: true);
+            }
+            if (state.HasCommander)
+            {
+                if (TLRtsNetwork.IsLocalCommander)
+                {
+                    GUI.AddMessage(
+                        "你是当前 RTS 指挥官。",
+                        Color.DeepSkyBlue);
+                }
+                else
+                {
+                    GUI.AddMessage(
+                        $"当前 RTS 指挥官：{state.CommanderName}",
+                        Color.LightGray);
+                }
+            }
+            else
+            {
+                GUI.AddMessage(
+                    "当前没有 RTS 指挥官。",
+                    Color.LightGray);
+            }
+        }
+        /// <summary>
+        /// 服务器状态事件
+        /// </summary>
+        /// <param name="result"></param>
+        private static void OnClaimResultReceived(TLRtsClaimResult result)
+        {
+            ClientDebug(
+                $"收到申请结果：" +
+                $"Accepted={result.Accepted}, " +
+                $"Reason={result.Reason}");
+
+            if (result.Accepted)
+            {
+                GUI.AddMessage(
+                    "RTS 指挥官申请成功。",
+                    Color.DeepSkyBlue);
+            }
+            else
+            {
+                GUI.AddMessage(
+                    string.IsNullOrWhiteSpace(result.Reason)
+                        ? "RTS 指挥官申请被服务器拒绝。"
+                        : result.Reason,
+                    Color.OrangeRed);
+            }
+        }
+        private static void ClientDebug(string message)
+        {
+            DebugConsole.NewMessage(
+                $"[TLRTS][CLIENT] {message}",
+                Color.Cyan);
+        }
+        /// <summary>
+        /// 客户端进入前哨回合后，向服务器请求一次当前指挥官状态。
+        ///
+        /// 如果 Lua 网络桥还没加载完成，请求会返回 false，
+        /// 一秒后自动重试。
+        /// </summary>
+        private static void UpdateCommanderSnapshotRequest(
+            float deltaTime)
+        {
+            if (!GameMain.IsMultiplayer ||
+                GameMain.NetworkMember is not { IsClient: true } ||
                 GameMain.GameSession == null ||
                 !Level.IsLoadedOutpost)
             {
-                GUI.AddMessage(
-                    "RTS 战术模式只能在单人前哨站回合中开启。",
-                    Color.OrangeRed);
+                return;
+            }
 
+            if (commanderSnapshotRequested)
+            {
+                return;
+            }
+
+            commanderSnapshotRetryTimer -= deltaTime;
+
+            if (commanderSnapshotRetryTimer > 0.0f)
+            {
+                return;
+            }
+
+            commanderSnapshotRetryTimer = 1.0f;
+
+            bool sent = TLRtsNetwork.ClientRequestSnapshot();
+
+            ClientDebug(
+                sent
+                    ? "已向服务器请求当前指挥官状态。"
+                    : "指挥官状态请求尚未发出，将在一秒后重试。");
+
+            commanderSnapshotRequested = sent;
+        }
+        private static bool TryEnterRtsMode()
+        {
+            if (Screen.Selected != GameMain.GameScreen || GameMain.GameSession == null || !Level.IsLoadedOutpost)
+            {
+                GUI.AddMessage("RTS 战术模式只能在前哨站回合中开启。", Color.OrangeRed);
+                return false;
+            }
+            /*
+             * 多人必须先通过按钮取得服务器指挥权。
+             * 单人则继续使用本地 RTS 权限。
+             */
+            if (GameMain.IsMultiplayer)
+            {
+                if (!TLRtsNetwork.IsLocalCommander)
+                {
+                    Item? heldDevice = FindHeldCommandDevice();
+                    string reason;
+                    if (TLRtsNetwork.CommanderState.HasCommander)
+                    {
+                        reason = $"当前 RTS 指挥官是：" + $"{TLRtsNetwork.CommanderState.CommanderName}";
+                    }else if(heldDevice == null)
+                    {
+                        reason = "必须先把 RTS 指挥终端装备到手中。";
+                    }
+                    else
+                    {
+                        reason = "已经检测到 RTS 指挥终端，请点击申请按钮取得指挥权。";
+                    }
+                    GUI.AddMessage(reason, Color.OrangeRed);
+                    return false;
+                }
+            }
+            else if (!TLRtsSystem.IsAuthority)
+            {
+                GUI.AddMessage("当前客户端没有 RTS 控制权限。", Color.OrangeRed);
+                return false;
+            }
+            //单人和多人现在都必须实际手持设备。
+            Item? commandDevice = FindHeldCommandDevice();
+            if (commandDevice == null)
+            {
+                GUI.AddMessage("必须把 RTS 指挥终端放在手中。", Color.OrangeRed);
                 return false;
             }
             if (!TLRtsRoundSubContext.Refresh())
             {
-                GUI.AddMessage(
-                    "没有找到有效的前哨站停靠网络。",
-                    Color.OrangeRed);
-
+                GUI.AddMessage("没有找到有效的前哨站停靠网络。", Color.OrangeRed);
                 return false;
             }
-            Character? controlled = Character.Controlled;
-            if (controlled == null ||
-                controlled.Removed ||
-                controlled.IsDead)
+            Character? controlled = GetLocalCommanderCharacter();
+            if (controlled == null || controlled.Removed || controlled.IsDead || controlled.IsIncapacitated)
             {
-                GUI.AddMessage(
-                    "没有可以转换为 RTS 指挥单位的当前角色。",
-                    Color.OrangeRed);
-
+                GUI.AddMessage("当前角色不可用，无法进入 RTS 模式。", Color.OrangeRed);
                 return false;
             }
-            if (controlled.Submarine == null ||
-                !TLRtsRoundSubContext.Contains(controlled.Submarine))
+            if (controlled.Submarine == null || !TLRtsRoundSubContext.Contains(controlled.Submarine))
             {
-                GUI.AddMessage(
-                    "当前角色不在前哨站或已连接潜艇中。",
-                    Color.OrangeRed);
-
+                GUI.AddMessage("当前角色不在前哨站或已连接潜艇中。", Color.OrangeRed);
                 return false;
             }
             previousControlledCharacter = new WeakReference<Character>(controlled);
             commanderTeam = controlled.TeamID;
-            /*
-             * RegisterCurrentCrewBots 不包含当前玩家角色，
-             * 所以必须在清除 Character.Controlled 前单独注册它。
-             */
-            if (!TLRtsUnitRegistryPermission.IsRegistered(controlled))
+            if (!GameMain.IsMultiplayer)
             {
-                TLRtsUnitRegistryPermission.Register(
-                    controlled,
-                    unitClass: "crew".ToIdentifier(),
-                    isSpawnByRts: false);
+                //原玩家角色绝对不能成为可选择 RTS 单位
+                TLRtsUnitRegistryPermission.Unregister(controlled);
+                //扫描Bot
+                int registeredCrewCount = TLRtsSystem.RegisterCurrentCrewBots();
+                //扫描非Human角色
+                int registeredCreatureCount = TLRtsSystem.RegisterCurrentTeamCreatures(controlled.TeamID);
+                //保存并禁用原角色 AI。
+                SuppressSingleplayerCommanderAi(controlled);
+                ClientDebug(
+                    $"RTS 单位扫描完成：" +
+                    $"人类 Bot={registeredCrewCount}，" +
+                    $"同阵营生物={registeredCreatureCount}");
             }
-            else
-            {
-                TLRtsUnitRegistryPermission.SetControllable(
-                    controlled,
-                    true);
-            }
-            // 进入 FreeCam。
             Character.Controlled = null;
-            // 此时原玩家角色已经成为 Bot，再注册所有普通船员 Bot。
-            TLRtsSystem.RegisterCurrentCrewBots();
-            /*
-             * 原玩家角色失去玩家控制后可能马上执行自主工作。
-             * 给它一个当前位置移动命令，使其进入 Guard。
-             */
-            if (TLRtsUnitRegistryPermission.IsControllable(controlled))
-            {
-                TLRtsSystem.IssueMove(
-                    new[] { controlled },
-                    controlled.WorldPosition);
-            }
             ClearCommandMarker();
             ClearSelection();
             CancelSelectionDrag();
             Camera cam = GameMain.GameScreen.Cam;
             cam.TargetPos = Vector2.Zero;
             /*
-             * Character.Controlled == null 时，原版 Escape 会打开暂停菜单。
-             * RTS 模式中要让 Escape 专用于清空选择。
+             * RTS 模式中 Escape 只清空选择，不打开暂停菜单。
              */
             previousPreventPauseMenuToggle = GUI.PreventPauseMenuToggle;
             GUI.PreventPauseMenuToggle = true;
             IsActive = true;
-            GUI.AddMessage(
-                "已进入 RTS 战术模式",
-                Color.DeepSkyBlue);
+            GUI.AddMessage(GameMain.IsMultiplayer ? "已以服务器认证指挥官身份进入 RTS 测试模式" : "已进入 单人 RTS 战术模式", Color.DeepSkyBlue);
             return true;
+        }
+        /// <summary>
+        /// 保存原角色 AI 状态，并禁止其自行行动。
+        /// </summary>
+        private static void SuppressSingleplayerCommanderAi(Character character)
+        {
+            singleplayerCommanderAiStateCaptured = false;
+            singleplayerCommanderAiWasEnabled = false;
+            if (character.AIController != null)
+            {
+                singleplayerCommanderAiWasEnabled = character.AIController.Enabled;
+                singleplayerCommanderAiStateCaptured = true;
+                character.AIController.Enabled = false;
+                // 清除进入 RTS 前可能残留的寻路方向。
+                character.AIController.SteeringManager?.Reset();
+            }
+            character.ClearInputs();
+            character.AnimController.TargetMovement = Vector2.Zero;
+        }
+        /// <summary>
+        /// FreeCam 期间持续保证单人原角色不会重新开始移动。
+        /// </summary>
+        private static void KeepSingleplayerCommanderIdle()
+        {
+            if (previousControlledCharacter == null || !previousControlledCharacter.TryGetTarget(out Character? character) || character.Removed || character.IsDead) return;
+            /*
+             * 如果其他游戏逻辑重新启用了 AI，
+             * 在 RTS 模式持续期间再次将其关闭。
+             */
+            if (character.AIController != null)
+            {
+                character.AIController.Enabled = false;
+                character.AIController.SteeringManager?.Reset();
+            }
+            character.ClearInputs();
+            character.AnimController.TargetMovement = Vector2.Zero;
+        }
+        /// <summary>
+        /// 退出 RTS 后恢复进入前记录的 AI 状态。
+        /// </summary>
+        private static void RestoreSingleplayerCommanderAi()
+        {
+            if (!singleplayerCommanderAiStateCaptured) return;
+            if (previousControlledCharacter != null && previousControlledCharacter.TryGetTarget(out Character? character) && !character.Removed && character.AIController != null)
+            {
+                character.AIController.Enabled = singleplayerCommanderAiWasEnabled;
+            }
+            singleplayerCommanderAiStateCaptured = false;
+            singleplayerCommanderAiWasEnabled = false;
         }
         private static void ExitRtsMode(bool restoreControlledCharacter)
         {
@@ -275,9 +723,17 @@ namespace TeraDeepOcean
             CancelSelectionDrag();
             ClearCommandMarker();
             GUI.PreventPauseMenuToggle = previousPreventPauseMenuToggle;
+            Character? restoreCharacter = null;
             if (restoreControlledCharacter)
             {
-                Character? restoreCharacter = FindCharacterToRestore();
+                restoreCharacter = FindCharacterToRestore();
+            }
+            /*
+             * 必须在 previousControlledCharacter 被清空之前恢复 AI 状态。
+             */
+            RestoreSingleplayerCommanderAi();
+            if (restoreControlledCharacter)
+            {
                 if (restoreCharacter != null)
                 {
                     Character.Controlled = restoreCharacter;
@@ -285,32 +741,44 @@ namespace TeraDeepOcean
                 else
                 {
                     Character.Controlled = null;
-
-                    GUI.AddMessage(
-                        "所有可控角色已死亡，无法控制",
-                        Color.OrangeRed);
+                    GUI.AddMessage(GameMain.IsMultiplayer ? "原角色已经失效，无法恢复控制。" : "所有可控角色已死亡，无法恢复控制。", Color.OrangeRed);
                 }
             }
             previousControlledCharacter = null;
             commanderTeam = null;
-            GUI.AddMessage(
-                "已退出 RTS 战术模式",
-                Color.LightGray);
+            GUI.AddMessage("已退出 RTS 战术模式", Color.LightGray);
         }
         private static Character? FindCharacterToRestore()
         {
-            if (previousControlledCharacter != null && previousControlledCharacter.TryGetTarget(out Character? previous) && CanRestoreControl(previous)) return previous;
+            if (previousControlledCharacter != null &&
+                previousControlledCharacter.TryGetTarget(
+                    out Character? previous) &&
+                CanRestoreControl(previous))
+            {
+                return previous;
+            }
+
             /*
-             * 原角色死亡时，尝试恢复到同阵营的存活人类船员。
+             * 多人客户端不能自行接管另一个 Bot。
+             * 如果原角色已经失效，只能保持观察状态。
              */
+            if (GameMain.IsMultiplayer)
+            {
+                return null;
+            }
+
+            // 以下备用角色接管只允许单人模式使用。
             GUI.AddMessage(
                 "原角色已经死亡，正在尝试控制其它角色",
                 Color.LightGray);
-            return Character.CharacterList.FirstOrDefault(character =>
-                CanRestoreControl(character) &&
-                commanderTeam.HasValue &&
-                character.TeamID == commanderTeam.Value &&
-                character.AIController is HumanAIController);
+
+            return Character.CharacterList.FirstOrDefault(
+                character =>
+                    CanRestoreControl(character) &&
+                    commanderTeam.HasValue &&
+                    character.TeamID == commanderTeam.Value &&
+                    character.AIController
+                        is HumanAIController);
         }
         private static bool CanRestoreControl(Character? character)
         {
@@ -323,11 +791,15 @@ namespace TeraDeepOcean
         }
         private static bool CanRemainInRtsMode()
         {
-            return TLRtsSystem.IsAuthority &&
-                   Screen.Selected == GameMain.GameScreen &&
-                   GameMain.GameSession != null &&
-                   Level.IsLoadedOutpost &&
-                   TLRtsRoundSubContext.IsValid;
+            bool hasPermission = GameMain.IsMultiplayer ? TLRtsNetwork.IsLocalCommander : TLRtsSystem.IsAuthority;
+            if (!hasPermission || Screen.Selected != GameMain.GameScreen || GameMain.GameSession == null || !Level.IsLoadedOutpost || !TLRtsRoundSubContext.IsValid) return false;
+            Character? commander = GetLocalCommanderCharacter();
+            if (commander == null || commander.Removed || commander.IsDead || commander.IsIncapacitated || commander.Submarine == null || !TLRtsRoundSubContext.Contains(commander.Submarine)) return false;
+            /*
+             * 单人和多人都要求指挥设备持续在手中。
+             * 单人原角色虽然处于 FreeCam，其左右手槽仍然可以检查。
+             */
+            return FindHeldCommandDevice() != null;
         }
         /// <summary>
         /// 处理左键
@@ -703,6 +1175,13 @@ namespace TeraDeepOcean
         }
         private static void OnRoundStateCleared()
         {
+            commanderSnapshotRequested = false;
+            commanderSnapshotRetryTimer = 0.0f;
+
+            if (commanderButton != null)
+            {
+                commanderButton.Visible = false;
+            }
             ClearSelection();
             CancelSelectionDrag();
             ClearCommandMarker();
@@ -840,7 +1319,7 @@ namespace TeraDeepOcean
         private static void DrawTopStatus(SpriteBatch spriteBatch)
         {
             string status = $"[RTS 战术模式] 已选择：{selectedCharacterIds.Count}";
-            string help = 
+            string help =
                 $"{ToggleKey} 退出  |  左键选择/框选  |  " +
                 "右键移动/攻击  |  Escape 清空选择";
             Vector2 statusSize =
@@ -913,6 +1392,49 @@ namespace TeraDeepOcean
                 center + Vector2.UnitY * size,
                 color,
                 width: thickness);
+        }
+
+        private static void DebugLocalHeldItems()
+        {
+            Character? controlled =
+                Character.Controlled;
+
+            Character? myClientCharacter =
+                GameMain.Client?.MyClient?.Character;
+
+            Character? cachedCharacter =
+                GameMain.Client?.Character;
+
+            ClientDebug(
+                $"角色引用：" +
+                $"Controlled={controlled?.ID.ToString() ?? "null"}, " +
+                $"MyClient.Character={myClientCharacter?.ID.ToString() ?? "null"}, " +
+                $"GameClient.Character={cachedCharacter?.ID.ToString() ?? "null"}");
+
+            Character? character =
+                GetLocalCommanderCharacter();
+
+            if (character == null)
+            {
+                ClientDebug("找不到本地指挥角色。");
+                return;
+            }
+
+            Item[] heldItems =
+                character.HeldItems.ToArray();
+
+            ClientDebug(
+                $"检查角色 ID={character.ID}，" +
+                $"HeldItems 数量={heldItems.Length}");
+
+            foreach (Item item in heldItems)
+            {
+                ClientDebug(
+                    $"手持物品：" +
+                    $"ID={item.ID}, " +
+                    $"Identifier={item.Prefab.Identifier}, " +
+                    $"HasRtsTag={item.HasTag(CommandDeviceTag)}");
+            }
         }
     }
 }

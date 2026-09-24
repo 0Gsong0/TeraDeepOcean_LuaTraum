@@ -6,12 +6,35 @@ TLCyb = {}
 
 
 dofile(TL.Path .. "/Lua/Scripts/Config/configgui.lua")
--- Hook.Add("roundStart", "TLconfig.LoadConfig", function()
---     Timer.Wait(function()
---         TLConfig.LoadConfig()
---     end, 100)
--- end)
---dofile(ST.Path.."/Lua/Autorun/Helperfunctions.lua")
+-- ============================================================
+-- RTS 第一阶段网络桥
+-- 必须在客户端和服务器两端加载
+-- ============================================================
+local rtsRuntimeSide = "UNKNOWN"
+if SERVER then
+    rtsRuntimeSide = "SERVER"
+elseif CLIENT then
+    rtsRuntimeSide = "CLIENT"
+end
+local rtsNetworkPath = TL.Path .. "/Lua/Scripts/RTS/rtsnetwork.lua"
+print("[TLRTS][" ..rtsRuntimeSide .."] 正在加载 RTS 网络桥：" ..rtsNetworkPath)
+-- 使用 pcall 是为了在控制台明确显示加载错误。
+local rtsLoadSucceeded, rtsLoadError = pcall(dofile, rtsNetworkPath)
+if not rtsLoadSucceeded then 
+    print(
+        "[TLRTS][" ..
+        rtsRuntimeSide ..
+        "] RTS 网络桥加载失败：" ..
+        tostring(rtsLoadError)
+    )
+    -- 继续抛出错误，让 LuaCs 控制台保留错误信息和调用位置。
+    error(rtsLoadError)
+end
+print(
+    "[TLRTS][" ..
+    rtsRuntimeSide ..
+    "] RTS 网络桥加载成功"
+)
 if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
     dofile(TL.Path.."/Lua/Autorun/HelpFunction.lua")
     --dofile(TL.Path.."/Lua/Scripts/Cyb/CybHF.Lua")

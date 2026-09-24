@@ -233,6 +233,26 @@ namespace TeraDeepOcean
             }
             return count;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="commanderTeam"></param>
+        /// <returns></returns>
+        public static int RegisterCurrentTeamCreatures(CharacterTeamType commanderTeam)
+        {
+            if (!IsAuthority || !TLRtsRoundSubContext.IsValid || commanderTeam == CharacterTeamType.None) return 0;
+            int count = 0;
+            foreach (Character character in Character.CharacterList)
+            {
+                if (character == null || character.Removed || character.IsDead || character.IsIncapacitated || !character.Enabled) continue;
+                if (character.TeamID != commanderTeam) continue;
+                if (character.AIController is not EnemyAIController { Enabled: true }) continue;
+                if (character.Submarine == null || !TLRtsRoundSubContext.Contains(character.Submarine)) continue;
+                if (TLRtsUnitRegistryPermission.IsRegistered(character)) continue;
+                if (TLRtsUnitRegistryPermission.Register(character, unitClass: "creature".ToIdentifier(), isSpawnByRts: false)) count++;
+            }
+            return count;
+        }
         public static void Update(float deltaTime)
         {
             if (!IsAuthority) { return; }

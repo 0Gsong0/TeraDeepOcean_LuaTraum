@@ -39,11 +39,14 @@ namespace TeraDeepOcean
             TLCybRepairSystem.Init(harmony);
             TLCharacterControlSystem.Init(harmony);
             TLRtsSystem.Init(harmony);
+            TLRtsNetwork.Init();
         }
         partial void InitializeClient(Harmony harmony);
         private static void OnUpdate(float deltaTime)
         {
             TLRtsSystem.Update(deltaTime);
+            //多人模式下，TLRtsNetwork.Update 只在服务器执行实际逻辑。
+            TLRtsNetwork.Update(deltaTime);
         }
         public void Initialize()
         {
