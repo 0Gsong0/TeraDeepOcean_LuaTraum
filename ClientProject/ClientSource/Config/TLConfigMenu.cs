@@ -59,8 +59,8 @@ namespace TeraDeepOcean
                 TLConfigService.LoadLocal();
                 receivedConfig = true;
             }
-            //TLVideoPlayer.PlayLocalVideoFromMod(Path.Combine("Content", "UI", "Menu", "tsm_logo_opus.webm"));
-            StartIntroCountdown(1f);
+            TLVideoPlayer.PlayLocalVideoFromMod(Path.Combine("Content", "UI", "Menu", "tsm_logo_opus.webm"));
+            StartIntroCountdown(5f);
         }
         private static void Close()
         {

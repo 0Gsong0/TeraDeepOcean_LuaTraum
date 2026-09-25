@@ -26,9 +26,10 @@ namespace TeraDeepOcean
         private static bool initialized;
         private static float contextRefreshTimer;
         /// <summary>
-        /// 暂时单人模式
+        /// 单人模式由本机执行 RTS AI；
+        /// 多人模式只能由服务器执行。
         /// </summary>
-        public static bool IsAuthority => !GameMain.IsMultiplayer;
+        public static bool IsAuthority => !GameMain.IsMultiplayer || GameMain.NetworkMember is { IsServer:true};
         public static event Action? RoundStateCleared;
         /// <summary>
         /// 成功下达移动命令后触发。
@@ -209,6 +210,53 @@ namespace TeraDeepOcean
             return true;
         }
         /// <summary>
+        /// 释放所有当前受到 RTS 命令控制的单位，让原版 AI 重新接管。
+        ///
+        /// 此操作只清除 Move、Guard 和 Attack 状态，
+        /// 不清除 RTS 单位注册表，因此之后仍然可以重新选择这些单位下令。
+        /// </summary>
+        /// <returns>实际清除 RTS 状态的单位数量。</returns>
+        public static int ReleaseAllUnitsToVanillaAi()
+        {
+            if (!IsAuthority) return 0;
+            ushort[] affectedCharacterIds = states.Keys.ToArray();
+            states.Clear();
+            foreach (ushort characterId in affectedCharacterIds)
+            {
+                ClearHumanObjective(characterId);
+                if (Entity.FindEntityByID(characterId)is not Character character ||character.Removed)
+                {
+                    continue;
+                }
+                switch (character.AIController)
+                {
+                    case HumanAIController humanAI:
+                        /*
+                         * 清除 RTS 强制攻击留下的战斗目标。
+                         * RTS 状态已经先被删除，所以回调不会重新建立 Guard。
+                         */
+                        ClearHumanCombatObjectives(humanAI);
+                        humanAI.SteeringManager?.Reset();
+                        break;
+                    case EnemyAIController enemyAI:
+                        /*
+                         * 清除 RTS 强制指定的 SelectedAiTarget。
+                         * 下一次原版 EnemyAIController.Update 会自行重新评估目标。
+                         */
+                        enemyAI.Reset();
+                        enemyAI.SteeringManager?.Reset();
+                        break;
+                    case AIController ai:
+                        ai.SteeringManager?.Reset();
+                        break;
+                }
+                // 清除最后一帧可能残留的移动输入。
+                character.ClearInputs();
+                character.AnimController.TargetMovement = Vector2.Zero;
+            }
+            return affectedCharacterIds.Length;
+        }
+        /// <summary>
         /// 注册本回合已经存在的玩家船员 AI。
         /// 只扫描 CrewManager 中的 Bot，因此不会把普通 NPC 自动注册成 RTS 单位。
         /// 已经注册过的单位不会被重复覆盖
@@ -234,7 +282,7 @@ namespace TeraDeepOcean
             return count;
         }
         /// <summary>
-        /// 
+        /// 注册当前队伍生物
         /// </summary>
         /// <param name="commanderTeam"></param>
         /// <returns></returns>
@@ -303,6 +351,11 @@ namespace TeraDeepOcean
         /// <returns></returns>
         public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition)
         {
+            return IssueMove(selectedCharacters, clickedWorldPosition, out _);
+        }
+        public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition,out IReadOnlyList<Vector2> resolvedSlots)
+        {
+            resolvedSlots = Array.Empty<Vector2>();
             if (!IsAuthority || !TLRtsRoundSubContext.IsValid) return false;
             Hull? targetHull = Hull.FindHull(clickedWorldPosition);
             if (targetHull?.Submarine == null || !TLRtsRoundSubContext.Contains(targetHull.Submarine)) return false;
@@ -311,11 +364,8 @@ namespace TeraDeepOcean
             if (units.Count == 0) return false;
 
             List<Vector2> slots = CreateFormationSlots(clickedWorldPosition, targetHull, units.Count);
-
-            List<Vector2> resolvedSlots = new(units.Count);
-
-            // 单位和槽位都按 X 排序，可以减少单位互相交叉。
             slots.Sort((a, b) => a.X.CompareTo(b.X));
+            List<Vector2> finalSlots = new(units.Count);
             for (int i = 0; i < units.Count; i++)
             {
                 Character character = units[i];
@@ -330,12 +380,13 @@ namespace TeraDeepOcean
                 }
                 finalWorldPosition = ClampInsideHull(finalWorldPosition, targetHull);
                 // 保存实际下发给单位的最终位置，供客户端绘制槽位。
-                resolvedSlots.Add(finalWorldPosition);
+                finalSlots.Add(finalWorldPosition);
                 AssignMoveState(character, targetHull, routeAnchor, finalWorldPosition);
             }
+            resolvedSlots = finalSlots.ToArray();
             MoveOrderIssued?.Invoke(
                 clickedWorldPosition,
-                resolvedSlots.ToArray());
+                resolvedSlots);
             return true;
         }
         public static void AssignMoveState(Character character, Hull targetHull, WayPoint? routeAnchor, Vector2 finalWorldPosition)
@@ -428,7 +479,6 @@ namespace TeraDeepOcean
             if (attacker == target ||
                 target.Removed ||
                 target.IsDead ||
-                target.IsIncapacitated ||
                 !target.Enabled)
             {
                 return false;
@@ -441,7 +491,6 @@ namespace TeraDeepOcean
             return target != null &&
                    !target.Removed &&
                    !target.IsDead &&
-                   !target.IsIncapacitated &&
                    target.Enabled &&
                    target.Submarine != null &&
                    TLRtsRoundSubContext.Contains(target.Submarine);

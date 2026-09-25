@@ -11,6 +11,7 @@ namespace TeraDeepOcean
     {
         Move,
         Attack,
+        ReleaseAllAi
     }
     /// <summary>
     /// 客户端申请成为 RTS 指挥官。
@@ -114,6 +115,13 @@ namespace TeraDeepOcean
         #region 攻击处理结果
         public ushort TargetCharacterId { get; set; } = Entity.NullEntityID;
         #endregion
+        #region 释放 AI 结果
+        /// <summary>
+        /// 实际释放的 RTS 单位数量。
+        /// </summary>
+        public int ReleasedUnitCount { get; set; }
+
+        #endregion
     }
     /// <summary>
     /// 一个可控 RTS 单位的网络快照。
@@ -135,5 +143,13 @@ namespace TeraDeepOcean
     {
         public int Revision { get; set; }
         public List<TLRtsUnitNetState> Units { get; set; } = new();
+    }
+    /// <summary>
+    /// 客户端请求服务器释放全部 RTS 单位。
+    /// 不需要提交单位 ID，因为服务器会清除全部活动 RTS 状态。
+    /// </summary>
+    public sealed class TLRtsReleaseAllAiRequest
+    {
+        public int Sequence { get; set; }
     }
 }

@@ -89,6 +89,16 @@ namespace TeraDeepOcean
         /// </summary>
         private static bool singleplayerCommanderAiStateCaptured;
         private static bool singleplayerCommanderAiWasEnabled;
+        /// <summary>
+        /// 客户端最后处理的服务器命令结果序号。
+        /// 防止旧结果覆盖新命令的标记。
+        /// </summary>
+        private static int lastHandledCommandResultSequence;
+
+        /// <summary>
+        /// 清除全部 RTS 命令、恢复原版 AI 的按钮。
+        /// </summary>
+        private static GUIButton? releaseAllAiButton;
         private enum CommandMarkerType
         {
             None,
@@ -119,7 +129,8 @@ namespace TeraDeepOcean
             TLRtsNetwork.CommanderStateChanged += OnCommanderStateChanged;
             // 服务器单独回复本客户端的申请结果。
             TLRtsNetwork.ClaimResultReceived += OnClaimResultReceived;
-
+            // 服务器返回移动或攻击命令的权威处理结果。
+            TLRtsNetwork.CommandResultReceived += OnCommandResultReceived;
 
             var guiDraw = AccessTools.Method(
                 typeof(GUI),
@@ -213,31 +224,146 @@ namespace TeraDeepOcean
                 return;
             }
 
-            /*
-             * 第一阶段多人模式只测试：
-             *
-             * - 指挥官申请
-             * - 唯一指挥官权限
-             * - FreeCam 进入/退出
-             * - 指挥权释放和自动失效
-             *
-             * 移动和攻击还没有服务器网络同步，
-             * 因此不能在多人客户端执行旧的本地命令逻辑。
-             */
-            if (GameMain.IsMultiplayer)
-            {
-                CancelSelectionDrag();
-                return;
-            }
-
             HandleLeftMouse(cam);
             HandleRightMouse(cam);
         }
         private static void AfterGameScreenAddToGUIUpdateList()
         {
             UpdateCommanderButton();
-            if (commanderButton == null || !commanderButton.Visible) return;
-            commanderButton.AddToGUIUpdateList(order: 10);
+            if (commanderButton != null && commanderButton.Visible)
+            {
+                commanderButton.AddToGUIUpdateList(order: 10);
+            }            
+            UpdateReleaseAllAiButton();
+            if (releaseAllAiButton != null && releaseAllAiButton.Visible)
+            {
+                releaseAllAiButton.AddToGUIUpdateList(order: 11);
+            }
+        }
+        /// <summary>
+        /// 更新“释放全部 AI”按钮。
+        /// 只有进入 RTS 模式并且拥有指挥权限时显示。
+        /// </summary>
+        private static void UpdateReleaseAllAiButton()
+        {
+            EnsureReleaseAllAiButton();
+
+            if (releaseAllAiButton == null)
+            {
+                return;
+            }
+
+            bool hasAuthority =
+                GameMain.IsMultiplayer
+                    ? TLRtsNetwork.IsLocalCommander
+                    : TLRtsSystem.IsAuthority;
+
+            releaseAllAiButton.Visible =
+                IsActive &&
+                hasAuthority &&
+                Screen.Selected == GameMain.GameScreen &&
+                GameMain.GameSession != null &&
+                Level.IsLoadedOutpost &&
+                !GUI.DisableHUD;
+
+            releaseAllAiButton.Enabled =
+                releaseAllAiButton.Visible;
+        }
+
+        /// <summary>
+        /// 创建“释放全部 AI”按钮。
+        /// 按钮位于屏幕顶部 RTS 状态栏下方。
+        /// </summary>
+        private static void EnsureReleaseAllAiButton()
+        {
+            if (releaseAllAiButton != null)
+            {
+                return;
+            }
+
+            releaseAllAiButton = new GUIButton(
+                new RectTransform(
+                    new Point(220, 40),
+                    GUI.Canvas,
+                    Anchor.TopCenter)
+                {
+                    ScreenSpaceOffset =
+                        new Point(0, 78)
+                },
+                "释放全部 AI",
+                Alignment.Center,
+                style: "GUIButton");
+
+            releaseAllAiButton.Visible = false;
+
+            releaseAllAiButton.OnClicked = (_, _) =>
+            {
+                ShowReleaseAllAiConfirmation();
+                return true;
+            };
+        }
+        private static void ShowReleaseAllAiConfirmation()
+        {
+            if (!IsActive) return;
+            GUIMessageBox box = new("RTS 战术系统", "确认释放全部 RTS 单位吗？\n\n" + "所有单位将停止执行移动、防守和强制攻击命令，" + "并重新交给原版 AI 控制。", new LocalizedString[]
+            {
+                "确定",
+                "取消"
+            });
+            // 确保确认窗口绘制在 RTS 界面和其他 GUI 上层。
+            box.DrawOnTop = true;
+            // “确定”按钮。
+            box.Buttons[0].OnClicked = (_, _) =>
+            {
+                /*
+                 * 先关闭确认框，再执行释放。
+                 * ReleaseAllAiFromRts 内部还会再次检查当前模式和网络权限。
+                 */
+                box.Close();
+                ReleaseAllAiFromRts();
+                return true;
+            };
+            // “取消”按钮。
+            box.Buttons[1].OnClicked = (_, _) =>
+            {
+                // 只关闭窗口
+                box.Close();
+                return true;
+            };
+        }
+        /// <summary>
+        /// 单人直接释放；多人向服务器发送权威请求。
+        /// </summary>
+        private static void ReleaseAllAiFromRts()
+        {
+            if (!IsActive)
+            {
+                return;
+            }
+
+            if (GameMain.IsMultiplayer)
+            {
+                bool sent =
+                    TLRtsNetwork.ClientRequestReleaseAllAi();
+
+                if (!sent)
+                {
+                    GUI.AddMessage(
+                        "无法向服务器发送释放 AI 请求。",
+                        Color.OrangeRed);
+                }
+
+                return;
+            }
+
+            int releasedCount =
+                TLRtsSystem.ReleaseAllUnitsToVanillaAi();
+
+            ClearCommandMarker();
+
+            GUI.AddMessage(
+                $"已释放 {releasedCount} 个 RTS 单位，原版 AI 已恢复。",
+                Color.LightGreen);
         }
         /// <summary>
         /// 按钮更新逻辑
@@ -248,7 +374,7 @@ namespace TeraDeepOcean
 
             if (!shouldExistInCurrentView)
             {
-                if(commanderButton != null)
+                if (commanderButton != null)
                     commanderButton.Visible = false;
                 return;
             }
@@ -528,6 +654,53 @@ namespace TeraDeepOcean
                     Color.OrangeRed);
             }
         }
+        /// <summary>
+        /// 处理服务器返回的移动或攻击结果。
+        ///
+        /// 只有服务器接受命令后，客户端才显示标记。
+        /// </summary>
+        private static void OnCommandResultReceived(TLRtsCommandResult result)
+        {
+            if (result == null || !IsActive) return;
+            /*
+             * 防止延迟到达的旧结果覆盖新命令标记。
+             */
+            if (result.Sequence <= lastHandledCommandResultSequence)
+            {
+                return;
+            }
+            lastHandledCommandResultSequence = result.Sequence;
+            if (!result.Accepted)
+            {
+                GUI.AddMessage(
+                    string.IsNullOrWhiteSpace(
+                        result.Reason)
+                        ? "服务器拒绝了 RTS 命令。"
+                        : result.Reason,
+                    Color.OrangeRed);
+
+                return;
+            }
+            switch (result.CommandType)
+            {
+                case TLRtsNetCommandType.Move:
+                    ShowServerMoveResult(result);
+                    break;
+
+                case TLRtsNetCommandType.Attack:
+                    ShowServerAttackResult(result);
+                    break;
+
+                case TLRtsNetCommandType.ReleaseAllAi:
+                    ClearCommandMarker();
+
+                    GUI.AddMessage(
+                        $"已释放 {result.ReleasedUnitCount} 个 RTS 单位，原版 AI 已恢复。",
+                        Color.LightGreen);
+
+                    break;
+            }
+        }
         private static void ClientDebug(string message)
         {
             DebugConsole.NewMessage(
@@ -594,7 +767,8 @@ namespace TeraDeepOcean
                     if (TLRtsNetwork.CommanderState.HasCommander)
                     {
                         reason = $"当前 RTS 指挥官是：" + $"{TLRtsNetwork.CommanderState.CommanderName}";
-                    }else if(heldDevice == null)
+                    }
+                    else if (heldDevice == null)
                     {
                         reason = "必须先把 RTS 指挥终端装备到手中。";
                     }
@@ -664,6 +838,7 @@ namespace TeraDeepOcean
             GUI.PreventPauseMenuToggle = true;
             IsActive = true;
             GUI.AddMessage(GameMain.IsMultiplayer ? "已以服务器认证指挥官身份进入 RTS 测试模式" : "已进入 单人 RTS 战术模式", Color.DeepSkyBlue);
+            lastHandledCommandResultSequence = 0;
             return true;
         }
         /// <summary>
@@ -899,6 +1074,112 @@ namespace TeraDeepOcean
             }
         }
         /// <summary>
+        /// 客户端预判目标是否可能是敌人。
+        ///
+        /// 这只是为了决定右键应该解释成攻击还是移动；
+        /// 多人模式的最终敌我判断仍由服务器执行。
+        /// </summary>
+        private static bool IsLocallyHostileToAny(IEnumerable<Character> attackers, Character target)
+        {
+            if (target == null ||
+                target.Removed ||
+                target.IsDead ||
+                !target.Enabled)
+            {
+                return false;
+            }
+            foreach (Character attacker in attackers)
+            {
+                if (attacker == null || attacker == target) continue;
+                bool friendly = attacker.AIController is HumanAIController ? HumanAIController.IsFriendly(attacker, target) : attacker.IsFriendly(target);
+                if (!friendly) return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// 单人直接执行攻击；
+        /// 多人只向服务器发送攻击请求。
+        /// </summary>
+        private static bool TryIssueAttackCommand(List<Character> selectedCharacters,Character target)
+        {
+            if (!IsLocallyHostileToAny(selectedCharacters, target)) return false;
+            if (GameMain.IsMultiplayer)
+            {
+                return TLRtsNetwork.ClientRequestAttack(selectedCharacters, target);
+            }
+            bool issued = TLRtsSystem.IssueAttack(selectedCharacters, target);
+            if (issued)
+            {
+                /*
+                 * 单人没有服务器结果消息，
+                 * 因此本地立即显示攻击标记。
+                 */
+                ShowAttackMarker(target);
+            }
+            return issued;
+        }
+        /// <summary>
+        /// 单人直接执行移动；
+        /// 多人只向服务器发送移动请求。
+        /// </summary>
+        private static bool TryIssueMoveCommand(List<Character> selectedCharacters,Vector2 targetWorldPosition)
+        {
+            if (GameMain.IsMultiplayer)
+            {
+                /*
+                 * 多人移动标记不在这里立即显示。
+                 * 必须等待服务器返回修正后的编队槽位。
+                 */
+                return TLRtsNetwork.ClientRequestMove(
+                    selectedCharacters,
+                    targetWorldPosition);
+            }
+            /*
+             * 单人成功后 TLRtsSystem.MoveOrderIssued
+             * 会调用 OnMoveOrderIssued 绘制标记。
+             */
+            return TLRtsSystem.IssueMove(
+                selectedCharacters,
+                targetWorldPosition);
+        }
+        /// <summary>
+        /// 在鼠标世界坐标附近搜索敌对角色。
+        ///
+        /// 只负责客户端输入判定；
+        /// 服务器仍会重新验证目标是否合法。
+        /// </summary>
+        private static Character? FindAttackTargetNearWorldPosition(List<Character> selectedCharacters, Vector2 worldPosition, float hitRadius)
+        {
+            if (!GameMain.IsMultiplayer)
+            {
+                return TLRtsSystem.FindAttackTargetAt(
+                    selectedCharacters,
+                    worldPosition,
+                    hitRadius);
+            }
+            float radiusSquared = hitRadius * hitRadius;
+            return Character.CharacterList
+                .Where(character =>
+                    character != null &&
+                    !character.Removed &&
+                    !character.IsDead &&
+                    !character.IsIncapacitated &&
+                    character.Enabled &&
+                    character.Submarine != null &&
+                    TLRtsRoundSubContext.Contains(
+                        character.Submarine))
+                .Where(character => IsLocallyHostileToAny(selectedCharacters,character))
+                .Select(character => new
+                {
+                    Character = character,
+                    DistanceSquared = Vector2.DistanceSquared(character.WorldPosition, worldPosition)
+                })
+                .Where(result => result.DistanceSquared <= radiusSquared)
+                .OrderBy(result => result.DistanceSquared)
+                .Select(result => result.Character)
+                .FirstOrDefault();
+        }
+        /// <summary>
         /// 右键处理
         /// </summary>
         /// <param name="cam"></param>
@@ -917,9 +1198,8 @@ namespace TeraDeepOcean
              * 这样大型生物不需要点击角色中心点。
              */
             Character? attackTarget = FindCharacterAtScreenPosition(cam, mouseScreenPosition);
-            if (attackTarget != null && TLRtsSystem.IssueAttack(selectedCharacters, attackTarget))
+            if (attackTarget != null && TryIssueAttackCommand(selectedCharacters, attackTarget))
             {
-                ShowAttackMarker(attackTarget);
                 return;
             }
             /*
@@ -927,14 +1207,13 @@ namespace TeraDeepOcean
              * 缩放较远时扩大世界检测半径，保证点击手感。
              */
             float worldHitRadius = Math.Max(65.0f, 30.0f / cam.Zoom);
-            attackTarget = TLRtsSystem.FindAttackTargetAt(selectedCharacters, mouseWorldPosition, worldHitRadius);
-            if (attackTarget != null && TLRtsSystem.IssueAttack(selectedCharacters, attackTarget))
+            attackTarget = FindAttackTargetNearWorldPosition(selectedCharacters, mouseWorldPosition, worldHitRadius);
+            if (attackTarget != null && TryIssueAttackCommand(selectedCharacters, attackTarget))
             {
-                ShowAttackMarker(attackTarget);
                 return;
             }
             // 没有成功攻击角色时，将右键解释为移动命令。
-            TLRtsSystem.IssueMove(selectedCharacters, mouseWorldPosition);
+            TryIssueMoveCommand(selectedCharacters, mouseWorldPosition);
         }
         /// <summary>
         /// 在屏幕位置查找可选角色
@@ -992,41 +1271,52 @@ namespace TeraDeepOcean
         /// <returns></returns>
         private static IEnumerable<Character> EnumerateSelectableCharacters()
         {
+            if (GameMain.IsMultiplayer)
+            {
+                /*
+                 * 多人模式以服务器同步的单位 ID 为入口，
+                 * 不扫描所有本地角色，防止客户端显示无权控制的单位。
+                 */
+                foreach (TLRtsUnitNetState unit in TLRtsNetwork.RegistrySnapshot.Units)
+                {
+                    if (!unit.CanControl) continue;
+                    if (commanderTeam.HasValue && unit.TeamId != (int)commanderTeam.Value) continue;
+                    if (Entity.FindEntityByID(unit.CharacterId) is not Character character) continue;
+                    if (IsSelectable(character)) yield return character;
+                }
+                yield break;
+            }
+            /*
+             * 单人模式继续使用本地动态注册表。
+             */
             foreach (TLRtsUnitRegistration registration in TLRtsUnitRegistryPermission.Registrations.Values)
             {
-                if (!registration.CanControl)
-                {
-                    continue;
-                }
-                if (commanderTeam.HasValue && registration.TeamId != commanderTeam.Value)
-                {
-                    continue;
-                }
-                if (Entity.FindEntityByID(registration.CharacterId) is not Character character)
-                {
-                    continue;
-                }
-                if (!IsSelectable(character))
-                {
-                    continue;
-                }
-                yield return character;
+                if (!registration.CanControl) continue;
+                if (commanderTeam.HasValue && registration.TeamId != commanderTeam.Value) continue;
+                if (Entity.FindEntityByID(registration.CharacterId) is not Character character) continue;
+                if (IsSelectable(character)) yield return character;
             }
         }
+        /// <summary>
+        /// 判断角色是否可以被当前 RTS 指挥官选择。
+        ///
+        /// 单人使用本地动态注册表；
+        /// 多人使用服务器同步的注册表快照。
+        /// </summary>
         private static bool IsSelectable(Character character)
         {
-            return character != null &&
-                  !character.Removed &&
-                  !character.IsDead &&
-                  !character.IsIncapacitated &&
-                  character.Enabled &&
-                  character.Submarine != null &&
-                  TLRtsRoundSubContext.Contains(
-                      character.Submarine) &&
-                  TLRtsUnitRegistryPermission.IsControllable(
-                      character) &&
-                  (!commanderTeam.HasValue ||
-                   character.TeamID == commanderTeam.Value);
+            if (character == null || character.Removed || character.IsDead || character.IsIncapacitated || !character.Enabled || character.Submarine == null || !TLRtsRoundSubContext.Contains(character.Submarine)) return false;
+            if (commanderTeam.HasValue && character.TeamID != commanderTeam.Value) return false;
+            if (GameMain.IsMultiplayer)
+            {
+                /*
+                 * 多人客户端不读取本地注册表。
+                 * 本地 AIController 在多人客户端可能处于禁用状态，
+                 * 因此以服务器同步的单位快照为准。
+                 */
+                return TLRtsNetwork.IsSyncedUnitControllable(character.ID,commanderTeam);
+            }
+            return TLRtsUnitRegistryPermission.IsControllable(character);
         }
         private static List<Character> GetSelectedCharacters()
         {
@@ -1185,7 +1475,7 @@ namespace TeraDeepOcean
             ClearSelection();
             CancelSelectionDrag();
             ClearCommandMarker();
-
+            lastHandledCommandResultSequence = 0;
             if (IsActive)
             {
                 ExitRtsMode(
@@ -1394,6 +1684,69 @@ namespace TeraDeepOcean
                 width: thickness);
         }
 
+        /// <summary>
+        /// 将服务器返回的潜艇局部坐标转换成世界坐标，
+        /// 然后显示移动十字和编队槽位。
+        /// </summary>
+        private static void ShowServerMoveResult(TLRtsCommandResult result)
+        {
+            if (Entity.FindEntityByID(
+                    result.TargetSubmarineId)
+                is not Submarine targetSubmarine ||
+                targetSubmarine.Removed)
+            {
+                return;
+            }
+
+            Vector2 clickedWorldPosition =
+                targetSubmarine.Position +
+                new Vector2(
+                    result.TargetLocalX,
+                    result.TargetLocalY);
+
+            List<Vector2> slotWorldPositions =
+                new();
+
+            foreach (TLRtsNetPosition slot
+                in result.Slots)
+            {
+                if (Entity.FindEntityByID(
+                        slot.SubmarineId)
+                    is not Submarine slotSubmarine ||
+                    slotSubmarine.Removed)
+                {
+                    continue;
+                }
+
+                slotWorldPositions.Add(
+                    slotSubmarine.Position +
+                    new Vector2(
+                        slot.LocalX,
+                        slot.LocalY));
+            }
+
+            OnMoveOrderIssued(
+                clickedWorldPosition,
+                slotWorldPositions);
+        }
+
+        /// <summary>
+        /// 显示服务器确认的攻击目标标记。
+        /// </summary>
+        private static void ShowServerAttackResult(
+            TLRtsCommandResult result)
+        {
+            if (Entity.FindEntityByID(
+                    result.TargetCharacterId)
+                is not Character target ||
+                target.Removed ||
+                target.IsDead)
+            {
+                return;
+            }
+
+            ShowAttackMarker(target);
+        }
         private static void DebugLocalHeldItems()
         {
             Character? controlled =
