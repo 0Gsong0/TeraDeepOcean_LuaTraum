@@ -1,6 +1,7 @@
 ﻿using Barotrauma.Items.Components;
 using FarseerPhysics;
 using HarmonyLib;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,19 @@ namespace TeraDeepOcean
 {
     public static class TLRtsSystem
     {
-        private const float SingleUnitSpacing = 130.0f;
+        /// <summary>
+        /// 常规分散队形的单位中心间距。
+        /// 保持当前版本原有的分散效果。
+        /// </summary>
+        private const float RegularFormationSpacing = 130.0f;
+
+        /// <summary>
+        /// 密集行进队形的单位中心间距。
+        /// 
+        /// 人类角色的身体宽度通常会大于这个数值，
+        /// 所以角色模型可能少量重叠，这是密集行进队形的预期效果。
+        /// </summary>
+        private const float CompactFormationSpacing = 35.0f;
         private const float HullHorizontalMargin = 45.0f;
         private const float HullVerticalMargin = 40.0f;
         /// <summary>
@@ -353,6 +366,48 @@ namespace TeraDeepOcean
         {
             return IssueMove(selectedCharacters, clickedWorldPosition, out _);
         }
+        /// <summary>
+        /// 按指定队形给一组 RTS 单位下达移动命令。
+        /// </summary>
+        /// <param name="selectedCharacters"></param>
+        /// <param name="clickedWorldPosition"></param>
+        /// <param name="formation"></param>
+        /// <param name="resolvedSlots"></param>
+        /// <returns></returns>
+        public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition,TLRtsFormationType formation, out IReadOnlyList<Vector2> resolvedSlots)
+        {
+            resolvedSlots = Array.Empty<Vector2>();
+            if (!IsAuthority || !TLRtsRoundSubContext.IsValid) return false;
+            Hull? targetHull = Hull.FindHull(clickedWorldPosition);
+            if (targetHull?.Submarine == null || !TLRtsRoundSubContext.Contains(targetHull.Submarine)) return false;
+
+            List<Character> units = selectedCharacters.Where(IsCommandable).Distinct().OrderBy(c => c.WorldPosition.X).ToList();
+            if (units.Count == 0) return false;
+
+            List<Vector2> slots = CreateFormationSlots(clickedWorldPosition, targetHull, units.Count,formation);
+            slots.Sort((a, b) => a.X.CompareTo(b.X));
+            List<Vector2> finalSlots = new(units.Count);
+            for (int i = 0; i < units.Count; i++)
+            {
+                Character character = units[i];
+                Vector2 finalWorldPosition = slots[i];
+                WayPoint? routeAnchor = FindNearestRouteAnchor(finalWorldPosition, targetHull);
+                bool useSwimmingPosition = targetHull.WaterPercentage >= 80f;
+                if (!useSwimmingPosition && routeAnchor != null)
+                {
+                    finalWorldPosition.Y = routeAnchor.WorldPosition.Y;
+                }
+                finalWorldPosition = ClampInsideHull(finalWorldPosition, targetHull);
+                // 保存实际下发给单位的最终位置，供客户端绘制槽位。
+                finalSlots.Add(finalWorldPosition);
+                AssignMoveState(character, targetHull, routeAnchor, finalWorldPosition);
+            }
+            resolvedSlots = finalSlots.ToArray();
+            MoveOrderIssued?.Invoke(
+                clickedWorldPosition,
+                resolvedSlots);
+            return true;
+        }
         public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition,out IReadOnlyList<Vector2> resolvedSlots)
         {
             resolvedSlots = Array.Empty<Vector2>();
@@ -644,15 +699,15 @@ namespace TeraDeepOcean
         /// <param name="targetHull"></param>
         /// <param name="unitCount"></param>
         /// <returns></returns>
-        private static List<Vector2> CreateFormationSlots(Vector2 centerWorldPosition, Hull targetHull, int unitCount)
+        private static List<Vector2> CreateFormationSlots(Vector2 centerWorldPosition, Hull targetHull, int unitCount, TLRtsFormationType formation = TLRtsFormationType.RegularSpread)
         {
+            List<Vector2> slots = new(Math.Max(unitCount, 0));
+            if (unitCount <= 0) return slots;
             Rectangle hullRect = targetHull.WorldRect;
             float left = hullRect.Left + HullHorizontalMargin;
             float right = hullRect.Right - HullHorizontalMargin;
-            float bottom =
-                hullRect.Y - hullRect.Height + HullVerticalMargin;
-            float top =
-                hullRect.Y - HullVerticalMargin;
+            float bottom = hullRect.Y - hullRect.Height + HullVerticalMargin;
+            float top = hullRect.Y - HullVerticalMargin;
 
             if (right < left)
             {
@@ -670,21 +725,25 @@ namespace TeraDeepOcean
             float centerY = MathHelper.Clamp(centerWorldPosition.Y, bottom, top);
             if (unitCount == 1)
             {
-                return new List<Vector2>
-                {
-                    new(
-                        MathHelper.Clamp(centerWorldPosition.X, left, right),
-                        centerY)
-                };
+                slots.Add(new Vector2(MathHelper.Clamp(centerWorldPosition.X, left, right), centerY));
+                return slots;
             }
+            float requestedSpacing = formation switch
+            {
+                TLRtsFormationType.CompactMarch => CompactFormationSpacing,
+                TLRtsFormationType.RegularSpread => RegularFormationSpacing,
+                _ => RegularFormationSpacing
+            };
             float availableWidth = Math.Max(right - left, 1.0f);
-            float spacing = Math.Min(SingleUnitSpacing, availableWidth / Math.Max(unitCount - 1, 1));
-            float totalWidth = spacing * (unitCount - 1);
-            float formationCenterX = MathHelper.Clamp(centerWorldPosition.X, left + totalWidth * 0.5f, right - totalWidth * 0.5f);
-            List<Vector2> slots = new(unitCount);
+            float maximumSpacingThatFits = availableWidth / Math.Max(unitCount - 1, 1);
+            float actualSpacing = Math.Min(requestedSpacing, maximumSpacingThatFits);
+            float totalWidth = actualSpacing * (unitCount - 1);
+            float minimumCenterX = left + totalWidth * 0.5f;
+            float maximumCenterX = right - totalWidth * 0.5f;
+            float formationCenterX = MathHelper.Clamp(centerWorldPosition.X, minimumCenterX, maximumCenterX);
             for (int i = 0; i < unitCount; i++)
             {
-                float offsetX = (i - (unitCount - 1) * 0.5f) * spacing;
+                float offsetX = (i - (unitCount - 1) * 0.5f) * actualSpacing;
                 slots.Add(new Vector2(formationCenterX + offsetX, centerY));
             }
             return slots;

@@ -5,6 +5,27 @@ using System.Text;
 namespace TeraDeepOcean
 {
     /// <summary>
+    /// RTS 单位移动队形。
+    /// 
+    /// 队形只决定移动命令生成槽位时使用的间距，
+    /// 不改变单位的攻击、Guard 或寻路逻辑。
+    /// </summary>
+    public enum TLRtsFormationType
+    {
+        /// <summary>
+        /// 常规分散队形。
+        /// 使用当前版本的较大单位间距，适合战斗和展开射界。
+        /// </summary>
+        RegularSpread = 0,
+
+        /// <summary>
+        /// 密集行进队形。
+        /// 单位之间只保留很小的中心距离，允许角色模型少量重叠，
+        /// 适合穿过狭窄房间和舱门。
+        /// </summary>
+        CompactMarch = 1
+    }
+    /// <summary>
     /// RTS 网络命令类型。
     /// </summary>
     public enum TLRtsNetCommandType
@@ -60,6 +81,10 @@ namespace TeraDeepOcean
         /// 用于过滤重复或乱序命令。
         /// </summary>
         public int Sequence { get; set; }
+        /// <summary>
+        /// 队形
+        /// </summary>
+        public TLRtsFormationType Formation { get; set; } = TLRtsFormationType.RegularSpread;
         public List<ushort> UnitIds { get; set; } = new();
         public ushort TargetSubId { get; set; } = Entity.NullEntityID;
         public ushort TargetHullId { get; set; } = Entity.NullEntityID;

@@ -422,6 +422,11 @@ namespace TeraDeepOcean
                 ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.Move, request.Sequence, "移动目标坐标无效。"));
                 return;
             }
+            if (!Enum.IsDefined(typeof(TLRtsFormationType), request.Formation))
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.Move, request.Sequence, "移动请求中的队形类型无效。"));
+                return;
+            }
             if (Entity.FindEntityByID(request.TargetSubId) is not Submarine targetSubmarine || targetSubmarine.Removed || !TLRtsRoundSubContext.Contains(targetSubmarine))
             {
                 ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.Move, request.Sequence, "移动目标潜艇无效。"));
@@ -438,7 +443,7 @@ namespace TeraDeepOcean
                 ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.Move, request.Sequence, "移动目标不在指定房间内。"));
                 return;
             }
-            bool issued = TLRtsSystem.IssueMove(units, targetWorldPosition, out IReadOnlyList<Vector2> resolvedSlots);
+            bool issued = TLRtsSystem.IssueMove(units, targetWorldPosition, request.Formation, out IReadOnlyList<Vector2> resolvedSlots);
             if (!issued)
             {
                 ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.Move, request.Sequence, "服务器无法执行移动命令。"));
@@ -597,7 +602,7 @@ namespace TeraDeepOcean
         /// 处理指挥官发来的“释放全部 AI”请求。
         /// 服务器负责验证身份并实际清除 RTS 状态。
         /// </summary>
-        public static void ServerReceiveReleaseAllAiRequest(string json,Client sender)
+        public static void ServerReceiveReleaseAllAiRequest(string json, Client sender)
         {
             TLRtsReleaseAllAiRequest? request = Deserialize<TLRtsReleaseAllAiRequest>(json);
 
@@ -750,14 +755,25 @@ namespace TeraDeepOcean
             ClaimResultReceived?.Invoke(result);
         }
         /// <summary>
-        /// 客户端请求移动
+        /// 使用默认常规分散队形发送移动请求。
         /// </summary>
         /// <param name="selectedCharacters"></param>
         /// <param name="clickedWorldPosition"></param>
         /// <returns></returns>
         public static bool ClientRequestMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition)
         {
+            return ClientRequestMove(selectedCharacters, clickedWorldPosition, TLRtsFormationType.RegularSpread);
+        }
+        /// <summary>
+        /// 客户端请求移动
+        /// </summary>
+        /// <param name="selectedCharacters"></param>
+        /// <param name="clickedWorldPosition"></param>
+        /// <returns></returns>
+        public static bool ClientRequestMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition,TLRtsFormationType formation)
+        {
             if (GameMain.NetworkMember is not { IsClient: true } || !IsLocalCommander) return false;
+            if (!Enum.IsDefined(typeof(TLRtsFormationType), formation)) return false;
             Hull? targetHull = Hull.FindHull(clickedWorldPosition);
             if (targetHull?.Submarine == null || !TLRtsRoundSubContext.Contains(targetHull.Submarine)) return false;
             List<ushort> unitIds = selectedCharacters
@@ -776,7 +792,9 @@ namespace TeraDeepOcean
                 TargetSubId = targetHull.Submarine.ID,
                 TargetHullId = targetHull.ID,
                 TargetLocalX = targetLocalPosition.X,
-                TargetLocalY = targetLocalPosition.Y
+                TargetLocalY = targetLocalPosition.Y,
+                // 把客户端当前选择的队形一起提交给服务器。
+                Formation = formation
             };
             string json = JsonSerializer.Serialize(request);
             return CallLua("TLRtsNet", "ClientSendMoveRequest", json);

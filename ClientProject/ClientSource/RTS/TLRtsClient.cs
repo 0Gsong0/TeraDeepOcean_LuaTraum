@@ -50,7 +50,6 @@ namespace TeraDeepOcean
         private static readonly HashSet<ushort> selectedCharacterIds = new();
 
         private static bool initialized;
-
         public static bool IsActive { get; private set; }
 
         /// <summary>
@@ -64,6 +63,24 @@ namespace TeraDeepOcean
         /// Character.Controlled 被设为 null 后，不能再从它读取阵营。
         /// </summary>
         private static CharacterTeamType? commanderTeam;
+        private static TLRtsFormationType currentFormation = TLRtsFormationType.RegularSpread;
+
+        /// <summary>
+        /// 屏幕右下角的 RTS 设置面板。
+        ///
+        /// 后续可以继续把其他 RTS 调整功能加入这个面板。
+        /// </summary>
+        private static GUIFrame? rtsSettingsPanel;
+
+        /// <summary>
+        /// 常规分散队形按钮。
+        /// </summary>
+        private static GUIButton? regularFormationButton;
+
+        /// <summary>
+        /// 密集行进队形按钮。
+        /// </summary>
+        private static GUIButton? compactFormationButton;
 
         private static bool previousPreventPauseMenuToggle;
 
@@ -233,11 +250,104 @@ namespace TeraDeepOcean
             if (commanderButton != null && commanderButton.Visible)
             {
                 commanderButton.AddToGUIUpdateList(order: 10);
-            }            
+            }
             UpdateReleaseAllAiButton();
             if (releaseAllAiButton != null && releaseAllAiButton.Visible)
             {
                 releaseAllAiButton.AddToGUIUpdateList(order: 11);
+            }
+            UpdateRtsSettingsPanel();
+            if (rtsSettingsPanel != null && rtsSettingsPanel.Visible)
+            {
+                rtsSettingsPanel.AddToGUIUpdateList(order: 11);
+            }
+        }
+        /// <summary>
+        /// 更新右下角 RTS 设置面板的显示状态和按钮状态。
+        /// </summary>
+        private static void UpdateRtsSettingsPanel()
+        {
+            EnsureRtsSettingsPanel();
+            if (rtsSettingsPanel == null) return;
+            bool hasAuthority = GameMain.IsMultiplayer ? TLRtsNetwork.IsLocalCommander : TLRtsSystem.IsAuthority;
+            rtsSettingsPanel.Visible = IsActive && hasAuthority && Screen.Selected == GameMain.GameScreen && GameMain.GameSession != null && Level.IsLoadedOutpost && !GUI.DisableHUD;
+            if (!rtsSettingsPanel.Visible) return;
+            UpdateFormationButtonStates();
+        }
+        /// <summary>
+        /// 创建屏幕右下角的 RTS 设置面板。
+        /// </summary>
+        private static void EnsureRtsSettingsPanel()
+        {
+            if (rtsSettingsPanel != null) return;
+            rtsSettingsPanel = new GUIFrame(new RectTransform(new Point(320, 145), GUI.Canvas, Anchor.BottomRight)
+            {
+                ScreenSpaceOffset = new Point(-25, -25)
+            }, style: "InnerFrame");
+            rtsSettingsPanel.Visible = false;
+            new GUITextBlock(new RectTransform(new Point(280, 30), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
+            {
+                ScreenSpaceOffset = new Point(0, 12)
+            }, "RTS 战术设置", textColor: Color.DeepSkyBlue, font: GUIStyle.SubHeadingFont, textAlignment: Alignment.Center, wrap: false, style: null)
+            {
+                CanBeFocused = false
+            };
+            new GUITextBlock(new RectTransform(new Point(280, 24), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
+            {
+                ScreenSpaceOffset = new Point(0, 48)
+            }, "移动队形", textColor: Color.White, font: GUIStyle.SmallFont, textAlignment: Alignment.Center, wrap: false, style: null)
+            {
+                CanBeFocused = false
+            };
+            regularFormationButton = new GUIButton(new RectTransform(new Point(135, 42), rtsSettingsPanel.RectTransform, Anchor.TopLeft)
+            {
+                ScreenSpaceOffset = new Point(18, 82)
+            }, "常规分散", Alignment.Center, style: "GUIButton")
+            {
+                ToolTip = "常规分散队形：单位以较大间距横向展开，" + "适合战斗、防守和保持射界。"
+            };
+            regularFormationButton.OnClicked = (_, _) =>
+            {
+                SetCurrentFormation(TLRtsFormationType.RegularSpread);
+                return true;
+            };
+            compactFormationButton = new GUIButton(new RectTransform(new Point(135, 42), rtsSettingsPanel.RectTransform, Anchor.TopRight)
+            {
+                ScreenSpaceOffset = new Point(-18, 82)
+            }, "密集行进", Alignment.Center, style: "GUIButton")
+            {
+                ToolTip = "密集行进队形：单位以很小间距集中移动，" + "适合穿过狭窄房间和舱门，允许角色少量重叠。"
+            };
+            compactFormationButton.OnClicked = (_, _) =>
+            {
+                SetCurrentFormation(TLRtsFormationType.CompactMarch);
+                return true;
+            };
+            UpdateFormationButtonStates();
+        }
+        /// <summary>
+        /// 修改当前客户端使用的移动队形。
+        /// </summary>
+        /// <param name="formation"></param>
+        private static void SetCurrentFormation(TLRtsFormationType formation)
+        {
+            if (!Enum.IsDefined(typeof(TLRtsFormationType), formation)) return;
+            if (currentFormation == formation) return;
+            currentFormation = formation;
+            UpdateFormationButtonStates();
+        }
+        /// <summary>
+        /// 根据当前队形更新两个按钮的可用状态。
+        /// </summary>
+        private static void UpdateFormationButtonStates()
+        {
+            if (regularFormationButton != null)
+            {
+                regularFormationButton.Enabled = currentFormation != TLRtsFormationType.RegularSpread;
+            }
+            if (compactFormationButton != null)
+            {
+                compactFormationButton.Enabled = currentFormation != TLRtsFormationType.CompactMarch;
             }
         }
         /// <summary>
@@ -825,6 +935,7 @@ namespace TeraDeepOcean
                     $"人类 Bot={registeredCrewCount}，" +
                     $"同阵营生物={registeredCreatureCount}");
             }
+            HideCrewListForRts();
             Character.Controlled = null;
             ClearCommandMarker();
             ClearSelection();
@@ -919,6 +1030,7 @@ namespace TeraDeepOcean
                     GUI.AddMessage(GameMain.IsMultiplayer ? "原角色已经失效，无法恢复控制。" : "所有可控角色已死亡，无法恢复控制。", Color.OrangeRed);
                 }
             }
+            RestoreCrewListAfterRts();
             previousControlledCharacter = null;
             commanderTeam = null;
             GUI.AddMessage("已退出 RTS 战术模式", Color.LightGray);
@@ -1100,7 +1212,7 @@ namespace TeraDeepOcean
         /// 单人直接执行攻击；
         /// 多人只向服务器发送攻击请求。
         /// </summary>
-        private static bool TryIssueAttackCommand(List<Character> selectedCharacters,Character target)
+        private static bool TryIssueAttackCommand(List<Character> selectedCharacters, Character target)
         {
             if (!IsLocallyHostileToAny(selectedCharacters, target)) return false;
             if (GameMain.IsMultiplayer)
@@ -1122,7 +1234,7 @@ namespace TeraDeepOcean
         /// 单人直接执行移动；
         /// 多人只向服务器发送移动请求。
         /// </summary>
-        private static bool TryIssueMoveCommand(List<Character> selectedCharacters,Vector2 targetWorldPosition)
+        private static bool TryIssueMoveCommand(List<Character> selectedCharacters, Vector2 targetWorldPosition)
         {
             if (GameMain.IsMultiplayer)
             {
@@ -1130,17 +1242,13 @@ namespace TeraDeepOcean
                  * 多人移动标记不在这里立即显示。
                  * 必须等待服务器返回修正后的编队槽位。
                  */
-                return TLRtsNetwork.ClientRequestMove(
-                    selectedCharacters,
-                    targetWorldPosition);
+                return TLRtsNetwork.ClientRequestMove(selectedCharacters,targetWorldPosition, currentFormation);
             }
             /*
              * 单人成功后 TLRtsSystem.MoveOrderIssued
              * 会调用 OnMoveOrderIssued 绘制标记。
              */
-            return TLRtsSystem.IssueMove(
-                selectedCharacters,
-                targetWorldPosition);
+            return TLRtsSystem.IssueMove(selectedCharacters, targetWorldPosition, currentFormation, out _);
         }
         /// <summary>
         /// 在鼠标世界坐标附近搜索敌对角色。
@@ -1168,7 +1276,7 @@ namespace TeraDeepOcean
                     character.Submarine != null &&
                     TLRtsRoundSubContext.Contains(
                         character.Submarine))
-                .Where(character => IsLocallyHostileToAny(selectedCharacters,character))
+                .Where(character => IsLocallyHostileToAny(selectedCharacters, character))
                 .Select(character => new
                 {
                     Character = character,
@@ -1314,7 +1422,7 @@ namespace TeraDeepOcean
                  * 本地 AIController 在多人客户端可能处于禁用状态，
                  * 因此以服务器同步的单位快照为准。
                  */
-                return TLRtsNetwork.IsSyncedUnitControllable(character.ID,commanderTeam);
+                return TLRtsNetwork.IsSyncedUnitControllable(character.ID, commanderTeam);
             }
             return TLRtsUnitRegistryPermission.IsControllable(character);
         }
@@ -1746,6 +1854,30 @@ namespace TeraDeepOcean
             }
 
             ShowAttackMarker(target);
+        }
+        /// <summary>
+        /// 进入 RTS 后自动隐藏左上角船员列表。
+        ///
+        /// AutoHideCrewList 不会修改玩家保存的界面偏好，
+        /// 只会临时隐藏当前船员列表。
+        /// </summary>
+        private static void HideCrewListForRts()
+        {
+            GameMain.GameSession?
+                .CrewManager?
+                .AutoHideCrewList();
+        }
+        /// <summary>
+        /// 退出 RTS 后恢复玩家原本的船员列表显示偏好。
+        ///
+        /// 如果玩家原本显示船员列表，就重新显示；
+        /// 如果玩家原本就选择隐藏，则继续保持隐藏。
+        /// </summary>
+        private static void RestoreCrewListAfterRts()
+        {
+            GameMain.GameSession?
+                .CrewManager?
+                .ResetCrewListOpenState();
         }
         private static void DebugLocalHeldItems()
         {
