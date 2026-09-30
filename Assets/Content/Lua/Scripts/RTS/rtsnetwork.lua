@@ -30,6 +30,9 @@ local MessageName = {
     -- 攻击请求
     AttackRequest =
     "TLNet.RTS.AttackRequest",
+    -- 强制方向射击请求
+    DirectionalFireRequest =
+    "TLNet.RTS.DirectionalFireRequest",
     -- 请求执行结果
     CommandResult =
     "TLNet.RTS.CommandResult",
@@ -78,6 +81,15 @@ if CLIENT then
 
         local message =
             Networking.Start(MessageName.AttackRequest)
+
+        message.WriteString(jsonText)
+        Networking.Send(message)
+    end
+    -- 客户端发送强制方向射击请求。
+    function TLRtsNet.ClientSendDirectionalFireRequest(jsonText)
+        if jsonText == nil or jsonText == "" then return end
+
+        local message = Networking.Start(MessageName.DirectionalFireRequest)
 
         message.WriteString(jsonText)
         Networking.Send(message)
@@ -176,6 +188,16 @@ if SERVER then
         LibRtsNetwork.ServerReceiveReleaseAllAiRequest(
             jsonText,
             sender)
+    end)
+    -- 服务器接收强制方向射击请求。
+    Networking.Receive(MessageName.DirectionalFireRequest,function(message, sender)
+        if sender == nil then return end
+
+        local jsonText = message.ReadString()
+
+        if jsonText == nil or jsonText == "" then return end
+
+        LibRtsNetwork.ServerReceiveDirectionalFireRequest(jsonText,sender)
     end)
     -- 服务器发送指挥官申请结果
     -- 申请结果只发送给申请者，不进行广播。

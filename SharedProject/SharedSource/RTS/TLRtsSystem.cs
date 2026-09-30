@@ -23,8 +23,52 @@ namespace TeraDeepOcean
         /// 所以角色模型可能少量重叠，这是密集行进队形的预期效果。
         /// </summary>
         private const float CompactFormationSpacing = 35.0f;
+        /// <summary>
+        /// 排枪重叠队形的单位中心间距。
+        ///
+        /// 设置为 0 表示每个单位都会获得完全相同的目标位置。
+        /// </summary>
+        private const float VolleyStackFormationSpacing = 0.0f;
+        /// <summary>
+        /// 排枪重叠队形的到达判定距离。
+        ///
+        /// 普通人类当前使用 50，怪物使用 35；这对于重叠队形过大，
+        /// 会导致单位还没真正聚拢就进入 Guard。
+        ///
+        /// 不建议设置为 0，因为 AI 很难精确停在单个浮点坐标上，
+        /// 可能在目标附近不断来回修正。
+        /// </summary>
+        private const float VolleyStackArrivalDistance = 6.0f;
+        /// <summary>
+        /// 排枪队形中，非人类单位被推离目标多远后重新尝试归位。
+        /// </summary>
+        private const float VolleyStackGuardRadius = 20.0f;
         private const float HullHorizontalMargin = 45.0f;
         private const float HullVerticalMargin = 40.0f;
+
+        /// <summary>
+        /// 强制方向射击持续时间。
+        /// </summary>
+        private const float DirectionalFireDuration = 3.0f;
+
+        /// <summary>
+        /// 拿出武器后正式开火前的瞄准时间。
+        /// </summary>
+        private const float DirectionalFireAimDelay = 0.25f;
+
+        /// <summary>
+        /// 每个单位的虚拟瞄准点距离。
+        ///
+        /// 方向射击使用：角色位置 + 方向 × 距离。
+        /// 较大的距离可以让不同位置的单位保持近似平行射击。
+        /// </summary>
+        private const float DirectionalFireAimDistance = 2500.0f;
+
+        /// <summary>
+        /// 用于拒绝长度过小的射击方向。
+        /// </summary>
+        private const float MinimumDirectionalFireLengthSquared = 0.0001f;
+
         /// <summary>
         /// RTS 移动中的机会射击距离。
         /// 这是 AI 决策距离，不代表子弹真实射程。
@@ -42,7 +86,7 @@ namespace TeraDeepOcean
         /// 单人模式由本机执行 RTS AI；
         /// 多人模式只能由服务器执行。
         /// </summary>
-        public static bool IsAuthority => !GameMain.IsMultiplayer || GameMain.NetworkMember is { IsServer:true};
+        public static bool IsAuthority => !GameMain.IsMultiplayer || GameMain.NetworkMember is { IsServer: true };
         public static event Action? RoundStateCleared;
         /// <summary>
         /// 成功下达移动命令后触发。
@@ -58,6 +102,7 @@ namespace TeraDeepOcean
             initialized = true;
             TLRtsUnitRegistryPermission.UnitUnregistered += OnUnitUnregistered;
             var enemyUpdate = AccessTools.Method(typeof(EnemyAIController), nameof(EnemyAIController.Update));
+            var humanUpdate = AccessTools.Method(typeof(HumanAIController), nameof(HumanAIController.Update), new[] { typeof(float) });
             var characterRemove = AccessTools.Method(typeof(Character), nameof(Character.Remove));
             var addCombatObjective = AccessTools.Method(typeof(HumanAIController), nameof(HumanAIController.AddCombatObjective));
             var startRound = AccessTools.Method(typeof(GameSession), nameof(GameSession.StartRound), new[]
@@ -68,13 +113,14 @@ namespace TeraDeepOcean
                 typeof(SubmarineInfo),
             });
             var endRound = AccessTools.Method(typeof(GameSession), nameof(GameSession.EndRound));
-            if (enemyUpdate != null && characterRemove != null && startRound != null && endRound != null && addCombatObjective != null)
+            if (enemyUpdate != null && characterRemove != null && startRound != null && endRound != null && addCombatObjective != null && humanUpdate != null)
             {
                 harmony.Patch(enemyUpdate, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(BeforeEnemyAIUpdate)), postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(AfterEnemyAIUpdate)));
                 harmony.Patch(characterRemove, postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(OnCharacterRemoved)));
                 harmony.Patch(addCombatObjective, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(BeforeHumanAddCombatObjective)));
                 harmony.Patch(startRound, postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(OnRoundStarted)));
                 harmony.Patch(endRound, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(OnRoundEnding)));
+                harmony.Patch(humanUpdate, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(BeforeHumanAIUpdate)), postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(AfterHumanAIUpdate)));
             }
         }
         private static bool BeforeEnemyAIUpdate(EnemyAIController __instance, float deltaTime)
@@ -151,6 +197,32 @@ namespace TeraDeepOcean
                     TLRtsRoundSubContext.Contains(
                         node.Waypoint.Submarine));
             indoors.Update(character.AnimController.GetCurrentSpeed(true));
+        }
+        /// <summary>
+        /// 方向射击期间禁止原版 HumanAIController.Update 执行。
+        ///
+        /// 否则原版 AI 可能重新选择目标、收起武器、移动或覆盖瞄准输入。
+        /// </summary>
+        private static bool BeforeHumanAIUpdate(HumanAIController __instance, float deltaTime)
+        {
+            if (!IsAuthority || !TryGetActiveState(__instance.Character, out TLRtsUnitState? state) || state == null) return true;
+            if (state.Mode != TLRTSUnitAIState.DirectionalFire) return true;
+            /*
+             * 方向射击要求单位原地开火。
+             * 原版 HumanAIController 本帧不再执行。
+             */
+            StopMovement(__instance.Character, __instance);
+            return false;
+        }
+        /// <summary>
+        /// 在 HumanAIController.Update 之后执行方向射击。
+        ///
+        /// 即使 Prefix 阻止了原方法，Harmony Postfix 仍然会执行。
+        /// </summary>
+        private static void AfterHumanAIUpdate(HumanAIController __instance, float deltaTime)
+        {
+            if (!IsAuthority || !TryGetActiveState(__instance.Character, out TLRtsUnitState? state) || state == null || state.Mode != TLRTSUnitAIState.DirectionalFire) return;
+            UpdateHumanDirectionalFire(__instance.Character, __instance, state, deltaTime);
         }
         private static void OnRoundStarted()
         {
@@ -237,7 +309,7 @@ namespace TeraDeepOcean
             foreach (ushort characterId in affectedCharacterIds)
             {
                 ClearHumanObjective(characterId);
-                if (Entity.FindEntityByID(characterId)is not Character character ||character.Removed)
+                if (Entity.FindEntityByID(characterId) is not Character character || character.Removed)
                 {
                     continue;
                 }
@@ -357,6 +429,268 @@ namespace TeraDeepOcean
             RemoveState(characterId);
         }
         /// <summary>
+        /// 更新一个人类 AI 的方向射击状态。
+        /// </summary>
+        private static void UpdateHumanDirectionalFire(Character character, HumanAIController humanAI, TLRtsUnitState state, float deltaTime)
+        {
+            if (character.IsIncapacitated || !character.Enabled || !character.CanAim)
+            {
+                FinishHumanDirectionalFire(character, humanAI, state);
+                return;
+            }
+            Item? weapon = state.GetDirectionalFireWeapon();
+            RangedWeapon? rangedWeapon = weapon?.GetComponent<RangedWeapon>();
+            if (weapon == null || weapon.Removed || weapon.Condition <= 0.0f || rangedWeapon == null || rangedWeapon.IsEmpty(character) || !character.HasEquippedItem(weapon, predicate: CharacterInventory.IsHandSlotType))
+            {
+                FinishHumanDirectionalFire(character, humanAI, state);
+                return;
+            }
+            Vector2 direction = state.DirectionalFireDirection;
+            if (!float.IsFinite(direction.X) || !float.IsFinite(direction.Y) || direction.LengthSquared() < MinimumDirectionalFireLengthSquared)
+            {
+                FinishHumanDirectionalFire(character, humanAI, state);
+                return;
+            }
+            direction.Normalize();
+            /*
+            * 每帧停止寻路和移动输入，
+            * 但允许瞄准动画自行转动角色身体和手臂。
+            */
+            StopMovement(character, humanAI);
+            character.ClearInput(InputType.Aim);
+            character.ClearInput(InputType.Shoot);
+            Vector2 aimWorldPosition = character.WorldPosition + direction * DirectionalFireAimDistance;
+            /*
+            * Character.CursorPosition 在潜艇内部使用潜艇局部坐标。
+            */
+            character.CursorPosition = character.Submarine == null ? aimWorldPosition : aimWorldPosition - character.Submarine.Position;
+            character.SetInput(InputType.Aim, hit: false, held: true);
+            /*
+            * 先等待短暂瞄准时间。
+            * 正式射击时间不会在这个阶段减少。
+            */
+            if (state.DirectionalFireAimDelayRemaining > 0.0f)
+            {
+                state.DirectionalFireAimDelayRemaining -= deltaTime;
+                return;
+            }
+            if (state.DirectionalFireRemaining <= 0.0f)
+            {
+                FinishHumanDirectionalFire(character, humanAI, state);
+                return;
+            }
+            /*
+             * 持续保持 Shoot，并直接调用武器 Use。
+             *
+             * 武器自己的 ReloadTimer、射速、点射和弹药逻辑
+             * 仍由原版 RangedWeapon 处理。
+             */
+            character.SetInput(InputType.Shoot, hit: false, held: true);
+            weapon.Use(deltaTime, user: character);
+            state.DirectionalFireRemaining -= deltaTime;
+            if (state.DirectionalFireRemaining <= 0.0f)
+            {
+                FinishHumanDirectionalFire(character, humanAI, state);
+            }
+        }
+        /// <summary>
+        /// 结束方向射击并让单位在开火位置进入 Guard。
+        /// </summary>
+        private static void FinishHumanDirectionalFire(Character character, HumanAIController humanAI, TLRtsUnitState state)
+        {
+            character.ClearInput(InputType.Aim);
+            character.ClearInput(InputType.Shoot);
+
+            StopMovement(character, humanAI);
+
+            state.DirectionalFireRemaining = 0.0f;
+            state.DirectionalFireAimDelayRemaining = 0.0f;
+            state.DirectionalFireWeaponItemId = Entity.NullEntityID;
+            state.Mode = TLRTSUnitAIState.Guard;
+            /*
+            * 重新建立原地等待目标。
+            * 否则 DirectionalFire 结束后，原版 Human AI
+            * 可能恢复自己的普通工作和行动。
+            */
+            if (!TryGetValidTarget(state, out _, out Hull? guardHull) || guardHull == null)
+            {
+                RemoveState(character.ID);
+                return;
+            }
+            AssignHumanMoveObjective(character, humanAI, state, guardHull, state.GetTargetWorldPosition());
+        }
+        /// <summary>
+        /// 清除方向射击可能留下的瞄准和开火输入。
+        /// </summary>
+        private static void ClearDirectionalFireInputs(Character character)
+        {
+            character.ClearInput(InputType.Aim);
+            character.ClearInput(InputType.Shoot);
+        }
+        /// <summary>
+        /// 让选中的人类 AI 原地朝统一方向持续射击三秒。
+        ///
+        /// 非人类单位会被忽略，因为怪物身体攻击依赖真实攻击目标，
+        /// 不能安全地复用人类手持武器逻辑。
+        /// </summary>
+        /// <returns>实际开始执行方向射击的单位数量。</returns>
+        public static int IssueDirectionalFire(IEnumerable<Character> selectedCharacters, Vector2 direction)
+        {
+            if (!IsAuthority || !TLRtsRoundSubContext.IsValid || !float.IsFinite(direction.X) || !float.IsFinite(direction.Y) || direction.LengthSquared() < MinimumDirectionalFireLengthSquared) return 0;
+            /*
+             * 服务端和单人权威端都重新归一化方向，
+             * 不能直接信任客户端提交的向量长度。
+             */
+            direction.Normalize();
+            List<Character> units = selectedCharacters.Where(IsCommandable).Distinct().ToList();
+            int issuedCount = 0;
+            foreach (Character character in units)
+            {
+                /*
+                 * 初版只支持 HumanAIController。
+                 */
+                if (character.AIController is not HumanAIController humanAI || character.IsIncapacitated || character.LockHands)
+                {
+                    continue;
+                }
+                Hull? currentHull = character.CurrentHull ?? Hull.FindHull(character.WorldPosition);
+                if (currentHull?.Submarine == null || !TLRtsRoundSubContext.Contains(currentHull.Submarine)) continue;
+                /*
+                 * 从角色自身物品栏中寻找战斗优先级最高、
+                 * 有弹药并且能够使用的远程武器，然后拿到手中。
+                 */
+                if (!TryEquipBestDirectionalFireWeapon(character, humanAI, out Item? weapon) || weapon == null) continue;
+                /*
+                * 武器成功装备后才清除旧命令。
+                * 如果没有武器，单位会继续执行之前的 RTS 命令。
+                */
+                ClearHumanObjective(character.ID);
+                ClearHumanCombatObjectives(humanAI);
+                character.ClearInputs();
+                StopMovement(character, humanAI);
+                Vector2 guardWorldPosition = ClampInsideHull(character.WorldPosition, currentHull);
+                WayPoint? routeAnchor = FindNearestRouteAnchor(guardWorldPosition, currentHull);
+                /*
+                 * 方向射击结束后，单位会在当前站位进入 Guard，
+                 * 不会继续前往之前的移动目标。
+                 */
+                states[character.ID] = new TLRtsUnitState
+                {
+                    CharacterId = character.ID,
+                    Mode = TLRTSUnitAIState.DirectionalFire,
+
+                    TargetSubId = currentHull.Submarine.ID,
+                    TargetHullId = currentHull.ID,
+                    TargetWaypointId = routeAnchor?.ID ?? Entity.NullEntityID,
+                    TargetLocalPosition = guardWorldPosition - currentHull.Submarine.Position,
+                    ArrivalDistance = 35.0f,
+                    GuardRadius = 80.0f,
+                    AttackTargetId = Entity.NullEntityID,
+                    DirectionalFireDirection = direction,
+                    DirectionalFireRemaining = DirectionalFireDuration,
+                    DirectionalFireAimDelayRemaining = DirectionalFireAimDelay,
+                    DirectionalFireWeaponItemId = weapon.ID
+                };
+                issuedCount++;
+            }
+            return issuedCount;
+        }
+        /// <summary>
+        /// 从角色自身物品栏中寻找战斗优先级最高的可用远程武器。
+        ///
+        /// 搜索角色主物品栏，以及主物品栏物品内部的一层容器，
+        /// 与原版 AIObjectiveCombat 的物品栏武器搜索范围接近。
+        /// </summary>
+        private static Item? FindBestDirectionalFireWeapon(Character character)
+        {
+            Item? bestWeapon = null;
+            float bestCombatPriority = float.MinValue;
+            bool bestWeaponAlreadyEquipped = false;
+            float bestCondition = float.MinValue;
+            foreach (Item item in EnumerateDirectionalFireInventoryItems(character))
+            {
+                if (item == null || item.Removed || item.Condition <= 0.0f) continue;
+                RangedWeapon? rangedWeapon = item.GetComponent<RangedWeapon>();
+                if (rangedWeapon == null || rangedWeapon.CombatPriority <= 0.0f || rangedWeapon.IsEmpty(character)) continue;
+                /*
+                * 必须允许放入至少一个手部槽位。
+                * 这样可以排除炮台等非手持 RangedWeapon。
+                */
+                bool canEquipInHands = item.AllowedSlots.Any(CharacterInventory.IsHandSlotType);
+                if (!canEquipInHands) continue;
+                bool alreadyEquipped = character.HasEquippedItem(item, predicate: CharacterInventory.IsHandSlotType);
+                float combatPriority = rangedWeapon.CombatPriority;
+                /*
+                 * 首先比较 CombatPriority。
+                 * 优先级相同则优先当前已经拿在手里的武器，
+                 * 再按物品耐久度选择。
+                 */
+                bool isBetter = bestWeapon == null || combatPriority > bestCombatPriority || MathUtils.NearlyEqual(combatPriority, bestCombatPriority) &&
+                     alreadyEquipped && !bestWeaponAlreadyEquipped || MathUtils.NearlyEqual(combatPriority, bestCombatPriority) && alreadyEquipped == bestWeaponAlreadyEquipped &&
+                     item.Condition > bestCondition;
+                if (!isBetter) continue;
+                bestWeapon = item;
+                bestCombatPriority = combatPriority;
+                bestWeaponAlreadyEquipped = alreadyEquipped;
+                bestCondition = item.Condition;
+            }
+            return bestWeapon;
+        }
+        /// <summary>
+        /// 枚举角色可以用于方向射击的自身物品。
+        ///
+        /// HashSet 用于防止同一个物品被重复返回。
+        /// </summary>
+        private static IEnumerable<Item> EnumerateDirectionalFireInventoryItems(Character character)
+        {
+            HashSet<Item> visited = new();
+            foreach (Item item in character.Inventory.AllItems)
+            {
+                if (item == null || !visited.Add(item)) continue;
+                yield return item;
+
+                /*
+                 * 搜索工具带、背包等物品内部的一层容器。
+                 * 初版不进行无限递归，防止异常容器结构。
+                 */
+                if (item.OwnInventory == null) continue;
+                foreach (Item containedItem in item.OwnInventory.AllItems)
+                {
+                    if (containedItem != null && visited.Add(containedItem))
+                    {
+                        yield return containedItem;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// 找到并装备战斗优先级最高的可用远程武器。
+        ///
+        /// 不允许因为手部物品无法收回而将其丢到地上。
+        /// </summary>
+        private static bool TryEquipBestDirectionalFireWeapon(Character character, HumanAIController humanAI, out Item? weapon)
+        {
+            weapon = FindBestDirectionalFireWeapon(character);
+            if (weapon == null || character.LockHands) return false;
+            /*
+             * 武器已经在手里时不需要移动物品。
+             */
+            if (character.HasEquippedItem(weapon, predicate: CharacterInventory.IsHandSlotType)) return true;
+            /*
+             * 与原版 AIObjectiveCombat.Equip 接近：
+             * 先进行一次物品交互，再将物品放入手部槽位。
+             */
+            weapon.TryInteract(character, forceSelectKey: true);
+            bool equipped = humanAI.TakeItem(weapon, character.Inventory, equip: true, wear: false,
+                // 手上物品无法收回时，不允许直接丢弃。
+                dropOtherIfCannotMove: false,
+                // 允许从普通物品栏交换到手部槽位。
+                allowSwapping: true,
+                // 本次不记录原手持物品，射击后继续持有武器。
+                storeUnequipped: false);
+            return equipped && character.HasEquippedItem(weapon, predicate: CharacterInventory.IsHandSlotType);
+        }
+        /// <summary>
         /// 给一组单位下达移动命令。
         /// 单个单位：尽可能抵达鼠标位置。
         /// 多个单位：围绕鼠标位置水平分散。
@@ -374,7 +708,7 @@ namespace TeraDeepOcean
         /// <param name="formation"></param>
         /// <param name="resolvedSlots"></param>
         /// <returns></returns>
-        public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition,TLRtsFormationType formation, out IReadOnlyList<Vector2> resolvedSlots)
+        public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition, TLRtsFormationType formation, out IReadOnlyList<Vector2> resolvedSlots)
         {
             resolvedSlots = Array.Empty<Vector2>();
             if (!IsAuthority || !TLRtsRoundSubContext.IsValid) return false;
@@ -384,7 +718,7 @@ namespace TeraDeepOcean
             List<Character> units = selectedCharacters.Where(IsCommandable).Distinct().OrderBy(c => c.WorldPosition.X).ToList();
             if (units.Count == 0) return false;
 
-            List<Vector2> slots = CreateFormationSlots(clickedWorldPosition, targetHull, units.Count,formation);
+            List<Vector2> slots = CreateFormationSlots(clickedWorldPosition, targetHull, units.Count, formation);
             slots.Sort((a, b) => a.X.CompareTo(b.X));
             List<Vector2> finalSlots = new(units.Count);
             for (int i = 0; i < units.Count; i++)
@@ -400,7 +734,7 @@ namespace TeraDeepOcean
                 finalWorldPosition = ClampInsideHull(finalWorldPosition, targetHull);
                 // 保存实际下发给单位的最终位置，供客户端绘制槽位。
                 finalSlots.Add(finalWorldPosition);
-                AssignMoveState(character, targetHull, routeAnchor, finalWorldPosition);
+                AssignMoveState(character, targetHull, routeAnchor, finalWorldPosition, formation);
             }
             resolvedSlots = finalSlots.ToArray();
             MoveOrderIssued?.Invoke(
@@ -408,7 +742,7 @@ namespace TeraDeepOcean
                 resolvedSlots);
             return true;
         }
-        public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition,out IReadOnlyList<Vector2> resolvedSlots)
+        public static bool IssueMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition, out IReadOnlyList<Vector2> resolvedSlots)
         {
             resolvedSlots = Array.Empty<Vector2>();
             if (!IsAuthority || !TLRtsRoundSubContext.IsValid) return false;
@@ -444,10 +778,16 @@ namespace TeraDeepOcean
                 resolvedSlots);
             return true;
         }
-        public static void AssignMoveState(Character character, Hull targetHull, WayPoint? routeAnchor, Vector2 finalWorldPosition)
+        public static void AssignMoveState(Character character, Hull targetHull, WayPoint? routeAnchor, Vector2 finalWorldPosition, TLRtsFormationType formation = TLRtsFormationType.RegularSpread)
         {
+            /*
+             * 新移动命令会立即中断旧的方向射击。
+             */
+            ClearDirectionalFireInputs(character);
             Submarine targetSub = targetHull.Submarine;
-            float arrivalDis = character.AIController is HumanAIController ? 50 : 35;
+            bool isVolleyStack = formation == TLRtsFormationType.VolleyStack;
+            float arrivalDistance = isVolleyStack ? VolleyStackArrivalDistance : character.AIController is HumanAIController ? 50.0f : 35.0f;
+            float guardRadius = isVolleyStack ? VolleyStackGuardRadius : Math.Max(arrivalDistance + 40.0f, 80.0f);
             TLRtsUnitState state = new()
             {
                 CharacterId = character.ID,
@@ -458,8 +798,9 @@ namespace TeraDeepOcean
                 TargetWaypointId = routeAnchor?.ID ?? Entity.NullEntityID,
                 //真正最终目标，使用目标潜艇局部显示坐标。
                 TargetLocalPosition = finalWorldPosition - targetSub.Position,
-                ArrivalDistance = arrivalDis,
-                GuardRadius = Math.Max(arrivalDis + 40f, 80)
+                ArrivalDistance = arrivalDistance,
+                GuardRadius = guardRadius,
+                AttackTargetId = Entity.NullEntityID
             };
             states[character.ID] = state;
             if (character.AIController is HumanAIController humanAI)
@@ -601,6 +942,10 @@ namespace TeraDeepOcean
             foreach (Character character in units)
             {
                 if (!TryEnsureGuardAnchor(character, out TLRtsUnitState? state) || state == null) continue;
+                /*
+                 * 新的角色攻击命令会立即中断方向射击。
+                 */
+                ClearDirectionalFireInputs(character);
                 // 先改变状态，再清除旧战斗目标。
                 // 这样旧目标的 Abandoned 回调不会错误地切回 Guard。
                 state.Mode = TLRTSUnitAIState.Attack;
@@ -732,6 +1077,7 @@ namespace TeraDeepOcean
             {
                 TLRtsFormationType.CompactMarch => CompactFormationSpacing,
                 TLRtsFormationType.RegularSpread => RegularFormationSpacing,
+                TLRtsFormationType.VolleyStack => VolleyStackFormationSpacing,
                 _ => RegularFormationSpacing
             };
             float availableWidth = Math.Max(right - left, 1.0f);
@@ -764,11 +1110,15 @@ namespace TeraDeepOcean
             return states.TryGetValue(characterId, out state);
         }
         /// <summary>
-        /// 移除状态
+        /// 移除一个单位的 RTS 状态。
         /// </summary>
         /// <param name="characterId"></param>
         private static void RemoveState(ushort characterId)
         {
+            if (states.TryGetValue(characterId, out TLRtsUnitState? oldState) && oldState.Mode == TLRTSUnitAIState.DirectionalFire && Entity.FindEntityByID(characterId) is Character character)
+            {
+                ClearDirectionalFireInputs(character);
+            }
             states.Remove(characterId);
             ClearHumanObjective(characterId);
         }

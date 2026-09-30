@@ -511,6 +511,57 @@ namespace TeraDeepOcean
             });
         }
         /// <summary>
+        /// 服务端处理客户端的方向射击请求。
+        /// </summary>
+        public static void ServerReceiveDirectionalFireRequest(string json, Client sender)
+        {
+            TLRtsDirectionalFireRequest? request = Deserialize<TLRtsDirectionalFireRequest>(json);
+            if (request == null)
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DirectionalFire, 0, "方向射击请求数据无效。"));
+                return;
+            }
+            if (!ValidateCommandSender(sender, request.Sequence, out string reason))
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DirectionalFire, request.Sequence, reason));
+                return;
+            }
+            if (!TryResolveCommandUnits(request.UnitIds, sender.Character.TeamID, out List<Character> units, out reason))
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.Attack, request.Sequence, reason));
+                return;
+            }
+            if (!float.IsFinite(request.DirectionX) || !float.IsFinite(request.DirectionY))
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DirectionalFire, request.Sequence, "方向射击向量无效。"));
+                return;
+            }
+            Vector2 direction = new(request.DirectionX, request.DirectionY);
+            if (direction.LengthSquared() < 0.0001f)
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DirectionalFire, request.Sequence, "方向射击向量长度过小。"));
+                return;
+            }
+            /*
+             * 服务器重新归一化方向，
+             * 不信任客户端提交的向量长度。
+             */
+            direction.Normalize();
+            int issuedCount = TLRtsSystem.IssueDirectionalFire(units, direction);
+            if (issuedCount <= 0)
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DirectionalFire, request.Sequence, "选中的单位中没有可以使用远程武器的人类 AI。"));
+                return;
+            }
+            ServerSendCommandResult(sender, new TLRtsCommandResult
+            {
+                CommandType = TLRtsNetCommandType.DirectionalFire,
+                Sequence = request.Sequence,
+                Accepted = true,
+                DirectionalFireUnitCount = issuedCount
+            });
+        }
+        /// <summary>
         /// 服务器验证
         /// </summary>
         private static bool ValidateCommandSender(Client sender, int sequence, out string reason)
@@ -824,6 +875,34 @@ namespace TeraDeepOcean
             };
             string json = JsonSerializer.Serialize(request);
             return CallLua("TLRtsNet", "ClientSendAttackRequest", json);
+        }
+        /// <summary>
+        /// 客户端请求服务器执行方向射击。
+        /// </summary>
+        public static bool ClientRequestDirectionalFire(IEnumerable<Character> selectedCharacters, Vector2 direction)
+        {
+            if (GameMain.NetworkMember is not { IsClient: true } ||!IsLocalCommander ||!float.IsFinite(direction.X) ||!float.IsFinite(direction.Y) ||direction.LengthSquared() < 0.0001f) return false;
+            List<ushort> unitIds = selectedCharacters
+                .Where(character =>
+                    character != null &&
+                    !character.Removed &&
+                    !character.IsDead &&
+                    !character.IsIncapacitated)
+                .Select(character => character.ID)
+                .Distinct()
+                .Take(MaxUnitsPerCommand)
+                .ToList();
+            if (unitIds.Count == 0) return false;
+            direction.Normalize();
+            TLRtsDirectionalFireRequest request = new()
+            {
+                Sequence = ++nextCommandSequence,
+                UnitIds = unitIds,
+                DirectionX = direction.X,
+                DirectionY = direction.Y
+            };
+            string json = JsonSerializer.Serialize(request);
+            return CallLua("TLRtsNet", "ClientSendDirectionalFireRequest", json);
         }
         /// <summary>
         /// 客户端接收命令结果

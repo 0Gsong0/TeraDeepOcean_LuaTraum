@@ -23,7 +23,19 @@ namespace TeraDeepOcean
         /// 单位之间只保留很小的中心距离，允许角色模型少量重叠，
         /// 适合穿过狭窄房间和舱门。
         /// </summary>
-        CompactMarch = 1
+        CompactMarch = 1,
+        /// <summary>
+        /// 排枪重叠队形。
+        ///
+        /// 所有单位使用完全相同的移动目标坐标，
+        /// 最终会在同一个位置上高度重叠。
+        /// </summary>
+        VolleyStack = 2,
+
+        /// <summary>
+        /// 朝指定方向持续射击。
+        /// </summary>
+        DirectionalFire = 3
     }
     /// <summary>
     /// RTS 网络命令类型。
@@ -32,7 +44,8 @@ namespace TeraDeepOcean
     {
         Move,
         Attack,
-        ReleaseAllAi
+        ReleaseAllAi,
+        DirectionalFire
     }
     /// <summary>
     /// 客户端申请成为 RTS 指挥官。
@@ -105,6 +118,34 @@ namespace TeraDeepOcean
         public ushort TargetCharacterId { get; set; } = Entity.NullEntityID;
     }
     /// <summary>
+    /// 客户端发送的方向射击请求。
+    ///
+    /// 客户端只发送方向，不发送具体瞄准点。
+    /// 服务端会重新验证并归一化该方向。
+    /// </summary>
+    public sealed class TLRtsDirectionalFireRequest
+    {
+        /// <summary>
+        /// 客户端递增命令序号。
+        /// </summary>
+        public int Sequence { get; set; }
+
+        /// <summary>
+        /// 请求执行方向射击的单位。
+        /// </summary>
+        public List<ushort> UnitIds { get; set; } = new();
+
+        /// <summary>
+        /// 世界射击方向的 X 分量。
+        /// </summary>
+        public float DirectionX { get; set; }
+
+        /// <summary>
+        /// 世界射击方向的 Y 分量。
+        /// </summary>
+        public float DirectionY { get; set; }
+    }
+    /// <summary>
     /// 网络中的潜艇局部坐标。
     /// 用于返回服务器计算出的编队槽位。
     /// </summary>
@@ -145,6 +186,16 @@ namespace TeraDeepOcean
         /// 实际释放的 RTS 单位数量。
         /// </summary>
         public int ReleasedUnitCount { get; set; }
+
+        #endregion
+        #region 方向射击结果
+
+        /// <summary>
+        /// 实际开始执行方向射击的人类 AI 数量。
+        ///
+        /// 没有远程武器、弹药为空或者无法装备武器的单位不会计入。
+        /// </summary>
+        public int DirectionalFireUnitCount { get; set; }
 
         #endregion
     }

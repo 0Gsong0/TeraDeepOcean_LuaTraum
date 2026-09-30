@@ -81,6 +81,10 @@ namespace TeraDeepOcean
         /// 密集行进队形按钮。
         /// </summary>
         private static GUIButton? compactFormationButton;
+        /// <summary>
+        /// 排枪重叠队形按钮。
+        /// </summary>
+        private static GUIButton? volleyStackFormationButton;
 
         private static bool previousPreventPauseMenuToggle;
 
@@ -88,6 +92,11 @@ namespace TeraDeepOcean
         private static bool selecting;
         private static Vector2 selectionStart;
         private static Vector2 selectionCurrent;
+
+        /// <summary>
+        /// 当前是否正在等待玩家用左键指定方向射击方向。
+        /// </summary>
+        private static bool directionalFireTargeting;
 
         /// <summary>
         /// 可以申请 RTS 指挥权的设备标签。
@@ -222,22 +231,44 @@ namespace TeraDeepOcean
             }
             Camera cam = GameMain.GameScreen.Cam;
             cam.TargetPos = Vector2.Zero;
+            if (GameMain.Instance.Paused ||GUI.InputBlockingMenuOpen ||GUI.KeyboardDispatcher.Subscriber != null)
+            {
+                CancelSelectionDrag();
+                return;
+            }
+
             /*
-             * GameMain 会在 GUI.Update 之前处理 Escape。
-             * 因为进入 RTS 时已经设置 PreventPauseMenuToggle，
-             * Escape 不会打开暂停菜单。
+             * 只有没有聊天框、菜单或其他文本输入焦点时，
+             * G 才会进入方向射击模式。
              */
+            HandleDirectionalFireHotkey();
+
             if (PlayerInput.KeyHit(Keys.Escape))
             {
+                /*
+                 * 正在选择射击方向时，
+                 * Escape 只取消方向射击，不清空选择。
+                 */
+                if (directionalFireTargeting)
+                {
+                    CancelDirectionalFireTargeting();
+
+                    GUI.AddMessage("已取消方向射击。",Color.LightGray);
+                    return;
+                }
+
                 ClearSelection();
                 CancelSelectionDrag();
                 return;
             }
-            if (GameMain.Instance.Paused ||
-             GUI.InputBlockingMenuOpen ||
-             GUI.KeyboardDispatcher.Subscriber != null)
+
+            if (directionalFireTargeting)
             {
-                CancelSelectionDrag();
+                /*
+                 * 方向射击模式接管左键，
+                 * 防止同一次点击又触发普通单选或框选。
+                 */
+                HandleDirectionalFireTargeting(cam);
                 return;
             }
 
@@ -280,26 +311,26 @@ namespace TeraDeepOcean
         private static void EnsureRtsSettingsPanel()
         {
             if (rtsSettingsPanel != null) return;
-            rtsSettingsPanel = new GUIFrame(new RectTransform(new Point(320, 145), GUI.Canvas, Anchor.BottomRight)
+            rtsSettingsPanel = new GUIFrame(new RectTransform(new Point(420, 145), GUI.Canvas, Anchor.BottomRight)
             {
                 ScreenSpaceOffset = new Point(-25, -25)
             }, style: "InnerFrame");
             rtsSettingsPanel.Visible = false;
-            new GUITextBlock(new RectTransform(new Point(280, 30), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
+            new GUITextBlock(new RectTransform(new Point(380, 30), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
             {
                 ScreenSpaceOffset = new Point(0, 12)
             }, "RTS 战术设置", textColor: Color.DeepSkyBlue, font: GUIStyle.SubHeadingFont, textAlignment: Alignment.Center, wrap: false, style: null)
             {
                 CanBeFocused = false
             };
-            new GUITextBlock(new RectTransform(new Point(280, 24), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
+            new GUITextBlock(new RectTransform(new Point(380, 24), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
             {
                 ScreenSpaceOffset = new Point(0, 48)
             }, "移动队形", textColor: Color.White, font: GUIStyle.SmallFont, textAlignment: Alignment.Center, wrap: false, style: null)
             {
                 CanBeFocused = false
             };
-            regularFormationButton = new GUIButton(new RectTransform(new Point(135, 42), rtsSettingsPanel.RectTransform, Anchor.TopLeft)
+            regularFormationButton = new GUIButton(new RectTransform(new Point(120, 42), rtsSettingsPanel.RectTransform, Anchor.TopLeft)
             {
                 ScreenSpaceOffset = new Point(18, 82)
             }, "常规分散", Alignment.Center, style: "GUIButton")
@@ -311,9 +342,9 @@ namespace TeraDeepOcean
                 SetCurrentFormation(TLRtsFormationType.RegularSpread);
                 return true;
             };
-            compactFormationButton = new GUIButton(new RectTransform(new Point(135, 42), rtsSettingsPanel.RectTransform, Anchor.TopRight)
+            compactFormationButton = new GUIButton(new RectTransform(new Point(120, 42), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
             {
-                ScreenSpaceOffset = new Point(-18, 82)
+                ScreenSpaceOffset = new Point(0, 82)
             }, "密集行进", Alignment.Center, style: "GUIButton")
             {
                 ToolTip = "密集行进队形：单位以很小间距集中移动，" + "适合穿过狭窄房间和舱门，允许角色少量重叠。"
@@ -321,6 +352,18 @@ namespace TeraDeepOcean
             compactFormationButton.OnClicked = (_, _) =>
             {
                 SetCurrentFormation(TLRtsFormationType.CompactMarch);
+                return true;
+            };
+            volleyStackFormationButton = new GUIButton(new RectTransform(new Point(120, 42), rtsSettingsPanel.RectTransform, Anchor.TopRight)
+            {
+                ScreenSpaceOffset = new Point(-18, 82)
+            }, "排枪重叠", Alignment.Center, style: "GUIButton")
+            {
+                ToolTip = "排枪重叠队形：所有单位移动到同一个目标位置，" + "形成高度重叠的集中火力点。"
+            };
+            volleyStackFormationButton.OnClicked = (_, _) =>
+            {
+                SetCurrentFormation(TLRtsFormationType.VolleyStack);
                 return true;
             };
             UpdateFormationButtonStates();
@@ -348,6 +391,10 @@ namespace TeraDeepOcean
             if (compactFormationButton != null)
             {
                 compactFormationButton.Enabled = currentFormation != TLRtsFormationType.CompactMarch;
+            }
+            if (volleyStackFormationButton != null)
+            {
+                volleyStackFormationButton.Enabled = currentFormation != TLRtsFormationType.VolleyStack;
             }
         }
         /// <summary>
@@ -765,6 +812,115 @@ namespace TeraDeepOcean
             }
         }
         /// <summary>
+        /// 处理 G 键方向射击模式。
+        ///
+        /// 第一次按 G 进入瞄准模式；
+        /// 再按一次 G 取消瞄准模式。
+        /// </summary>
+        private static void HandleDirectionalFireHotkey()
+        {
+            if (!PlayerInput.KeyHit(Keys.G)) return;
+
+            if (directionalFireTargeting)
+            {
+                CancelDirectionalFireTargeting();
+
+                GUI.AddMessage("已取消方向射击。", Color.LightGray);
+                return;
+            }
+
+            if (selectedCharacterIds.Count == 0)
+            {
+                GUI.AddMessage("请先选择至少一个 RTS 单位。", Color.OrangeRed);
+                return;
+            }
+
+            directionalFireTargeting = true;
+
+            /*
+             * 进入方向选择时取消可能尚未结束的框选。
+             */
+            CancelSelectionDrag();
+
+            GUI.AddMessage("方向射击：左键指定开火方向，G 或 Escape 取消。", Color.Orange);
+        }
+        /// <summary>
+        /// 等待玩家左键选择方向，并发送方向射击命令。
+        /// </summary>
+        private static void HandleDirectionalFireTargeting(Camera cam)
+        {
+            if (!directionalFireTargeting || GUI.MouseOn != null || Inventory.IsMouseOnInventory || !PlayerInput.PrimaryMouseButtonClicked()) return;
+
+            List<Character> selectedCharacters = GetSelectedCharacters();
+
+            if (selectedCharacters.Count == 0)
+            {
+                CancelDirectionalFireTargeting();
+                return;
+            }
+
+            Vector2 groupCenter = Vector2.Zero;
+
+            foreach (Character character in selectedCharacters)
+            {
+                groupCenter += character.WorldPosition;
+            }
+
+            groupCenter /= selectedCharacters.Count;
+
+            Vector2 mouseWorldPosition = cam.ScreenToWorld(PlayerInput.MousePosition);
+
+            /*
+             * 以选中单位中心到鼠标位置作为统一射击方向。
+             * 每个单位最终都会沿这个方向平行射击。
+             */
+            Vector2 direction = mouseWorldPosition - groupCenter;
+
+            if (direction.LengthSquared() < 1.0f)
+            {
+                GUI.AddMessage("射击方向长度过小，请点击更远的位置。",Color.OrangeRed);
+                return;
+            }
+
+            direction.Normalize();
+
+            bool sent = TryIssueDirectionalFireCommand(selectedCharacters,direction);
+
+            if (sent)
+            {
+                CancelDirectionalFireTargeting();
+            }
+        }
+        /// <summary>
+        /// 单人模式直接执行方向射击；
+        /// 多人模式将请求发送给服务器。
+        /// </summary>
+        private static bool TryIssueDirectionalFireCommand(List<Character> selectedCharacters,Vector2 direction)
+        {
+            if (GameMain.IsMultiplayer)
+            {
+                return TLRtsNetwork.ClientRequestDirectionalFire(selectedCharacters,direction);
+            }
+
+            int issuedCount = TLRtsSystem.IssueDirectionalFire(selectedCharacters,direction);
+
+            if (issuedCount <= 0)
+            {
+                GUI.AddMessage("选中的单位中没有可以使用远程武器的人类 AI。",Color.OrangeRed);
+                return false;
+            }
+
+            GUI.AddMessage($"{issuedCount} 个单位开始向指定方向射击 3 秒。",Color.Orange);
+            return true;
+        }
+        /// <summary>
+        /// 取消等待方向射击输入的状态。
+        /// </summary>
+        private static void CancelDirectionalFireTargeting()
+        {
+            directionalFireTargeting = false;
+        }
+        /// <summary>
         /// 处理服务器返回的移动或攻击结果。
         ///
         /// 只有服务器接受命令后，客户端才显示标记。
@@ -807,7 +963,11 @@ namespace TeraDeepOcean
                     GUI.AddMessage(
                         $"已释放 {result.ReleasedUnitCount} 个 RTS 单位，原版 AI 已恢复。",
                         Color.LightGreen);
-
+                    break;
+                case TLRtsNetCommandType.DirectionalFire:
+                    GUI.AddMessage(
+                        $"{result.DirectionalFireUnitCount} 个单位开始向指定方向射击 3 秒。",
+                        Color.Orange);
                     break;
             }
         }
@@ -1008,6 +1168,7 @@ namespace TeraDeepOcean
             ClearSelection();
             CancelSelectionDrag();
             ClearCommandMarker();
+            CancelDirectionalFireTargeting();
             GUI.PreventPauseMenuToggle = previousPreventPauseMenuToggle;
             Character? restoreCharacter = null;
             if (restoreControlledCharacter)
@@ -1242,7 +1403,7 @@ namespace TeraDeepOcean
                  * 多人移动标记不在这里立即显示。
                  * 必须等待服务器返回修正后的编队槽位。
                  */
-                return TLRtsNetwork.ClientRequestMove(selectedCharacters,targetWorldPosition, currentFormation);
+                return TLRtsNetwork.ClientRequestMove(selectedCharacters, targetWorldPosition, currentFormation);
             }
             /*
              * 单人成功后 TLRtsSystem.MoveOrderIssued
@@ -1583,6 +1744,7 @@ namespace TeraDeepOcean
             ClearSelection();
             CancelSelectionDrag();
             ClearCommandMarker();
+            CancelDirectionalFireTargeting();
             lastHandledCommandResultSequence = 0;
             if (IsActive)
             {
@@ -1716,10 +1878,10 @@ namespace TeraDeepOcean
         }
         private static void DrawTopStatus(SpriteBatch spriteBatch)
         {
-            string status = $"[RTS 战术模式] 已选择：{selectedCharacterIds.Count}";
-            string help =
-                $"{ToggleKey} 退出  |  左键选择/框选  |  " +
-                "右键移动/攻击  |  Escape 清空选择";
+            string status = directionalFireTargeting ? $"[方向射击] 已选择：{selectedCharacterIds.Count}" : $"[RTS 战术模式] 已选择：{selectedCharacterIds.Count}";
+            string help = directionalFireTargeting ? "左键指定射击方向  |  G / Escape 取消"
+                : $"{ToggleKey} 退出  |  左键选择/框选  |  " + 
+                "右键移动/攻击  |  G 方向射击  |  " + "Escape 清空选择";
             Vector2 statusSize =
                 GUIStyle.Font.MeasureString(status);
             Vector2 helpSize =
