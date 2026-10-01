@@ -7,7 +7,7 @@ TLCyb = {}
 
 dofile(TL.Path .. "/Lua/Scripts/Config/configgui.lua")
 -- ============================================================
--- RTS 第一阶段网络桥
+-- RTS 网络桥
 -- 必须在客户端和服务器两端加载
 -- ============================================================
 local rtsRuntimeSide = "UNKNOWN"
@@ -35,6 +35,20 @@ print(
     rtsRuntimeSide ..
     "] RTS 网络桥加载成功"
 )
+-- ============================================================
+-- RTS 部署预制体 Lua 桥
+-- ============================================================
+local rtsDeploymentPath =  TL.Path .. "/Lua/Scripts/RTS/rtsdeployment.lua"
+print("[TLRTS部署][Lua] 正在加载部署预制体桥：" .. rtsDeploymentPath)
+local deploymentLoadSucceeded, deploymentLoadError = pcall(dofile, rtsDeploymentPath)
+if not deploymentLoadSucceeded then
+    print( "[TLRTS部署][Lua] 部署预制体桥加载失败：" ..tostring(deploymentLoadError))
+    -- 继续抛出错误，保留完整的 Lua 报错位置。
+    error(deploymentLoadError)
+end
+print("[TLRTS部署][Lua] 部署预制体桥加载成功。")
+-- ============================================================
+
 if (Game.IsMultiplayer and SERVER) or not Game.IsMultiplayer then
     dofile(TL.Path.."/Lua/Autorun/HelpFunction.lua")
     --dofile(TL.Path.."/Lua/Scripts/Cyb/CybHF.Lua")

@@ -40,6 +40,7 @@ namespace TeraDeepOcean
             TLCharacterControlSystem.Init(harmony);
             TLRtsSystem.Init(harmony);
             TLRtsNetwork.Init();
+            TLRtsDeploymentBridge.Init();
         }
         partial void InitializeClient(Harmony harmony);
         private static void OnUpdate(float deltaTime)
@@ -71,6 +72,8 @@ namespace TeraDeepOcean
                 harmony.UnpatchSelf();
                 harmony = null;
             }
+            TLRtsDeploymentBridge.Dispose();
+            TLRtsDeploymentRegistry.Clear();
         }
     }
 }

@@ -71,4 +71,21 @@ namespace TeraDeepOcean
             }
         };
     }
+
+    public static class TLRtsDeploymentDefaults
+    {
+        /// <summary>
+        /// 本模组内容包的正式名称。
+        ///
+        /// 必须与 filelist.xml 中的 contentpackage name 保持一致。
+        /// </summary>
+        public const string OwnerContentPackageName = "TeraDeepOcean";
+        /// <summary>
+        /// 部署预制体没有填写 IconPath 时使用的默认图标。
+        ///
+        /// 这里使用 %ModDir:TeraDeepOcean%，而不是普通的 %ModDir%。
+        /// 因为注册单位的可能是其他模组，但默认图标属于我们自己的模组。
+        /// </summary>
+        public const string DefaultIconPath = "%ModDir:TeraDeepOcean%/Content/UI/泰拉logo.png";
+    }
 }
