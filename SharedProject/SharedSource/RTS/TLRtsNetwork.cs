@@ -591,6 +591,131 @@ namespace TeraDeepOcean
             return true;
         }
         /// <summary>
+        /// 服务端接收一次部署验证请求。
+        /// </summary>
+        public static void ServerReceiveDeployRequest(string json, Client sender)
+        {
+            if (sender == null || GameMain.NetworkMember is not { IsServer: true }) return;
+            TLRtsDeployRequest? request = Deserialize<TLRtsDeployRequest>(json);
+            if (request == null)
+            {
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DeployValidation, 0, "部署请求 JSON 无效。"));
+                return;
+            }
+            if (!TryValidateDeployRequest(sender, request, out TLRtsDeploymentPrefabDefinition? prefab, out Submarine? targetSubmarine, out _, out Vector2 targetWorldPosition, out string reason))
+            {
+                DebugConsole.NewMessage($"[TLRTS部署][服务端] 拒绝验证：{{request.PrefabIdentifier}}；原因：{{reason}}", Color.OrangeRed);
+                ServerSendCommandResult(sender, CreateRejectedResult(TLRtsNetCommandType.DeployValidation, request.Sequence, reason));
+                return;
+            }
+            // 验证函数返回 true 时，这两个对象已由服务端确认有效。
+            Submarine validatedSubmarine = targetSubmarine!;
+            TLRtsDeploymentPrefabDefinition validatedPrefab = prefab!;
+            Vector2 localPosition = targetWorldPosition - validatedSubmarine.Position;
+            DebugConsole.NewMessage(
+                $"[TLRTS部署][服务端] 验证通过：" +
+                $"{validatedPrefab.Identifier}，" +
+                $"潜艇={validatedSubmarine.ID}，" +
+                $"局部坐标=({localPosition.X:0.0}, {localPosition.Y:0.0})。" +
+                "当前未生成单位、未扣款。",
+            Color.LightGreen);
+            ServerSendCommandResult(sender, new TLRtsCommandResult
+            {
+                CommandType = TLRtsNetCommandType.DeployValidation,
+                Sequence = request.Sequence,
+                Accepted = true,
+                Reason = $"部署条件验证通过：{validatedPrefab.DisplayName}。尚未生成单位或扣款。",
+                TargetSubmarineId = validatedSubmarine.ID,
+                TargetLocalX = localPosition.X,
+                TargetLocalY = localPosition.Y
+            });
+        }
+        /// <summary>
+        /// 验证一次客户端部署请求，并解析出服务端认可的目标。
+        ///
+        /// 此函数只验证和读取数据：
+        /// - 不生成角色；
+        /// - 不扣除马克；
+        /// - 不发送网络消息。
+        ///
+        /// 调用方应当是之后的 ServerReceiveDeployRequest()。
+        /// </summary>
+        private static bool TryValidateDeployRequest(Client sender, TLRtsDeployRequest? request, out TLRtsDeploymentPrefabDefinition? prefab, out Submarine? targetSubmarine, out Hull? targetHull, out Vector2 targetWorldPosition, out string reason)
+        {
+            prefab = null;
+            targetSubmarine = null;
+            targetHull = null;
+            targetWorldPosition = Vector2.Zero;
+            reason = string.Empty;
+            if(GameMain.NetworkMember is not { IsServer: true })
+            {
+                reason = "只有服务器可以验证多人部署请求。";
+                return false;
+            }
+            if (request == null)
+            {
+                reason = "部署请求数据无效。";
+                return false;
+            }
+            if (!ValidateCommandSender(sender, request.Sequence, out reason)) return false;
+            Character commander = sender.Character;
+            Submarine? ownMainSub = commander.TeamID switch
+            {
+                CharacterTeamType.Team1 => Submarine.MainSubs[0],
+                CharacterTeamType.Team2 => Submarine.MainSubs[1],
+                _ => null
+            };
+            if (ownMainSub == null || ownMainSub.Removed || ownMainSub.Info == null || ownMainSub.Info.IsOutpost || ownMainSub.TeamID != commander.TeamID || !TLRtsRoundSubContext.Contains(ownMainSub))
+            {
+                reason = "当前没有可用于部署的己方主潜艇。";
+                return false;
+            }
+            if (request.TargetSubId != ownMainSub.ID)
+            {
+                reason = "部署目标必须是己方主潜艇。";
+                return false;
+            }
+            if (Entity.FindEntityByID(request.TargetSubId) is not Submarine foundSub || foundSub != ownMainSub)
+            {
+                reason = "部署目标潜艇已经失效。";
+                return false;
+            }
+            if (!float.IsFinite(request.TargetLocalX) || !float.IsFinite(request.TargetLocalY))
+            {
+                reason = "部署位置坐标无效。";
+                return false;
+            }
+            if (Entity.FindEntityByID(request.TargetHullId) is not Hull foundHull || foundHull.Removed || foundHull.Submarine != ownMainSub)
+            {
+                reason = "部署目标房间不属于己方主潜艇。";
+                return false;
+            }
+            Vector2 worldPosition = ownMainSub.Position + new Vector2(request.TargetLocalX, request.TargetLocalY);
+            if (Hull.FindHull(worldPosition) != foundHull)
+            {
+                reason = "部署位置不在指定房间内。";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(request.PrefabIdentifier) || request.PrefabIdentifier.Length > 128)
+            {
+                reason = "部署预制体标识无效。";
+                return false;
+            }
+            if (!TLRtsDeploymentRegistry.TryGet(request.PrefabIdentifier, out TLRtsDeploymentPrefabDefinition? foundPrefab) || foundPrefab == null)
+            {
+                reason = $"服务器没有注册部署预制体“{request.PrefabIdentifier}”。";
+                return false;
+            }
+            TLRtsDeploymentPaymentContext paymentContext = new(purchasingClient: sender, commanderCharacter: commander);
+            if (!TLRtsDeploymentCostSystem.CanAfford(foundPrefab, paymentContext, out reason)) return false;
+            // 所有验证通过后，才向调用方交付这些服务端确认过的对象。
+            prefab = foundPrefab;
+            targetSubmarine = ownMainSub;
+            targetHull = foundHull;
+            targetWorldPosition = worldPosition;
+            return true;
+        }
+        /// <summary>
         /// 尝试解析命令单位。
         /// </summary>
         /// <param name="unitIds"></param>
@@ -814,6 +939,31 @@ namespace TeraDeepOcean
         public static bool ClientRequestMove(IEnumerable<Character> selectedCharacters, Vector2 clickedWorldPosition)
         {
             return ClientRequestMove(selectedCharacters, clickedWorldPosition, TLRtsFormationType.RegularSpread);
+        }
+                /// <summary>
+        /// 客户端向服务器申请验证一个部署位置。
+        /// </summary>
+        public static bool ClientRequestDeployValidation(string prefabIdentifier, Vector2 clickedWorldPosition)
+        {
+            if (GameMain.NetworkMember is not { IsClient: true } || !IsLocalCommander || string.IsNullOrWhiteSpace(prefabIdentifier) || !float.IsFinite(clickedWorldPosition.X) || !float.IsFinite(clickedWorldPosition.Y)) return false;
+            Hull? targetHull = Hull.FindHull(clickedWorldPosition);
+            if (targetHull?.Submarine == null || targetHull.Removed || targetHull.Submarine.Removed) return false;
+            Submarine targetSubmarine = targetHull.Submarine;
+            Vector2 localPosition = clickedWorldPosition - targetSubmarine.Position;
+            TLRtsDeployRequest request = new()
+            {
+                // 与移动、攻击等命令共用同一个序号。
+                Sequence = ++nextCommandSequence,
+
+                PrefabIdentifier = prefabIdentifier.Trim(),
+                TargetSubId = targetSubmarine.ID,
+                TargetHullId = targetHull.ID,
+
+                TargetLocalX = localPosition.X,
+                TargetLocalY = localPosition.Y
+            };
+            string json = JsonSerializer.Serialize(request);
+            return CallLua("TLRtsNet", "ClientSendDeployRequest", json);
         }
         /// <summary>
         /// 客户端请求移动

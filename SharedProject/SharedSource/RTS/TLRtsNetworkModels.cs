@@ -45,7 +45,8 @@ namespace TeraDeepOcean
         Move,
         Attack,
         ReleaseAllAi,
-        DirectionalFire
+        DirectionalFire,
+        DeployValidation
     }
     /// <summary>
     /// 客户端申请成为 RTS 指挥官。

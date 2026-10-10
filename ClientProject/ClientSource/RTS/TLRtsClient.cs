@@ -125,6 +125,24 @@ namespace TeraDeepOcean
         /// 清除全部 RTS 命令、恢复原版 AI 的按钮。
         /// </summary>
         private static GUIButton? releaseAllAiButton;
+
+        /// <summary>右下角设置面板中的部署菜单入口。</summary>
+        private static GUIButton? openDeploymentMenuButton;
+
+        /// <summary>部署菜单及其两个分类按钮、卡片列表。</summary>
+        private static GUIFrame? deploymentMenu;
+        private static GUIButton? humanDeploymentTab;
+        private static GUIButton? creatureDeploymentTab;
+        private static GUIListBox? deploymentCardList;
+
+        /// <summary>当前菜单状态；这只是客户端 UI 状态，不参与网络同步。</summary>
+        private static bool deploymentMenuOpen;
+        private static TLRtsDeploymentUnitType deploymentCategory = TLRtsDeploymentUnitType.HumanNpc;
+
+        /// <summary>
+        /// 当前菜单加载的图标。关闭或刷新菜单时释放，避免重复加载和长期占用显存。
+        /// </summary>
+        private static readonly Dictionary<string, Sprite> deploymentIconCache = new(StringComparer.OrdinalIgnoreCase);
         private enum CommandMarkerType
         {
             None,
@@ -138,8 +156,7 @@ namespace TeraDeepOcean
         private static ushort commandTargetCharacterId = Entity.NullEntityID;
         private static readonly List<Vector2> commandSlots = new();
 
-        public static IReadOnlyCollection<ushort> SelectedCharacterIds =>
-            selectedCharacterIds;
+        public static IReadOnlyCollection<ushort> SelectedCharacterIds => selectedCharacterIds;
         public static void Init(Harmony harmony)
         {
             if (initialized)
@@ -231,7 +248,7 @@ namespace TeraDeepOcean
             }
             Camera cam = GameMain.GameScreen.Cam;
             cam.TargetPos = Vector2.Zero;
-            if (GameMain.Instance.Paused ||GUI.InputBlockingMenuOpen ||GUI.KeyboardDispatcher.Subscriber != null)
+            if (GameMain.Instance.Paused || GUI.InputBlockingMenuOpen || GUI.KeyboardDispatcher.Subscriber != null)
             {
                 CancelSelectionDrag();
                 return;
@@ -253,7 +270,7 @@ namespace TeraDeepOcean
                 {
                     CancelDirectionalFireTargeting();
 
-                    GUI.AddMessage("已取消方向射击。",Color.LightGray);
+                    GUI.AddMessage("已取消方向射击。", Color.LightGray);
                     return;
                 }
 
@@ -271,7 +288,6 @@ namespace TeraDeepOcean
                 HandleDirectionalFireTargeting(cam);
                 return;
             }
-
             HandleLeftMouse(cam);
             HandleRightMouse(cam);
         }
@@ -292,6 +308,30 @@ namespace TeraDeepOcean
             {
                 rtsSettingsPanel.AddToGUIUpdateList(order: 11);
             }
+            UpdateDeploymentMenu();
+
+            if (deploymentMenu != null && deploymentMenu.Visible)
+            {
+                deploymentMenu.AddToGUIUpdateList(order: 12);
+            }
+        }
+        /// <summary>
+        /// 每帧检查菜单能否继续显示。
+        /// 退出 RTS、失去指挥权或离开前哨站时自动关闭。
+        /// </summary>
+        private static void UpdateDeploymentMenu()
+        {
+            if (!deploymentMenuOpen) return;
+            if (rtsSettingsPanel?.Visible != true)
+            {
+                CloseDeploymentMenu();
+                return;
+            }
+            EnsureDeploymentMenu();
+            if (deploymentMenu != null)
+            {
+                deploymentMenu.Visible = true;
+            }
         }
         /// <summary>
         /// 更新右下角 RTS 设置面板的显示状态和按钮状态。
@@ -311,7 +351,7 @@ namespace TeraDeepOcean
         private static void EnsureRtsSettingsPanel()
         {
             if (rtsSettingsPanel != null) return;
-            rtsSettingsPanel = new GUIFrame(new RectTransform(new Point(420, 145), GUI.Canvas, Anchor.BottomRight)
+            rtsSettingsPanel = new GUIFrame(new RectTransform(new Point(420, 205), GUI.Canvas, Anchor.BottomRight)
             {
                 ScreenSpaceOffset = new Point(-25, -25)
             }, style: "InnerFrame");
@@ -366,8 +406,281 @@ namespace TeraDeepOcean
                 SetCurrentFormation(TLRtsFormationType.VolleyStack);
                 return true;
             };
+            //部署入口
+            openDeploymentMenuButton = new GUIButton(
+                new RectTransform(new Point(380, 42), rtsSettingsPanel.RectTransform, Anchor.TopCenter)
+                {
+                    ScreenSpaceOffset = new Point(0, 145)
+                },
+                "打开 RTS 单位部署菜单", Alignment.Center, style: "GUIButton")
+            {
+                ToolTip = "查看已注册的人类和非人类 RTS 单位。"
+            };
+
+            openDeploymentMenuButton.OnClicked = (_, _) =>
+            {
+                if (deploymentMenuOpen)
+                {
+                    CloseDeploymentMenu();
+                }
+                else
+                {
+                    OpenDeploymentMenu();
+                }
+
+                return true;
+            };
             UpdateFormationButtonStates();
         }
+        /// <summary>
+        /// 打开部署菜单，并读取注册表的最新内容。
+        /// 注册可能在后台完成，因此每次打开都重新生成卡片。
+        /// </summary>
+        private static void OpenDeploymentMenu()
+        {
+            if (!IsActive) return;
+            EnsureDeploymentMenu();
+            deploymentMenuOpen = true;
+            if (openDeploymentMenuButton != null)
+            {
+                openDeploymentMenuButton.Text = "关闭 RTS 单位部署菜单";
+            }
+            RefreshDeploymentCards();
+        }
+        /// <summary>
+        /// 只创建一次部署菜单的界面结构；卡片内容由 RefreshDeploymentCards 更新。
+        /// 菜单按屏幕比例居中，避免固定像素位置在不同分辨率下偏移。
+        /// </summary>
+        private static void EnsureDeploymentMenu()
+        {
+            if (deploymentMenu != null) return;
+            deploymentMenu = new GUIFrame(new RectTransform(new Vector2(0.54f, 0.68f), GUI.Canvas, Anchor.Center, minSize: new Point(420, 330), maxSize: new Point(740, 650)), style: "InnerFrame")
+            {
+                Visible = false,
+                CanBeFocused = true
+            };
+            new GUITextBlock(new RectTransform(new Vector2(0.65f, 0.09f), deploymentMenu.RectTransform, Anchor.TopCenter)
+            {
+                RelativeOffset = new Vector2(0.0f, 0.025f)
+            }, "RTS 单位部署", textColor: Color.DeepSkyBlue, font: GUIStyle.SubHeadingFont, textAlignment: Alignment.Center, wrap: false, style: null)
+            {
+                CanBeFocused = false
+            };
+            // 关闭按钮独立于右下角入口；大菜单打开后无需移回原按钮。
+            GUIButton closeButton = new GUIButton(new RectTransform(new Point(44, 36), deploymentMenu.RectTransform, Anchor.TopRight)
+            {
+                AbsoluteOffset = new Point(12, 10)
+            }, "×", Alignment.Center, style: "GUIButton")
+            {
+                ToolTip = "关闭部署菜单"
+            };
+            closeButton.OnClicked = (_, _) =>
+            {
+                CloseDeploymentMenu();
+                return true;
+            };
+            humanDeploymentTab = new GUIButton(new RectTransform(new Vector2(0.42f, 0.10f), deploymentMenu.RectTransform, Anchor.TopLeft)
+            {
+                RelativeOffset = new Vector2(0.04f, 0.14f)
+            }, "人类单位", Alignment.Center, style: "GUIButton");
+            humanDeploymentTab.OnClicked = (_, _) =>
+            {
+                SetDeploymentCategory(TLRtsDeploymentUnitType.HumanNpc);
+                return true;
+            };
+            creatureDeploymentTab = new GUIButton(new RectTransform(new Vector2(0.42f, 0.10f), deploymentMenu.RectTransform, Anchor.TopRight)
+            {
+                RelativeOffset = new Vector2(0.04f, 0.14f)
+            }, "非人类单位", Alignment.Center, style: "GUIButton");
+            creatureDeploymentTab.OnClicked = (_, _) =>
+            {
+                SetDeploymentCategory(TLRtsDeploymentUnitType.Creature);
+                return true;
+            };
+            // 列表自带滚动；注册单位较多时仍能查看全部卡片。
+            deploymentCardList = new GUIListBox(new RectTransform(new Vector2(0.92f, 0.67f), deploymentMenu.RectTransform, Anchor.BottomCenter)
+            {
+                RelativeOffset = new Vector2(0.0f, 0.04f)
+            }, style: "GUIListBox");
+            UpdateDeploymentCategoryButtons();
+        }
+        /// <summary>
+        /// 切换人类／非人类分类，并重建对应卡片。
+        /// </summary>
+        private static void SetDeploymentCategory(TLRtsDeploymentUnitType category)
+        {
+            if (deploymentCategory == category)
+            {
+                return;
+            }
+
+            deploymentCategory = category;
+            RefreshDeploymentCards();
+        }
+        /// <summary>
+        /// 当前分类的按钮不可再次点击，另一分类按钮保持可用。
+        /// </summary>
+        private static void UpdateDeploymentCategoryButtons()
+        {
+            if (humanDeploymentTab != null)
+            {
+                humanDeploymentTab.Enabled = deploymentCategory != TLRtsDeploymentUnitType.HumanNpc;
+            }
+
+            if (creatureDeploymentTab != null)
+            {
+                creatureDeploymentTab.Enabled = deploymentCategory != TLRtsDeploymentUnitType.Creature;
+            }
+        }
+        /// <summary>
+        /// 从注册表读取快照，只绘制当前分类的单位卡。
+        /// 这里不发部署请求，也不生成角色。
+        /// </summary>
+        private static void RefreshDeploymentCards()
+        {
+            if (deploymentCardList == null) return;
+            ClearDeploymentCardsAndIcons();
+            UpdateDeploymentCategoryButtons();
+            TLRtsDeploymentPrefabDefinition[] prefabs = TLRtsDeploymentRegistry.GetAll().Where(prefab => prefab.UnitType == deploymentCategory).OrderBy(prefab => prefab.DisplayName, StringComparer.OrdinalIgnoreCase).ToArray();
+            if (prefabs.Length == 0)
+            {
+                new GUITextBlock(new RectTransform(new Vector2(1.0f, 0.0f), deploymentCardList.Content.RectTransform, minSize: new Point(0, 64), maxSize: new Point(2000, 64)), "当前分类暂无已注册单位。", textAlignment: Alignment.Center, style: null)
+                {
+                    CanBeFocused = false
+                };
+                return;
+            }
+            foreach (TLRtsDeploymentPrefabDefinition prefab in prefabs)
+            {
+                AddDeploymentCard(prefab);
+            }
+        }
+        /// <summary>
+        /// 绘制一张单位卡：图标、名称、费用和鼠标提示。
+        /// 卡片暂时只展示；下一步再接入“选中卡片后点击潜艇位置部署”。
+        /// </summary>
+        private static void AddDeploymentCard(TLRtsDeploymentPrefabDefinition prefab)
+        {
+            if (deploymentCardList == null) return;
+            GUIFrame card = new GUIFrame(new RectTransform(new Vector2(1.0f, 0.0f), deploymentCardList.Content.RectTransform, minSize: new Point(0, 88), maxSize: new Point(2000, 88)), style: "InnerFrame")
+            {
+                ToolTip = string.IsNullOrWhiteSpace(prefab.Description) ? prefab.DisplayName : prefab.Description
+            };
+            // 先尝试显示注册图标；加载失败时显示文字占位，不让整个菜单报错。
+            Sprite? icon = GetDeploymentIcon(prefab);
+            if (icon != null)
+            {
+                new GUIImage(new RectTransform(new Point(64, 64), card.RectTransform, Anchor.CenterLeft)
+                {
+                    AbsoluteOffset = new Point(12, 0)
+                }, icon, scaleToFit: true)
+                {
+                    CanBeFocused = false
+                };
+            }
+            else
+            {
+                new GUITextBlock(new RectTransform(new Point(64, 64), card.RectTransform, Anchor.CenterLeft)
+                {
+                    AbsoluteOffset = new Point(12, 0)
+                }, "无图标", font: GUIStyle.SmallFont, textAlignment: Alignment.Center, wrap: true, style: null)
+                {
+                    CanBeFocused = false
+                };
+            }
+            new GUITextBlock(new RectTransform(new Vector2(0.72f, 0.42f), card.RectTransform, Anchor.TopRight)
+            {
+                AbsoluteOffset = new Point(12, 6)
+            }, prefab.DisplayName, textColor: Color.White, font: GUIStyle.SubHeadingFont, textAlignment: Alignment.CenterLeft, wrap: false, style: null)
+            {
+                CanBeFocused = false
+            };
+            new GUITextBlock(new RectTransform(new Vector2(0.72f, 0.35f), card.RectTransform, Anchor.BottomRight)
+            {
+                AbsoluteOffset = new Point(12, 8)
+            }, FormatDeploymentCosts(prefab), textColor: Color.LightGray, font: GUIStyle.SmallFont, textAlignment: Alignment.CenterLeft, wrap: false, style: null)
+            {
+                CanBeFocused = false
+            };
+        }
+        /// <summary>
+        /// 解析并缓存图标。Sprite 只能在客户端主线程创建，
+        /// 因此不要把这个函数放进后台注册任务里。
+        /// </summary>
+        private static Sprite? GetDeploymentIcon(TLRtsDeploymentPrefabDefinition prefab)
+        {
+            if (!TLRtsDeploymentRegistry.TryResolveIconPath(prefab.Identifier, out ContentPath iconPath, out string error))
+            {
+                DebugConsole.NewMessage($"[RTS 部署 UI] {error}", Color.OrangeRed);
+                return null;
+            }
+            string fullPath = iconPath.FullPath;
+            if (deploymentIconCache.TryGetValue(fullPath, out Sprite? cached))
+            {
+                return cached;
+            }
+            if (!System.IO.File.Exists(fullPath))
+            {
+                DebugConsole.NewMessage($"[RTS 部署 UI] 图标文件不存在：{fullPath}",Color.OrangeRed);
+                return null;
+            }
+            try
+            {
+                Sprite sprite = new Sprite(fullPath, sourceRectangle: null);
+                deploymentIconCache.Add(fullPath, sprite);
+                return sprite;
+            }
+            catch (Exception exception)
+            {
+                DebugConsole.NewMessage($"[RTS 部署 UI] 无法加载图标 {fullPath}：{exception.Message}", Color.OrangeRed);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 把费用数据转换为卡片上的简短文字；其他资源类型直接显示其标识。
+        /// </summary>
+        private static string FormatDeploymentCosts(TLRtsDeploymentPrefabDefinition prefab)
+        {
+            return string.Join(" + ", prefab.Costs.Select(cost =>
+            {
+                string resourceName = string.Equals(cost.ResourceIdentifier, TLRtsDeploymentResourceIds.Marks, StringComparison.OrdinalIgnoreCase) ? "马克" : cost.ResourceIdentifier;
+                return $"{cost.Amount} {resourceName}";
+            }));
+        }
+        /// <summary>
+        /// 先移除引用图标的卡片，再释放 Sprite，避免 UI 持有已释放的纹理。
+        /// </summary>
+        private static void ClearDeploymentCardsAndIcons()
+        {
+            deploymentCardList?.ClearChildren();
+
+            foreach (Sprite sprite in deploymentIconCache.Values)
+            {
+                sprite.Remove();
+            }
+
+            deploymentIconCache.Clear();
+        }
+        /// <summary>
+        /// 关闭菜单并释放本次加载的图标。
+        /// </summary>
+        private static void CloseDeploymentMenu()
+        {
+            deploymentMenuOpen = false;
+
+            if (deploymentMenu != null)
+            {
+                deploymentMenu.Visible = false;
+            }
+
+            if (openDeploymentMenuButton != null)
+            {
+                openDeploymentMenuButton.Text = "打开 RTS 单位部署菜单";
+            }
+            ClearDeploymentCardsAndIcons();
+        }
+
         /// <summary>
         /// 修改当前客户端使用的移动队形。
         /// </summary>
@@ -572,11 +885,9 @@ namespace TeraDeepOcean
                     GUI.Canvas,
                     Anchor.BottomCenter)
                 {
-                    /*
-                     * BottomCenter 位于屏幕底部。
-                     * 负 Y 将按钮向屏幕上方移动。
-                     */
-                    ScreenSpaceOffset = new Point(0, -115)
+                    // 距离屏幕底部约 10% 的高度；不同分辨率下保持相近的相对位置。
+                    // BottomCenter 锚点下，正的 Y 表示向上移动
+                    RelativeOffset = new Vector2(0.0f, 0.10f)
                 },
                 "申请成为 RTS 指挥官",
                 Alignment.Center,
@@ -878,13 +1189,13 @@ namespace TeraDeepOcean
 
             if (direction.LengthSquared() < 1.0f)
             {
-                GUI.AddMessage("射击方向长度过小，请点击更远的位置。",Color.OrangeRed);
+                GUI.AddMessage("射击方向长度过小，请点击更远的位置。", Color.OrangeRed);
                 return;
             }
 
             direction.Normalize();
 
-            bool sent = TryIssueDirectionalFireCommand(selectedCharacters,direction);
+            bool sent = TryIssueDirectionalFireCommand(selectedCharacters, direction);
 
             if (sent)
             {
@@ -895,22 +1206,22 @@ namespace TeraDeepOcean
         /// 单人模式直接执行方向射击；
         /// 多人模式将请求发送给服务器。
         /// </summary>
-        private static bool TryIssueDirectionalFireCommand(List<Character> selectedCharacters,Vector2 direction)
+        private static bool TryIssueDirectionalFireCommand(List<Character> selectedCharacters, Vector2 direction)
         {
             if (GameMain.IsMultiplayer)
             {
-                return TLRtsNetwork.ClientRequestDirectionalFire(selectedCharacters,direction);
+                return TLRtsNetwork.ClientRequestDirectionalFire(selectedCharacters, direction);
             }
 
-            int issuedCount = TLRtsSystem.IssueDirectionalFire(selectedCharacters,direction);
+            int issuedCount = TLRtsSystem.IssueDirectionalFire(selectedCharacters, direction);
 
             if (issuedCount <= 0)
             {
-                GUI.AddMessage("选中的单位中没有可以使用远程武器的人类 AI。",Color.OrangeRed);
+                GUI.AddMessage("选中的单位中没有可以使用远程武器的人类 AI。", Color.OrangeRed);
                 return false;
             }
 
-            GUI.AddMessage($"{issuedCount} 个单位开始向指定方向射击 3 秒。",Color.Orange);
+            GUI.AddMessage($"{issuedCount} 个单位开始向指定方向射击 3 秒。", Color.Orange);
             return true;
         }
         /// <summary>
@@ -968,6 +1279,18 @@ namespace TeraDeepOcean
                     GUI.AddMessage(
                         $"{result.DirectionalFireUnitCount} 个单位开始向指定方向射击 3 秒。",
                         Color.Orange);
+                    break;
+                case TLRtsNetCommandType.DeployValidation:
+                    /*
+                     * Accepted=true 只代表服务端认可身份、位置和费用条件。
+                     * 当前没有生成单位，所以不要显示“部署成功”。
+                     */
+                    GUI.AddMessage(
+                        string.IsNullOrWhiteSpace(result.Reason)
+                            ? "部署条件验证通过，尚未生成单位或扣款。"
+                            : result.Reason,
+                        Color.LightGreen);
+
                     break;
             }
         }
@@ -1168,6 +1491,7 @@ namespace TeraDeepOcean
             ClearSelection();
             CancelSelectionDrag();
             ClearCommandMarker();
+            CloseDeploymentMenu();
             CancelDirectionalFireTargeting();
             GUI.PreventPauseMenuToggle = previousPreventPauseMenuToggle;
             Character? restoreCharacter = null;
@@ -1880,7 +2204,7 @@ namespace TeraDeepOcean
         {
             string status = directionalFireTargeting ? $"[方向射击] 已选择：{selectedCharacterIds.Count}" : $"[RTS 战术模式] 已选择：{selectedCharacterIds.Count}";
             string help = directionalFireTargeting ? "左键指定射击方向  |  G / Escape 取消"
-                : $"{ToggleKey} 退出  |  左键选择/框选  |  " + 
+                : $"{ToggleKey} 退出  |  左键选择/框选  |  " +
                 "右键移动/攻击  |  G 方向射击  |  " + "Escape 清空选择";
             Vector2 statusSize =
                 GUIStyle.Font.MeasureString(status);

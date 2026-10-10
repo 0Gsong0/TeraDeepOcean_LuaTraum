@@ -87,9 +87,9 @@ namespace TeraDeepOcean
              */
             CancellationToken token = cancellationSource.Token;
             _ = Task.Run(() =>
-            {
-                ProcessRegistrationAsync(canonicalPackageName, json, token);
-            },token);
+            (
+                ProcessRegistrationAsync(canonicalPackageName, json, token)
+            ),token);
             return true;
         }
         /// <summary>
@@ -128,7 +128,7 @@ namespace TeraDeepOcean
                 TLRtsDeploymentPrefabDefinition? definition = JsonSerializer.Deserialize<TLRtsDeploymentPrefabDefinition>(json,jsonOptions);
                 if (definition == null)
                 {
-                    LogOnMainThread($"[TLRTS部署] 注册失败：{definition.Identifier}（来源：{canonicalPackageName}）:JSON 没有生成有效的单位定义。",Color.Red);
+                    LogOnMainThread($"[TLRTS部署] 注册失败（来源：{canonicalPackageName}）:JSON 没有生成有效的单位定义。",Color.Red);
                     return;
                 }
                 token.ThrowIfCancellationRequested();

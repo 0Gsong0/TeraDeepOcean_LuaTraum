@@ -42,6 +42,9 @@ local MessageName = {
     -- 请求释放全部 RTS 单位给原版 AI
     ReleaseAllAiRequest =
     "TLNet.RTS.ReleaseAllAiRequest",
+    -- 客户端提交部署验证请求。
+    DeployRequest =
+    "TLNet.RTS.DeployRequest",
 }
 -- ============================================================
 -- 客户端部分
@@ -102,6 +105,20 @@ if CLIENT then
 
         local message =
             Networking.Start(MessageName.ReleaseAllAiRequest)
+
+        message.WriteString(jsonText)
+        Networking.Send(message)
+    end
+    --[[
+    将 C# 创建的部署请求发给服务器。
+
+    jsonText 是 TLRtsDeployRequest 的 JSON。
+    最终回执沿用现有 CommandResult 消息。
+    ]]
+    function TLRtsNet.ClientSendDeployRequest(jsonText)
+        if jsonText == nil or jsonText == "" then return end
+
+        local message = Networking.Start(MessageName.DeployRequest)
 
         message.WriteString(jsonText)
         Networking.Send(message)
@@ -198,6 +215,21 @@ if SERVER then
         if jsonText == nil or jsonText == "" then return end
 
         LibRtsNetwork.ServerReceiveDirectionalFireRequest(jsonText,sender)
+    end)
+    --[[
+    服务器接收部署验证请求。
+
+    sender 由网络层提供，是实际发送请求的玩家。
+    C# 不会相信 JSON 中自行声明的身份。
+    ]]
+    Networking.Receive(MessageName.DeployRequest,function(message, sender)
+        if sender == nil then return end
+
+        local jsonText = message.ReadString()
+
+        if jsonText == nil or jsonText == "" then return end
+
+        LibRtsNetwork.ServerReceiveDeployRequest(jsonText,sender)
     end)
     -- 服务器发送指挥官申请结果
     -- 申请结果只发送给申请者，不进行广播。

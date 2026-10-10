@@ -22,7 +22,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybRepairSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\Cyber\TLCybState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentBridge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentCostSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentModels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentNetworkModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentRegistry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsNetwork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsNetworkModels.cs" />

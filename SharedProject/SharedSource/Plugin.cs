@@ -40,6 +40,7 @@ namespace TeraDeepOcean
             TLCharacterControlSystem.Init(harmony);
             TLRtsSystem.Init(harmony);
             TLRtsNetwork.Init();
+            TLRtsDeploymentCostSystem.Init();
             TLRtsDeploymentBridge.Init();
         }
         partial void InitializeClient(Harmony harmony);
@@ -73,6 +74,7 @@ namespace TeraDeepOcean
                 harmony = null;
             }
             TLRtsDeploymentBridge.Dispose();
+            TLRtsDeploymentCostSystem.Dispose();
             TLRtsDeploymentRegistry.Clear();
         }
     }
