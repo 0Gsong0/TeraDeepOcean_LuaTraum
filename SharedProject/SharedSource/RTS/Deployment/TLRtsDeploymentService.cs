@@ -79,6 +79,7 @@ namespace TeraDeepOcean
                 created.HumanPrefab = humanPrefab;
             }
             Identifier unitClass = prefab.UnitType == TLRtsDeploymentUnitType.HumanNpc ? "human".ToIdentifier() : "creature".ToIdentifier();
+            created.Enabled = true;
             if (!TLRtsUnitRegistryPermission.Register(created, unitClass, isSpawnByRts: true))
             {
                 // 没有可用 AI 的角色不能成为 RTS 单位，也不能收钱。
