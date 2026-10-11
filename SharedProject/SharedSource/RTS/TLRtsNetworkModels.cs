@@ -46,7 +46,7 @@ namespace TeraDeepOcean
         Attack,
         ReleaseAllAi,
         DirectionalFire,
-        DeployValidation
+        Deploy
     }
     /// <summary>
     /// 客户端申请成为 RTS 指挥官。
@@ -197,6 +197,14 @@ namespace TeraDeepOcean
         /// 没有远程武器、弹药为空或者无法装备武器的单位不会计入。
         /// </summary>
         public int DirectionalFireUnitCount { get; set; }
+
+        #endregion
+        #region 部署结果 
+
+        /// <summary>
+        /// 成功部署的角色 ID；失败时保持空 ID。
+        /// </summary>
+        public ushort DeployedCharacterId { get; set; } = Entity.NullEntityID;
 
         #endregion
     }

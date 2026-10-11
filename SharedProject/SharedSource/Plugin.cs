@@ -39,6 +39,7 @@ namespace TeraDeepOcean
             TLCybRepairSystem.Init(harmony);
             TLCharacterControlSystem.Init(harmony);
             TLRtsSystem.Init(harmony);
+            TLRtsFriendlyPolicy.Init(harmony);
             TLRtsNetwork.Init();
             TLRtsDeploymentCostSystem.Init();
             TLRtsDeploymentBridge.Init();

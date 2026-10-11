@@ -232,6 +232,190 @@ if EnableTestPrefabRegistration then
                     }
                 }
             )
+            -- 注册一个人类 RTS 部署单位：泰拉护航特战队。
+            TLRtsDeployment.RegisterLocalPrefab(
+                {
+                    -- RTS 部署表中的唯一 ID，不是 NPC XML 的 identifier。
+                    Identifier = "teradeepocean:test_escort",
+
+                    DisplayName = "泰拉护航特战队",
+                    Description = "测试用人类 RTS 单位，使用模组现有 NPC 预设和装备。",
+
+                    -- 留空则使用 RTS 部署系统的默认图标。
+                    IconPath = "",
+
+                    -- HumanNpc = 0；Creature = 1。
+                    UnitType = 0,
+
+                    -- 对应 Npcs.xml 中 <npcset identifier="TLnpc">。
+                    NpcSetIdentifier = "TLnpc",
+
+                    -- 对应该集合内的 <npc identifier="TLnpc2">。
+                    NpcIdentifier = "TLnpc2",
+
+                    -- 首先用 0 马克测试生成；确认成功后再调整价格。
+                    Costs =
+                    {
+                        {
+                            ResourceIdentifier = "marks",
+                            Amount = 0
+                        }
+                    }
+                }
+            )
+            -- XCOM测试
+           TLRtsDeployment.RegisterLocalPrefab(
+                {
+                    -- RTS 部署表中的唯一 ID，不是 NPC XML 的 identifier。
+                    Identifier = "teradeepocean:ADVENT_Officer",
+
+                    DisplayName = "ADVENT_Officer",
+                    Description = "不知道啥玩意",
+
+                    -- 留空则使用 RTS 部署系统的默认图标。
+                    IconPath = "",
+
+                    -- HumanNpc = 0；Creature = 1。
+                    UnitType = 0,
+
+                    -- 对应 Npcs.xml 中 <npcset identifier="TLnpc">。
+                    NpcSetIdentifier = "XCOM_Force",
+
+                    -- 对应该集合内的 <npc identifier="TLnpc2">。
+                    NpcIdentifier = "ADVENT_Officer",
+
+                    -- 首先用 0 马克测试生成；确认成功后再调整价格。
+                    Costs =
+                    {
+                        {
+                            ResourceIdentifier = "marks",
+                            Amount = 0
+                        }
+                    }
+                }
+            )
+            TLRtsDeployment.RegisterLocalPrefab(
+                {
+                    -- RTS 部署表中的唯一 ID，不是 NPC XML 的 identifier。
+                    Identifier = "teradeepocean:ELACF_W",
+
+                    DisplayName = "牛逼炸肛的NPC",
+                    Description = "不知道啥玩意",
+
+                    -- 留空则使用 RTS 部署系统的默认图标。
+                    IconPath = "",
+
+                    -- HumanNpc = 0；Creature = 1。
+                    UnitType = 0,
+
+                    -- 对应 Npcs.xml 中 <npcset identifier="TLnpc">。
+                    NpcSetIdentifier = "XCOM_Force",
+
+                    -- 对应该集合内的 <npc identifier="TLnpc2">。
+                    NpcIdentifier = "ELACF_W",
+
+                    -- 首先用 0 马克测试生成；确认成功后再调整价格。
+                    Costs =
+                    {
+                        {
+                            ResourceIdentifier = "marks",
+                            Amount = 0
+                        }
+                    }
+                }
+            )
+            TLRtsDeployment.RegisterLocalPrefab(
+                {
+                    -- 全局唯一的部署预制体标识。
+                    Identifier =
+                        "teradeepocean:Xcom_mechtoid_azathoth",
+
+                    -- 以后显示在部署 UI 中的名称。
+                    DisplayName =
+                        "Xcom_mechtoid_azathoth",
+
+                    -- 鼠标停留时显示的单位说明。
+                    Description =
+                        "不知道啥玩意",
+
+                    --[[
+                        故意留空。
+
+                        C# 标准化时应该将它替换为：
+                        TLRtsDeploymentDefaults.DefaultIconPath
+                    ]]
+                    IconPath = "",
+
+                    --[[
+                        TLRtsDeploymentUnitType：
+                        HumanNpc = 0
+                        Creature = 1
+                    ]]
+                    UnitType = 1,
+
+                    -- UnitType 为 Creature 时使用 speciesname。
+                    SpeciesIdentifier = "Xcom_mechtoid_azathoth",
+
+                    --[[
+                        当前第一版部署费用：0 马克。
+
+                        Costs 必须是数组
+                    ]]
+                    Costs =
+                    {
+                        {
+                            ResourceIdentifier = "marks",
+                            Amount = 0
+                        }
+                    }
+                }
+            )
+            TLRtsDeployment.RegisterLocalPrefab(
+                {
+                    -- 全局唯一的部署预制体标识。
+                    Identifier =
+                        "teradeepocean:XCOM_Muton_Elite",
+
+                    -- 以后显示在部署 UI 中的名称。
+                    DisplayName =
+                        "会爬梯子会开门的家伙",
+
+                    -- 鼠标停留时显示的单位说明。
+                    Description =
+                        "不知道啥玩意",
+
+                    --[[
+                        故意留空。
+
+                        C# 标准化时应该将它替换为：
+                        TLRtsDeploymentDefaults.DefaultIconPath
+                    ]]
+                    IconPath = "",
+
+                    --[[
+                        TLRtsDeploymentUnitType：
+                        HumanNpc = 0
+                        Creature = 1
+                    ]]
+                    UnitType = 1,
+
+                    -- UnitType 为 Creature 时使用 speciesname。
+                    SpeciesIdentifier = "XCOM_Muton_Elite",
+
+                    --[[
+                        当前第一版部署费用：0 马克。
+
+                        Costs 必须是数组
+                    ]]
+                    Costs =
+                    {
+                        {
+                            ResourceIdentifier = "marks",
+                            Amount = 0
+                        }
+                    }
+                }
+            )
         end,
 
         -- Timer.Wait 使用毫秒。

@@ -26,6 +26,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentNetworkModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentRegistry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsDeploymentSpawnSourceValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\Deployment\TLRtsFriendlyPolicy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsNetwork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsNetworkModels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedSource\RTS\TLRtsRoundSubContext.cs" />

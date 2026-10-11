@@ -95,6 +95,8 @@ namespace TeraDeepOcean
         /// 阶段 1 只用于单人客户端表现。
         /// </summary>
         public static event Action<Vector2, IReadOnlyList<Vector2>>? MoveOrderIssued;
+        // 每只受 RTS 控制的怪物使用自己的攻击参数；不要修改全局 XML 预制体。
+        private static readonly Dictionary<ushort, CharacterParams.TargetParams> forcedCreatureAttackParams = new();
 
         public static void Init(Harmony harmony)
         {
@@ -113,6 +115,7 @@ namespace TeraDeepOcean
                 typeof(SubmarineInfo),
             });
             var endRound = AccessTools.Method(typeof(GameSession), nameof(GameSession.EndRound));
+            var enemyUpdateTargets = AccessTools.Method(typeof(EnemyAIController),nameof(EnemyAIController.UpdateTargets));
             if (enemyUpdate != null && characterRemove != null && startRound != null && endRound != null && addCombatObjective != null && humanUpdate != null)
             {
                 harmony.Patch(enemyUpdate, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(BeforeEnemyAIUpdate)), postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(AfterEnemyAIUpdate)));
@@ -121,24 +124,112 @@ namespace TeraDeepOcean
                 harmony.Patch(startRound, postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(OnRoundStarted)));
                 harmony.Patch(endRound, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(OnRoundEnding)));
                 harmony.Patch(humanUpdate, prefix: new HarmonyMethod(typeof(TLRtsSystem), nameof(BeforeHumanAIUpdate)), postfix: new HarmonyMethod(typeof(TLRtsSystem), nameof(AfterHumanAIUpdate)));
+                harmony.Patch(enemyUpdateTargets,prefix: new HarmonyMethod(typeof(TLRtsSystem),nameof(BeforeEnemyUpdateTargets)));
             }
         }
-        private static bool BeforeEnemyAIUpdate(EnemyAIController __instance, float deltaTime)
+        /// <summary>
+        /// 取得这只怪物执行 RTS 强制攻击时使用的目标参数。
+        /// 优先借用它已有的攻击配置，以保留其攻击移动模式；
+        /// 完全没有攻击目标配置时，创建仅供这只单位使用的临时参数。
+        /// </summary>
+        private static CharacterParams.TargetParams GetForcedCreatureAttackParams(
+            EnemyAIController enemyAI)
         {
-            if (!IsAuthority || !TryGetActiveState(__instance.Character, out TLRtsUnitState? state)) return true;
+            ushort id = enemyAI.Character.ID;
+
+            if (forcedCreatureAttackParams.TryGetValue(
+                    id, out CharacterParams.TargetParams? cached))
+            {
+                return cached;
+            }
+
+            CharacterParams.TargetParams parameters =
+                enemyAI.AIParams.Targets
+                    .Where(p => p.State == AIState.Attack && p.Priority > 0f)
+                    .OrderByDescending(p => p.Priority)
+                    .FirstOrDefault()
+                ?? new CharacterParams.TargetParams(
+                    "rts_forced_attack",
+                    AIState.Attack,
+                    1000f,
+                    enemyAI.Character.Params);
+
+            forcedCreatureAttackParams[id] = parameters;
+            return parameters;
+        }
+
+        /// <summary>
+        /// 同时设置具体角色、攻击参数和攻击状态。
+        /// 仅 SelectTarget 不够：原版 UpdateAttack 在参数为空时会直接退出。
+        /// </summary>
+        private static bool ApplyForcedCreatureAttack(
+            EnemyAIController enemyAI,
+            Character target,
+            ref CharacterParams.TargetParams currentTargetingParams)
+        {
+            if (target.AiTarget == null) return false;
+
+            currentTargetingParams = GetForcedCreatureAttackParams(enemyAI);
+            enemyAI.SelectTarget(target.AiTarget, 1000f);
+            enemyAI.State = AIState.Attack;
+            return true;
+        }
+
+        /// <summary>
+        /// RTS 强制攻击期间，不让原版 UpdateTargets 按 XML 重新选择目标。
+        /// 其他状态仍完整使用原版目标系统。
+        /// Harmony 的 ___currentTargetingParams 是对原类同名私有字段的注入。
+        /// </summary>
+        private static bool BeforeEnemyUpdateTargets(
+            EnemyAIController __instance,
+            ref CharacterParams.TargetParams ___currentTargetingParams)
+        {
+            if (!IsAuthority ||
+                !TryGetActiveState(
+                    __instance.Character, out TLRtsUnitState? state) ||
+                state == null ||
+                state.Mode != TLRTSUnitAIState.Attack)
+            {
+                return true;
+            }
+
+            Character? target = state.GetAttackTarget();
+            if (!IsValidAttackTarget(target) ||
+                target == null ||
+                !IsHostileTarget(__instance.Character, target) ||
+                !ApplyForcedCreatureAttack(
+                    __instance, target, ref ___currentTargetingParams))
+            {
+                FinishAttack(__instance.Character.ID, state.AttackTargetId);
+                return false;
+            }
+
+            return false; // 跳过这次原版 XML 目标重算。
+        }
+        private static bool BeforeEnemyAIUpdate(EnemyAIController __instance, float deltaTime, ref CharacterParams.TargetParams ___currentTargetingParams)
+        {
+            if (!IsAuthority ||
+        !TryGetActiveState(
+            __instance.Character, out TLRtsUnitState? state))
+            {
+                return true;
+            }
+
             if (state.Mode == TLRTSUnitAIState.Attack)
             {
                 Character? target = state.GetAttackTarget();
-                if (IsValidAttackTarget(target) && target != null && IsHostileTarget(__instance.Character, target))
+
+                if (IsValidAttackTarget(target) &&
+                    target != null &&
+                    IsHostileTarget(__instance.Character, target) &&
+                    ApplyForcedCreatureAttack(
+                        __instance, target, ref ___currentTargetingParams))
                 {
-                    // 每帧重新锁定，避免原版怪物 AI 改选其他目标。
-                    __instance.SelectTarget(target.AiTarget, 100f);
-                    // true：Attack 状态下允许原版 EnemyAIController 执行攻击。
+                    // 保留原版 UpdateAttack：它负责寻路、选择攻击肢体和真正造成伤害。
                     return true;
                 }
-                FinishAttack(
-                    __instance.Character.ID,
-                    state.AttackTargetId);
+
+                FinishAttack(__instance.Character.ID, state.AttackTargetId);
                 return false;
             }
 
@@ -221,8 +312,47 @@ namespace TeraDeepOcean
         /// </summary>
         private static void AfterHumanAIUpdate(HumanAIController __instance, float deltaTime)
         {
-            if (!IsAuthority || !TryGetActiveState(__instance.Character, out TLRtsUnitState? state) || state == null || state.Mode != TLRTSUnitAIState.DirectionalFire) return;
-            UpdateHumanDirectionalFire(__instance.Character, __instance, state, deltaTime);
+            if (!IsAuthority || !TryGetActiveState(__instance.Character, out TLRtsUnitState? state) || state == null) return;
+            switch (state.Mode)
+            {
+                case TLRTSUnitAIState.DirectionalFire:
+                    UpdateHumanDirectionalFire(__instance.Character, __instance, state, deltaTime);
+                    break;
+
+                case TLRTSUnitAIState.Move:
+                    EnforceHumanRtsMovement(__instance.Character, __instance, deltaTime);
+                    break;
+
+                case TLRTSUnitAIState.Guard:
+                    // 允许原版 AI 判断敌人、瞄准和开火；
+                    // 但不能因为战斗目标自行跑离防守位置。
+                    StopMovement(__instance.Character, __instance);
+                    break;
+            }
+        }
+        /// <summary>
+        /// 当战斗等原版目标压过移动命令时，在本帧末重新执行 RTS 的 GoTo。
+        /// 不删除战斗目标，因此已经具备武器的单位仍可机会射击。
+        /// </summary>
+        private static void EnforceHumanRtsMovement(Character character, HumanAIController humanAI, float deltaTime)
+        {
+            if (!humanObjectives.TryGetValue(character.ID, out AIObjective? objective) || objective is not AIObjectiveGoTo goTo || humanAI.ObjectiveManager.ForcedOrder != goTo)
+            {
+                return;
+            }
+
+            // 本帧原版已经执行了移动目标，不需要重复执行。
+            if (humanAI.ObjectiveManager.CurrentObjective == goTo)
+            {
+                return;
+            }
+
+            // 清除战斗目标本帧留下的转向，再让 RTS 路线产生最终转向。
+            // Reset 只清除当前 steering 向量，不会删除 GoTo 的寻路路径。
+            if (humanAI.SteeringManager == null) return;
+            humanAI.SteeringManager.Reset();
+            goTo.ForceAct(deltaTime);
+            humanAI.SteeringManager.Update(character.AnimController.GetCurrentSpeed(true));
         }
         private static void OnRoundStarted()
         {
@@ -398,8 +528,7 @@ namespace TeraDeepOcean
             TLRtsUnitRegistryPermission.RemoveInvalidEntries();
             foreach (TLRtsUnitState state in states.Values.ToArray())
             {
-                if (Entity.FindEntityByID(state.CharacterId) is not Character character ||
-                    character.IsDead || character.Removed || !TLRtsUnitRegistryPermission.IsControllable(character))
+                if (Entity.FindEntityByID(state.CharacterId) is not Character character || character.IsDead || character.Removed || !TLRtsUnitRegistryPermission.IsControllable(character))
                 {
                     RemoveState(state.CharacterId);
                     continue;
@@ -417,8 +546,8 @@ namespace TeraDeepOcean
                 {
                     state.Mode = TLRTSUnitAIState.Guard;
                 }
-                //怪物被推离 Guard 半径后重新接管移动。
-                if (state.Mode == TLRTSUnitAIState.Guard && character.AIController is EnemyAIController && distanceSquared > state.GuardRadius * state.GuardRadius)
+                // Guard 单位被推离防守点时，重新移动回去。
+                if (state.Mode == TLRTSUnitAIState.Guard && distanceSquared > state.GuardRadius * state.GuardRadius)
                 {
                     state.Mode = TLRTSUnitAIState.Move;
                 }
@@ -879,6 +1008,11 @@ namespace TeraDeepOcean
             {
                 return false;
             }
+            // TeamID 相同绝不接受强制攻击；不要依赖原版跨物种友军判断。
+            if (attacker.TeamID == target.TeamID || TLRtsFriendlyPolicy.IsProtectedAlly(attacker, target))
+            {
+                return false;
+            }
             bool friendly = attacker.AIController is HumanAIController ? HumanAIController.IsFriendly(attacker, target) : attacker.IsFriendly(target);
             return !friendly;
         }
@@ -1000,7 +1134,29 @@ namespace TeraDeepOcean
                guardHull,
                state.GetTargetWorldPosition());
         }
-
+        /// <summary>
+        /// 为刚部署的单位建立当前位置 Guard。
+        /// 人类额外获得“在此等待”的强制命令；生物沿用 RTS Guard 控制。
+        /// </summary>
+        public static bool TryInitializeDeployedGuard(Character character)
+        {
+            if (!IsAuthority || !TLRtsUnitRegistryPermission.IsControllable(character) || !TryEnsureGuardAnchor(character, out TLRtsUnitState? state) || state == null)
+            {
+                return false;
+            }
+            if (character.AIController is HumanAIController humanAI)
+            {
+                if (!TryGetValidTarget(state, out _, out Hull? guardHull) || guardHull == null)
+                {
+                    RemoveState(character.ID);
+                    return false;
+                }
+                // 沿用现有方法建立原版 wait/GoTo 命令。
+                AssignHumanMoveObjective(character, humanAI, state, guardHull, state.GetTargetWorldPosition());
+                StopMovement(character, humanAI);
+            }
+            return true;
+        }
         public static Vector2 ClampInsideHull(Vector2 worldPosition, Hull hull)
         {
             Rectangle rect = hull.WorldRect;
@@ -1132,7 +1288,7 @@ namespace TeraDeepOcean
         }
         private static void StopMovement(Character character, AIController ai)
         {
-            ai.SteeringManager.Reset();
+            ai.SteeringManager?.Reset();
             character.AnimController.TargetMovement = Vector2.Zero;
             character.SetInput(InputType.Left, false, false);
             character.SetInput(InputType.Right, false, false);
@@ -1182,6 +1338,7 @@ namespace TeraDeepOcean
                 ClearHumanObjective(characterId);
             }
             states.Clear();
+            forcedCreatureAttackParams.Clear();
             TLRtsUnitRegistryPermission.Clear();
             TLRtsRoundSubContext.Clear();
 

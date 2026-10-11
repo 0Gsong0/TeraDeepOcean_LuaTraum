@@ -138,6 +138,11 @@ namespace TeraDeepOcean
         /// <summary>当前菜单状态；这只是客户端 UI 状态，不参与网络同步。</summary>
         private static bool deploymentMenuOpen;
         private static TLRtsDeploymentUnitType deploymentCategory = TLRtsDeploymentUnitType.HumanNpc;
+        /// <summary>
+        /// 非空时表示正在等待玩家点击部署位置。
+        /// 这里只保存预制体标识，不保存注册表对象；提交前会重新查询注册表。
+        /// </summary>
+        private static string? deploymentPlacementPrefabId;
 
         /// <summary>
         /// 当前菜单加载的图标。关闭或刷新菜单时释放，避免重复加载和长期占用显存。
@@ -254,11 +259,11 @@ namespace TeraDeepOcean
                 return;
             }
 
-            /*
-             * 只有没有聊天框、菜单或其他文本输入焦点时，
-             * G 才会进入方向射击模式。
-             */
-            HandleDirectionalFireHotkey();
+            // 选择部署位置时，G 不应同时进入方向射击。
+            if (deploymentPlacementPrefabId == null)
+            {
+                HandleDirectionalFireHotkey();
+            }
 
             if (PlayerInput.KeyHit(Keys.Escape))
             {
@@ -273,7 +278,14 @@ namespace TeraDeepOcean
                     GUI.AddMessage("已取消方向射击。", Color.LightGray);
                     return;
                 }
+                if (deploymentPlacementPrefabId != null)
+                {
+                    CancelDeploymentPlacement();
+                    CancelSelectionDrag();
 
+                    GUI.AddMessage("已取消部署位置选择。", Color.LightGray);
+                    return;
+                }
                 ClearSelection();
                 CancelSelectionDrag();
                 return;
@@ -286,6 +298,11 @@ namespace TeraDeepOcean
                  * 防止同一次点击又触发普通单选或框选。
                  */
                 HandleDirectionalFireTargeting(cam);
+                return;
+            }
+            // 部署模式优先消费鼠标输入，防止左键框选、右键下达移动命令。
+            if (HandleDeploymentPlacement(cam))
+            {
                 return;
             }
             HandleLeftMouse(cam);
@@ -562,9 +579,24 @@ namespace TeraDeepOcean
         private static void AddDeploymentCard(TLRtsDeploymentPrefabDefinition prefab)
         {
             if (deploymentCardList == null) return;
+            // 普通面板只负责卡片外观。
             GUIFrame card = new GUIFrame(new RectTransform(new Vector2(1.0f, 0.0f), deploymentCardList.Content.RectTransform, minSize: new Point(0, 88), maxSize: new Point(2000, 88)), style: "InnerFrame")
             {
+                CanBeFocused = false
+            };
+
+            GUIButton clickArea = new GUIButton(new RectTransform(Vector2.One, card.RectTransform), style: null, color: Color.Transparent)
+            {
+                HoverColor = Color.Transparent,
+                PressedColor = Color.Transparent,
+                SelectedColor = Color.Transparent,
+                OutlineColor = Color.Transparent,
                 ToolTip = string.IsNullOrWhiteSpace(prefab.Description) ? prefab.DisplayName : prefab.Description
+            };
+            clickArea.OnClicked = (_, _) =>
+            {
+                BeginDeploymentPlacement(prefab.Identifier, prefab.DisplayName);
+                return true;
             };
             // 先尝试显示注册图标；加载失败时显示文字占位，不让整个菜单报错。
             Sprite? icon = GetDeploymentIcon(prefab);
@@ -604,6 +636,155 @@ namespace TeraDeepOcean
             };
         }
         /// <summary>
+        /// 点击单位卡后，进入“下一次左键指定部署位置”的状态。
+        /// </summary>
+        private static void BeginDeploymentPlacement(string prefabIdentifier, string displayName)
+        {
+            if (!IsActive || string.IsNullOrWhiteSpace(prefabIdentifier)) return;
+            // 部署位置选择与方向射击、框选互斥。
+            CancelDirectionalFireTargeting();
+            CancelSelectionDrag();
+            deploymentPlacementPrefabId = prefabIdentifier;
+            // 关闭大菜单，给玩家留出观察潜艇和点击房间的空间。
+            CloseDeploymentMenu();
+            GUI.AddMessage($"部署位置选择：{displayName}。左键点击己方主潜艇房间；右键或 Escape 取消。", Color.LightGreen);
+        }
+        /// <summary>
+        /// 取消当前部署位置选择；不改变已选择的 RTS 作战单位。
+        /// </summary>
+        private static void CancelDeploymentPlacement()
+        {
+            deploymentPlacementPrefabId = null;
+        }
+        /// <summary>
+        /// 消费部署模式下的鼠标输入，避免同一次点击又触发框选或移动命令。
+        /// 返回 true 表示当前帧的 RTS 鼠标输入已由部署模式接管。
+        /// </summary>
+        private static bool HandleDeploymentPlacement(Camera cam)
+        {
+            if (deploymentPlacementPrefabId == null) return false;
+            if (PlayerInput.SecondaryMouseButtonClicked())
+            {
+                CancelDeploymentPlacement();
+                GUI.AddMessage("已取消部署位置选择。", Color.LightGray);
+                return true;
+            }
+            // 鼠标在 UI 或物品栏上时，不把点击解释为世界坐标。
+            if (GUI.MouseOn != null || Inventory.IsMouseOnInventory) return true;
+            if (!PlayerInput.PrimaryMouseButtonClicked()) return true;
+            Vector2 worldPosition = cam.ScreenToWorld(PlayerInput.MousePosition);
+            if (!TryGetDockedDeploymentHull(worldPosition, out _, out string locationError))
+            {
+                GUI.AddMessage(locationError, Color.OrangeRed);
+                return true;
+            }
+            string prefabIdentifier = deploymentPlacementPrefabId;
+            if (!TLRtsDeploymentRegistry.TryGet(prefabIdentifier, out TLRtsDeploymentPrefabDefinition? prefab) || prefab == null)
+            {
+                CancelDeploymentPlacement();
+                GUI.AddMessage("这个单位预制体已不在注册表中，请重新打开部署菜单。", Color.OrangeRed);
+                return true;
+            }
+            if (GameMain.IsMultiplayer)
+            {
+                bool sent = TLRtsNetwork.ClientRequestDeploy(prefabIdentifier, worldPosition);
+                if (!sent)
+                {
+                    GUI.AddMessage("部署验证请求发送失败，请检查指挥权和当前位置。", Color.OrangeRed);
+                    return true;
+                }
+                CancelDeploymentPlacement();
+                GUI.AddMessage($"已提交“{prefab.DisplayName}”的部署验证，等待服务器回复。", Color.LightGray);
+                return true;
+            }
+            if (!TryValidateSingleplayerDeployment(prefab, out string validationError))
+            {
+                GUI.AddMessage(validationError, Color.OrangeRed);
+                return true;
+            }
+            if (!TryGetDockedDeploymentHull(worldPosition, out Hull? targetHull, out string _) || targetHull == null)
+            {
+                GUI.AddMessage(locationError, Color.OrangeRed);
+                return true;
+            }
+            Character? commander = GetLocalCommanderCharacter();
+            if (commander == null)
+            {
+                GUI.AddMessage("找不到当前 RTS 指挥官角色。",Color.OrangeRed);
+                return true;
+            }
+            TLRtsDeploymentPaymentContext paymentContext = new(purchasingClient: null, commanderCharacter: commander);
+            if (!TLRtsDeploymentService.TryDeploy(prefab, targetHull, worldPosition, paymentContext, out Character? deployedCharacter, out string deployError))
+            {
+                // 失败时仍保持位置选择状态，玩家可以重新点击房间。
+                GUI.AddMessage(deployError, Color.OrangeRed);
+                return true;
+            }
+            CancelDeploymentPlacement();
+            GUI.AddMessage($"已部署“{prefab.DisplayName}。角色 ID：{deployedCharacter!.ID}。", Color.LightGreen);
+            return true;
+        }
+        /// <summary>
+        /// 检查鼠标位置是否位于指挥官所在队伍的主潜艇房间。
+        /// 这只是客户端预检查；多人服务器仍会独立验证，不能信任客户端结果。
+        /// </summary>
+        private static bool TryGetDockedDeploymentHull(Vector2 worldPosition, out Hull? targetHull, out string error)
+        {
+            targetHull = null;
+            error = string.Empty;
+
+            if (GetLocalCommanderCharacter() == null)
+            {
+                error = "找不到当前 RTS 指挥官角色。";
+                return false;
+            }
+
+            // 停靠关系可能在回合中变化，点击时刷新一次。
+            if (!TLRtsRoundSubContext.Refresh())
+            {
+                error = "当前前哨站停靠网络不可用。";
+                return false;
+            }
+
+            Hull? hull = Hull.FindHull(worldPosition);
+            if (hull == null ||
+                hull.Removed ||
+                hull.Submarine == null ||
+                hull.Submarine.Removed ||
+                !TLRtsRoundSubContext.Contains(hull.Submarine))
+            {
+                error = "请点击前哨站或与其停靠相连的潜艇内部房间。";
+                return false;
+            }
+
+            targetHull = hull;
+            return true;
+        }
+        /// <summary>
+        /// 单人模式下执行本阶段的只读验证。
+        /// 目前只检查指挥权和能否支付，不生成单位、不扣费。
+        /// </summary>
+        private static bool TryValidateSingleplayerDeployment(TLRtsDeploymentPrefabDefinition prefab, out string error)
+        {
+            error = string.Empty;
+
+            if (!IsActive || !TLRtsSystem.IsAuthority)
+            {
+                error = "当前没有 RTS 部署权限。";
+                return false;
+            }
+            Character? commander = GetLocalCommanderCharacter();
+
+            if (commander == null)
+            {
+                error = "找不到当前 RTS 指挥官角色。";
+                return false;
+            }
+            if (!TLRtsDeploymentSpawnSourceValidator.TryValidate(prefab, out error)) return false;
+            TLRtsDeploymentPaymentContext paymentContext = new(purchasingClient: null, commanderCharacter: commander);
+            return TLRtsDeploymentCostSystem.CanAfford(prefab, paymentContext, out error);
+        }
+        /// <summary>
         /// 解析并缓存图标。Sprite 只能在客户端主线程创建，
         /// 因此不要把这个函数放进后台注册任务里。
         /// </summary>
@@ -621,7 +802,7 @@ namespace TeraDeepOcean
             }
             if (!System.IO.File.Exists(fullPath))
             {
-                DebugConsole.NewMessage($"[RTS 部署 UI] 图标文件不存在：{fullPath}",Color.OrangeRed);
+                DebugConsole.NewMessage($"[RTS 部署 UI] 图标文件不存在：{fullPath}", Color.OrangeRed);
                 return null;
             }
             try
@@ -1280,15 +1461,15 @@ namespace TeraDeepOcean
                         $"{result.DirectionalFireUnitCount} 个单位开始向指定方向射击 3 秒。",
                         Color.Orange);
                     break;
-                case TLRtsNetCommandType.DeployValidation:
+                case TLRtsNetCommandType.Deploy:
                     /*
                      * Accepted=true 只代表服务端认可身份、位置和费用条件。
                      * 当前没有生成单位，所以不要显示“部署成功”。
                      */
                     GUI.AddMessage(
                         string.IsNullOrWhiteSpace(result.Reason)
-                            ? "部署条件验证通过，尚未生成单位或扣款。"
-                            : result.Reason,
+                            ? $"RTS 单位部署成功，角色 ID：{result.DeployedCharacterId}。"
+                            : $"{result.Reason} 角色 ID：{result.DeployedCharacterId}。",
                         Color.LightGreen);
 
                     break;
@@ -1492,6 +1673,7 @@ namespace TeraDeepOcean
             CancelSelectionDrag();
             ClearCommandMarker();
             CloseDeploymentMenu();
+            CancelDeploymentPlacement();
             CancelDirectionalFireTargeting();
             GUI.PreventPauseMenuToggle = previousPreventPauseMenuToggle;
             Character? restoreCharacter = null;
@@ -1688,6 +1870,10 @@ namespace TeraDeepOcean
             foreach (Character attacker in attackers)
             {
                 if (attacker == null || attacker == target) continue;
+                if (attacker.TeamID == target.TeamID || TLRtsFriendlyPolicy.IsProtectedAlly(attacker, target))
+                {
+                    continue;
+                }
                 bool friendly = attacker.AIController is HumanAIController ? HumanAIController.IsFriendly(attacker, target) : attacker.IsFriendly(target);
                 if (!friendly) return true;
             }
