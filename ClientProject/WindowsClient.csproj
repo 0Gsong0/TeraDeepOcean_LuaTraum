@@ -28,8 +28,10 @@
     <ItemGroup>
       <Assemblies Include="$(TargetDir)$(TargetName).dll" />
       <DepsFiles Include="$(TargetDir)$(TargetName).deps.json" />
+      <Symbols Include="$(TargetDir)$(TargetName).pdb" Condition="'$(Configuration)' == 'Debug' And Exists('$(TargetDir)$(TargetName).pdb')" />
     </ItemGroup>
     <Copy SourceFiles="@(Assemblies)" DestinationFiles="$(ModDeployDir)bin\Client\Windows\$(TargetName).dll" />
     <Copy SourceFiles="@(DepsFiles)" DestinationFiles="$(ModDeployDir)bin\Client\Windows\$(TargetName).deps.json" />
+    <Copy SourceFiles="@(Symbols)" DestinationFiles="$(ModDeployDir)bin\Client\Windows\$(TargetName).pdb" Condition="'@(Symbols)' != ''" />
   </Target>
 </Project>
