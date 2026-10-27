@@ -33,7 +33,7 @@ namespace TeraDeepOcean
         private static readonly Dictionary<ushort, MotionGroup> groups = new();
         /// <summary>
         /// 以目标实体 ID 为键，记录哪个控制器占用了该目标。
-        /// 一个目标在同一回合内只接受一个控制器。
+        /// 运动中禁止其他控制器接管；停靠后允许新任务整体替换旧任务。
         /// </summary>
         private static readonly Dictionary<ushort, ushort> targetOwners = new();
         /// <summary>
@@ -84,6 +84,12 @@ namespace TeraDeepOcean
         {
             public required MapEntity Entity { get; init; }
             public required Vector2 Home { get; init; }
+            /// <summary>
+            /// 首次创建任务时的显示角度，单位为弧度。
+            /// 用于每次从初始姿态计算旋转，避免累计角度误差。
+            /// 普通平移任务不使用这个属性。
+            /// </summary>
+            public float HomeRotation { get; init; }
         }
         /// <summary>
         /// 一个控制器所管理的整组目标。
@@ -109,7 +115,11 @@ namespace TeraDeepOcean
             /// </summary>
             public required Vector2 Offset { get; init; }
 
-            /// <summary>速度，单位为像素/游戏秒。</summary>
+            /// <summary>
+            /// 平移任务：显示单位/游戏秒。
+            /// 旋转任务：度/游戏秒。
+            /// 由 IsRotation 决定单位。
+            /// </summary>
             public required float Speed { get; set; }
 
             /// <summary>
@@ -129,6 +139,23 @@ namespace TeraDeepOcean
 
             /// <summary>组内全部受控目标。</summary>
             public List<MotionTarget> Targets { get; } = new();
+            /// <summary>
+            /// false 表示平移任务，true 表示旋转任务。
+            /// 任务创建后不能在两种模式之间切换。
+            /// </summary>
+            public bool IsRotation { get; init; }
+
+            /// <summary>
+            /// 旋转中心，使用目标所属潜艇的局部显示坐标。
+            /// 任务创建时固定，后续命令不会重新读取中心。
+            /// </summary>
+            public Vector2 Pivot { get; init; }
+
+            /// <summary>
+            /// 从初始姿态到目标姿态的有符号角度，单位为度。
+            /// 正值逆时针，负值顺时针。
+            /// </summary>
+            public float AngleDegrees { get; init; }
         }
         /// <summary>
         /// 网络快照中一个目标的 ID 和原位。
@@ -139,6 +166,7 @@ namespace TeraDeepOcean
             public ushort Id { get; set; }
             public float HomeX { get; set; }
             public float HomeY { get; set; }
+            public float HomeRotation { get; set; }
         }
         /// <summary>
         /// 服务器发给客户端的完整运动状态。
@@ -172,6 +200,17 @@ namespace TeraDeepOcean
 
             /// <summary>目标实体及原位列表。</summary>
             public List<TargetSnapshot> Targets { get; set; } = new();
+            /// <summary>是否为旋转任务。</summary>
+            public bool IsRotation { get; set; }
+
+            /// <summary>旋转中心的局部水平坐标。</summary>
+            public float PivotX { get; set; }
+
+            /// <summary>旋转中心的局部垂直坐标。</summary>
+            public float PivotY { get; set; }
+
+            /// <summary>有符号目标角度，单位为度。</summary>
+            public float AngleDegrees { get; set; }
         }
         /// <summary>
         /// 接收控制器命令。
@@ -189,6 +228,8 @@ namespace TeraDeepOcean
         public static bool Command(Item controller, Vector2 offset, float speed, bool moveWalls, bool moveItems, bool? goal)
         {
             if (!IsAuthority || !EnsureRound() || controller is null || controller.Removed || !IsValidVector(offset) || !float.IsFinite(speed) || speed <= 0f || !float.IsFinite(offset.LengthSquared()) || offset.LengthSquared() < 0.0001f) return false;
+            // 被交接的旧任务已停止控制。相同的持续 set_in 不应抢回目标。
+            if (IsRepeatedHandedOffCommand(controller, goal)) return true;
             bool created = false;
             if (!groups.TryGetValue(controller.ID, out MotionGroup? group))
             {
@@ -196,6 +237,11 @@ namespace TeraDeepOcean
                 if (group is null) return false;
                 groups.Add(controller.ID, group);
                 created = true;
+            }
+            // 同一个控制器 ID 不能同时表示平移和旋转任务。
+            if (group.IsRotation)
+            {
+                return false;
             }
             // 原任务引用的控制器或目标失效时，先释放任务。
             // 本次不自动重建，防止误把当前位置记录成新的原位。
@@ -209,6 +255,7 @@ namespace TeraDeepOcean
             if (!created && group.Goal == newGoal && group.Speed == speed) return true;
             group.Goal = newGoal;
             group.Speed = speed;
+            RememberAcceptedGoal(group);
             // 不改变 Progress，因此运动中反向时会从当前位置返回。
             SendSnapshot(group, deleted: false);
             group.SyncTimer = GetSyncInterval(group);
@@ -220,7 +267,7 @@ namespace TeraDeepOcean
         /// 只处理直接 link 的目标，不递归寻找它们继续 link 的实体。
         /// 目标必须与控制器处于相同潜艇坐标空间。
         ///
-        /// 若选中的目标已被其他控制器占用，拒绝创建整个运动组，
+        /// 若目标所属旧任务仍在运动，拒绝整组；旧任务停靠后允许交接。
         /// </summary>
         private static MotionGroup? BuildGroup(Item controller, Vector2 offset, float speed, bool moveWalls, bool MoveItems)
         {
@@ -239,7 +286,7 @@ namespace TeraDeepOcean
                 if (entity is null || entity.Removed || ReferenceEquals(entity, controller) || !seen.Add(entity.ID)) continue;
                 bool Accepted = (moveWalls && entity is Structure) || (MoveItems && entity is Item);
                 if (!Accepted) continue;
-                if (!ReferenceEquals(entity.Submarine, controller.Submarine) || entity is Item { ParentInventory: not null } || targetOwners.ContainsKey(entity.ID) || !IsValidVector(entity.Position)) return null;
+                if (!ReferenceEquals(entity.Submarine, controller.Submarine) || entity is Item { ParentInventory: not null } || !IsValidVector(entity.Position)) return null;
                 if (group.Targets.Count >= MaxTargetsPerController) return null;
                 group.Targets.Add(new MotionTarget
                 {
@@ -248,12 +295,9 @@ namespace TeraDeepOcean
                 });
             }
             if (group.Targets.Count == 0) return null;
-            // 所有目标都通过检查后才登记占用，避免创建失败后留下残留记录。
-            foreach (MotionTarget target in group.Targets)
-            {
-                targetOwners.Add(target.Entity.ID, controller.ID);
-            }
-            return group;
+            // 先衔接当前姿态，再一次性检查并交接所有目标。
+            PrepareReacquiredGroupPose(group);
+            return TryClaimGroupTargets(group) ? group : null;
         }
         /// <summary>
         /// 每次 GameSession.Update 后调用一次。
@@ -312,32 +356,46 @@ namespace TeraDeepOcean
             return group.Targets.Count > 0;
         }
         /// <summary>
-        /// 根据速度推进进度。
-        ///
-        /// 例如总路程 200 像素，速度 100 像素/秒：
-        /// 每经过 1 秒，Progress 增加 100 / 200，也就是 0.5。
+        /// 按游戏时间推进运动进度。
+        /// 平移使用总距离，旋转使用总角度；两者均保持 0～1 进度。
         /// </summary>
         private static void Advance(MotionGroup group, float deltaTime)
         {
-            if (group.Progress == group.Goal) return;
+            if (group.Progress == group.Goal)
+            {
+                return;
+            }
 
-            float distance = group.Offset.Length();
-            float step = group.Speed * deltaTime / distance;
+            float totalAmount = group.IsRotation
+                ? MathF.Abs(group.AngleDegrees)
+                : group.Offset.Length();
 
-            // Min/Max 将最后一步限制在终点，避免越过后再反复修正。
+            // 正常任务在建立时已经检查，此处作为防止除零的保护。
+            if (!float.IsFinite(totalAmount) || totalAmount <= 0f)
+            {
+                return;
+            }
+
+            float step = group.Speed * deltaTime / totalAmount;
+
             group.Progress = group.Goal > group.Progress
                 ? MathF.Min(group.Goal, group.Progress + step)
                 : MathF.Max(group.Goal, group.Progress - step);
         }
         /// <summary>
-        /// 由原位、总位移和共享进度计算各实体的位置。
-        ///
-        /// 使用绝对计算结果，避免反复累加小位移造成误差。
-        /// 停靠后仍执行校准，因此受控物品不会主动恢复自由运动。
+        /// 根据任务类型应用位置。
+        /// 停靠后仍保持控制，与现有平移任务行为一致。
         /// </summary>
         private static void ApplyPositions(MotionGroup group)
         {
+            if (group.IsRotation)
+            {
+                ApplyRotationPositions(group);
+                return;
+            }
+
             Vector2 offsetNow = group.Offset * group.Progress;
+
             foreach (MotionTarget target in group.Targets)
             {
                 Vector2 desired = target.Home + offsetNow;
@@ -620,9 +678,13 @@ namespace TeraDeepOcean
                 RemoveGroup(controller.ID, notifyClients: true);
             }
         }
-        /// <summary>删除任务并释放目标占用记录。</summary>
-        private static void RemoveGroup(ushort controllerId, bool notifyClients)
+        /// <summary>
+        /// 删除任务并释放占用。交接时保留最后接受的目标，
+        /// 避免持续信号重启旧任务；主动释放或失效时清除此记录。
+        /// </summary>
+        private static void RemoveGroup(ushort controllerId, bool notifyClients, bool preserveCommandHistory = false)
         {
+            if (!preserveCommandHistory) acceptedControllerGoals.Remove(controllerId);
             if (!groups.Remove(controllerId, out MotionGroup? group)) return;
             foreach (MotionTarget target in group.Targets)
             {
@@ -669,6 +731,8 @@ namespace TeraDeepOcean
             targetOwners.Clear();
             clientRevisions.Clear();
             pendingSnapshots.Clear();
+            acceptedControllerGoals.Clear();
+            clientTargetRevisions.Clear();
             currentSession = null;
             currentLevel = null;
             platformSupportedItems.Clear();
@@ -696,7 +760,11 @@ namespace TeraDeepOcean
                 Goal = group.Goal,
                 Speed = group.Speed,
                 OffsetX = group.Offset.X,
-                OffsetY = group.Offset.Y
+                OffsetY = group.Offset.Y,
+                IsRotation = group.IsRotation,
+                PivotX = group.Pivot.X,
+                PivotY = group.Pivot.Y,
+                AngleDegrees = group.AngleDegrees,
             };
             if (!deleted)
             {
@@ -706,7 +774,8 @@ namespace TeraDeepOcean
                     {
                         Id = target.Entity.ID,
                         HomeX = target.Home.X,
-                        HomeY = target.Home.Y
+                        HomeY = target.Home.Y,
+                        HomeRotation = target.HomeRotation,
                     });
                 }
             }
@@ -738,18 +807,22 @@ namespace TeraDeepOcean
             pendingSnapshots[snapshot.ControllerId] = snapshot;
         }
         /// <summary>
-        /// 检查网络数据的基本有效性。
-        /// 删除消息不需要有效的运动配置或目标列表。
+        /// 校验完整快照。
+        /// 平移与旋转分别检查各自的运动参数。
         /// </summary>
         private static bool IsSnapshotValid(MotionSnapshot snapshot)
         {
-            if (snapshot.Revision <= 0) return false;
-            if (snapshot.Deleted) return true;
-            Vector2 offset = new(snapshot.OffsetX, snapshot.OffsetY);
-            if (!IsValidVector(offset) ||
-                !float.IsFinite(offset.LengthSquared()) ||
-                offset.LengthSquared() < 0.0001f ||
-                !float.IsFinite(snapshot.Speed) ||
+            if (snapshot.Revision <= 0)
+            {
+                return false;
+            }
+
+            if (snapshot.Deleted)
+            {
+                return true;
+            }
+
+            if (!float.IsFinite(snapshot.Speed) ||
                 snapshot.Speed <= 0f ||
                 !float.IsFinite(snapshot.Progress) ||
                 snapshot.Progress < 0f ||
@@ -761,18 +834,44 @@ namespace TeraDeepOcean
             {
                 return false;
             }
+
+            if (snapshot.IsRotation)
+            {
+                if (!IsValidVector(new Vector2(snapshot.PivotX, snapshot.PivotY)) ||
+                    !float.IsFinite(snapshot.AngleDegrees) ||
+                    MathF.Abs(snapshot.AngleDegrees) < 0.001f ||
+                    MathF.Abs(snapshot.AngleDegrees) > 360f)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                Vector2 offset = new(snapshot.OffsetX, snapshot.OffsetY);
+
+                if (!IsValidVector(offset) ||
+                    !float.IsFinite(offset.LengthSquared()) ||
+                    offset.LengthSquared() < 0.0001f)
+                {
+                    return false;
+                }
+            }
+
             HashSet<ushort> ids = new();
+
             foreach (TargetSnapshot? target in snapshot.Targets)
             {
                 if (target is null ||
                     target.Id == snapshot.ControllerId ||
                     !ids.Add(target.Id) ||
                     !float.IsFinite(target.HomeX) ||
-                    !float.IsFinite(target.HomeY))
+                    !float.IsFinite(target.HomeY) ||
+                    !float.IsFinite(target.HomeRotation))
                 {
                     return false;
                 }
             }
+
             return true;
         }
         /// <summary>
@@ -783,20 +882,32 @@ namespace TeraDeepOcean
         {
             if (IsAuthority || pendingSnapshots.Count == 0) return;
             List<ushort> applied = new();
-            foreach (KeyValuePair<ushort, MotionSnapshot> pair in pendingSnapshots)
+            // 全局序号也决定不同控制器之间的交接先后，不能依赖字典顺序。
+            List<MotionSnapshot> ordered = new(pendingSnapshots.Values);
+            ordered.Sort((left, right) => left.Revision.CompareTo(right.Revision));
+            foreach (MotionSnapshot snapshot in ordered)
             {
-                MotionSnapshot snapshot = pair.Value;
                 if (snapshot.Deleted)
                 {
+                    // 记录删除边界，防止其他旧任务的迟到快照抢回目标。
+                    RecordDeletedTargetRevisions(snapshot);
                     RemoveGroup(snapshot.ControllerId, notifyClients: false);
-                    applied.Add(pair.Key);
+                    applied.Add(snapshot.ControllerId);
+                    continue;
+                }
+                if (IsSupersededTargetSnapshot(snapshot))
+                {
+                    applied.Add(snapshot.ControllerId);
                     continue;
                 }
                 MotionGroup? group = RestoreGroup(snapshot);
                 if (group is null) continue;
+
+                // 新快照代表服务器已经完成交接，撤销本地旧组的持续校正。
+                ReplaceClientTargetOwners(group, snapshot.Revision);
                 groups[snapshot.ControllerId] = group;
                 ApplyPositions(group);
-                applied.Add(pair.Key);
+                applied.Add(snapshot.ControllerId);
             }
             foreach (ushort id in applied)
             {
@@ -804,12 +915,17 @@ namespace TeraDeepOcean
             }
         }
         /// <summary>
-        /// 根据服务器快照寻找本地实体，重建运动组。
-        /// 任一实体还没有加载时返回 null，避免只移动半组目标。
+        /// 使用服务器提供的初始姿态和当前进度恢复运动组。
+        /// 目标实体尚未加载完整时返回 null，由 pendingSnapshots 保留重试。
         /// </summary>
         private static MotionGroup? RestoreGroup(MotionSnapshot snapshot)
         {
-            if (Entity.FindEntityByID(snapshot.ControllerId) is not Item { Removed: false } controller) return null;
+            if (Entity.FindEntityByID(snapshot.ControllerId)
+                is not Item { Removed: false } controller)
+            {
+                return null;
+            }
+
             MotionGroup group = new()
             {
                 Controller = controller,
@@ -817,20 +933,41 @@ namespace TeraDeepOcean
                 Offset = new Vector2(snapshot.OffsetX, snapshot.OffsetY),
                 Speed = snapshot.Speed,
                 Progress = snapshot.Progress,
-                Goal = snapshot.Goal
+                Goal = snapshot.Goal,
+
+                IsRotation = snapshot.IsRotation,
+                Pivot = new Vector2(snapshot.PivotX, snapshot.PivotY),
+                AngleDegrees = snapshot.AngleDegrees
             };
+
             foreach (TargetSnapshot target in snapshot.Targets)
             {
-                if (Entity.FindEntityByID(target.Id) is not MapEntity { Removed: false } entity) return null;
-                if ((entity is not Item && entity is not Structure) || !ReferenceEquals(entity.Submarine, controller.Submarine) || entity is Item { ParentInventory: not null }) return null;
+                if (Entity.FindEntityByID(target.Id)
+                    is not MapEntity { Removed: false } entity)
+                {
+                    return null;
+                }
+
+                if ((entity is not Item && entity is not Structure) ||
+                    !ReferenceEquals(entity.Submarine, controller.Submarine) ||
+                    entity is Item { ParentInventory: not null })
+                {
+                    return null;
+                }
+
+                if (snapshot.IsRotation && !CanRotateTarget(entity))
+                {
+                    return null;
+                }
+
                 group.Targets.Add(new MotionTarget
                 {
                     Entity = entity,
-                    Home = new Vector2(target.HomeX, target.HomeY)
+                    Home = new Vector2(target.HomeX, target.HomeY),
+                    HomeRotation = target.HomeRotation
                 });
             }
             return group;
         }
-        
     }
 }

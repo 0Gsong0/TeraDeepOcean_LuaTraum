@@ -76,6 +76,9 @@ public partial class Plugin : IBarotraumaPlugin
         TLRtsDeploymentBridge.Dispose();
         TLRtsDeploymentCostSystem.Dispose();
         TLRtsDeploymentRegistry.Clear();
+#if CLIENT
+        TLRotationPivotPicker.Cancel();
+#endif
         DebugConsole.NewMessage("TeraDeepOcean Plugin unloaded", Color.Red);
     }
 

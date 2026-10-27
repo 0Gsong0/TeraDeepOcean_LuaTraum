@@ -9,6 +9,7 @@ public partial class Plugin
     {
         TLConfigMenuEntry.Init(HarmonyProvider.GetHarmony());
         TLRtsClient.Init(HarmonyProvider.GetHarmony());
+        TLRotationPivotPicker.Init(HarmonyProvider.GetHarmony());
     }
 
     partial void DisposeProjectSpecific()
