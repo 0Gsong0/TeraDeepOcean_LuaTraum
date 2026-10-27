@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Character SpeciesName="辐射蠕虫" Tags="" SpeciesTranslationOverride="" DisplayName="" Group="abyss" Humanoid="False" HasInfo="False" CanInteract="False" CanClimb="True" ForceSlowClimbing="False" Husk="False" HuskedSpecies="" NonHuskedSpecies="" UseHuskAppendage="False" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="False" CanSpeak="False" ShowHealthBar="True" UseBossHealthBar="True" Noise="100" Visibility="100" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="10" UsePathFinding="True" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="10" DrawLast="False" AITurretPriority="1" AISlowTurretPriority="1" DespawnContainer="duffelbag_TL">
+  <ragdolls folder="default" />
+  <animations folder="default" />
+  <damageemitter drawontop="True" Particle="gib" AngleMin="0" AngleMax="360" ScaleMin="0.5" ScaleMax="1" VelocityMin="200" VelocityMax="300" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="2" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+  <bloodemitter Particle="waterblood" AngleMin="0" AngleMax="360" ScaleMin="10" ScaleMax="20" VelocityMin="0" VelocityMax="100" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="10" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+  <gibemitter Particle="waterblood" AngleMin="0" AngleMax="360" ScaleMin="10" ScaleMax="20" VelocityMin="0" VelocityMax="100" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="2" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+  <gibemitter drawontop="True" Particle="gib" AngleMin="0" AngleMax="360" ScaleMin="0.5" ScaleMax="1" VelocityMin="200" VelocityMax="700" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="20" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+  <gibemitter Particle="heavygib" AngleMin="0" AngleMax="360" ScaleMin="2" ScaleMax="4" VelocityMin="50" VelocityMax="1000" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="20" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+  <health Vitality="18000" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="False" BleedingReduction="0" BurnReduction="0" ConstantHealthRegeneration="0" HealthRegenerationWhenEating="0" StunImmunity="True" PoisonImmunity="True" PoisonVulnerability="0" EmpVulnerability="0" ApplyMovementPenalties="True" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
+    <Limb name="Head" />
+    <Limb name="LeftArm" />
+    <Limb name="RightArm" />
+  </health>
+  <sound file="Content/Characters/Endworm/ENDWORM_idle1.ogg" state="Idle" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_idle2.ogg" state="Idle" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_idle3.ogg" state="Idle" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_attack1.ogg" state="Attack" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_attack2.ogg" state="Attack" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_attack3.ogg" state="Attack" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_damage1.ogg" state="Damage" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_damage2.ogg" state="Damage" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_damage3.ogg" state="Damage" range="20000" volume="1" />
+  <sound file="Content/Characters/Endworm/ENDWORM_death1.ogg" state="Die" range="30000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Endworm/ENDWORM_death2.ogg" state="Die" range="30000" volume="1" dontmuffle="true" />
+  <ai combatstrength="10000" sight="2" hearing="10" aggressionhurt="100" aggressiongreed="10" fleehealththreshold="0" attackwhenprovoked="False" avoidgunfire="False" avoidtime="3" minfleetime="20" aggressiveboarding="False" enforceaggressivebehaviorformissions="True" targetouterwalls="True" randomattack="False" avoidabyss="False" stayinabyss="True" aggressioncumulation="10" startaggression="0" maxaggression="100" WallTargetingMethod="Heading,Steering">
+    <target tag="weaker" state="Attack" priority="100" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="True" ignoreincapacitated="True" threshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
+    <target tag="human" state="Attack" priority="100" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="True" ignoreincapacitated="True" threshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
+    <target tag="room" state="Attack" priority="80" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreincapacitated="False" sweepdistance="0" sweepstrength="10" sweepspeed="1" threshold="0" attackpattern="Circle" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="50" circlestartdistance="10000" />
+    <target tag="sonar" state="Attack" priority="10" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreincapacitated="False" sweepdistance="0" sweepstrength="10" sweepspeed="1" threshold="0" attackpattern="Circle" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="50" circlestartdistance="10000" />
+    <target tag="terminalcell" state="Idle" priority="1" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" threshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
+    <target tag="leucocyte" state="Idle" priority="1" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" threshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
+    <target tag="辐射捕勾兽" state="Idle" priority="1" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" ignoreinside="False" ignoreoutside="False" ignoreifnotinsamesub="False" ignoreincapacitated="False" threshold="0" attackpattern="Straight" sweepdistance="0" sweepstrength="10" sweepspeed="1" circlestartdistance="5000" circlerotationspeed="1" circlestrikedistancemultiplier="5" circlemaxrandomoffset="0" />
+  </ai>
+  <Inventory Slots="Any, Any, Any, Any, Any, Any, Any, Any" AccessibleWhenAlive="False" Commonness="1">
+    <Item amount="3" Identifier="endwormshell" />
+    <Item amount="1" Identifier="Radiation_ball" />
+  </Inventory>
+  <StatusEffect type="OnDeath" target="This">
+    <SpawnItem Identifier="Radiation_ball" spawnposition="ThisInventory" probability="0.1" />
+    <SpawnItem identifiers="ZLPlocater_TL" spawnposition="ThisInventory" probability="1" />
+  </StatusEffect>
+  <StatusEffect type="OnActive" target="this">
+    <Sound file="%ModDir%/Sounds/Music/Musics/Katana.ogg" loop="true" range="25000" dontmuffle="true" volume="1" />
+  </StatusEffect>
+  <!-- Requires a separate status effect, because there can only be one sound channel per status effect -->
+  <StatusEffect type="OnActive" target="this">
+    <Sound file="Content/Characters/Endworm/ENDWORM_idleLoop.ogg" loop="true" range="20000" dontmuffle="true" />
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This" disabledeltatime="true" stackable="false" delay="800">
+    <RemoveCharacte2r />
+  </StatusEffect>
+</Character>

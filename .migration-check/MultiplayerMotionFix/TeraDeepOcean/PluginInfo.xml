@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PluginInfos notsyncedinmultiplayer="false" >
+  <MainAssemblyInfo assemblypath="%ModDir%/Windows/Server/TeraDeepOceanServer.dll" platforms="Windows" targets="Server" />
+  <MainAssemblyInfo assemblypath="%ModDir%/Windows/Client/TeraDeepOceanClient.dll" platforms="Windows" targets="Client" />
+
+  <MainAssemblyInfo assemblypath="%ModDir%/Linux/Server/TeraDeepOceanServer.dll" platforms="Linux" targets="Server" />
+  <MainAssemblyInfo assemblypath="%ModDir%/Linux/Client/TeraDeepOceanClient.dll" platforms="Linux" targets="Client" />
+
+  <MainAssemblyInfo assemblypath="%ModDir%/Mac/Server/TeraDeepOceanServer.dll" platforms="Mac" targets="Server" />
+  <MainAssemblyInfo assemblypath="%ModDir%/Mac/Client/TeraDeepOceanClient.dll" platforms="Mac" targets="Client" />
+</PluginInfos>

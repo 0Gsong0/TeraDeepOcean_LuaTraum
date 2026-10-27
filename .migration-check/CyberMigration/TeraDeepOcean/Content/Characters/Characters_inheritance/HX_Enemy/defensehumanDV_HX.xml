@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="Tl_human_enemy_base" displayname="" speciesname="defensehumanDV_HX" group="HX">
+    <health Vitality="160" />
+    <ai sight="5" hearing="5" />
+    <attack damagemultiplier="0" />
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="7">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="cloth_HX" slot="InnerClothes" />
+      <Item identifier="combatdivingsuit_HXAI" slot="OuterClothes" />
+      <Item identifier="XTZ_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="4">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="cloth_HX" slot="InnerClothes" />
+      <Item identifier="combatdivingsuit_HXAI" slot="OuterClothes" />
+      <Item identifier="HX_rs_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="2">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="cloth_HX" slot="InnerClothes" />
+      <Item identifier="combatdivingsuit_HXAI" slot="OuterClothes" />
+      <Item identifier="grenadelauncher_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <StatusEffect type="OnDeath" target="This">
+      <SpawnItem identifiers="coalitioncommendation" spawnposition="ThisInventory" probability="0.25" />
+    </StatusEffect>
+  </Charactervariant>
+</Override>

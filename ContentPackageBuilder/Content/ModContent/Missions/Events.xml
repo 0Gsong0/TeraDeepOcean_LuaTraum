@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Randomevents>
+  <EventSprites>
+    <Sprite identifier="TL" texture="%ModDir%/Content/ModContent/Missions/TL.png" sourcerect="0,0,512,512" origin="0.5,0.5" />
+    <Sprite identifier="TL_LeoPard" texture="%ModDir%/Content/ModContent/Missions/LeoPard.png" sourcerect="0,0,640,1024" origin="0.5,0.5" />
+  </EventSprites>
+  <EventPrefabs>
+    <!-- 站点无敌 -->
+    <ScriptedEvent identifier="TL_indestructible_wall">
+      <!-- StructurePrefabs.xml -->
+      <TagAction criteria="structureidentifier:ff_x_wall" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:ff_y_wall" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella25" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella26" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassd" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglasse" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassf" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:topwindow" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:verticalwindow" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <!-- OutpostStructurePrefabs.xml -->
+      <TagAction criteria="structureidentifier:icewall" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:icewall90" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <!-- StructurePrefabsWrecked.xml -->
+      <TagAction criteria="structureidentifier:ff_x_wall_wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella07wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella21wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshella23wrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:shella26degwrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassdwrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassewrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <TagAction criteria="structureidentifier:sshellaglassfwrecked" tag="targetwall" submarinetype="outpost" continueifnotargetsfound="true" />
+      <StatusEffectAction targettag="targetwall">
+        <StatusEffect target="This" indestructible="true" />
+      </StatusEffectAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="TL_GetMissions" commonness="110">
+      <TagAction criteria="player" tag="player" />
+      <SpawnAction npcsetidentifier="TLnpc" npcidentifier="TLnpc1" targettag="TLnpc1" spawnlocation="Outpost" targetmoduletags="airlock" />
+      <TriggerAction target1tag="TLnpc1" target2tag="player" applytotarget2="triggerer_player" radius="150" />
+      <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.1" targettag="triggerer_player" eventsprite="TL" dialogtype="Small">
+        <Option text="Dialogue.TL.XIGUAN.GetMissions.2">
+          <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.3" targettag="triggerer_player">
+            <Option text="Dialogue.TL.XIGUAN.GetMissions.4">
+              <CheckReputationAction targettype="Faction" identifier="TLCompany" condition="gt -5">
+                <Failure>
+                  <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.5" targettag="triggerer_player" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLrescue" />
+                  <MissionAction missiontag="TLHunting_Difficulty" />
+                  <MissionAction missiontag="TLPirate" />
+                </Failure>
+                <Success>
+                  <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.6" targettag="triggerer_player" />
+                  <MissionAction missiontag="TL_Help" />
+                  <MissionAction missiontag="TL_Help" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLrescue" />
+                  <MissionAction missiontag="TLHunting_Difficulty" />
+                  <MissionAction missiontag="TLPirate" />
+                </Success>
+              </CheckReputationAction>
+            </Option>
+            <Option text="Dialogue.TL.XIGUAN.GetMissions.7">
+              <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.8" targettag="triggerer_player" />
+              <MissionAction missiontag="TLHunting" />
+              <MissionAction missiontag="TLHunting" />
+              <MissionAction missiontag="TLrescue" />
+              <MissionAction missiontag="TLHunting_Difficulty" />
+              <MissionAction missiontag="TLPirate" />
+            </Option>
+          </ConversationAction>
+        </Option>
+      </ConversationAction>
+      <NPCWaitAction npctag="TLnpc1" wait="true" />
+    </ScriptedEvent>
+    <ScriptedEvent identifier="TL_GetMissions1" commonness="110">
+      <TagAction criteria="player" tag="player" />
+      <SpawnAction npcsetidentifier="TLnpc" npcidentifier="TLnpc1" targettag="TLnpc1" spawnlocation="Outpost" targetmoduletags="airlock_TL" />
+      <TriggerAction target1tag="TLnpc1" target2tag="player" applytotarget2="triggerer_player" radius="150" waitforinteraction="true" />
+      <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.1" targettag="triggerer_player" eventsprite="TL">
+        <Option text="Dialogue.TL.XIGUAN.GetMissions.2">
+          <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.3" targettag="triggerer_player">
+            <Option text="Dialogue.TL.XIGUAN.GetMissions.4">
+              <CheckReputationAction targettype="Faction" identifier="TLCompany" condition="gt -5">
+                <Failure>
+                  <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.5" targettag="triggerer_player" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLrescue" />
+                  <MissionAction missiontag="TLHunting_Difficulty" />
+                  <MissionAction missiontag="TLPirate" />
+                </Failure>
+                <Success>
+                  <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.6" targettag="triggerer_player" />
+                  <MissionAction missiontag="TL_Help" />
+                  <MissionAction missiontag="TL_Help" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLHunting" />
+                  <MissionAction missiontag="TLrescue" />
+                  <MissionAction missiontag="TLHunting_Difficulty" />
+                  <MissionAction missiontag="TLPirate" />
+                </Success>
+              </CheckReputationAction>
+            </Option>
+            <Option text="Dialogue.TL.XIGUAN.GetMissions.7">
+              <ConversationAction text="Dialogue.TL.XIGUAN.GetMissions.8" targettag="triggerer_player" />
+              <MissionAction missiontag="TLHunting" />
+              <MissionAction missiontag="TLHunting" />
+              <MissionAction missiontag="TLrescue" />
+              <MissionAction missiontag="TLHunting_Difficulty" />
+              <MissionAction missiontag="TLPirate" />
+            </Option>
+          </ConversationAction>
+        </Option>
+      </ConversationAction>
+      <NPCWaitAction npctag="TLnpc1" wait="true" />
+    </ScriptedEvent>
+    <ScriptedEvent identifier="TL_LeoPard" commonness="110">
+      <TagAction criteria="player" tag="player" />
+      <SpawnAction npcsetidentifier="TLnpc" npcidentifier="TLnpc2" targettag="TLnpc2" spawnlocation="Outpost" targetmoduletags="airlock_TL" />
+      <NPCWaitAction npctag="TLnpc2" wait="true" />
+      <TriggerAction target1tag="TLnpc2" target2tag="player" applytotarget2="triggerer_player" radius="200" waitforinteraction="true" />
+      <CheckDataAction identifier="Leo_Favorability" condition="gte 1">
+        <Failure>
+          <ConversationAction text="Dialogue.TL.Leo.1" targettag="triggerer_player" eventsprite="TL_LeoPard">
+            <Option text="Dialogue.TL.Leo.2">
+              <ConversationAction text="Dialogue.TL.Leo.3" targettag="triggerer_player" />
+              <ReputationAction targettype="Faction" identifier="TLCompany" increase="1" />
+              <SetDataAction identifier="Leo_Favorability" operation="add" value="2" />
+            </Option>
+            <Option text="Dialogue.TL.Leo.4">
+              <ConversationAction text="Dialogue.TL.Leo.5" targettag="triggerer_player" />
+              <ReputationAction targettype="Faction" identifier="TLCompany" increase="-1" />
+              <SetDataAction identifier="Leo_Favorability" operation="add" value="2" />
+            </Option>
+          </ConversationAction>
+        </Failure>
+        <Success>
+          <CheckDataAction identifier="Leo_Favorability" condition="gte 2">
+            <Success>
+              <CheckDataAction identifier="Leo_Favorability" condition="gte 3">
+                <Failure>
+                  <ConversationAction text="Dialogue.TL.Leo.6" targettag="triggerer_player" eventsprite="TL_LeoPard">
+                    <Option text="Dialogue.TL.Leo.7">
+                      <ConversationAction text="Dialogue.TL.Leo.8" targettag="triggerer_player" />
+                      <SetDataAction identifier="Leo_Favorability" operation="add" value="1" />
+                      <MissionAction missiontag="TL_Help" />
+                      <MissionAction missiontag="TL_Help" />
+                      <MoneyAction Amount="10000" />
+                    </Option>
+                    <Option text="Dialogue.TL.Leo.9">
+                      <ConversationAction text="Dialogue.TL.Leo.10" targettag="triggerer_player" />
+                      <SetDataAction identifier="Leo_Favorability" operation="add" value="1" />
+                      <ReputationAction targettype="Faction" identifier="TLCompany" increase="1" />
+                      <MoneyAction Amount="5000" />
+                    </Option>
+                  </ConversationAction>
+                </Failure>
+                <Success>
+                  <CheckDataAction identifier="Leo_Favorability" condition="gte 4">
+                    <Failure>
+                      <ConversationAction text="Dialogue.TL.Leo.11" targettag="triggerer_player" eventsprite="TL_LeoPard">
+                        <Option text="Dialogue.TL.Leo.12">
+                          <ConversationAction text="Dialogue.TL.Leo.13" targettag="triggerer_player" />
+                          <SetDataAction identifier="Leo_Favorability" operation="add" value="1" />
+                          <MissionAction missiontag="TL_Help" />
+                          <MoneyAction Amount="5000" />
+                        </Option>
+                        <Option text="Dialogue.TL.Leo.14">
+                          <ConversationAction text="Dialogue.TL.Leo.15" targettag="triggerer_player">
+                            <Option text="Dialogue.TL.Leo.16">
+                              <ConversationAction text="Dialogue.TL.Leo.17" targettag="triggerer_player" />
+                              <SetDataAction identifier="Leo_Favorability" operation="add" value="1" />
+                              <ReputationAction targettype="Faction" identifier="TLCompany" increase="1" />
+                              <SpawnAction LootingIsStealing="false" ItemIdentifier="TL_blueprint" targetinventory="triggerer_player" IgnoreByAI="true" />
+                              <MoneyAction Amount="1000" />
+                            </Option>
+                          </ConversationAction>
+                        </Option>
+                      </ConversationAction>
+                    </Failure>
+                    <Success>
+                      <!--检查-->
+                      <!--失败-->
+                      <ConversationAction text="Dialogue.TL.Leo.18" targettag="triggerer_player" eventsprite="TL_LeoPard">
+                        <Option text="Dialogue.TL.Leo.19">
+                          <ConversationAction text="Dialogue.TL.Leo.20" targettag="triggerer_player">
+                            <Option text="Dialogue.TL.Leo.21">
+                              <ConversationAction text="Dialogue.TL.Leo.22" targettag="triggerer_player">
+                                <Option text="Dialogue.TL.Leo.23">
+                                  <ConversationAction text="Dialogue.TL.Leo.24" targettag="triggerer_player">
+                                    <Option text="Dialogue.TL.Leo.25">
+                                      <ConversationAction text="Dialogue.TL.Leo.26" targettag="triggerer_player" />
+                                      <SetDataAction identifier="Leo_Favorability" operation="add" value="1" />
+                                    </Option>
+                                  </ConversationAction>
+                                </Option>
+                              </ConversationAction>
+                            </Option>
+                          </ConversationAction>
+                        </Option>
+                      </ConversationAction>
+                      <!--失败-->
+                      <!--成功-->
+                      <!--检查-->
+                      <!--成功-->
+                    </Success>
+                  </CheckDataAction>
+                </Success>
+              </CheckDataAction>
+            </Success>
+            <Failure>
+              <SetDataAction identifier="Leo_Favorability" operation="add" value="1" />
+            </Failure>
+          </CheckDataAction>
+        </Success>
+      </CheckDataAction>
+    </ScriptedEvent>
+    <!--站点增援-->
+    <ScriptedEvent identifier="HQ_KFZY">
+      <!--事件id-->
+      <!--以下内容不用动，大概意思是，玩家被ai看到开始倒计时。每次等待一次循环，每次循环390s，循环结束后50的概率等待一秒 25的概率等待0.5秒 25的概率等待1.5秒-->
+      <TagAction criteria="crew" tag="crew" />
+      <TagAction criteria="bot" tag="bot" />
+      <Label name="waitforspotting" />
+      <WaitAction time="1" />
+      <CheckVisibilityAction entitytag="bot" excludedentitytag="crew" targettag="crew">
+        <Failure>
+          <Goto name="waitforspotting" />
+        </Failure>
+      </CheckVisibilityAction>
+      <WaitAction time="3" />
+      <ConversationAction text="Dialogue.HX.HQ.1" dialogtype="Small" />
+      <!--被发现ai发现时候的提示，代表有增援会到来-->
+      <Label name="delay" />
+      <RNGAction chance="0.5">
+        <Success>
+          <WaitAction time="1" />
+        </Success>
+        <Failure>
+          <RNGAction chance="0.5">
+            <Success>
+              <WaitAction time="0.5" />
+            </Success>
+            <Failure>
+              <WaitAction time="1.5" />
+            </Failure>
+          </RNGAction>
+        </Failure>
+      </RNGAction>
+      <GoTo name="delay" maxtimes="240" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" targettag="HX_KFXDYY" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD1" />
+      <!--刷新出的增援的队长带个音响，这个只需要改npcid和from就行就是前两个，spawnpointtag不写的话则是随机位置，要写自己填对应的-->
+      <StatusEffectAction targettag="HX_KFXDYY">
+        <StatusEffect target="This">
+          <Sound file="%ModDir%/Sounds/Music/OW1JS.ogg" range="99999" volume="3" Loop="true" />
+          <!--bgm-->
+        </StatusEffect>
+      </StatusEffectAction>
+      <!--以下都是增援部队 等待时间0.1，目的是为了刷怪流畅点，避免卡死-->
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD1" />
+      <WaitAction time="0.1" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD1" multiplayeronly="true" />
+      <WaitAction time="0.1" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD1" />
+      <WaitAction time="0.1" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD2" />
+      <WaitAction time="0.1" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD2" multiplayeronly="true" />
+      <WaitAction time="0.1" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD2" />
+      <WaitAction time="0.1" />
+      <SpawnAction npcsetidentifier="HXnpc" npcidentifier="HX_KFXD" lootingisstealing="false" spawnlocation="outpost" TeamID="None" allowinplayerview="false" spawnpointtag="HX_KFXD2" />
+      <WaitAction time="0.1" />
+      <ConversationAction text="Dialogue.HX.HQ.2" dialogtype="Small" />
+      <!--事件结束后的提示，代表增援全部到达-->
+    </ScriptedEvent>
+  </EventPrefabs>
+  <EventSet identifier="outpostTL" leveltype="outpost" locationtype="TL_reside,outpost,city,research,military,mine,colony,settlement,construction,camp,base,blockade,survey,excavation,study,lab,clinic,hospital,surgery,hydroponics,biosphere,nourishment,factory,shipyard,fusion,tsm_city,tsm_military,tsm_mine" allowatstart="true" minleveldifficulty="0" maxleveldifficulty="100" SelectAlways="true" chooserandom="false" ignorecooldown="true" additive="true" commonness="150">
+    <EventSet identifier="outpostTLNpc1" minleveldifficulty="0" maxleveldifficulty="100" allowatstart="true" chooserandom="false" exhaustible="true">
+      <!-- Mission EventSets -->
+      <ScriptedEvent identifier="TL_GetMissions,TL_GetMissions1" commonness="115" />
+    </EventSet>
+    <EventSet identifier="outpostTLNpc2" minleveldifficulty="0" locationtype="TL_reside" maxleveldifficulty="100" allowatstart="true" chooserandom="true" exhaustible="true">
+      <ScriptedEvent identifier="TL_LeoPard" commonness="115" />
+    </EventSet>
+  </EventSet>
+</Randomevents>

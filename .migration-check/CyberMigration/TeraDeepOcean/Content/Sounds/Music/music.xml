@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <sounds>
+    <music file="%ModDir%/Content/Sounds/Music/Musics/Sunrays.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/Awake.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/Main_Theme星际公民.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器1.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器2.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器3.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器4.ogg" type="menu" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/Sunrays.ogg" type="editor" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/Awake.ogg" type="editor" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/Main_Theme星际公民.ogg" type="editor" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器1.ogg" type="editor" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器2.ogg" type="editor" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器3.ogg" type="editor" continuefromprevioustime="true" />
+    <music file="%ModDir%/Content/Sounds/Music/Musics/最终兵器4.ogg" type="editor" continuefromprevioustime="true" />
+  </sounds>
+</Override>

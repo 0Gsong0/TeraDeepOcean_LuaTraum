@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TalentTrees>
+  <TalentTree jobidentifier="TLsafe">
+    <SubTree identifier="TLsafe_primary" nameidentifier="talenttree.primary" type="primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <TalentOption identifier="BeginofTLsafe" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="4">
+        <TalentOption identifier="fightTrain" />
+        <TalentOption identifier="repairTrain" />
+        <TalentOption identifier="yiliaoTrain" />
+        <TalentOption identifier="DuoshouTrain" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="3">
+        <TalentOption identifier="olympian_TL" />
+        <TalentOption identifier="affiliation2" />
+        <TalentOption identifier="TL_Disposable_medical" />
+        <TalentOption identifier="firemanscarry" />
+        <TalentOption identifier="StudyMore_TL" />
+	    <TalentOption identifier="TL_HellDive" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="TLsafe_specialization" type="specialization" requires="TLsafe_primary">
+      <TalentOptions>
+        <TalentOption identifier="systemoverload" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="tooloverload" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <TalentOption identifier="Deconstructer" />
+        <TalentOption identifier="scavenger2" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="gongyi" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="TLsafe_specialization2" type="specialization" requires="TLsafe_primary">
+      <TalentOptions>
+        <TalentOption identifier="drsubmarinePRO" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="2">
+        <TalentOption identifier="geneharvester" />
+        <TalentOption identifier="labcontacts" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="drsubmarinePRO2" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="miracleworkerPRO" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="TLsafe_specialization3" type="specialization" requires="TLsafe_primary">
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <TalentOption identifier="Shuigui_TL" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="1" maxchosentalents="1">
+        <TalentOption identifier="hurt_TL" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="advancedattack" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="lastfight" />
+      </TalentOptions>
+    </SubTree>
+  </TalentTree>
+</TalentTrees>

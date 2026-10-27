@@ -1,0 +1,13 @@
+
+  ContentPackageBuilder -> E:\ModDev\TeraDeepOcean_LuaTraum\ContentPackageBuilder\bin\Debug\net8.0\ContentPackageBuilder.dll
+  Detected Barotrauma version: 1.15.7.0
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\RTS\TLRtsNetwork.cs(173,180): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\RTS\TLRtsNetwork.cs(182,36): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\AIControl\TLCharacterControlSystem.cs(81,21): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\AIControl\TLCharacterControlSystem.cs(121,21): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\RTS\TLRtsNetwork.cs(624,46): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\AIControl\TLCharacterControlSystem.cs(345,41): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\RTS\TLRtsNetwork.cs(33,55): warning CS0414: 字段“TLRtsNetwork.ClaimResultReceived”已被赋值，但从未使用过它的值 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\RTS\TLRtsNetwork.cs(29,58): warning CS0414: 字段“TLRtsNetwork.CommanderStateChanged”已被赋值，但从未使用过它的值 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\RTS\TLRtsNetwork.cs(37,57): warning CS0414: 字段“TLRtsNetwork.CommandResultReceived”已被赋值，但从未使用过它的值 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+  WindowsServer -> E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\bin\Windows\Debug\net8.0\TeraDeepOceanServer.dll

@@ -2,6 +2,7 @@
   <PropertyGroup>
     <PlatformName>Windows</PlatformName>
     <DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <Import Project="ClientItems.props" />
 </Project>

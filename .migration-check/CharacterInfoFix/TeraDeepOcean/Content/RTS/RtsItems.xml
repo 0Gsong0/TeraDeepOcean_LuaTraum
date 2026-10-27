@@ -1,0 +1,159 @@
+<Items>
+  <Item name="RTS 战术指挥终端（测试）" identifier="tl_rts_command_device_test" description="用于申请和释放 RTS 指挥权的测试设备。必须实际拿在手中。" variantof="flashlight" tags="smallitem,rtscommanddevice" category="Equipment" allowasextracargo="true" hideinmenus="false" />
+  <Item name="万能钥匙B（NPC）" identifier="idcardplus1B" description="" nonplayerteaminteractable="true" category="Hidden" hideinmenus="true" Tags="idcard,wrecksecarmcab,abandonedsecarmcab,id_outpostmanager,id_medic,id_captain,id_security,id_engineer,id_mechanic,wreck_id,idmedic,idcaptain,idsecurity,idengineer,idmechanic,level1" scale="0.15" cargocontaineridentifier="metalcrate">
+    <InventoryIcon texture="%ModDir%/Content/Items/Sundrys/icon.png" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/Sundrys/icon.png" depth="0.8" sourcerect="0,0,170,70" origin="0.5,0.5" />
+    <Body width="16" height="12" density="20" />
+    <IdCard slots="Card" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="Character" disabledeltatime="true">
+        <Affliction identifier="pressurestabilized" amount="100" />
+        <Affliction identifier="last_B" amount="1500" />
+        <Affliction identifier="stabilozineeffectTL_Pro" amount="100" />
+        <Affliction identifier="stun" amount="-1000" />
+        <ReduceAffliction type="poison" amount="1000" />
+        <ReduceAffliction type="paralysis" amount="1000" />
+      </StatusEffect>
+    </IdCard>
+  </Item>
+  <Item name="豹" identifier="var_leopard" category="Equipment" tags="smallitem,clothing" fireproof="false" HideConditionBar="true" cargocontaineridentifier="metalcrate" description="幻化为豹" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.1" notcampaign="true" />
+    <PreferredContainer primary="outpostcrewcabinet" amount="1" spawnprobability="0.1" />
+    <Price baseprice="200">
+      <Price storeidentifier="merchantoutpost" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantresearch" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" minavailable="2" />
+      <Price storeidentifier="merchantmine" minavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="豹的脑袋" texture="%ModDir%/Content/Items/Equipment/Clothings/head.png" sourcerect="165,0,182,222" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Jobgear/headgears.png" depth="0.6" sourcerect="28,321,49,62" origin="0.5,0.5" />
+    <WifiComponent range="50000.0" LinkToChat="true" MinChatMessageInterval="0.0">
+      <StatusEffect type="OnActive" targettype="This">
+        <Conditional JamTimer="gt 0" targetitemcomponent="WifiComponent" />
+        <sound file="Content/Sounds/RadioStatic.ogg" range="500.0" frequencymultiplier="0.7" loop="true" volume="0.5" />
+      </StatusEffect>
+    </WifiComponent>
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,Headset" msg="ItemMsgPickUpSelect">
+      <sprite name="Maid's Uniform 1 Torso" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Hand" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Hand" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Lower Arm" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Lower Arm" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Upper Arm" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Upper Arm" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Waist" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="Waist" hidelimb="true" inheritorigin="true" inherittexturescale="true" hideotherwearables="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Thigh" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Thigh" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Leg" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Leg" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Right Shoe" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Maid's Uniform 1 Left Shoe" texture="%ModDir%/Content/Items/Equipment/Clothings/Maid1_male.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="leopard Head" texture="%ModDir%/Content/Items/Equipment/Clothings/head.png" limb="Head" sourcerect="165,0,182,222" inheritsourcerect="false" alphaclipotherwearables="True" hidelimb="true" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="false" Scale="1" hideotherwearables="false" inheritorigin="false" origin="0.5,0.4" />
+      <SkillModifier skillidentifier="electrical" skillvalue="10" />
+      <SkillModifier skillidentifier="helm" skillvalue="10" />
+      <SkillModifier skillidentifier="mechanical" skillvalue="10" />
+      <SkillModifier skillidentifier="medical" skillvalue="10" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <StatusHUD overlaycolor="0,200,0,120" range="3000" showdeadcharacters="false">
+        <StatusEffect type="OnWearing" target="This,Character" targetitemcomponent="StatusHUD" thermalgoggles="true" showtexts="false" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_Thermalimaging" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnWearing" target="This" targetitemcomponent="StatusHUD" thermalgoggles="false" showtexts="true" setvalue="true" drawhudwhenequipped="true">
+          <RequiredItem items="TL_WeaponChips_medical" type="Contained" />
+        </StatusEffect>
+      </StatusHUD>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations,bitewounds" damagemultiplier="0.95" />
+    </Wearable>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorslot="0">
+      <!--芯片-->
+      <SlotIcon slotindex="0" texture="%ModDir%/Content/UI/Item/iconUI.png" sourcerect="370,50,40,35" origin="0.5,0.5" />
+      <Containable items="TL_WeaponChips_Thermalimaging,TL_WeaponChips_medical" hide="true" itempos="0,0" setactive="true" />
+    </ItemContainer>
+  </Item>
+  <Item name="TL15(敌对)" identifier="TL_TL15_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="%ModDir%/Content/Items/EnemyItems/weapons.png" sourcerect="0,155,256,69" depth="0.55" origin="0.5,0.5" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.35" penetration="0.55" reload="0.14" holdtrigger="true" barrelpos="100,7" spread="4" unskilledspread="8" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.4">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" colormultiplier="255,200,200,200" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/TL15.1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/TL15.2.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/TL15.3.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.1" camerashake="2" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained" targetSlot="0">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" CopyEntityAngle="true" colormultiplier="255,150,150,255" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="TL14_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="TL14_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="TL14_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <Item name="TL14弹夹（敌对）" identifier="TL14_magazine_Enemy" maxstacksize="32" hideinmenus="true" maxstacksizecharacterinventory="8" scale="0.21" category="Weapon" health="40" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Content/Items/EnemyItems/weaponsjz.png" sourcerect="40,293,93,179" depth="0.56" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL15_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL15_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-0" disabledeltatime="true">
+        <SpawnItem identifiers="TL15_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="" identifier="TL15_Ammo" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,TL_ammo" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/TL/AR57.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="15" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,0,255,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="20" targetforce="25" itemdamage="40" penetration="0.5" severlimbsprobability="0.8">
+        <Affliction identifier="gunshotwound" strength="35" />
+        <Affliction identifier="gunshotwound" strength="30" probability="0.2" />
+        <Affliction identifier="bleeding" strength="25" />
+        <Affliction identifier="stun" strength="0.05" />
+        <Affliction identifier="stun" strength="0.15" probability="0.2" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="1" targetlimb="torso">
+          <Conditional speciesname="neq human" />
+          <Affliction identifier="gunshotwound" amount="10" probability="0.2" />
+          <Affliction identifier="bleeding" amount="10" probability="0.2" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+</Items>

@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <!--第一个技能-->
+  <!-- 特战队的诞生 -->
+  <Talent identifier="BeginofTLsafe">
+    <Description tag="talentdescription.BeginofTLsafe"></Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,3" sheetelementsize="128,128" />
+    <!-- Give the player a permanent stat that is used to check if they have received the weapon bonus -->
+    <AbilityGroupEffect abilityeffecttype="OnGainMissionExperience">
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyvalue="1.2" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!--常规1线-->
+  <!--特训：格斗-->
+  <Talent identifier="fightTrain" trackedstat="enemykill_counter" trackedmax="30">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/TalentsIcons.png" sheetelementsize="128,128" sheetindex="1,0" />
+    <Description tag="talentdescription.fightTrain">
+      <Replace tag="[amount1]" value="30" color="gui.green" />
+      <Replace tag="[amount2]" value="500" color="gui.green" />
+      <Replace tag="[amount3]" value="20" color="gui.green" />
+      <Replace tag="[amount4]" value="10" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="enemykill_30" value="1" maxvalue="1" setvalue="true" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnKillCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettypes="Enemy" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="enemykill_counter" value="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnKillCharacter">
+      <Conditions>
+        <AbilityConditionHasPermanentStat statidentifier="enemykill_30" min="1" />
+        <AbilityConditionHasPermanentStat statidentifier="enemykill_counter" min="30" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveExperience amount="500" />
+        <CharacterAbilityGivePermanentStat stattype="MaximumHealthMultiplier" statidentifier="fightTrain" value="0.1" setvalue="true" removeondeath="false" />
+        <CharacterAbilityGivePermanentStat stattype="WeaponsSkillBonus" statidentifier="fightTrain" value="20" setvalue="true" removeondeath="false" />
+        <CharacterAbilityResetPermanentStat statidentifier="enemykill_30" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!--特训：修复-->
+  <Talent identifier="repairTrain" trackedstat="repairitems_counter" trackedmax="15">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/TalentsIcons.png" sheetelementsize="128,128" sheetindex="3,0" />
+    <Description tag="talentdescription.repairTrain">
+      <Replace tag="[amount1]" value="15" color="gui.green" />
+      <Replace tag="[amount2]" value="25" color="gui.green" />
+      <Replace tag="[amount3]" value="400" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="repairitems_15" value="1" maxvalue="1" setvalue="true" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnRepairComplete">
+      <Conditions>
+        <AbilityConditionItem tags="medicalfabricator,command,deconstructor,fabricator,door,engine,oxygengenerator,pump,turretammosource,junctionbox,battery,supercapacitor,electrical,reactor" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="repairitems_counter" value="1" removeondeath="false" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnRepairComplete">
+      <Conditions>
+        <AbilityConditionHasPermanentStat statidentifier="repairitems_15" min="1" />
+        <AbilityConditionHasPermanentStat statidentifier="repairitems_counter" min="15" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveExperience amount="400" />
+        <CharacterAbilityGivePermanentStat stattype="ElectricalSkillBonus" statidentifier="repairTrain" value="15" setvalue="true" removeondeath="false" />
+        <CharacterAbilityGivePermanentStat stattype="MechanicalSkillBonus" statidentifier="repairTrain" value="15" setvalue="true" removeondeath="false" />
+        <CharacterAbilityGivePermanentStat stattype="RepairSpeed" statidentifier="machinemaniac" value="0.25" setvalue="true" removeondeath="false" />
+        <CharacterAbilityResetPermanentStat statidentifier="repairitems_15" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!--特训：医疗-->
+  <Talent identifier="yiliaoTrain" trackedstat="medicalitems_counter" trackedmax="15">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/TalentsIcons.png" sheetelementsize="128,128" sheetindex="4,0" />
+    <Description tag="talentdescription.yiliaoTrain">
+      <Replace tag="[amount1]" value="15" color="gui.green" />
+      <Replace tag="[amount2]" value="400" color="gui.green" />
+      <Replace tag="[amount3]" value="20" color="gui.green" />
+      <Replace tag="[amount4]" value="40" color="gui.green" />
+    </Description>
+    <!-- Give the player stats that tracks if the rewards should be given -->
+    <CharacterAbilityGiveExperience amount="100" />
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="medicalitems_15" value="1" maxvalue="1" setvalue="true" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnItemFabricatedAmount">
+      <Conditions>
+        <AbilityConditionItem tags="medical" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="medicalitems_counter" value="1" removeondeath="false" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnItemFabricatedAmount">
+      <Conditions>
+        <AbilityConditionHasPermanentStat statidentifier="medicalitems_15" min="1" />
+        <AbilityConditionHasPermanentStat statidentifier="medicalitems_counter" min="15" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveExperience amount="400" />
+        <CharacterAbilityGivePermanentStat stattype="MedicalSkillBonus" statidentifier="yiliaoTrain" value="20" setvalue="true" removeondeath="false" />
+        <CharacterAbilityResetPermanentStat statidentifier="medicalitems_15" />
+        <CharacterAbilityGiveStat stattype="MedicalItemApplyingMultiplier" value="0.4" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!--特训：舵手-->
+  <Talent identifier="DuoshouTrain">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/TalentsIcons.png" sheetelementsize="128,128" sheetindex="2,0" />
+    <Description tag="talentdescription.DuoshouTrain">
+      <Replace tag="[amount]" value="25" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="HelmSkillBonus" value="25" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!--常规2线-->
+  <Talent identifier="olympian_TL">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,4" sheetelementsize="128,128" />
+    <Description tag="talentdescription.gainskillspastmax" />
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveFlag flagtype="GainSkillPastMaximum" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <Talent identifier="affiliation2" abilityeffectsstackwithsametalent="False">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="1,4" sheetelementsize="128,128" />
+    <Description tag="talentdescription.affiliation2">
+      <Replace tag="[amount]" value="25" color="gui.green" />
+      <Replace tag="[amount2]" value="25" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="ReputationGainMultiplier" value="0.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnGainMissionMoney">
+      <Conditions>
+        <AbilityConditionMission isaffiliated="true" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyValue="1.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <!--一次性医疗物资解锁-->
+  <Talent identifier="TL_Disposable_medical">
+  <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="3,4" sheetelementsize="128,128" />
+  <Description tag="talentdescription.TL_Disposable_medical"/>
+  <AddedRecipe itemidentifier="TL_sprayer_cheap" />
+  </Talent>
+  <!--严格学习-->
+  <Talent identifier="StudyMore_TL">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/Talents_TL.png" sheetelementsize="128,128" sheetindex="1,0" />
+    <Description tag="talentdescription.StudyMore_TL">
+      <Replace tag="[amount]" value="75" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval>
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="SkillGainSpeed" value="0.75" />
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+	<!--超级猪头-->
+  <Talent identifier="TL_HellDive">
+      <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/TalentsIcons.png" sheetindex="1,1" sheetelementsize="128,128" />
+      <Description tag="talentdescription.TL_HellDive"/>
+      <AddedRecipe itemidentifier="NIL_BurstGun" />
+	  <AddedRecipe itemidentifier="NIL_BurstGun_magazine" />
+	  <AddedRecipe itemidentifier="NIL_BurstGun_HEAT_magazine" />
+      <AddedRecipe itemidentifier="NIL_BurstGun_HEAT_TIME_magazine" />
+	  <AddedRecipe itemidentifier="NIL_Ultimatum_Ammo" />
+	  <AddedRecipe itemidentifier="NIL_Ultimatum" />
+      <AddedRecipe itemidentifier="NIL_BambooSpear" />
+	  <AddedRecipe itemidentifier="TL_RedAcidSpear" />
+	  <AddedRecipe itemidentifier="TL_RedAcidSpear_B" />
+	  <AddedRecipe itemidentifier="TL_RedAcidSpear_C" />
+  </Talent>
+  <!--后勤-->
+  <!--摸金校尉-->
+  <Talent identifier="scavenger2">
+    <Description tag="talentdescription.scavenger2">
+      <Replace tag="[amount]" value="40" color="gui.green" />
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="2,2" sheetelementsize="128,128" />
+    <AbilityGroupEffect abilityeffecttype="OnOpenItemContainer">
+      <Conditions>
+        <AbilityConditionItem tags="container" />
+        <AbilityConditionItemInSubmarine submarinetype="Wreck" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilitySpawnItemsToContainer randomchance="0.4" oncepercontainer="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="UseTarget" spawnitemrandomly="true">
+              <SpawnItem identifiers="titaniumaluminiumalloy" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="titaniumaluminiumalloy" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="titaniumaluminiumalloy" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel_TL" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="Steel_TL" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+              <SpawnItem identifiers="TL_blueprint" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilitySpawnItemsToContainer>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="ResourceMaterialsRecycle" />
+  </Talent>
+  <!--拆解专精-->
+  <Talent identifier="Deconstructer">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/Talents_TL.png" sheetelementsize="128,128" sheetindex="5,0" />
+    <Description tag="talentdescription.Deconstructer">
+      <Replace tag="[amount]" value="20" color="gui.green" />
+    </Description>
+    <!--解构矿石-->
+    <AbilityGroupEffect abilityeffecttype="OnItemDeconstructedMaterial">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.2" />
+        <AbilityConditionItem tags="geneticmaterial,unidentifiedgeneticmaterial,circuitboxcomponent" invert="true" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyvalue="3" />
+      </Abilities>
+    </AbilityGroupEffect>
+	  <AddedRecipe itemidentifier="ResourceMaterialsRecycle" />
+  </Talent>
+  <!--精进工艺-->
+  <Talent identifier="gongyi">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/Talents_TL.png" sheetelementsize="128,128" sheetindex="6,0" />
+    <Description tag="talentdescription.gongyi">
+      <Replace tag="[amount]" value="1" color="gui.green" />
+    </Description>
+    <AddedRecipe itemidentifier="plasmacutterPRO3" />
+    <AddedRecipe itemidentifier="weldingtoolPRO3" />
+    <AddedRecipe itemidentifier="TL_WeaponChips_Thermalimaging" />
+    <AddedRecipe itemidentifier="TL_WeaponChips_medical" />
+    <AbilityGroupInterval interval="0.5">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="loyalassistant" strength="10.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  <!--系统超载-->
+  <Talent identifier="systemoverload">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,6" sheetelementsize="128,128" />
+    <Description tag="talentdescription.systemoverload">
+      <Replace tag="[amount]" value="150" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval interval="60">
+      <Abilities>
+        <CharacterAbilityGiveItemStatToTags tags="fabricator" stattype="FabricationSpeed" value="2.5" />
+        <CharacterAbilityGiveItemStatToTags tags="deconstructor" stattype="DeconstructorSpeed" value="2.5" />
+        <CharacterAbilityGiveItemStatToTags tags="MoldingPrinters" stattype="FabricationSpeed" value="2.5" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveItemStatToTags tags="fabricator" stattype="FabricationSpeed" value="2.5" />
+        <CharacterAbilityGiveItemStatToTags tags="deconstructor" stattype="DeconstructorSpeed" value="2.5" />
+        <CharacterAbilityGiveItemStatToTags tags="MoldingPrinters" stattype="FabricationSpeed" value="2.5" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="MoldingPrinters" />
+  </Talent>
+  <!--工具超载-->
+  <Talent identifier="tooloverload">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/Talents_TL.png" sheetelementsize="128,128" sheetindex="0,0" />
+    <Description tag="talentdescription.tooloverload">
+      <Replace tag="[amount]" value="100" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="RepairToolDeattachTimeMultiplier" value="1" />
+        <CharacterAbilityGiveStat stattype="RepairSpeed" value="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="plasmacutterPRO2" />
+    <AddedRecipe itemidentifier="weldingtoolPRO2" />
+  </Talent>
+  <!--医师-->
+  <Talent identifier="drsubmarinePRO">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/Talents_TL.png" sheetelementsize="128,128" sheetindex="2,0" />
+    <Description tag="talentdescription.drsubmarinePRO">
+      <Replace tag="[amount]" value="150" color="gui.green" />
+      <Replace tag="[amount2]" value="20" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval interval="60">
+      <Abilities>
+        <CharacterAbilityGiveItemStatToTags tags="medicalfabricator" stattype="FabricationSpeed" value="2.5" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="MedicalSkillBonus" value="20" />
+        <CharacterAbilityGiveItemStatToTags tags="medicalfabricator" stattype="FabricationSpeed" value="2.5" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <Talent identifier="drsubmarinePRO2">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,6" sheetelementsize="128,128" />
+    <AddedRecipe itemidentifier="last" />
+    <AddedRecipe itemidentifier="TL_WeaponChips_medical" />
+    <AddedRecipe itemidentifier="TL_sprayer" />
+    <Description tag="talentdescription.drsubmarinePRO2">
+      <Replace tag="[amount]" value="1" color="gui.green" />
+      <Replace tag="[amount2]" value="2" color="gui.green" />
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="medicalkit_TL_Slow" amount="2" />
+        <CharacterAbilityPutItem itemidentifier="TLskillbookeuropanmedicine" amount="1" />
+        <CharacterAbilityPutItem itemidentifier="last" amount="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  <Talent identifier="miracleworkerPRO">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="7,2" sheetelementsize="128,128" />
+    <Description tag="talentdescription.miracleworkerPRO" />
+    <AbilityGroupInterval interval="0.9">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies maxdistance="400" allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="miracleworker" amount="1.0" multiplybymaxvitality="true" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+  <!--战斗线-->
+  <!--体能训练-->
+  <Talent identifier="Shuigui_TL">
+    <Description tag="talentdescription.Shuigui_TL">
+      <Replace tag="[amount]" value="35" color="gui.green" />
+      <Replace tag="[amount2]" value="25" color="gui.green" />
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="1,2" sheetelementsize="128,128" />
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="SwimmingSpeed" value="0.35" />
+        <CharacterAbilityGiveStat stattype="MovementSpeed" value="0.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+	  <AddedRecipe itemidentifier="Nil_AT4" />
+  </Talent>
+  <!--身体改造-->
+  <Talent identifier="hurt_TL">
+    <Icon texture="%ModDir%/Content/ModContent/Job/TalentsPNG/Talents_TL.png" sheetelementsize="128,128" sheetindex="4,0" />
+    <Description tag="talentdescription.hurt_TL">
+      <Replace tag="[amount]" value="25" color="gui.green" />
+      <Replace tag="[amount2]" value="30" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval>
+      <Abilities>
+        <CharacterAbilityModifyResistance resistanceid="damage" multiplier="0.75" />
+        <CharacterAbilityModifyResistance resistanceid="burn" multiplier="0.7" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AddedRecipe itemidentifier="TL_TL14_Pro" />
+    <AddedRecipe itemidentifier="TL_TL15" />
+  </Talent>
+  <!--进阶作战-->
+  <Talent identifier="advancedattack">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="6,2" sheetelementsize="128,128" />
+    <Description tag="talentdescription.advancedattack">
+      <Replace tag="[amount]" value="45" color="gui.green" />
+      <Replace tag="[amount2]" value="15" color="gui.green" />
+    </Description>
+    <AbilityGroupInterval>
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="RangedSpreadReduction" value="0.45" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData tags="TL_ammo" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.15" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="TL_TL23" />
+    <AddedRecipe itemidentifier="TL_TL15_Pro" />
+    <AddedRecipe itemidentifier="TL_WeaponChips_balance" />
+  </Talent>
+  <!--最终手段-->
+  <Talent identifier="lastfight">
+    <Description tag="talentdescription.lastfight">
+      <Replace tag="[amount]" value="25" color="gui.green" />
+    </Description>
+    <AddedRecipe itemidentifier="HX_MR" />
+    <AddedRecipe itemidentifier="MR_magazine" />
+    <AddedRecipe itemidentifier="MR_magazine_radiation" />
+    <AddedRecipe itemidentifier="TL_WeaponChips_attack" />
+    <AddedRecipe itemidentifier="TL_Baikal" />
+    <AddedRecipe itemidentifier="TL_Baikal_Battery" />
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,3" sheetelementsize="128,128" />
+    <AbilityGroupInterval interval="0.5">
+      <Abilities>
+        <CharacterAbilityModifyStatToSkill stattype="Rangedattackmultiplier" maxvalue="0.25" skillidentifier="weapons" />
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="MaximumHealthMultiplier" value="0.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAllMissionsCompleted">
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="blindbox_TL_Remotestrikemarker" amount="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+</Talents>

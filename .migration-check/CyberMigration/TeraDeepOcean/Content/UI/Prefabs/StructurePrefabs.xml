@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prefabs>
+  <!--Posters-->
+  <OpDeco name="TL" nameidentifier="TLEmblem" identifier="TLEmblem" width="172" height="195" texturescale="1.0,1.0" scale="0.5" category="Decorative">
+    <sprite texture="%ModDir%/Content/UI/Prefabs/TL.png" sourcerect="0,0,172,195" depth="0.965" premultiplyalpha="false" origin="0.5,0.5" />
+  </OpDeco>
+  <OpDeco name="TL2" nameidentifier="TL2Emblem" identifier="TL2Emblem" width="1008" height="448" texturescale="1.0,1.0" scale="0.5" category="Decorative">
+    <sprite texture="%ModDir%/Content/UI/Prefabs/泰拉.png" sourcerect="0,0,1008,448" depth="0.965" premultiplyalpha="false" origin="0.5,0.5" />
+  </OpDeco>
+  <OpDeco name="HX" nameidentifier="HXEmblem" identifier="HXEmblem" width="94" height="104" texturescale="1.0,1.0" scale="0.5" category="Decorative">
+    <sprite texture="%ModDir%/Content/UI/Prefabs/HX.png" sourcerect="0,0,94,104" depth="0.965" premultiplyalpha="false" origin="0.5,0.5" />
+  </OpDeco>
+  <OpDeco name="冰面背景1" nameidentifier="Icebackground" identifier="Icebackground" width="2160" height="1080" texturescale="1.0,1.0" scale="0.5" category="Decorative">
+    <sprite texture="%ModDir%/Content/UI/Prefabs/TLbei1.png" sourcerect="0,0,2160,1080" depth="0.965" premultiplyalpha="false" origin="0.5,0.5" />
+  </OpDeco>
+  <OpDeco name="真不是我的问题别拷打我了(っ╥╯﹏╰╥c)" resizehorizontal="true" resizevertical="true" nameidentifier="真不是我的问题别拷打我了(っ╥╯﹏╰╥c)" identifier="真不是我的问题别拷打我了" width="450" height="450" texturescale="1.0,1.0" scale="0.5" category="Decorative">
+    <sprite texture="%ModDir%/Content/UI/Prefabs/报错.png" sourcerect="0,0,450,450" depth="0.965" premultiplyalpha="false" origin="0.5,0.5" />
+  </OpDeco>
+<shellA name="测试墙体1" identifier="shella0deg1" tags="testwall" descriptionidentifier="exteriorshell" subcategory="exteriorsubwalls" body="true" castshadow="true" health="200" width="512" height="96" bodyheight="72" bodyoffset="0,-12" resizehorizontal="true">
+  <sprite texture="Content/Map/ExteriorWallsA.png" sourcerect="417,0,510,96" depth="0.1" origin="0.5,0.5" />
+  <backgroundsprite texture="Content/Map/ExteriorWallsABack.png" depth="0.85" />
+</shellA>
+</prefabs>

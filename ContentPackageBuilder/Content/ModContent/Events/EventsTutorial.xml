@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Randomevents>
+	<EventPrefabs>
+		<ScriptedEvent identifier="tl_mining_route_intro">
+			<TagAction criteria="player" tag="player" />
+
+			<ConversationAction
+			  header="航道信号接入"
+			  text="声呐捕捉到非自然排列的低频信标。航道中可能存在可调查设施。"
+			  continueautomatically="true" />
+
+			<WaitAction time="8" />
+		</ScriptedEvent>
+		<ScriptedEvent identifier="tl_mining_site_approach">
+			<TagAction criteria="player" tag="player" />
+
+			<ConversationAction
+			  text="未知信标：身份校验失败。重复，身份校验失败。"
+			  targettag="player"
+			  dialogtype="Small"
+			  continueautomatically="true" />
+
+			<WaitAction time="3" />
+
+			<ConversationAction
+			  text="未知信标：检测到人工反应堆噪声。请求人工接入。"
+			  targettag="player"
+			  dialogtype="Small"
+			  continueautomatically="true" />
+
+			<WaitAction time="2" />
+
+			<MessageBoxAction
+			  tag="tl_mining_objective_box"
+			  header="研究设施"
+			  text="靠近设施核心，寻找可交互的研究终端。"
+			  targettag="player" />
+		</ScriptedEvent>
+	</EventPrefabs>
+  <!-- 原版教程的覆盖 -->
+  <override>
+    <EventSet identifier="firstoutpostevents" leveltype="outpost" locationtype="tutorialoutpost"
+      allowatstart="true" minleveldifficulty="0" maxleveldifficulty="100" chooserandom="false"
+      ignorecooldown="true" campaign="true" eventcount="1" onceperlevel="true"
+      CampaignTutorialOnly="true">
+      <!-- 加入泰拉阵营的事件-单人教程 -->
+      <ScriptedEvent identifier="tutorial.JoinTerraFaction_start" />
+    </EventSet>
+    <!-- 0航强制触发 -->
+    <EventSet identifier="firstconnectionevents" leveltype="locationconnection" allowatstart="true" minleveldifficulty="0" maxleveldifficulty="100" chooserandom="false" ignorecooldown="true" campaign="true" eventcount="1" ForceAtDiscoveredNr="0" onceperlevel="true" CampaignTutorialOnly="true">
+      <ScriptedEvent identifier="campaign_tutorial_onmission-TL" />
+    </EventSet>
+    <!-- 1站强制触发 -->
+    <EventSet identifier="secondoutpostevents" leveltype="outpost" allowatstart="true" minleveldifficulty="0" maxleveldifficulty="100" chooserandom="false" ignorecooldown="true" campaign="true" eventcount="1" onceperoutpost="true" ForceAtVisitedNr="1" onceperlevel="true" CampaignTutorialOnly="true">
+      <ScriptedEvent identifier="secondoutpostevents-2" />
+    </EventSet>
+  </override>
+  <!-- <EventSet additive="true"
+    identifier="JoinTerraFaction-Multiplayer"
+    locationtype="outpost"
+    allowatstart="true"
+    minleveldifficulty="0"
+    maxleveldifficulty="100"
+    chooserandom="false"
+    campaign="true"
+    SelectAlways="true"
+    ignorecooldown="true"
+    commonness="180"
+    eventcount="1">
+    <ScriptedEvent identifier="tutorial.JoinTerraFaction_start" />
+  </EventSet> -->
+  <EventSprites>
+    <Sprite identifier="TLsafe" texture="%ModDir%/Content/ModContent/Events/TLsafe.png" sourcerect="0,0,1024,958" origin="0.5,0.5" />
+    <Sprite identifier="Lycoris" texture="%ModDir%/Content/ModContent/Events/Lycoris.png" sourcerect="0,0,1024,1024" origin="0.5,0.5" />
+  </EventSprites>
+  <EventPrefabs>
+    <!-- 到达第二站的对话 -->
+    <ScriptedEvent identifier="secondoutpostevents-2">
+      <TriggerEventAction identifier="secondoutpostevents-BuySupplies" />
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_TalkLycoris" />
+
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="jobidentifier:engineer" tag="engineer" />
+      <NPCFollowAction npctag="engineer" targettag="player" follow="true" />
+      <CheckDataAction identifier="Plot.Terra.FirstMissionFinish" condition="eq true">
+        <Failure>
+          <SpawnAction ItemIdentifier="山霁浮古今bgm-E" SpawnLocation="outpost" />
+          <ConversationAction targettag="player" speakertag="engineer" WaitForInteraction="false" IgnoreInterruptDistance="true" text="Plot.Terra.FirstMissionFinish.1" eventsprite="engineer" >
+            <Option text="Plot.Terra.FirstMissionFinish.2">
+              <TriggerEventAction identifier="Plot.Terra.FirstMissionFinish.SpawnerSound" />
+              <MessageBoxAction tag="FirstMissionFinish.3"
+                text="Plot.Terra.FirstMissionFinish.3" iconstyle="GUILYcorisPicture" targettag="player"
+                HideCloseButton="true"/>
+              <WaitAction time="20" />
+              <MessageBoxAction type="close" tag="FirstMissionFinish.3" />
+              <MessageBoxAction tag="FirstMissionFinish.4"
+                text="Plot.Terra.FirstMissionFinish.4" iconstyle="GUILYcorisPicture" targettag="player"
+                HideCloseButton="true"/>
+              <WaitAction time="20" />
+              <MessageBoxAction type="close" tag="FirstMissionFinish.4" />
+              <MessageBoxAction tag="FirstMissionFinish.5"
+                text="Plot.Terra.FirstMissionFinish.5" iconstyle="GUILYcorisPicture" targettag="player"
+                HideCloseButton="true"/>
+              <WaitAction time="23" />
+              <MessageBoxAction type="close" tag="FirstMissionFinish.5" />
+              <MessageBoxAction tag="FirstMissionFinish.6"
+                text="Plot.Terra.FirstMissionFinish.6" iconstyle="GUILEngineerPicture" targettag="player"
+                HideCloseButton="true"/>
+              <WaitAction time="14" />
+              <MessageBoxAction type="close" tag="FirstMissionFinish.6" />
+              <MessageBoxAction tag="FirstMissionFinish.7"
+                text="Plot.Terra.FirstMissionFinish.7" iconstyle="GUILYcorisPicture" targettag="player"
+                HideCloseButton="true"/>
+              <WaitAction time="28" />
+              <MessageBoxAction type="close" tag="FirstMissionFinish.7" />
+              <MessageBoxAction tag="FirstMissionFinish.8"
+                text="Plot.Terra.FirstMissionFinish.8" iconstyle="GUILEngineerPicture" targettag="player"
+                HideCloseButton="true"/>
+              <WaitAction time="13" />
+              <MessageBoxAction type="close" tag="FirstMissionFinish.8" />
+              <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_TalkLycoris" />
+              <NPCFollowAction npctag="engineer" targettag="player" follow="false" />
+              <ConversationAction targettag="player" speakertag="engineer" WaitForInteraction="false" IgnoreInterruptDistance="true" text="Plot.Terra.FirstMissionFinish.9" eventsprite="engineer" />
+              <SpawnAction itemidentifier="TL_SEA_1" targetinventory="player" />
+            </Option>
+          </ConversationAction>
+        </Failure>
+      </CheckDataAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="Plot.Terra.FirstMissionFinish.SpawnerSound">
+      <SpawnAction ItemIdentifier="哨站剧情.1-E" SpawnLocation="outpost" />
+      <WaitAction time="20" />
+      <SpawnAction ItemIdentifier="哨站剧情.2-E" SpawnLocation="outpost" />
+      <WaitAction time="20" />
+      <SpawnAction ItemIdentifier="哨站剧情.3-E" SpawnLocation="outpost" />
+      <WaitAction time="23" />
+      <SpawnAction ItemIdentifier="哨站剧情.4-E" SpawnLocation="outpost" />
+      <WaitAction time="14" />
+      <SpawnAction ItemIdentifier="哨站剧情.5-E" SpawnLocation="outpost" />
+      <WaitAction time="28" />
+      <SpawnAction ItemIdentifier="哨站剧情.6-E" SpawnLocation="outpost" />
+    </ScriptedEvent>
+    <ScriptedEvent identifier="Plot.Terra.FirstMissionFinish.SpawnerSound2">
+      <SpawnAction ItemIdentifier="哨站剧情.7-E" SpawnLocation="outpost" />
+      <WaitAction time="21" />
+      <SpawnAction ItemIdentifier="哨站剧情.8-E" SpawnLocation="outpost" />
+      <WaitAction time="15" />
+      <SpawnAction ItemIdentifier="哨站剧情.9-E" SpawnLocation="outpost" />
+    </ScriptedEvent>
+    <!-- 第二站的任务内容 -->
+    <ScriptedEvent identifier="secondoutpostevents-BuySupplies"> 
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies" />
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies_Burn" ParentObjectiveId="Plot.Terra.campaign.objective_BuySupplies"/>
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies_Spray" ParentObjectiveId="Plot.Terra.campaign.objective_BuySupplies"/>
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies_Fuel" ParentObjectiveId="Plot.Terra.campaign.objective_BuySupplies"/>
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies_Ammo" ParentObjectiveId="Plot.Terra.campaign.objective_BuySupplies"/>
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies_ShipAmmo" ParentObjectiveId="Plot.Terra.campaign.objective_BuySupplies"/>
+      <EventObjectiveAction type="add" identifier="Plot.Terra.campaign.objective_BuySupplies_GetMission"/>
+      
+      <TriggerEventAction identifier="BuySupplies_Burn" />
+      <TriggerEventAction identifier="BuySupplies_Spray" />
+      <TriggerEventAction identifier="BuySupplies_Fuel" />
+      <TriggerEventAction identifier="BuySupplies_Ammo" />
+      <TriggerEventAction identifier="BuySupplies_ShipAmmo" />
+      <TriggerEventAction identifier="BuySupplies_GetMission" />
+
+      <Label name="beforecheck1" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_BuySupplies_Burn">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck1" />
+        </Failure>
+      </CheckObjectiveAction>
+      <Label name="beforecheck2" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_BuySupplies_Spray">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck2" />
+        </Failure>
+      </CheckObjectiveAction>
+      <Label name="beforecheck3" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_BuySupplies_Fuel">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck3" />
+        </Failure>
+      </CheckObjectiveAction>
+      <Label name="beforecheck4" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_BuySupplies_Ammo">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck4" />
+        </Failure>
+      </CheckObjectiveAction>
+      <Label name="beforecheck5" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_BuySupplies_ShipAmmo">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck5" />
+        </Failure>
+      </CheckObjectiveAction>
+      <Label name="beforecheck7" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_TalkLycoris">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck7" />
+        </Failure>
+      </CheckObjectiveAction>
+
+
+      <MissionAction missiontag="TLtutorial.EnemySubmarine" />
+      <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies" />
+
+      <Label name="beforecheck6" />
+      <CheckObjectiveAction identifier="Plot.Terra.campaign.objective_BuySupplies_GetMission">
+        <Failure>
+          <WaitAction time="0.25" />
+          <GoTo name="beforecheck6" />
+        </Failure>
+      </CheckObjectiveAction>
+
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="jobidentifier:engineer" tag="engineer" />
+      <TriggerEventAction identifier="Plot.Terra.FirstMissionFinish.SpawnerSound2" />
+      <MessageBoxAction tag="FirstMissionFinish.BeforeGo.1"
+        text="Plot.Terra.FirstMissionFinish.BeforeGo.1" iconstyle="GUILEngineerPicture" targettag="player"
+        HideCloseButton="true" />
+      <WaitAction time="20" />
+      <MessageBoxAction type="close" tag="FirstMissionFinish.BeforeGo.1" />
+      <MessageBoxAction tag="FirstMissionFinish.BeforeGo.2"
+        text="Plot.Terra.FirstMissionFinish.BeforeGo.2" iconstyle="GUILEngineerPicture" targettag="player"
+        HideCloseButton="true" />
+      <WaitAction time="15" />
+      <MessageBoxAction type="close" tag="FirstMissionFinish.BeforeGo.2" />
+      <MessageBoxAction tag="FirstMissionFinish.BeforeGo.3"
+        text="Plot.Terra.FirstMissionFinish.BeforeGo.3" iconstyle="GUILYcorisPicture" targettag="player"
+        HideCloseButton="true" />
+      <WaitAction time="8" />
+      <MessageBoxAction type="close" tag="FirstMissionFinish.BeforeGo.3" />
+
+
+
+    </ScriptedEvent>
+    <ScriptedEvent identifier="BuySupplies_Burn"> 
+      <Label name="beforecheck" />
+      <CheckPurchasedItemsAction ItemIdentifier="BurnOintment" mincount="1">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies_Burn" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckPurchasedItemsAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="BuySupplies_Spray"> 
+      <Label name="beforecheck" />
+      <CheckPurchasedItemsAction ItemIdentifier="TL_sprayer_cheap" mincount="1">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies_Spray" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckPurchasedItemsAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="BuySupplies_Fuel"> 
+      <Label name="beforecheck" />
+      <CheckPurchasedItemsAction itemtag="reactorfuel" mincount="2">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies_Fuel" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckPurchasedItemsAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="BuySupplies_Ammo"> 
+      <Label name="beforecheck" />
+      <CheckPurchasedItemsAction ItemIdentifier="TL_SEA_1_magazine" mincount="2">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies_Ammo" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckPurchasedItemsAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="BuySupplies_ShipAmmo">
+      <Label name="beforecheck" />
+      <CheckPurchasedItemsAction itemtag="coilgunammo" mincount="2">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies_ShipAmmo" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckPurchasedItemsAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="BuySupplies_GetMission"> 
+      <Label name="beforecheck" />
+      <CheckMissionAction type="available" missioncount="1">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="Plot.Terra.campaign.objective_BuySupplies_GetMission" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckMissionAction>
+    </ScriptedEvent>
+
+    <!-- 单人模式下的泰拉新手引导-加入集团 -->
+    <ScriptedEvent identifier="tutorial.JoinTerraFaction_start">
+      <EventObjectiveAction targettag="player" type="add" identifier="tutorial.JoinTerraFaction_start_missions" />
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_missions" />
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_supplies" />
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_leave" canbecompleted="false" />
+
+      <WaitAction time="1" />
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="jobidentifier:TLsafe" tag="TLsafe" />
+      <NPCFollowAction npctag="TLsafe" targettag="player" follow="true" />
+      <CheckDataAction identifier="JoinTerraFaction_start_conversation" condition="eq true">
+        <!-- 正式对话 -->
+        <Failure>
+          <SpawnAction ItemIdentifier="千山鸟飞绝bgm-E" SpawnLocation="MainSub" />
+          <ConversationAction targettag="player" speakertag="TLsafe" WaitForInteraction="false" IgnoreInterruptDistance="true" text="JoinTerraFaction.Single.1" eventsprite="TLsafe" >
+            <Option text="JoinTerraFaction.Single.2">
+              <ConversationAction targettag="player" speakertag="TLsafe" WaitForInteraction="false" IgnoreInterruptDistance="true" text="JoinTerraFaction.Single.3" eventsprite="TLsafe">
+                <Option text="JoinTerraFaction.Single.4">
+                  <ConversationAction targettag="player" speakertag="TLsafe" WaitForInteraction="false" IgnoreInterruptDistance="true" text="JoinTerraFaction.Single.5" eventsprite="TLsafe" >
+                    <Option text="JoinTerraFaction.Single.6">
+                      <ConversationAction targettag="player" speakertag="TLsafe" WaitForInteraction="false" IgnoreInterruptDistance="true" text="JoinTerraFaction.Single.7" eventsprite="TLsafe" >
+                        <Option text="JoinTerraFaction.Single.8">
+                          <ConversationAction targettag="player" speakertag="TLsafe" WaitForInteraction="false" IgnoreInterruptDistance="true" text="JoinTerraFaction.Single.9" eventsprite="TLsafe" />
+                            <MoneyAction amount="1000" />
+                            <MissionAction missiontag="beacon-TLtutorial" />
+                            <EventObjectiveAction type="complete" identifier="tutorial.JoinTerraFaction_start_missions" />
+                            <SetDataAction identifier="JoinTerraFaction_start_conversation" value="true" />
+                            <NPCFollowAction npctag="TLsafe" targettag="player" follow="false" />
+                            <TriggerEventAction identifier="campaign_tutorial_start-TL" />
+                        </Option>
+                      </ConversationAction>
+                    </Option>
+                  </ConversationAction>
+                </Option>
+              </ConversationAction>
+            </Option>
+          </ConversationAction>
+        </Failure>
+      </CheckDataAction>
+    </ScriptedEvent>
+    <!-- 原版对话内容的覆盖 -->
+    <ScriptedEvent identifier="campaign_tutorial_start-TL">
+      <WaitAction time="1" />
+      
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="jobidentifier:engineer" tag="engineer" />
+      <NPCFollowAction npctag="engineer" targettag="player" follow="true" />
+
+      <CheckDataAction identifier="campaign_tutorial_start_conversation" condition="eq true">
+        
+        <Success>
+          <TriggerEventAction identifier="campaign_tutorial_start_objectives" />
+        </Success>
+
+        <Failure>
+          <ConversationAction targettag="player" speakertag="engineer" WaitForInteraction="false" IgnoreInterruptDistance="true" text="tutorial.campaign.introduction.conversation.1" eventsprite="engineer" >
+            <Option text="tutorial.campaign.introduction.conversation.2">
+              <ConversationAction targettag="player" speakertag="engineer" WaitForInteraction="false" IgnoreInterruptDistance="true" text="tutorial.campaign.introduction.conversation.3" eventsprite="engineer">
+                <Option text="tutorial.campaign.introduction.conversation.4">
+                  <ConversationAction targettag="player" speakertag="engineer" WaitForInteraction="false" IgnoreInterruptDistance="true" text="tutorial.campaign.introduction.conversation.5" eventsprite="engineer" >
+                    <Option text="tutorial.campaign.introduction.conversation.6">
+                      <ConversationAction targettag="player" speakertag="engineer" WaitForInteraction="false" IgnoreInterruptDistance="true" text="tutorial.campaign.introduction.conversation.7" eventsprite="engineer" >
+                        <Option text="tutorial.campaign.introduction.conversation.8" endconversation="true">
+                          <MoneyAction amount="500" />
+                          <TriggerEventAction identifier="campaign_tutorial_start_objectives" />
+                          <SetDataAction identifier="campaign_tutorial_start_conversation" value="true" />
+                        </Option>
+                      </ConversationAction>
+                    </Option>
+                  </ConversationAction>
+                </Option>
+              </ConversationAction>
+            </Option>
+          </ConversationAction>
+        </Failure>
+
+      </CheckDataAction>
+      <NPCFollowAction npctag="engineer" targettag="player" follow="false" />
+    </ScriptedEvent>
+    <!-- 第一次出航后的教程 -->
+    <ScriptedEvent identifier="campaign_tutorial_onmission-TL">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_BeaconStation" canbecompleted="true" />
+      <TriggerEventAction identifier="campaign_tutorial_FindBeaconStation" />
+      <TriggerEventAction identifier="campaign_tutorial_onmission" />
+    </ScriptedEvent>
+    <!-- 维修信标站教程 -->
+    <!-- 找到信标站-->
+    <ScriptedEvent identifier="campaign_tutorial_FindBeaconStation">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_FindBeaconStation" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+      <TagAction criteria="submarine" tag="player" submarinetype="Player" />
+      <TagAction criteria="submarine" tag="BeaconStation" submarinetype="BeaconStation" />
+      <TriggerAction type="Inside" target1tag="player" target2tag="BeaconStation" radius="8000" checkalltargets="true" />
+      <EventObjectiveAction type="complete" id="tutorial.campaign.objective_FindBeaconStation" />
+      <TriggerEventAction identifier="campaign_tutorial_EnterBeaconStation" />
+      <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="BeaconStationArrivalPrompt.Find" text="BeaconStationArrivalPrompt.1" iconstyle="GUINotificationButton" targettag="player" HideCloseButton="true" />
+    </ScriptedEvent>
+    <!-- 进入信标站-->
+    <ScriptedEvent identifier="campaign_tutorial_EnterBeaconStation">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_GoToBeaconStation" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+      <Label name="beforecheck" />
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="itemtag:weldinghatch" tag="hatch" />
+      <WaitAction time="0.5" />
+      <CheckConditionalAction targettag="hatch" targetitemcomponent="Door" IsOpen="true" >
+        <Success>
+          <EventObjectiveAction type="complete" id="tutorial.campaign.objective_GoToBeaconStation" />
+          <MessageBoxAction type="close" tag="BeaconStationArrivalPrompt.Find" />
+          <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="BeaconStationArrivalPrompt"
+            text="BeaconStationArrivalPrompt.2" iconstyle="GUINotificationButton" targettag="player"
+            HideCloseButton="true" CloseOnExitRoomName="roomname.briefingroom" />
+          <TriggerEventAction identifier="campaign_tutorial_FindCause" />
+        </Success>
+        <Failure>
+          <WaitAction time="0.1" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckConditionalAction>
+    </ScriptedEvent>
+    <!-- 找到原因并高亮 -->
+    <ScriptedEvent identifier="campaign_tutorial_FindCause">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_FindCause" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+      <Label name="beforecheck" />
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="itemtag:ElectricalDoor" tag="ElectricalDoor" />
+      <WaitAction time="0.5" />
+      <CheckConditionalAction targettag="ElectricalDoor" targetitemcomponent="Door" IsOpen="true" >
+        <Success>
+          <EventObjectiveAction type="complete" id="tutorial.campaign.objective_GoToBeaconStation" />
+          <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="closeonequip"
+            text="BeaconStationArrivalPrompt.3" iconstyle="GUINotificationButton" targettag="player"
+            HideCloseButton="true" CloseOnSelectTag="screwdrivercontainer" />
+          <EventObjectiveAction type="complete" id="tutorial.campaign.objective_FindCause" />
+          <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_Findscrewdriver" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+          <TagAction criteria="itemtag:screwdrivercontainer" tag="screwdrivercontainer" />
+          <TutorialHighlightAction targettag="screwdrivercontainer" />
+          <Label name="beforeequipped" />
+          <CheckItemAction targettag="player" itemidentifiers="screwdriver" requireequipped="true">
+            <Success>
+              <MessageBoxAction type="close" tag="closeonequip" />
+              <EventObjectiveAction type="complete" id="tutorial.campaign.objective_Findscrewdriver" />
+              <TutorialHighlightAction state="false" targettag="screwdrivercontainer" />
+              <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="closeonfix"
+                text="BeaconStationArrivalPrompt.4" iconstyle="GUINotificationButton"
+                targettag="player"
+                HideCloseButton="true"/>
+              <TagAction criteria="itemtag:needfixbox" tag="needfixbox" />
+              <TutorialHighlightAction targettag="needfixbox" />
+              <UIHighlightAction id="RepairButton"/>
+              <TriggerEventAction identifier="campaign_tutorial_FixBeaconStation" />
+            </Success>
+            <Failure>
+              <WaitAction time="0.5" />
+              <GoTo name="beforeequipped" />
+            </Failure>
+          </CheckItemAction>
+        </Success>
+        <Failure>
+          <WaitAction time="0.1" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckConditionalAction>
+    </ScriptedEvent>
+    <!-- 修复问题并重启 -->
+    <ScriptedEvent identifier="campaign_tutorial_FixBeaconStation">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_FixBeaconStation" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+      <Label name="beforecheck" />
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="itemtag:needfixbox" tag="needfixbox" />
+      <WaitAction time="0.5" />
+      <CheckConditionalAction targettag="needfixbox" ConditionPercentage="gt 90">
+        <Success>
+          <EventObjectiveAction type="complete" identifier="tutorial.campaign.objective_FixBeaconStation" />        
+          <TutorialHighlightAction state="false" targettag="needfixbox" />
+          <MessageBoxAction type="close" tag="closeonfix" />
+          <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="closeonTryRestartWater"
+                text="BeaconStationArrivalPrompt.5" iconstyle="GUINotificationButton"
+                targettag="player"
+                HideCloseButton="true"/>
+          <TriggerEventAction identifier="campaign_tutorial_RestartBeaconStation" />
+        </Success>
+        <Failure>
+          <WaitAction time="1" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckConditionalAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="campaign_tutorial_RestartBeaconStation">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_RestartBeaconStation" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_OpenWaterButton" ParentObjectiveId="tutorial.campaign.objective_RestartBeaconStation"/>
+      <Label name="beforecheck" />
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="itemtag:waterButton" tag="waterButton" />
+      <TutorialHighlightAction targettag="waterButton" />
+      <WaitAction time="0.5" />
+      <CheckConditionalAction targettag="waterButton" targetitemcomponent="Controller" State="eq true"> 
+        <success>
+          <EventObjectiveAction type="complete" identifier="tutorial.campaign.objective_OpenWaterButton" />
+          <MessageBoxAction type="close" tag="closeonTryRestartWater" />
+          <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="closeonTryRestartPower"
+                text="BeaconStationArrivalPrompt.6" iconstyle="GUINotificationButton"
+                targettag="player"
+                HideCloseButton="true"/>
+          <TutorialHighlightAction targettag="powerButton" />
+          <TutorialHighlightAction state="false" targettag="waterButton"/>
+          <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_OpenPowerButton" ParentObjectiveId="tutorial.campaign.objective_RestartBeaconStation"/>
+          <Label name="beforepowerButton" />
+          <TagAction criteria="itemtag:powerButton" tag="powerButton" />
+          <CheckConditionalAction targettag="powerButton" targetitemcomponent="Controller" State="eq true">
+            <success>
+              <EventObjectiveAction type="complete" identifier="tutorial.campaign.objective_OpenPowerButton" />
+              <EventObjectiveAction type="complete" identifier="tutorial.campaign.objective_RestartBeaconStation" />
+              <MessageBoxAction type="close" tag="closeonTryRestartPower" />
+              <TutorialHighlightAction state="false" targettag="powerButton"/>
+              <WaitAction time="3" />
+              <MessageBoxAction identifier="BeaconStationArrivalPrompt" tag="closeonTryRestartPowerButton"
+                text="BeaconStationArrivalPrompt.7" iconstyle="GUINotificationButton"
+                targettag="player"
+                HideCloseButton="true"/>
+              <TriggerEventAction identifier="campaign_tutorial_RestartBeaconStationAndLeave" />
+            </success>
+            <failure>
+              <WaitAction time="0.5" />
+              <GoTo name="beforepowerButton" />
+            </failure>
+          </CheckConditionalAction>
+        </success>
+        <failure>
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </failure>
+      </CheckConditionalAction>
+    </ScriptedEvent>
+    <ScriptedEvent identifier="campaign_tutorial_RestartBeaconStationAndLeave">
+      <EventObjectiveAction type="add" identifier="tutorial.campaign.objective_RestartBeaconStationAndLeave" ParentObjectiveId="tutorial.campaign.objective_BeaconStation"/>
+      <Label name="beforecheck" />
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="itemtag:needopensonar" tag="needopensonar" />
+      <TutorialHighlightAction targettag="needopensonar" />
+      <WaitAction time="0.5" />
+      <CheckConditionalAction targettag="needopensonar" targetitemcomponent="Sonar" CurrentMode="Active" >
+        <Success>
+          <EventObjectiveAction type="complete" id="tutorial.campaign.objective_RestartBeaconStationAndLeave" />
+          <EventObjectiveAction type="complete" id="tutorial.campaign.objective_BeaconStation" />
+          <TutorialHighlightAction state="false" targettag="needopensonar" />
+          <MessageBoxAction type="close" tag="closeonTryRestartPowerButton" />
+          <MessageBoxAction identifier="BeaconStationArrivalPrompt"
+                text="BeaconStationArrivalPrompt.8" iconstyle="GUINotificationButton"
+                targettag="player"
+                HideCloseButton="false"/>
+        </Success>
+        <Failure>
+          <UIHighlightAction id="SonarModeSwitch" />
+          <WaitAction time="0.5" />
+          <GoTo name="beforecheck" />
+        </Failure>
+      </CheckConditionalAction>
+    </ScriptedEvent>
+  </EventPrefabs>
+</Randomevents>

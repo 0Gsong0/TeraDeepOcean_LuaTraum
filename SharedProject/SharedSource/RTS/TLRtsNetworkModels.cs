@@ -1,0 +1,240 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TeraDeepOcean
+{
+    /// <summary>
+    /// RTS 单位移动队形。
+    /// 
+    /// 队形只决定移动命令生成槽位时使用的间距，
+    /// 不改变单位的攻击、Guard 或寻路逻辑。
+    /// </summary>
+    public enum TLRtsFormationType
+    {
+        /// <summary>
+        /// 常规分散队形。
+        /// 使用当前版本的较大单位间距，适合战斗和展开射界。
+        /// </summary>
+        RegularSpread = 0,
+
+        /// <summary>
+        /// 密集行进队形。
+        /// 单位之间只保留很小的中心距离，允许角色模型少量重叠，
+        /// 适合穿过狭窄房间和舱门。
+        /// </summary>
+        CompactMarch = 1,
+        /// <summary>
+        /// 排枪重叠队形。
+        ///
+        /// 所有单位使用完全相同的移动目标坐标，
+        /// 最终会在同一个位置上高度重叠。
+        /// </summary>
+        VolleyStack = 2,
+
+        /// <summary>
+        /// 朝指定方向持续射击。
+        /// </summary>
+        DirectionalFire = 3
+    }
+    /// <summary>
+    /// RTS 网络命令类型。
+    /// </summary>
+    public enum TLRtsNetCommandType
+    {
+        Move,
+        Attack,
+        ReleaseAllAi,
+        DirectionalFire,
+        Deploy
+    }
+    /// <summary>
+    /// 客户端申请成为 RTS 指挥官。
+    /// 服务器会重新验证该物品是否真的由申请者持有。
+    /// </summary>
+    public sealed class TLRtsClaimRequest
+    {
+        public ushort DeviceItemId { get; set; }
+    }
+    /// <summary>
+    /// 服务器公布的唯一指挥官状态。
+    /// </summary>
+    public sealed class TLRtsCommanderState
+    {
+        public bool HasCommander { get; set; }
+        public ushort CommanderCharacterId { get; set; } = Entity.NullEntityID;
+        public ushort DeviceItemId { get; set; } = Entity.NullEntityID;
+        public string CommanderName { get; set; } = string.Empty;
+        /// <summary>
+        /// 状态版本。
+        /// 客户端可以用它拒绝过期的网络消息。
+        /// </summary>
+        public int Revision { get; set; }
+    }
+    /// <summary>
+    /// 服务器对指挥官申请的单独回复。
+    /// </summary>
+    public sealed class TLRtsClaimResult
+    {
+        public bool Accepted { get; set; }
+        /// <summary>
+        /// 拒绝理由。
+        /// </summary>
+        public string Reason { get; set; } = string.Empty;
+        public TLRtsCommanderState CommanderState { get; set; } = new();
+    }
+    /// <summary>
+    /// 客户端发送的移动请求。
+    /// 客户端只发送点击位置，不发送最终编队槽位。
+    /// 编队槽位必须由服务器计算。
+    /// </summary>
+    public sealed class TLRtsMoveRequest
+    {
+        /// <summary>
+        /// 客户端递增的命令序号。
+        /// 用于过滤重复或乱序命令。
+        /// </summary>
+        public int Sequence { get; set; }
+        /// <summary>
+        /// 队形
+        /// </summary>
+        public TLRtsFormationType Formation { get; set; } = TLRtsFormationType.RegularSpread;
+        public List<ushort> UnitIds { get; set; } = new();
+        public ushort TargetSubId { get; set; } = Entity.NullEntityID;
+        public ushort TargetHullId { get; set; } = Entity.NullEntityID;
+        /// <summary>
+        /// 相对于目标潜艇的显示坐标。
+        /// 使用局部坐标可以避免潜艇移动后目标点错位。
+        /// </summary>
+        public float TargetLocalX { get; set; }
+        public float TargetLocalY { get; set; }
+    }
+    /// <summary>
+    /// 客户端发送的攻击请求。
+    /// </summary>
+    public sealed class TLRtsAttackRequest
+    {
+        public int Sequence { get; set; }
+        public List<ushort> UnitIds { get; set; } = new();
+        public ushort TargetCharacterId { get; set; } = Entity.NullEntityID;
+    }
+    /// <summary>
+    /// 客户端发送的方向射击请求。
+    ///
+    /// 客户端只发送方向，不发送具体瞄准点。
+    /// 服务端会重新验证并归一化该方向。
+    /// </summary>
+    public sealed class TLRtsDirectionalFireRequest
+    {
+        /// <summary>
+        /// 客户端递增命令序号。
+        /// </summary>
+        public int Sequence { get; set; }
+
+        /// <summary>
+        /// 请求执行方向射击的单位。
+        /// </summary>
+        public List<ushort> UnitIds { get; set; } = new();
+
+        /// <summary>
+        /// 世界射击方向的 X 分量。
+        /// </summary>
+        public float DirectionX { get; set; }
+
+        /// <summary>
+        /// 世界射击方向的 Y 分量。
+        /// </summary>
+        public float DirectionY { get; set; }
+    }
+    /// <summary>
+    /// 网络中的潜艇局部坐标。
+    /// 用于返回服务器计算出的编队槽位。
+    /// </summary>
+    public sealed class TLRtsNetPosition
+    {
+        public ushort SubmarineId { get; set; } = Entity.NullEntityID;
+        public float LocalX { get; set; }
+        public float LocalY { get; set; }
+    }
+    /// <summary>
+    /// 服务器处理 Move 或 Attack 后返回的结果。
+    /// </summary>
+    public sealed class TLRtsCommandResult
+    {
+        public TLRtsNetCommandType CommandType
+        {
+            get;
+            set;
+        }
+        public int Sequence { get; set; }
+        public bool Accepted { get; set; }
+        public string Reason { get; set; } = string.Empty;
+        #region 移动处理结果
+        public ushort TargetSubmarineId { get; set; } = Entity.NullEntityID;
+        public float TargetLocalX { get; set; }
+        public float TargetLocalY { get; set; }
+        /// <summary>
+        /// 服务器实际分配给各单位的最终槽位。
+        /// 第一版只用于客户端绘制命令标记。
+        /// </summary>
+        public List<TLRtsNetPosition> Slots { get; set; } = new();
+        #endregion
+        #region 攻击处理结果
+        public ushort TargetCharacterId { get; set; } = Entity.NullEntityID;
+        #endregion
+        #region 释放 AI 结果
+        /// <summary>
+        /// 实际释放的 RTS 单位数量。
+        /// </summary>
+        public int ReleasedUnitCount { get; set; }
+
+        #endregion
+        #region 方向射击结果
+
+        /// <summary>
+        /// 实际开始执行方向射击的人类 AI 数量。
+        ///
+        /// 没有远程武器、弹药为空或者无法装备武器的单位不会计入。
+        /// </summary>
+        public int DirectionalFireUnitCount { get; set; }
+
+        #endregion
+        #region 部署结果 
+
+        /// <summary>
+        /// 成功部署的角色 ID；失败时保持空 ID。
+        /// </summary>
+        public ushort DeployedCharacterId { get; set; } = Entity.NullEntityID;
+
+        #endregion
+    }
+    /// <summary>
+    /// 一个可控 RTS 单位的网络快照。
+    /// 客户端只用它进行选择和 UI 显示，
+    /// </summary>
+    public sealed class TLRtsUnitNetState
+    {
+        public ushort CharacterId { get; set; } = Entity.NullEntityID;
+        public bool CanControl { get; set; }
+        public int TeamId { get; set; }
+        public string UnitClass { get; set; } = string.Empty;
+        public bool IsSpawnedByRts { get; set; }
+    }
+    /// <summary>
+    /// 服务器发送给客户端的完整可控单位列表。
+    /// 用于初次进入、单位变化和中途加入。
+    /// </summary>
+    public sealed class TLRtsRegistrySnapshot
+    {
+        public int Revision { get; set; }
+        public List<TLRtsUnitNetState> Units { get; set; } = new();
+    }
+    /// <summary>
+    /// 客户端请求服务器释放全部 RTS 单位。
+    /// 不需要提交单位 ID，因为服务器会清除全部活动 RTS 状态。
+    /// </summary>
+    public sealed class TLRtsReleaseAllAiRequest
+    {
+        public int Sequence { get; set; }
+    }
+}

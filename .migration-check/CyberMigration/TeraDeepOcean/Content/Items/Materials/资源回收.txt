@@ -1,0 +1,89 @@
+回收：-后面为对应金币数量，--后为收购价格
+低价值物品：2倍及以上回收价
+酒精-1-2
+塑料-2-4
+废料-0.5-1
+弹性蛋白-1-2
+橡胶-1-2
+活性纤维-1-2
+爆弹石榴-0.5-2
+盐木鳞-0.5-2
+硅-1-2
+自愈囊泡-0.5-2
+迅猛龙杀手-1-2
+突变迅猛龙杀手-1-3
+氯-1-2
+钍-1-3
+钙-1-2
+碳-1-2
+磷-1-2
+钛-1-3
+钠-1-3
+钾-1-2
+铀-1-3
+铁-1-2
+铅-1-2
+铜-1-2
+铝-1-3
+铝合金-2-5
+锌-1-2
+锡-1-2
+镁-1-3
+防弹纤维-2-4
+画皮卵-2-5
+锂-1-3
+异星血浆-1-2
+
+中等价值物品：2.5倍及以上回收价
+硝化甘油-3-8
+发射药稳定剂-4-11
+复合果实-2-3
+普通三基发射药-4-10
+氧矿碎片-5-15
+燃素水晶-5-16
+肾上腺素-3-9
+钛铝合金-2-6
+钢筋-2-5
+闪光粉-2-6
+雷素块-4-15
+麻痹源-3-10
+叠氮化合物-2-5
+硫酸-2-6
+
+高价值物品：3倍及以上回收价
+刚素棒-6-20
+打印耗材-10-35
+摄魂矿-5-18
+高级三基发射药-6-20
+泰拉合金-10-30
+泰拉工程塑料-7-25
+泰拉数据蓝图-5-18
+纳米凝胶-8-25
+破坏性纳米凝胶-9
+耶德里斯控制芯片--30
+泰拉数据库安全密钥-15
+辐射脑珠-10-40
+
+
+资源回收机制，低卖高买，目前处于测试阶段，也许会发生价格不平衡等问题，后续也许会进行调整
+推荐搭配IO箱进行使用，否则会导致Items过多
+资源回收仪中
+第一个格子装入你要进行回收的资源
+第二个格子可以装入IO箱
+第三个格子为单独的金币
+
+中间物品：拿在手中有交互按钮，或者直接将其拆解也可行，例如：“A.回收-低价值-1金币-酒精”“B.兑换-低价值-2金币-酒精”都为中间物品
+您需要把无用的资源换成一个中间物品，然后该物品会变成金币，再用金币兑换下一个中间物品，中间物品再换成资源
+
+Resource Recycling Mechanism: Sell low, buy high. Currently in testing phase; price imbalances may occur and adjustments may follow.
+Recommended for use with IO Boxes to prevent excessive items.
+Inside the Resource Recycler:
+- First slot: Insert resources for recycling
+- Second slot: Insert IO Boxes
+- Third slot: Contains separate coins
+
+Intermediate Items: These can be interacted with while held or directly dismantled. Examples:
+“A. Recycle - Low Value - 1 Coin - Alcohol”
+“B. Exchange - Low Value - 2 Coins - Alcohol”
+Both are intermediate items.
+You must exchange useless resources for an intermediate item. This item then converts into coins, which can be used to exchange for the next intermediate item. This intermediate item is then exchanged back into resources.

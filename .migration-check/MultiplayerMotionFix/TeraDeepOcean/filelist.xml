@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPackage name="TeraDeepOcean">
+  <PluginInfo file="%ModDir%/PluginInfo.xml" />
+  <UIStyle file="%ModDir%/Content/UI/ConfigStyle.xml" />
+  <Text file="%ModDir%/Content/Texts/ConfigChineseText.xml" />
+  <Afflictions file="%ModDir%/Content/RTS/RtsAfflictions.xml" />
+  <Item file="%ModDir%/Content/RTS/RtsItems.xml" />
+  <NPCSets file="%ModDir%/Content/RTS/RtsNpcs.xml" />
+  <Text file="%ModDir%/Content/RTS/RtsChineseText.xml" />
+  <Text file="%ModDir%/Content/RTS/RtsEnglishText.xml" />
+</ContentPackage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Charactervariant inherit="Leopard2a6" SpeciesName="Leopard2a6废话版" SpeciesTranslationOverride="" DisplayName="">
+	<health Vitality="1000" DoesBleed="False" CrushDepth="100000" UseHealthWindow="False" BleedingReduction="0" BurnReduction="0" ConstantHealthRegeneration="0.1" HealthRegenerationWhenEating="0.1" StunImmunity="True" PoisonImmunity="True" PoisonVulnerability="0" EmpVulnerability="0.5" ApplyMovementPenalties="False" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
+		<Limb>
+			<VitalityMultiplier type="burn" multiplier="0.1" />
+			<VitalityMultiplier type="stun" multiplier="0.1" />
+			<VitalityMultiplier type="gunshotwound" multiplier="0.1" />
+		</Limb>
+	</health>
+	<Inventory Slots="Card,RightHand,Any, Any" AccessibleWhenAlive="True" Commonness="1">
+		<Item slot="Card" Identifier="idcard" />
+	</Inventory>
+	<sound File="%ModDir%/Characters/Leopard2A6/臭味相投.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/哎呦我滴妈.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/嘎巴一下.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/活着干嘛.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/你死去.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/破防.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/死啦.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/我爹都管不了我.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/我长得像佐助.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/站个死人.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/我长得像佐助.ogg" State="Happy" Range="1000" Volume="1" Tags="" />
+	<!--interact2.ogg intentionally omitted, because decided to use it to indicate the state change (see the ragdoll file)-->
+	<sound File="%ModDir%/Characters/Leopard2A6/嘎巴一下.ogg" State="Happy" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/哎呦我滴妈.ogg" State="Unhappy" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/臭味相投.ogg" State="Unhappy" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/嘎巴一下.ogg" State="Unhappy" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/我爹都管不了我.ogg" State="Unhappy" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/站个死人.ogg" State="Unhappy" Range="1000" Volume="1" Tags="" />
+	<sound File="%ModDir%/Characters/Leopard2A6/哎呦我滴妈.ogg" State="Damage" Range="1000" Volume="1" Tags="" />
+  <ragdoll scalemultiplier="1" impacttolerance="60" />
+  <attack damagemultiplier="1" rangemultiplier="1" impactmultiplier="1" />
+</Charactervariant>

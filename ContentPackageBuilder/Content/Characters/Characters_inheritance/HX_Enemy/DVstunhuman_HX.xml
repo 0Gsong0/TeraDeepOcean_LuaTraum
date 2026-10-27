@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="Tl_human_enemy_base" displayname="" speciesname="DVstunhuman_HX" group="HX">
+    <health Vitality="125" stunimmunity="true"></health>
+    <ai sight="100" hearing="100" />
+    <attack damagemultiplier="0" />
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="1">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="divingmask" slot="Head" />
+      <Item identifier="cloth_HX" slot="InnerClothes" />
+      <Item identifier="stungrenadelauncher_TLAI" slot="RightHand+LeftHand" />
+    </inventory>
+    <StatusEffect type="OnDeath" target="This">
+      <SpawnItem identifiers="coalitioncommendation" spawnposition="This" probability="0.5" />
+    </StatusEffect>
+    <StatusEffect type="OnDeath" target="This" disabledeltatime="true" stackable="false" delay="3">
+      <removecharacter />
+    </StatusEffect>
+  </Charactervariant>
+</Override>

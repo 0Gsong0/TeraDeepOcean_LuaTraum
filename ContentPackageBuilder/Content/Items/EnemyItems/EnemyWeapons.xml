@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--14-->
+  <Item name="TL14(敌对)" identifier="TL_TL14_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="weapons.png" sourcerect="275,0,236,54" depth="0.55" origin="0.5,0.5" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.17" holdtrigger="true" barrelpos="100,13.7" spread="6" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" colormultiplier="255,200,200,200" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发2.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发3.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="TL14_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="TL14_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="TL14_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <!--15-->
+  <Item name="TL15(敌对)" identifier="TL_TL15_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="weapons.png" sourcerect="0,155,256,69" depth="0.55" origin="0.5,0.5" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.35" penetration="0.55" reload="0.14" holdtrigger="true" barrelpos="100,7" spread="4" unskilledspread="8" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.4">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" colormultiplier="255,200,200,200" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/TL15.1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/TL15.2.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/TL15.3.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.1" camerashake="2" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained" targetSlot="0">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" CopyEntityAngle="true" colormultiplier="255,150,150,255" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="TL14_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="TL14_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="TL14_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <!--13-->
+  <Item name="TL13(敌对)" identifier="TL_TL13_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="weapons.png" sourcerect="0,0,200,52" depth="0.55" origin="0.5,0.25" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.1" barrelpos="80,5" spread="0" unskilledspread="3" combatPriority="80" reload="1" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/ShotgunShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/ShotgunShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="200.0" force="10" shockwave="false" smoke="true" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <!-- Cocking sound, delayed by 1.0 seconds. -->
+      <StatusEffect type="OnUse" delay="1.0" target="This">
+        <Sound file="Content/Items/Weapons/ShotgunLoad1.ogg" type="OnUse" range="500" selectionmode="Random" />
+        <Sound file="Content/Items/Weapons/ShotgunLoad2.ogg" type="OnUse" range="500" />
+        <Sound file="Content/Items/Weapons/ShotgunLoad3.ogg" type="OnUse" range="500" />
+        <ParticleEmitter particle="casingfirearm" colormultiplier="0.5,0.5,0.5,1" ScaleMultiplier="1.5,1.5" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="TL_shotgunammo_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="TL_shotgunammo_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="TL_shotgunammo_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <!--23-->
+  <Item name="TL23(敌对)" identifier="TL_TL23_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="weapons.png" sourcerect="257,319,254,64" depth="0.55" origin="0.5,0.5" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.5" barrelpos="83,0" spread="0" unskilledspread="6" combatPriority="80" reload="0.2" drawhudwhenequipped="true" crosshairscale="0.4">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/ShotgunShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/ShotgunShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="2.5" shockwave="false" smoke="true" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="TL_shotgunammo_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="TL_shotgunammo_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="TL_shotgunammo_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <Item name="TL23崩解(敌对)" identifier="TL_TL23_disintegrate_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="weapons.png" sourcerect="257,319,254,64" depth="0.55" origin="0.5,0.5" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.5" barrelpos="83,0" spread="0" unskilledspread="6" combatPriority="80" reload="0.25" drawhudwhenequipped="true" crosshairscale="0.4">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="Content/Items/Weapons/ShotgunShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="Content/Items/Weapons/ShotgunShot2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="2.5" shockwave="false" smoke="true" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="TL_shotgunammo_magazine_disintegrate_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="TL_shotgunammo_magazine_disintegrate_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="TL_shotgunammo_magazine_disintegrate_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <!--AKE-->
+  <Item name="AKE(敌对)" identifier="TL_AKE_Enemy" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="0,0,254,53" depth="0.55" origin="0.45,0.4" />
+    <Body width="235" height="55" density="25" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <RangedWeapon weapondamagemodifier="1.1" penetration="0.45" reload="0.16" holdtrigger="true" barrelpos="100,7" spread="4" unskilledspread="8" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.4">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" colormultiplier="255,200,200,200" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/AK/AKFire1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/AK/AKFire2.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+      <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.1" camerashake="2" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained" targetSlot="0">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" CopyEntityAngle="true" colormultiplier="255,150,150,255" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="AKE_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="AKE_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="AKE_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <Item name="手雷发射器（无限）" identifier="GrenadeLauncher_Enemy" spritecolor="255,255,255,255" health="15" subcategory="rifle" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.6" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="217,305,40,61" depth="0.55" origin="0.5,0.5" />
+    <Body width="1" height="1" density="15" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="true" holdpos="45,-20" aimpos="59,-5" handle1="-50,-10" handle2="26,10" holdangle="-30" />
+    <RangedWeapon reload="3" holdtrigger="true" barrelpos="0,0" spread="6" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" colormultiplier="255,200,200,200" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发2.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发3.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir%/Content/Sounds/Weapons/TL14/连发4.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+        <SpawnItem identifier="GrenadeLauncher_magazine_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <RequiredItems items="GrenadeLauncher_magazine_Enemy" type="Contained" msg="ItemMsgAmmoRequired" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="3,-15" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+      <Containable items="GrenadeLauncher_magazine_Enemy" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+  </Item>
+  <Item name="前锋炮弹" identifier="eclipseammo" description="" tags="railgunequipment" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.3" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Sprite name="前锋炮弹" texture="%ModDir%/Content/Characters/日蚀前锋/日蚀前锋.png" sourcerect="112,4036,2672,712" depth="0.55" origin="0.5,0.5" />
+    <Body width="500" height="500" density="35" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="200" maxtargetstohit="100" damagedoors="true">
+      <Attack structuredamage="400" itemdamage="100" severlimbsprobability="5" penetration="0.6" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="100" />
+        <Affliction identifier="bleeding" strength="100" />
+        <Affliction identifier="stun" strength="20" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+        <LuaHook name="AntiShipHoming_Enemy.OnActive" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/敌跟踪.ogg" range="50000" Loop="true" volume="4" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="10" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="400" ballastfloradamage="100" structuredamage="200" itemdamage="200" force="10.0" severlimbsprobability="0.5" decal="explosion" decalsize="0.3" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="200" />
+          <Affliction identifier="stun" strength="10" />
+          <Affliction identifier="internaldamage" strength="200" />
+          <Affliction identifier="organdamage" strength="200" />
+          <Affliction identifier="bleeding" strength="100" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="8" setvalue="true">
+        <sound file="%ModDir%/Content/Sounds/Turrets/电流-1.ogg" selectionmode="Random" range="50000" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/电流-2.ogg" selectionmode="Random" range="50000" />
+        <sound file="%ModDir%/Content/Sounds/Turrets/电流-3.ogg" selectionmode="Random" range="50000" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="前锋跳帮仓" identifier="eclipselanding_CL" description="" tags="railgunequipment" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.3" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Sprite name="前锋跳帮" texture="%ModDir%/Content/Characters/日蚀前锋/日蚀前锋.png" sourcerect="3280,3760,1012,996" depth="0.55" origin="0.5,0.5" />
+    <Body width="300" height="300" density="40" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="300" maxtargetstohit="2" damagedoors="true">
+      <Attack structuredamage="400" itemdamage="100" severlimbsprobability="5" penetration="0.6" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="450" />
+        <Affliction identifier="bleeding" strength="200" />
+        <Affliction identifier="stun" strength="35" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <!--刺雷-->
+      <StatusEffect type="OnImpact" target="This" delay="5" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <SpawnCharacter speciesname="SpikeThunderhuman_Music_pirate" totalmaxcount="1" count="1" />
+      </StatusEffect>
+      <!-- Trigger explosions on contained items -->
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="前锋跳帮仓" identifier="eclipselanding_QX" description="" tags="railgunequipment" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.3" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Sprite name="前锋跳帮" texture="%ModDir%/Content/Characters/日蚀前锋/日蚀前锋.png" sourcerect="3280,3760,1012,996" depth="0.55" origin="0.5,0.5" />
+    <Body width="300" height="300" density="40" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="300" maxtargetstohit="2" damagedoors="true">
+      <Attack structuredamage="400" itemdamage="100" severlimbsprobability="5" penetration="0.6" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="450" />
+        <Affliction identifier="bleeding" strength="200" />
+        <Affliction identifier="stun" strength="35" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <!--强袭-->
+      <StatusEffect type="OnImpact" target="This" delay="5" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <SpawnCharacter speciesname="elitehumanH_pirate" totalmaxcount="1" count="1" />
+      </StatusEffect>
+      <!-- Trigger explosions on contained items -->
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--刺雷-->
+  <Item name="刺雷（敌人）" identifier="SpikeThunder_TLAI" description="" category="Electrical" tags="smallitem,button" hideinmenus="false" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+    <Sprite texture="刺雷.png" sourcerect="61,111,664,179" depth="0.5" origin="0.5,0.5" />
+    <Body width="770" height="380" density="20" />
+    <RangedWeapon aimpos="35,-10" aimable="true" reload="0.5" range="180" combatPriority="40">
+      <Attack targetimpulse="1" severlimbsprobability="0" itemdamage="1" structuredamage="0">
+        <Affliction identifier="stun" strength="1" multiplybymaxvitality="true" />
+      </Attack>
+    </RangedWeapon>
+    <Holdable slots="RightHand+LeftHand" aimpos="35,-10" aimable="true">
+      <StatusEffect type="OnUse" target="character" disabledeltatime="true" delay="3">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="10000" />
+        <Explosion range="300.0" ballastfloradamage="100" structuredamage="0" levelwalldamage="0" itemdamage="0" force="20" severlimbsprobability="0.9" debris="true" decal="explosion" decalsize="0.6" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="150" />
+          <Affliction identifier="burn" strength="200" />
+          <Affliction identifier="bleeding" strength="100" />
+          <Affliction identifier="bleeding" strength="200" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="10" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="this" disabledeltatime="true">
+        <sound file="%ModDir%/Content/Sounds/Weapons/Enemy/板载.ogg" range="10000" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="1.5" PropulsionSpeedMultiplier="1.5" setvalue="true" />
+      <StatusEffect type="OnUse" target="this" disabledeltatime="true" delay="5" stackable="false">
+        <remove />
+      </StatusEffect>
+      <!--sound file="Content/Items/Button/Button.ogg" type="OnUse" range="2000.0" /-->
+    </Holdable>
+  </Item>
+  <!--护甲-->
+  <Item name="打底服" identifier="TL_Undergarments_Enemy" category="Equipment" tags="smallitem,clothing" fireproof="false" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" amount="2" />
+    </Deconstruct>
+    <Sprite texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="6,363,124,67" depth="0.6" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Engineer's Uniform 1 Torso" texture="engineer_separatist_1.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Right Hand" texture="engineer_separatist_1.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Left Hand" texture="engineer_separatist_1.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Right Lower Arm" texture="engineer_separatist_1.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Left Lower Arm" texture="engineer_separatist_1.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Right Upper Arm" texture="engineer_separatist_1.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Left Upper Arm" texture="engineer_separatist_1.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Waist" texture="engineer_separatist_1.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Right Thigh" texture="engineer_separatist_1.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Left Thigh" texture="engineer_separatist_1.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Right Leg" texture="engineer_separatist_1.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Left Leg" texture="engineer_separatist_1.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Left Shoe" texture="engineer_separatist_1.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer's Uniform 1 Right Shoe" texture="engineer_separatist_1.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations" damagemultiplier="0.95" deflectprojectiles="false" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.7" />
+    </Wearable>
+  </Item>
+  <Item name="黄鹤战斗套装（敌对）" identifier="TL_Crane_Enemy" category="Diving,Equipment" tags="" scale="0.605" fireproof="true" description="泰拉常规安保外骨骼，拥有优秀的生存性" isshootable="true" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy" botpriority="0.01" cargocontaineridentifier="" nonplayerteaminteractable="True" hideinmenus="true">
+    <Sprite name="Exosuit Item" texture="Exosuit.png" sourcerect="2,266,203,244" depth="0.55" origin="0.5,0.5" />
+    <Body width="150" height="230" density="30" />
+    <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select" allowusewhenworn="true">
+      <sprite name="Exosuit Helmet Wearable" texture="Exosuit.png" limb="Head" hidelimb="true" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hideotherwearables="true" hidewearablesoftype="" sourcerect="0,0,1,1" origin="0.5,0.5" />
+      <sprite name="Exosuit Torso" texture="Exosuit.png" limb="Torso" scale="1.2" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.8" inheritlimbdepth="true" inheritsourcerect="false" sourcerect="167,1,203,193">
+        <LightComponent range="750.0" lightcolor="250,224,165,255" powerconsumption="0" IsOn="true" allowingameediting="false" offset="-50,-50">
+          <LightTexture texture="Content/Lights/divinghelmetlight.png" origin="0.05, 0.5" size="1.0,1.0" />
+        </LightComponent>
+      </sprite>
+      <sprite name="Exosuit Right Hand" texture="Exosuit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="383,160,64,48" />
+      <sprite name="Exosuit Left Hand" texture="Exosuit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,160,64,48" />
+      <sprite name="Exosuit Right Upper Arm" texture="Exosuit.png" limb="RightArm" depthlimb="Head" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="383,0,64,96" />
+      <sprite name="Exosuit Left Upper Arm" texture="Exosuit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,0,64,96" />
+      <sprite name="Exosuit Right Forearm" texture="Exosuit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="383,96,64,64" />
+      <sprite name="Exosuit Left Forearm" texture="Exosuit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,96,64,64" />
+      <sprite name="Exosuit Waist" texture="Exosuit.png" limb="Waist" hidelimb="true" scale="1.2" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="182,196,178,53" />
+      <sprite name="Exosuit Right Thigh" texture="Exosuit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="0,0,96,112" />
+      <sprite name="Exosuit Left Thigh" texture="Exosuit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="0,0,96,112" />
+      <sprite name="Exosuit Right Leg" texture="Exosuit.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritlimbdepth="true" inheritsourcerect="true" />
+      <sprite name="Exosuit Left Leg" texture="Exosuit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Exosuit Left Shoe" texture="Exosuit.png" limb="LeftFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="371,211,133,37" />
+      <sprite name="Exosuit Right Shoe" texture="Exosuit.png" limb="RightFoot" sound="footstep_armor_heavy" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="371,211,133,37" />
+      <StatusEffect type="OnWearing" target="Character" UseHullOxygen="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.2" damagesound="" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="bleeding" damagemultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="explosiondamage" damagemultiplier="0.15" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" damagemultiplier="0.05" damagesound="LimbArmor" />
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Character">
+        <ReduceAffliction identifier="oxygenlow" amount="100" />
+      </StatusEffect>
+    </Wearable>
+    <aitarget maxsightrange="1500" />
+  </Item>
+  <Item name="TL普通护甲（敌对）" identifier="TL_bodyarmor1_Enemy" category="Equipment" tags="" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft" nonplayerteaminteractable="True" hideinmenus="true">
+    <Sprite texture="Armor1.png" sourcerect="183,21,79,134" depth="0.6" origin="0.5,0.4" />
+    <Body radius="45" height="35" density="30" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictionidentifiers="bleeding" armorsector="0.0,360.0" damagemultiplier="0.3" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds" damagemultiplier="0.3" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="burn,stun" armorsector="0.0,360.0" damagemultiplier="0.3" damagesound="LimbArmor" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <sprite name="bodyarmor1 Torso" texture="Armor1.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 Left Upper Arm" texture="Armor1.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 Right Upper Arm" texture="Armor1.png" limb="RightArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 Right Hand" texture="Armor1.png" limb="RightHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Hand" texture="Armor1.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Forearm" texture="Armor1.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Forearm" texture="Armor1.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Waist" texture="Armor1.png" limb="Waist" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Thigh" texture="Armor1.png" limb="RightThigh" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Thigh" texture="Armor1.png" limb="LeftThigh" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Leg" texture="Armor1.png" limb="RightLeg" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritlimbdepth="true" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Leg" texture="Armor1.png" limb="LeftLeg" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Shoe" texture="Armor1.png" limb="LeftFoot" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Shoe" texture="Armor1.png" limb="RightFoot" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Wearable>
+  </Item>
+  <Item name="TL精英护甲（敌对）" identifier="TL_bodyarmor2_Enemy" category="Equipment" tags="" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft" nonplayerteaminteractable="True" hideinmenus="true">
+    <Sprite texture="Armor1.png" sourcerect="183,21,79,134" depth="0.6" origin="0.5,0.4" />
+    <Body radius="45" height="35" density="30" />
+    <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect">
+      <damagemodifier afflictionidentifiers="bleeding" armorsector="0.0,360.0" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,bitewounds" damagemultiplier="0.1" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier afflictionidentifiers="burn,stun" armorsector="0.0,360.0" damagemultiplier="0.2" damagesound="LimbArmor" deflectprojectiles="true" />
+      <SkillModifier skillidentifier="weapons" skillvalue="10" />
+      <sprite name="bodyarmor1 Torso" texture="Armor1.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 Left Upper Arm" texture="Armor1.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 Right Upper Arm" texture="Armor1.png" limb="RightArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="bodyarmor1 Right Hand" texture="Armor1.png" limb="RightHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Hand" texture="Armor1.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Forearm" texture="Armor1.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="true" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Forearm" texture="Armor1.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" SourceRect="0,0,1,1" />
+      <sprite name="bodyarmor1 Waist" texture="Armor1.png" limb="Waist" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Thigh" texture="Armor1.png" limb="RightThigh" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="true" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Thigh" texture="Armor1.png" limb="LeftThigh" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Leg" texture="Armor1.png" limb="RightLeg" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritlimbdepth="true" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Leg" texture="Armor1.png" limb="LeftLeg" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Left Shoe" texture="Armor1.png" limb="LeftFoot" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <sprite name="bodyarmor1 Right Shoe" texture="Armor1.png" limb="RightFoot" hidelimb="false" inherittexturescale="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="0,0,1,1" />
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Wearable>
+  </Item>
+  <!--弹药-->
+  <Item name="TL14弹夹（敌对）" identifier="TL14_magazine_Enemy" maxstacksize="32" hideinmenus="true" maxstacksizecharacterinventory="8" scale="0.21" category="Weapon" health="40" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general" impactsoundtag="impact_metal_light">
+    <Sprite texture="weaponsjz.png" sourcerect="40,293,93,179" depth="0.56" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL15_Ammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL15_Ammo" />
+      <StatusEffect type="OnUse" target="This" condition="-0" disabledeltatime="true">
+        <SpawnItem identifiers="TL15_Ammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="AKE弹夹（敌对）" identifier="AKE_magazine_Enemy" maxstacksize="32" hideinmenus="true" maxstacksizecharacterinventory="8" scale="0.21" category="Weapon" health="40" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,handheldammo,general" impactsoundtag="impact_metal_light">
+    <Sprite texture="weaponsjz.png" sourcerect="40,293,93,179" depth="0.56" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" />
+    <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="AKEammo" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="AKEammo" />
+      <StatusEffect type="OnUse" target="This" condition="-0" disabledeltatime="true">
+        <SpawnItem identifiers="AKEammo" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="无限霰弹弹夹（敌对）" identifier="TL_shotgunammo_magazine_Enemy" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem" impactsoundtag="impact_metal_light" nonplayerteaminteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="189,299,23,11" depth="0.55" origin="0.5,0.5" />
+    <Body width="23" height="10" density="40" />
+    <ItemContainer hideitems="true" capacity="1" maxstacksize="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL_shotgunammo_ordinary" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL_shotgunammo_ordinary" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="TL_shotgunammo_ordinary" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="无限霰弹崩解弹夹（敌对）" identifier="TL_shotgunammo_magazine_disintegrate_Enemy" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem" impactsoundtag="impact_metal_light" nonplayerteaminteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="189,299,23,11" depth="0.55" origin="0.5,0.5" />
+    <Body width="23" height="10" density="40" />
+    <ItemContainer hideitems="true" capacity="1" maxstacksize="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="TL_shotgunammo_disintegrate" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="TL_shotgunammo_disintegrate" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="TL_shotgunammo_disintegrate" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="无限手雷弹夹（敌对）" identifier="GrenadeLauncher_magazine_Enemy" spritecolor="255,255,255,0" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem" impactsoundtag="impact_metal_light" nonplayerteaminteractable="true" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="189,299,23,11" depth="0.55" origin="0.5,0.5" />
+    <Body width="23" height="10" density="40" />
+    <ItemContainer hideitems="true" capacity="1" maxstacksize="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="Throwables_Grenade_Enemy" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+      <Containable items="Throwables_Grenade_Enemy" />
+      <StatusEffect type="OnUse" target="This" disabledeltatime="true">
+        <SpawnItem identifiers="Throwables_Grenade_Enemy" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemContainer>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+  </Item>
+  <Item name="反人员手榴弹（敌对）" description="" identifier="Throwables_Grenade_Enemy" category="Weapon" maxstacksize="32" maxstacksizecharacterinventory="12" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,shotgunammo,TL_shotgunammo,TL_ammo" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true">
+    <Deconstruct time="1">
+      <Item identifier="steel" outcondition="0.5" />
+    </Deconstruct>
+    <InventoryIcon name="Throwables_Grenade_ICON" texture="Content/Items/InventoryIconAtlas.png" sourcerect="580,770,54,63" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="217,305,40,61" depth="0.55" origin="0.5,0.5" />
+    <Body width="50" height="50" density="20" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="false" spread="6" maxtargetstohit="2">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="150,150,200,200" scalemultiplier="1,0.5" />
+      <Attack structuredamage="0.5" targetforce="4" itemdamage="15" severlimbsprobability="0.3" penetration="0.13">
+        <Affliction identifier="stun" strength="0.04" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="This" delay="2.5">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris4.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="10000" />
+        <Explosion range="500.0" ballastfloradamage="100" structuredamage="0" levelwalldamage="0" itemdamage="500" force="20" severlimbsprobability="0.9" debris="true" decal="explosion" decalsize="0.6" penetration="0.5">
+          <Affliction identifier="explosiondamage" strength="200" />
+          <Affliction identifier="burn" strength="200" />
+          <Affliction identifier="bleeding" strength="150" />
+          <Affliction identifier="bleeding" strength="150" probability="0.1" dividebylimbcount="false" />
+          <Affliction identifier="stun" strength="5" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+</Items>

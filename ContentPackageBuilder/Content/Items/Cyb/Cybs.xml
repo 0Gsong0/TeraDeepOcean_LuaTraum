@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<TLCyb name="移植手术准备工具" identifier="TLCyb_Tool" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<TLCyb name="曼珠·神经接口芯片" identifier="TLCyb_LycorisChip" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<TLCyb name="曼珠·[加速学习协议]" identifier="TLCyb_LycorisChip_Learning" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<TLCyb name="曼珠·[执行强化模块]" identifier="TLCyb_LycorisChip_Skill" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<TLCyb name="曼珠·[应激缓冲模块]" identifier="TLCyb_LycorisChip_Stress" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<TLCyb name="曼珠·[代谢调节模块]" identifier="TLCyb_LycorisChip_Metabolic" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<TLCyb name="曼珠·终止-[回收协议]" identifier="TLCyb_LycorisChip_Recovery" category="Medical" maxstacksize="2" maxstacksizecharacterinventory="1" tags="smallitem,chem,medical,syringe" cargocontaineridentifier="mediccrate" description="" useinhealthinterface="true" scale="0.05" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,0,300,354" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<Item name="民用机械臂" identifier="TLCyb_CivilianArm" category="Equipment" cargocontaineridentifier="mediccrate" Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.4">
+		<Price baseprice="2000" soldbydefault="false" minleveldifficulty="15">
+			<Price storeidentifier="merchantmedical" sold="true" />
+			<Price storeidentifier="merchantengineering" sold="true" multiplier="0.9" minavailable="1" />
+			<Price storeidentifier="merchantresearch" sold="true" minavailable="1" />
+		</Price>
+		<PreferredContainer primary="toxcontainer" spawnprobability="0.1" />
+		<PreferredContainer primary="locker" />
+		<PreferredContainer secondary="wreckmedcab,abandonedmedcab,wrecktoxcontainer" minamount="0" maxamount="2" spawnprobability="0.1" />
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="mechanical" level="70" />
+			<RequiredSkill identifier="medical" level="35" />
+			<RequiredItem identifier="fulgurium" amount="1" />
+			<RequiredItem identifier="plastic" amount="3" />
+			<RequiredItem identifier="rubber" amount="4" />
+		</Fabricate>
+		<Deconstruct time="30">
+			<Item identifier="titaniumaluminiumalloy" />
+			<Item identifier="steel" amount="3" />
+			<Item identifier="fpgacircuit" amount="3" />
+			<Item identifier="fulgurium" amount="2" />
+			<Item identifier="plastic" amount="2" />
+			<Item identifier="rubber" amount="2" />
+		</Deconstruct>
+		<Sprite texture="%ModDir%/Content/Items/Cyb/Cybs.png" sourcerect="10,4,228,47" origin="0.5,0.5" depth="0.6" />
+		<InventoryIcon texture="%ModDir%/Content/Items/Cyb/CybIcons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
+		<Body width="114" height="23" density="50" />
+		<MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+			<Attack structuredamage="10" itemdamage="5" targetimpulse="10">
+				<Affliction identifier="blunttrauma" strength="10" />
+				<Affliction identifier="stun" strength="0.5" />
+				<Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+			</Attack>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</Item>
+	<TLCyb name="民用机械腿" identifier="TLCyb_CivilianLeg" category="Equipment" cargocontaineridentifier="mediccrate" Tags="smallitem,medical,surgery" description="" useinhealthinterface="True" scale="0.2">
+		<Price baseprice="2000" soldbydefault="false" minleveldifficulty="15">
+			<Price storeidentifier="merchantmedical" sold="true" />
+			<Price storeidentifier="merchantengineering" sold="true" multiplier="0.9" minavailable="1" />
+			<Price storeidentifier="merchantresearch" sold="true" minavailable="1" />
+		</Price>
+		<PreferredContainer primary="toxcontainer" spawnprobability="0.1" />
+		<PreferredContainer primary="locker" />
+		<PreferredContainer secondary="wreckmedcab,abandonedmedcab,wrecktoxcontainer" minamount="0" maxamount="2" spawnprobability="0.1" />
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="mechanical" level="70" />
+			<RequiredSkill identifier="medical" level="35" />
+			<RequiredItem identifier="fulgurium" amount="1" />
+			<RequiredItem identifier="plastic" amount="3" />
+			<RequiredItem identifier="rubber" amount="4" />
+		</Fabricate>
+		<Deconstruct time="30">
+			<Item identifier="titaniumaluminiumalloy" />
+			<Item identifier="steel" amount="3" />
+			<Item identifier="fpgacircuit" amount="3" />
+			<Item identifier="fulgurium" amount="2" />
+			<Item identifier="plastic" amount="2" />
+			<Item identifier="rubber" amount="2" />
+		</Deconstruct>
+		<Sprite texture="%ModDir%/Content/Items/Cyb/Cybs.png" sourcerect="8,129,132,484" origin="0.5,0.5" depth="0.6" />
+		<InventoryIcon texture="%ModDir%/Content/Items/Cyb/CybIcons.png" sourcerect="128,0,128,128" origin="0.5,0.5" />
+		<Body width="100" height="480" density="50" />
+		<MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="330" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
+			<Attack structuredamage="10" itemdamage="5" targetimpulse="10">
+				<Affliction identifier="blunttrauma" strength="10" />
+				<Affliction identifier="stun" strength="0.5" />
+				<Sound file="Content/Items/Weapons/Smack2.ogg" range="800" />
+			</Attack>
+		</MeleeWeapon>
+		<SkillRequirementHint identifier="mechanical" level="70" />
+	</TLCyb>
+	<Override>
+		<Item name="神经稳定剂" identifier="TLCyb_Neuroleptic" category="Medical" maxstacksize="16" maxstacksizecharacterinventory="4" cargocontaineridentifier="mediccrate" Tags="smallitem,medical,splint" useinhealthinterface="true" description="" scale="0.15" impactsoundtag="impact_soft">
+			<Deconstruct time="5">
+				<Item identifier="stabilozineTL_Pro" copycondition="true" />
+			</Deconstruct>
+			<PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="2" maxamount="2" spawnprobability="0.01" />
+			<PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.01" />
+			<PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.01" />
+			<PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.01" />
+			<PreferredContainer primary="medcab" secondary="medcontainer" spawnprobability="0.01" />
+			<Price baseprice="500" minavailable="1" maxavailable="3">
+				<Price storeidentifier="merchantoutpost" multiplier="0.5" />
+				<Price storeidentifier="merchantcity" multiplier="0.5" />
+				<Price storeidentifier="merchantresearch" multiplier="0.5" />
+				<Price storeidentifier="merchantmilitary" multiplier="0.5" />
+				<Price storeidentifier="merchantmine" multiplier="0.5" />
+				<Price storeidentifier="merchantmedical" multiplier="0.6" />
+				<Price storeidentifier="TLarmory" multiplier="0.3" minavailable="2" maxavailable="3" sold="true" />
+			</Price>
+			<Fabricate suitablefabricators="MoldingPrinters" requiredtime="16" amount="2">
+				<RequiredSkill identifier="medical" level="40" />
+				<RequiredItem identifier="AluminumAlloy" amount="1" />
+				<RequiredItem identifier="stabilozineTL_Pro" amount="1" />
+				<RequiredItem identifier="Compositefruit" amount="2" />
+				<RequiredItem identifier="PrintingMaterials" mincondition="0.1" usecondition="true" />
+			</Fabricate>
+			<InventoryIcon texture="%ModDir%/Content/Items/Cyb/CybIcons.png" sourcerect="379,0,133,129" origin="0.5,0.5" />
+			<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="0,384,273,251" depth="0.6" origin="0.5,0.5" />
+			<Body width="45" height="45" density="11" />
+			<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" reload="1.0" msg="ItemMsgPickUpSelect">
+				<StatusEffect tags="medical" type="OnUse" target="This" disabledeltatime="true">
+					<Sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_Neuroleptic_inti1.ogg" selectionmode="random" range="500" />
+					<Sound file="%ModDir%/Content/Sounds/Cyb/TLCyb_Neuroleptic_inti2.ogg" range="500" />
+				</StatusEffect>
+				<StatusEffect type="OnBroken" target="This">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+			<AiTarget sightrange="1000" static="true" />
+		</Item>
+		<Item name="曼珠指令·重启" identifier="TLCyb_LycorisChipRestart" category="Medical" maxstacksize="16" maxstacksizecharacterinventory="4" cargocontaineridentifier="mediccrate" Tags="smallitem,medical,splint" useinhealthinterface="true" description="" scale="0.15" impactsoundtag="impact_soft">
+			<Deconstruct time="1"></Deconstruct>
+			<Fabricate suitablefabricators="MoldingPrinters" requiredtime="16" amount="2">
+				<RequiredSkill identifier="medical" level="40" />
+				<RequiredItem identifier="AluminumAlloy" amount="1" />
+				<RequiredItem identifier="fpgacircuit" amount="1" />
+			</Fabricate>
+			<InventoryIcon texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="319,-1,300,354" origin="0.5,0.5" />
+			<Sprite texture="%ModDir%/Content/Items/Cyb/TLCybItems.png" sourcerect="319,-1,300,354" depth="0.6" origin="0.5,0.5" />
+			<Body width="45" height="45" density="11" />
+			<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" reload="1.0" msg="ItemMsgPickUpSelect">
+				<StatusEffect tags="medical" type="OnUse" target="This" disabledeltatime="true"></StatusEffect>
+				<StatusEffect type="OnBroken" target="This">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+			<AiTarget sightrange="1000" static="true" />
+		</Item>
+		<Item name="" identifier="armlock1" description="" scale="0.5" nonplayerteaminteractable="True" hideinmenus="true">
+			<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+			<Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5" />
+			<Holdable slots="RightHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+				<!--<Holdable selectkey="Action" pickkey="Use" slots="RightHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="false" aimable="false">-->
+				<StatusEffect type="onnotcontained" target="This" disabledeltatime="true">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+		</Item>
+		<Item name="" identifier="armlock2" description="" scale="0.5" nonplayerteaminteractable="True" hideinmenus="true">
+			<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
+			<Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="0,0,1,1" depth="0.6" origin="0.5,0.5" />
+			<Holdable slots="LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+				<!--<Holdable selectkey="Action" pickkey="Use" slots="LeftHand" msg="ItemMsgDetach" PickingTime="1" aimpos="85,-10" handle1="0,0" attachable="false" aimable="false">-->
+				<StatusEffect type="onnotcontained" target="This" disabledeltatime="true">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+		</Item>
+		<Item name="" identifier="steel" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem,petfood3,munition_core,advmunition_core,advmunition_tip" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+			<PreferredContainer primary="storagecab" />
+			<PreferredContainer secondary="wreckstorage,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
+			<Price baseprice="28">
+				<Price storeidentifier="merchantoutpost" multiplier="1.3" minavailable="7" />
+				<Price storeidentifier="merchantcity" multiplier="1.25" minavailable="10" />
+				<Price storeidentifier="merchantresearch" minavailable="6" />
+				<Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="15" />
+				<Price storeidentifier="merchantmine" multiplier="0.9" minavailable="20" />
+			</Price>
+			<Fabricate suitablefabricators="fabricator" requiredtime="5">
+				<RequiredSkill identifier="mechanical" level="20" />
+				<RequiredItem identifier="carbon" />
+				<RequiredItem identifier="iron" amount="2" />
+			</Fabricate>
+			<Deconstruct time="5">
+				<Item identifier="carbon" copycondition="true" />
+				<Item identifier="iron" copycondition="true" />
+			</Deconstruct>
+			<SuitableTreatment identifier="ntc_materialloss" suitability="50" />
+			<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
+			<Sprite texture="Content/Items/Materials/Minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
+			<Body width="50" height="25" density="30" />
+			<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+				<!-- Remove the item when fully used -->
+				<StatusEffect type="OnBroken" target="This">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+			<!-- for scrap cannon -->
+			<Projectile characterusable="false" hitscan="true" hitscancount="16" removeonhit="true" spread="25">
+				<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
+				<Attack structuredamage="2" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
+					<Affliction identifier="lacerations" strength="6" />
+					<Affliction identifier="bleeding" strength="6" />
+					<Affliction identifier="stun" strength="0.1" />
+				</Attack>
+				<StatusEffect type="OnImpact" target="UseTarget">
+					<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+				</StatusEffect>
+				<StatusEffect type="OnImpact" target="UseTarget">
+					<Conditional entitytype="eq Structure" />
+					<Conditional hastag="eq door" />
+					<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+				</StatusEffect>
+			</Projectile>
+			<AiTarget sightrange="1000" static="true" />
+			<SkillRequirementHint identifier="mechanical" level="60" />
+		</Item>
+	</Override>
+	<!-- crowbar -->
+	<Override>
+		<!--钢筋-->
+		<Item name="" identifier="steel" category="Material" maxstacksize="32" maxstacksizecharacterinventory="8" Tags="smallitem,petfood3,munition_core,advmunition_core,advmunition_tip" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.4" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+			<PreferredContainer primary="storagecab" />
+			<PreferredContainer secondary="wreckstorage,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
+			<Price baseprice="28">
+				<Price storeidentifier="merchantoutpost" multiplier="1.3" minavailable="7" />
+				<Price storeidentifier="merchantcity" multiplier="1.25" minavailable="10" />
+				<Price storeidentifier="merchantresearch" minavailable="6" />
+				<Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="15" />
+				<Price storeidentifier="merchantmine" multiplier="0.9" minavailable="20" />
+			</Price>
+			<Fabricate suitablefabricators="fabricator" requiredtime="5">
+				<RequiredSkill identifier="mechanical" level="20" />
+				<RequiredItem identifier="carbon" />
+				<RequiredItem identifier="iron" amount="2" />
+			</Fabricate>
+			<Deconstruct time="5">
+				<Item identifier="carbon" copycondition="true" />
+				<Item identifier="iron" copycondition="true" />
+			</Deconstruct>
+			<SuitableTreatment identifier="ntc_materialloss" suitability="50" />
+			<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,128,64,64" />
+			<Sprite texture="Content/Items/Materials/Minerals.png" sourcerect="4,171,54,27" depth="0.55" origin="0.5,0.5" />
+			<Body width="50" height="25" density="30" />
+			<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+				<!-- Remove the item when fully used -->
+				<StatusEffect type="OnBroken" target="This">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+			<!-- for scrap cannon -->
+			<Projectile characterusable="false" hitscan="true" hitscancount="16" removeonhit="true" spread="25">
+				<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
+				<Attack structuredamage="2" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
+					<Affliction identifier="lacerations" strength="6" />
+					<Affliction identifier="bleeding" strength="6" />
+					<Affliction identifier="stun" strength="0.1" />
+				</Attack>
+				<StatusEffect type="OnImpact" target="UseTarget">
+					<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+				</StatusEffect>
+				<StatusEffect type="OnImpact" target="UseTarget">
+					<Conditional entitytype="eq Structure" />
+					<Conditional hastag="eq door" />
+					<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+				</StatusEffect>
+			</Projectile>
+			<AiTarget sightrange="1000" static="true" />
+			<SkillRequirementHint identifier="mechanical" level="60" />
+		</Item>
+		<!--螺丝刀-->
+		<Item name="" identifier="screwdriver" category="Equipment" Tags="smallitem,simpletool,tool,electricalrepairtool,screwdriveritem" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True" useinhealthinterface="True">
+			<Preferredcontainer secondary="respawncontainer" amount="1" spawnprobability="1" notcampaign="true" />
+			<PreferredContainer primary="engcab" secondary="reactorcab" />
+			<PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" amount="1" spawnprobability="0.2" />
+			<PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.5" />
+			<PreferredContainer primary="wreckreactorcab,abandonedreactorcab" amount="1" spawnprobability="0.5" />
+			<PreferredContainer secondary="outpostcrewcabinet" amount="1" spawnprobability="0.3" />
+			<PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.1" />
+			<Price baseprice="10" minavailable="10">
+				<Price storeidentifier="merchantoutpost" />
+				<Price storeidentifier="merchantcity" minavailable="5" />
+				<Price storeidentifier="merchantresearch" multiplier="1.25" />
+				<Price storeidentifier="merchantmilitary" multiplier="1.25" />
+				<Price storeidentifier="merchantmine" />
+				<Price storeidentifier="merchantengineering" minavailable="10" multiplier="0.9" />
+			</Price>
+			<Deconstruct time="20">
+				<Item identifier="iron" />
+			</Deconstruct>
+			<Fabricate suitablefabricators="fabricator" requiredtime="10">
+				<RequiredSkill identifier="mechanical" level="20" />
+				<RequiredItem identifier="iron" amount="2" />
+			</Fabricate>
+			<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,0,64,64" origin="0.5,0.5" />
+			<Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,189,64,14" depth="0.55" origin="0.5,0.5" />
+			<Body width="60" height="12" density="25" />
+			<SuitableTreatment identifier="ntc_loosescrews" suitability="50" />
+			<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
+				<Attack structuredamage="0" itemdamage="2" targetimpulse="2">
+					<Affliction identifier="lacerations" strength="5" />
+					<Affliction identifier="bleeding" strength="2" />
+					<Affliction identifier="stun" strength="0.05" />
+					<StatusEffect type="OnUse" target="UseTarget">
+						<Conditional entitytype="eq Character" />
+						<Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+						<Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+						<Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+						<Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+						<Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+						<Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+					</StatusEffect>
+				</Attack>
+			</MeleeWeapon>
+			<aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+			<Quality>
+				<QualityStat stattype="RepairSpeed" value="0.1" />
+			</Quality>
+			<Upgrade gameversion="0.10.0.0" scale="0.5" />
+			<SkillRequirementHint identifier="mechanical" level="40" />
+		</Item>
+		<Item name="" identifier="screwdriverhardened" variantof="screwdriver" allowasextracargo="true" inventoryiconcolor="110,120,110,255" spritecolor="110,120,110" addedrepairspeedmultiplier="0.25" useinhealthinterface="True">
+			<PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true" />
+			<PreferredContainer primary="reactorcab,engcab" spawnprobability="0" />
+			<PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" spawnprobability="0" />
+			<PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0" />
+			<PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
+			<PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+			<PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+			<Price baseprice="200" sold="false" />
+			<Deconstruct>
+				<Item identifier="iron" />
+				<Item identifier="depletedfuel" />
+			</Deconstruct>
+			<Fabricate requiresrecipe="true">
+				<RequiredItem identifier="depletedfuel" amount="2" />
+				<RequiredItem identifier="screwdriver" amount="1" />
+			</Fabricate>
+			<SuitableTreatment identifier="ntc_loosescrews" suitability="50" />
+			<MeleeWeapon>
+				<Attack targetimpulse="8" penetration="0.25">
+					<Affliction identifier="lacerations" strength="7" />
+					<Affliction identifier="radiationsickness" strength="1" />
+					<Affliction identifier="stun" strength="0.08" />
+					<Affliction identifier="bleeding" strength="2" />
+				</Attack>
+			</MeleeWeapon>
+			<SkillRequirementHint identifier="mechanical" level="40" />
+		</Item>
+		<Item name="" identifier="screwdriverdementonite" descriptionidentifier="dementonitetool" variantof="screwdriver" allowasextracargo="true" inventoryiconcolor="136,142,166,255" spritecolor="136,142,166" addedrepairspeedmultiplier="0.4" useinhealthinterface="True">
+			<PreferredContainer secondary="respawncontainer" spawnprobability="0" notcampaign="true" />
+			<PreferredContainer primary="reactorcab,engcab" spawnprobability="0" />
+			<PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" spawnprobability="0" />
+			<PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" spawnprobability="0" />
+			<PreferredContainer primary="wreckreactorcab,abandonedreactorcab" spawnprobability="0" />
+			<PreferredContainer secondary="outpostcrewcabinet" spawnprobability="0" />
+			<PreferredContainer secondary="outposttrashcan" spawnprobability="0" />
+			<Price baseprice="450" sold="false" />
+			<Deconstruct>
+				<Item identifier="iron" />
+				<Item identifier="dementonite" />
+			</Deconstruct>
+			<Fabricate />
+			<SuitableTreatment identifier="ntc_loosescrews" suitability="50" />
+			<MeleeWeapon reload="*0.9">
+				<Attack targetimpulse="8">
+					<Affliction identifier="lacerations" strength="7.5" />
+					<Affliction identifier="psychosis" strength="5" />
+					<Affliction identifier="stun" strength="0.05" />
+				</Attack>
+				<StatusEffect type="OnFailure" target="Character">
+					<Sound file="Content/Items/Alien/AlienTurret1.ogg" range="500" />
+					<Affliction identifier="psychosis" strength="10" />
+				</StatusEffect>
+			</MeleeWeapon>
+			<SkillRequirementHint identifier="mechanical" level="40" />
+		</Item>
+		<!--FPGA-->
+		<Item name="" identifier="fpgacircuit" category="Electrical" Tags="smallitem,signal" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" scale="0.5" impactsoundtag="impact_metal_light" useinhealthinterface="True">
+			<Price baseprice="80">
+				<Price storeidentifier="merchantoutpost" />
+				<Price storeidentifier="merchantcity" sold="false" />
+				<Price storeidentifier="merchantresearch" multiplier="1.25" />
+				<Price storeidentifier="merchantmilitary" />
+				<Price storeidentifier="merchantmine" />
+				<Price storeidentifier="merchantengineering" multiplier="0.9" />
+			</Price>
+			<PreferredContainer primary="engcab" />
+			<PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+			<Deconstruct time="5">
+				<Item identifier="copper" />
+			</Deconstruct>
+			<Fabricate suitablefabricators="fabricator" requiredtime="5">
+				<RequiredSkill identifier="electrical" level="15" />
+				<RequiredItem identifier="plastic" />
+				<RequiredItem identifier="copper" amount="2" />
+				<RequiredItem identifier="tin" />
+			</Fabricate>
+			<Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="true" amount="2">
+				<RequiredSkill identifier="electrical" level="15" />
+				<RequiredItem identifier="plastic" />
+				<RequiredItem identifier="copper" amount="2" />
+				<RequiredItem identifier="tin" />
+			</Fabricate>
+			<SuitableTreatment identifier="ntc_damagedelectronics" suitability="50" />
+			<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,64,64,64" origin="0.5,0.5" />
+			<Sprite texture="Content/Items/Electricity/signalcomp.png" depth="0.8" sourcerect="225,33,36,36" origin="0.5,0.5" />
+			<Body width="36" height="36" density="15" />
+			<Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" canBeCombined="true" removeOnCombined="true">
+				<!-- Remove the item when fully used (not used by the vanilla game) -->
+				<StatusEffect type="OnBroken" target="This">
+					<Remove />
+				</StatusEffect>
+			</Holdable>
+			<SkillRequirementHint identifier="electrical" level="40" />
+		</Item>
+	</Override>
+</Items>

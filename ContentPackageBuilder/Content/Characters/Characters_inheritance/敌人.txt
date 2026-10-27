@@ -1,0 +1,44 @@
+海盗：
+盾构海盗 meleehuman_pirate：150
+	防爆盾+木卫二之交
+	冲锋盾+潜水刀
+普通先锋海盗 normalhuman_pirate：110
+	smg
+	自动霰弹枪
+重装先锋海盗 elitehuman_pirate：140
+	smg
+	自动霰弹枪
+重装强袭海盗 elitehumanH_pirate：180
+	手炮
+	hmg+防爆盾
+	眩晕榴弹炮
+	眩晕榴弹炮+hmg
+自爆海盗 humanboomerb_pirate：140
+重装自爆海盗 humanboomer_pirate：1400
+刺雷自杀式海盗 SpikeThunderhuman_pirate ：250
+刺雷自杀式音乐海盗 SpikeThunderhuman_Music_pirate
+幻星：
+幻星安保巡逻队 defensehuman_HX：130
+	协调者
+	自动霰弹枪
+幻星安保陆战队 defensehumanDV_HX：160
+	协调者
+	蚺蛇
+	眩晕榴弹
+幻星震撼部队 DVstunhuman_HX：120
+	眩晕榴弹
+幻星重装陆战队 elitehuman_HX：180
+	加强协调者
+	病毒榴弹
+暴怒者 BNZHuman_HX 1100
+
+生物：
+奇美拉实验体 Husk_chimeraTL 2000
+精英画皮外骨骼 Husk_exosuitTL 2500
+扑食者 Husk_prowlerTL 200
+普通画皮实验体 HuskPro 280
+精英画皮实验体 HuskPro2 500
+普通远程画皮实验体 HuskProPro 300
+精英远程画皮实验体 HuskProPro2 500
+剪刀手（曾经的失联人员） LostLand 300
+毒脓迅猛龙首领 3500

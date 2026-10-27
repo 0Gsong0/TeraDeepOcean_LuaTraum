@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Missions>
+	<!--教程-->
+	<BeaconMission
+    identifier="beacon-TLtutorial"
+    textidentifier="beaconnoreward-TLtutorial"
+    achievementidentifier="beaconmission"
+    tags="beacon-TLtutorial"
+    type="Beacon"
+    difficulty="0"
+    reward="2500"
+    minleveldifficulty="0"
+    maxleveldifficulty="0"
+    sideobjective="true"
+	BeaconTags="TLtutorialBeaconStation">
+		<Icon texture="Content/UI/MissionIcons.png" sourcerect="0,256,256,256" color="243,146,55"/>
+	</BeaconMission>
+	<PirateMission name="试炼--暗潮初战" type="Pirate" identifier="TLtutorial.EnemySubmarine" tags="TLtutorial.EnemySubmarine" difficulty="2" commonness="100" reward="3500" description="">
+		<Reputation identifier="coalition" amount="5" amountforopposingfaction="-5" />
+		<SubmarineTypes>
+			<Submarine path="%ModDir%/Content/ModContent/Sub/鼬獾-海盗船版本.sub" faction="TLCompany" preferreddifficulty="18" alternatereward="3000" />
+		</SubmarineTypes>
+		<Characters>
+			<Character typeidentifier="separatistcaptain" minamount="1" maxamount="1"/>
+			<Character typeidentifier="separatistsecurity" minamount="1" maxamount="3" />
+			<Character typeidentifier="separatistmechanic" minamount="1" maxamount="1" />
+			<Character typeidentifier="separatistengineer" minamount="1" maxamount="1" />
+		</Characters>
+		<CharacterTypes>
+			<CharacterType typeidentifier="separatistcaptain">
+				<Character identifier="separatistcaptain" from="combatmissionseparatistnpcs" preferreddifficulty="50" iscommander="true" />
+				<Character identifier="separatistcaptainlord" from="combatmissionseparatistnpcs" preferreddifficulty="90" iscommander="true" />
+			</CharacterType>
+			<CharacterType typeidentifier="separatistsecurity">
+				<Character identifier="separatistsecurityrecruit" from="combatmissionseparatistnpcs" preferreddifficulty="40"/>
+				<Character identifier="separatistsecuritygunner" from="combatmissionseparatistnpcs" preferreddifficulty="60"/>
+				<Character identifier="separatistsecuritybrute" from="combatmissionseparatistnpcs" preferreddifficulty="70"/>
+				<Character identifier="separatistsecurityelite" from="combatmissionseparatistnpcs" preferreddifficulty="100"/>
+			</CharacterType>
+			<CharacterType typeidentifier="separatistmechanic">
+				<Character identifier="separatistmechanicrecruit" from="combatmissionseparatistnpcs" preferreddifficulty="40"/>
+				<Character identifier="separatistmechanicveteran" from="combatmissionseparatistnpcs" preferreddifficulty="70"/>
+			</CharacterType>
+			<CharacterType typeidentifier="separatistengineer">
+				<Character identifier="separatistengineerrecruit" from="combatmissionseparatistnpcs" preferreddifficulty="40"/>
+				<Character identifier="separatistengineerveteran" from="combatmissionseparatistnpcs" preferreddifficulty="70"/>
+			</CharacterType>
+		</CharacterTypes>
+		<Icon texture="Content/UI/MissionIcons.png" sourcerect="0,768,256,256" color="243,146,55"/>
+		<message header="missionheader0.pirate1" text="missionmessage0.pirate1"/>
+		<message header="missionheader1.pirate1" text="missionmessage1.pirate1"/>
+		<LocationType from="AnyOutpost" to="Any" />
+	</PirateMission>
+  <MonsterMission name="花与死亡" identifier="hunting" type="Monster" tags="TLHunting" description="missiondescription.hunting" commonness="100" reward="8900" sonarlabel="sonarlabel.hunting" maxsonarmarkerdistance="25000" successmessage="missionsuccess.hunting" missionfailure="missionfailure.hunting" difficulty="5">
+    <Reputation identifier="location" amount="5" />
+    <Reputation identifier="huskcult" amount="3" />
+    <Reputation identifier="TLCompany" amount="3" />
+    <monster character="Lost1" min="6" max="6" />
+    <monster character="Lost2" min="3" max="6" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/mizhi.png" sourcerect="0,0,1024,1024" />
+    <message header="header.hunting" text="text.hunting" />
+  </MonsterMission>
+  <MonsterMission name="毒脓迅猛龙猎杀" identifier="mudraptors_small" description="missiondescription.mudraptors_small" type="Monster" tags="TLHunting" difficulty="1" commonness="100" reward="2000" sonarlabel="sonarlabel.mudraptors_small" maxsonarmarkerdistance="10000" successmessage="missionsuccess.mudraptors_small" missionfailure="missionfailure.mudraptors_small">
+    <Reputation identifier="location" amount="1" />
+    <Reputation identifier="huskcult" amount="1" />
+    <Reputation identifier="TLCompany" amount="1" />
+    <monster character="毒脓迅猛龙" min="2" max="3" />
+    <Icon texture="Content/UI/MissionIcons2.png" sourcerect="512,512,256,256" color="214,50,48" />
+    <message header="header.mudraptors_small" text="text.mudraptors_small" />
+  </MonsterMission>
+  <MonsterMission name="毒脓迅猛龙猎杀" identifier="mudraptors" description="missiondescription.mudraptors_small" type="Monster" tags="TLHunting" difficulty="4" commonness="100" reward="7800" sonarlabel="sonarlabel.mudraptors_small" maxsonarmarkerdistance="10000" successmessage="missionsuccess.mudraptors_small" missionfailure="missionfailure.mudraptors_small">
+    <Reputation identifier="location" amount="3" />
+    <Reputation identifier="huskcult" amount="3" />
+    <Reputation identifier="TLCompany" amount="2" />
+    <monster character="毒脓迅猛龙" min="7" max="9" />
+    <monster character="毒脓迅猛龙首领" min="2" max="3" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/zhuguang.png" sourcerect="0,0,1024,1024" />
+    <message header="header.mudraptors_small" text="text.mudraptors_small" />
+  </MonsterMission>
+	<MonsterMission name="奇怪的毒脓迅猛龙猎杀" identifier="mudraptors_gun" description="missiondescription.mudraptors_gun" type="Monster" tags="TLHunting" difficulty="4" commonness="100" reward="8800" sonarlabel="sonarlabel.mudraptors_small" maxsonarmarkerdistance="10000" successmessage="missionsuccess.mudraptors_gun" missionfailure="missionfailure.mudraptors_gun">
+		<Reputation identifier="location" amount="3" />
+		<Reputation identifier="huskcult" amount="3" />
+		<Reputation identifier="TLCompany" amount="3" />
+		<monster character="毒浓迅猛龙步枪手" min="4" max="6" />
+		<monster character="毒浓迅猛龙掷弹兵" min="2" max="3" />
+		<Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/持枪迅猛龙.png" sourcerect="0,0,873,873" />
+		<message header="header.mudraptors_gun" text="text.mudraptors_gun" />
+	</MonsterMission>
+  <NestMission name="毒脓迅猛龙巢穴肃清" identifier="TLNest1" description="missiondescription.TLNest1" tags="TLHunting" type="Nest" spawntype="cave" reward="5000" itemspawnradius="1200" approachitemsradius="1200" monsterspawnradius="4000" nestobjectradius="1500" nestobjectamount="20" difficulty="3" commonness="100">
+    <Items>
+      <Item identifier="largemudraptoregg">
+        <StatusEffectOnApproach target="This" Scale="1.0" setvalue="true" />
+      </Item>
+      <Item identifier="largemudraptoregg">
+        <StatusEffectOnApproach target="This" Scale="1.0" setvalue="true" delay="9" />
+      </Item>
+      <Item identifier="smallmudraptoregg" />
+      <Item identifier="smallmudraptoregg" />
+      <Item identifier="smallmudraptoregg" />
+    </Items>
+    <monster character="毒脓迅猛龙" min="6" max="8" />
+    <monster character="毒脓迅猛龙首领" min="1" max="1" />
+	<monster character="毒浓迅猛龙步枪手" min="2" max="3" />
+	<monster character="毒浓迅猛龙掷弹兵" min="1" max="2" />
+    <Reputation identifier="TLCompany" amount="1" />
+    <Reputation identifier="location" amount="2" />
+    <Icon texture="Content/UI/MissionIcons.png" sourcerect="256,256,256,256" color="214,50,48" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+    <message header="header.TLNest1" text="text.TLNest1" />
+  </NestMission>
+  <MonsterMission name="探索求救信号" identifier="TLrescue1" tags="TLrescue" spawntype="Cave" type="Monster" description="missiondescription.TLrescue1" difficulty="3" commonness="90" reward="5500" sonarlabel="sonarlabel.TLrescue1" maxsonarmarkerdistance="10000" successmessage="missionsuccess.TLrescue1">
+    <monster character="HuskPro" min="4" max="5" />
+    <monster character="HuskPropro" min="4" max="5" />
+    <monster character="Husk_exosuitTL" min="1" max="1" />
+    <Reputation identifier="location" amount="1" />
+    <Reputation identifier="TLCompany" amount="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/SOS.png" sourcerect="0,0,1024,1024" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+    <message header="header.TLrescue1" text="text.TLrescue1" />
+  </MonsterMission>
+  <MonsterMission name="探索求救信号" identifier="TLrescue2" tags="TLrescue" spawntype="Cave" type="Monster" description="missiondescription.TLrescue1" difficulty="3" commonness="90" reward="5500" sonarlabel="sonarlabel.TLrescue1" maxsonarmarkerdistance="10000" successmessage="missionsuccess.TLrescue1">
+    <monster character="elitehuman_HX" min="1" max="2" />
+    <monster character="BNZHuman_HX" min="1" max="2" />
+    <monster character="defensehuman_HX" min="3" max="4" />
+    <Reputation identifier="location" amount="1" />
+    <Reputation identifier="TLCompany" amount="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/SOS.png" sourcerect="0,0,1024,1024" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+    <message header="header.TLrescue2" text="text.TLrescue2" />
+  </MonsterMission>
+  <MonsterMission name="探索求救信号" identifier="TLrescue3" tags="TLrescue" spawntype="Cave" type="Monster" description="missiondescription.TLrescue1" difficulty="3" commonness="90" reward="5500" sonarlabel="sonarlabel.TLrescue1" maxsonarmarkerdistance="10000" successmessage="missionsuccess.TLrescue1">
+    <monster character="elitehumanH_pirate" min="1" max="1" />
+    <monster character="humanboomerb_pirate" min="1" max="1" />
+    <monster character="normalhuman_pirate" min="6" max="8" />
+    <Reputation identifier="location" amount="1" />
+    <Reputation identifier="TLCompany" amount="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/SOS.png" sourcerect="0,0,1024,1024" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+    <message header="header.TLrescue3" text="text.TLrescue3" />
+  </MonsterMission>
+  <MonsterMission name="摧毁测试机" identifier="TLceshiji" description="missiondescription.TLceshiji" type="Monster" tags="TLHunting_Difficulty" difficulty="8" commonness="100" reward="49000" sonarlabel="sonarlabel.TLceshiji" maxsonarmarkerdistance="50000" successmessage="missionsuccess.TLceshiji" missionfailure="missionfailure.TLceshiji">
+    <Reputation identifier="location" amount="3" />
+    <Reputation identifier="huskcult" amount="3" />
+    <Reputation identifier="TLCompany" amount="6" />
+    <monster character="失控初代测试机" min="2" max="3" />
+    <monster character="失控初代测试机_leader" min="1" max="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/baomi.png" sourcerect="0,0,1024.1024" />
+    <message header="header.TLceshiji" text="text.TLceshiji" />
+  </MonsterMission>
+  <MonsterMission name="日蚀" identifier="TLRS" description="missiondescription.RS" type="Monster" tags="TLHunting_Difficulty" difficulty="8" commonness="100" reward="199999" sonarlabel="sonarlabel.RS" maxsonarmarkerdistance="50000" successmessage="missionsuccess.RS" missionfailure="missionfailure.RS">
+    <Reputation identifier="location" amount="15" />
+    <Reputation identifier="huskcult" amount="20" />
+    <Reputation identifier="TLCompany" amount="20" />
+    <monster character="日蚀前锋" min="1" max="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/RS.png" sourcerect="0,0,1024.1024" />
+    <message header="header.RS" text="text.RS" />
+  </MonsterMission>
+  <MonsterMission name="烛光晚宴" identifier="TLhunting" type="Monster" tags="TLHunting_Difficulty" spawntype="Abyss" description="missiondescription.TLhunting" commonness="100" reward="17000" sonarlabel="sonarlabel.TLhunting" maxsonarmarkerdistance="30000" successmessage="missionsuccess.TLhunting" missionfailure="missionfailure.TLhunting" difficulty="5">
+    <Reputation identifier="location" amount="10" />
+    <Reputation identifier="clowns" amount="3" />
+    <Reputation identifier="TLCompany" amount="4" />
+    <monster character="辐射蠕虫" min="1" max="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/zhuguang.png" sourcerect="0,0,1024,1024" />
+    <message header="header.TLhunting" text="text.TLhunting" />
+  </MonsterMission>
+  <MonsterMission name="烛光晚宴" identifier="TLhunting2" type="Monster" tags="TLHunting_Difficulty" spawntype="Abyss" description="missiondescription.TLhunting" commonness="100" reward="17000" sonarlabel="sonarlabel.TLhunting" maxsonarmarkerdistance="30000" successmessage="missionsuccess.TLhunting" missionfailure="missionfailure.TLhunting" difficulty="5">
+    <Reputation identifier="location" amount="10" />
+    <Reputation identifier="clowns" amount="3" />
+    <Reputation identifier="TLCompany" amount="4" />
+    <monster character="辐射捕勾兽" min="1" max="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/zhuguang.png" sourcerect="0,0,1024,1024" />
+    <message header="header.TLhunting" text="text.TLhunting" />
+  </MonsterMission>
+  <MonsterMission name="烛光晚宴" identifier="TLhunting3" type="Monster" tags="TLHunting_Difficulty" spawntype="Abyss" description="missiondescription.TLhunting" commonness="100" reward="17000" sonarlabel="sonarlabel.TLhunting" maxsonarmarkerdistance="30000" successmessage="missionsuccess.TLhunting" missionfailure="missionfailure.TLhunting" difficulty="5">
+    <Reputation identifier="location" amount="10" />
+    <Reputation identifier="clowns" amount="3" />
+    <Reputation identifier="TLCompany" amount="4" />
+    <monster character="charybdis" min="1" max="1" />
+    <monster character="doomworm" min="1" max="1" />
+    <monster character="辐射蠕虫" min="1" max="1" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/zhuguang.png" sourcerect="0,0,1024,1024" />
+    <message header="header.TLhunting" text="text.TLhunting" />
+  </MonsterMission>
+  <!--海盗任务-->
+  <PirateMission name="放弃船，或者放弃希望(叛逃锤头鲨级护卫舰)" type="Pirate" identifier="TLhaidao" tags="TLPirate" difficulty="8" commonness="100" reward="19999" description="">
+    <Reputation identifier="coalition" amount="-4" />
+    <Reputation identifier="TLCompany" amount="7" />
+    <SubmarineTypes>
+      <Submarine path="%ModDir%/Content/ModContent/Sub/泰拉叛逃护卫舰.sub" faction="separatists" preferreddifficulty="12" alternatereward="10999" />
+    </SubmarineTypes>
+    <Characters>
+      <Character typeidentifier="TLcaptain_PT" minamount="2" maxamount="2" />
+      <Character typeidentifier="TLsecurity_PT" minamount="12" maxamount="12" />
+      <Character typeidentifier="TLmechanic_PT" minamount="1" maxamount="1" />
+      <Character typeidentifier="TLengineer_PT" minamount="1" maxamount="1" />
+      <Character typeidentifier="TLDoc_PT" minamount="1" maxamount="1" />
+      <Character typeidentifier="TLSafe_PT" minamount="1" maxamount="1" />
+    </Characters>
+    <CharacterTypes>
+      <CharacterType typeidentifier="TLcaptain_PT">
+        <Character identifier="TL_mission_npcs_Captain" from="TL_mission_npcs" iscommander="true" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLsecurity_PT">
+        <Character identifier="TL_mission_npcs_PTSecurity" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLmechanic_PT">
+        <Character identifier="TL_mission_npcs_Assistant" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLengineer_PT">
+        <Character identifier="TL_mission_npcs_Assistant" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLDoc_PT">
+        <Character identifier="TL_mission_npcs_Doc" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLSafe_PT">
+        <Character identifier="TL_mission_npcs_PTCommander" from="TL_mission_npcs" />
+      </CharacterType>
+    </CharacterTypes>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/haidao.png" sourcerect="0,0,1024,1024" />
+    <message header="header1.TLhaidao" text="text1.TLhaidao" />
+    <message header="header.TLhaidao" text="text.TLhaidao" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+  </PirateMission>
+  <PirateMission name="运输阻断-联盟使者" type="Pirate" identifier="TLhaidao3" tags="TLPirate" difficulty="2" commonness="100" reward="3500" description="missiondescription.Pirate">
+    <Reputation identifier="TLCompany" amount="-15" amountforopposingfaction="10" />
+    <SubmarineTypes>
+      <Submarine path="%ModDir%/Content/ModContent/Sub/泰拉集团摩洛克型运输舰.sub" faction="TLCompany" preferreddifficulty="18" alternatereward="3000" />
+    </SubmarineTypes>
+    <Characters>
+      <Character typeidentifier="TLcaptain" minamount="2" maxamount="2" />
+      <Character typeidentifier="TLsecurity" minamount="7" maxamount="7" />
+      <Character typeidentifier="TLmechanic" minamount="1" maxamount="1" />
+      <Character typeidentifier="TLengineer" minamount="1" maxamount="1" />
+      <Character typeidentifier="TLDoc" minamount="1" maxamount="1" />
+      <Character typeidentifier="TLSafeP" minamount="4" maxamount="4" />
+    </Characters>
+    <CharacterTypes>
+      <CharacterType typeidentifier="TLcaptain">
+        <Character identifier="TL_mission_npcs_Captain" from="TL_mission_npcs" iscommander="true" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLsecurity">
+        <Character identifier="TL_mission_npcs_Security" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLmechanic">
+        <Character identifier="TL_mission_npcs_Assistant" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLengineer">
+        <Character identifier="TL_mission_npcs_Assistant" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLDoc">
+        <Character identifier="TL_mission_npcs_Doc" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="TLSafeP">
+        <Character identifier="TL_mission_npcs_TLsafe" from="TL_mission_npcs" />
+      </CharacterType>
+    </CharacterTypes>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/yunshu.png" sourcerect="0,0,1024,1024" />
+    <message header="header1.Pirate" text="text1.Pirate" />
+    <message header="header.Pirate" text="text.Pirate" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+  </PirateMission>
+  <PirateMission name="失联医疗舰" type="Pirate" identifier="TLyiliaojian" tags="TLPirate" difficulty="3" commonness="100" reward="5800" description="missiondescription.TLyiliaojian">
+    <Reputation identifier="TLCompany" amount="2" amountforopposingfaction="2" />
+    <SubmarineTypes>
+      <Submarine path="%ModDir%/Content/ModContent/Sub/失联医疗舰.sub" faction="TLCompany" alternatereward="100" />
+    </SubmarineTypes>
+    <CharacterTypes>
+      <CharacterType typeidentifier="TL_mission_npcs_Raider">
+        <Character identifier="TL_mission_npcs_Raider" from="TL_mission_npcs" />
+      </CharacterType>
+    </CharacterTypes>
+    <Characters>
+      <Character typeidentifier="TL_mission_npcs_Raider" minamount="2" maxamount="5" />
+    </Characters>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/yiliao.png" sourcerect="0,0,1024,1024" />
+    <message header="header1.TLyiliaojian" text="text1.TLyiliaojian" />
+    <message header="header.TLyiliaojian" text="text.TLyiliaojian" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+  </PirateMission>
+  <PirateMission name="故障机甲回收协议" type="Pirate" identifier="TLFaultyMech" tags="TLPirate" difficulty="3" commonness="100" reward="6700" description="missiondescription.TLFaultyMech">
+    <Reputation identifier="TLCompany" amount="2" amountforopposingfaction="2" />
+    <SubmarineTypes>
+      <Submarine path="%ModDir%/Content/ModContent/Sub/泰拉故障侦察型实验机甲-海盗.sub" faction="TLCompany" />
+    </SubmarineTypes>
+    <CharacterTypes>
+      <CharacterType typeidentifier="TL_mission_npcs_Raider">
+        <Character identifier="HX_KFXD" from="HXnpc" />
+      </CharacterType>
+    </CharacterTypes>
+    <Characters>
+      <Character typeidentifier="TL_mission_npcs_Raider" minamount="2" maxamount="3" />
+    </Characters>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/yiliao.png" sourcerect="0,0,1024,1024" />
+    <message header="header1.TLFaultyMech" text="text1.TLFaultyMech" />
+    <message header="header.TLFaultyMech" text="text.TLFaultyMech" />
+    <LocationType from="AnyOutpost" to="AnyOutpost" />
+  </PirateMission>
+  <AbandonedOutpostMission name="能源站回收" description="missiondescription.TLEnergyTowers" identifier="TLEnergyTowers" tags="TLEnergyTowersoutpost" type="OutpostDestroy" achievementidentifier="huskcultrescuesubra" reward="10000" difficulty="5" commonness="100" allowretry="true" unhideentitysubcategories="abandonedmonster">
+    <Reputation identifier="TLCompany" amount="4" />
+    <Icon texture="Content/UI/MissionIcons.png" sourcerect="512,256,256,256" color="214,50,48" />
+    <LocationType identifier="TLEnergyTowers" />
+    <LocationTypeChange from="TLEnergyTowers" to="Abandoned" requireddurationrange="0,0" cooldownafterchange="5" />
+    <Characters>
+      <Character identifier="TL_mission_npcs_Third" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+      <Character identifier="TL_mission_npcs_Third2" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="waytoascensionfoundsubra" campaignonly="true" />
+    <Metadata identifier="waytoascension" value="8" />
+    <message header="header.TLEnergyTowers" text="text.TLEnergyTowers" />
+  </AbandonedOutpostMission>
+  <AbandonedOutpostMission name="能源站回收_1" description="missiondescription.TLEnergyTowers" identifier="TLEnergyTowers_1" tags="TLEnergyTowers_1outpost" type="OutpostDestroy" achievementidentifier="huskcultrescuesubra" reward="3000" difficulty="2" commonness="100" allowretry="true" unhideentitysubcategories="abandonedmonster">
+    <Reputation identifier="TLCompany" amount="4" />
+    <Icon texture="Content/UI/MissionIcons.png" sourcerect="512,256,256,256" color="214,50,48" />
+    <LocationType identifier="TLEnergyTowers_1" />
+    <LocationTypeChange from="TLEnergyTowers_1" to="Abandoned" requireddurationrange="0,0" cooldownafterchange="5" />
+    <Characters>
+      <Character identifier="TL_mission_npcs_Third" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="waytoascensionfoundsubra" campaignonly="true" />
+    <Metadata identifier="waytoascension" value="8" />
+    <message header="header.TLEnergyTowers" text="text.TLEnergyTowers" />
+  </AbandonedOutpostMission>
+  <AbandonedOutpostMission name="D号行动" description="missiondescription.DMissions" identifier="DMissions" tags="DMissions" type="OutpostDestroy" achievementidentifier="huskcultrescuesubra" reward="45000" difficulty="5" commonness="100" allowretry="true" unhideentitysubcategories="abandonedmonster">
+    <Reputation identifier="TLCompany" amount="6" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/D.png" sourcerect="0,0,1024,1024" />
+    <LocationType identifier="DMissions" />
+    <LocationTypeChange from="DMissions" to="Abandoned" requireddurationrange="0,0" cooldownafterchange="5" />
+    <Characters>
+      <Character character="BNZHuman_HX" min="2" max="4" asfaraspossible="true" requirekill="true" />
+      <Character identifier="TL_mission_npcs_Third" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+      <Character identifier="TL_mission_npcs_Third2" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="waytoascensionfoundsubra" campaignonly="true" />
+    <Metadata identifier="waytoascension" value="8" />
+    <message header="header.DMissions" text="text.DMissions" />
+  </AbandonedOutpostMission>
+  <AbandonedOutpostMission name="废弃矿坑清理计划" description="missiondescription.TLMine" identifier="TLMine" tags="TLMineoutpost" type="OutpostDestroy" achievementidentifier="huskcultrescuesubra" reward="5000" difficulty="4" commonness="100" allowretry="true" unhideentitysubcategories="abandonedmonster">
+    <Reputation identifier="TLCompany" amount="0" />
+    <Icon texture="Content/UI/MissionIcons.png" sourcerect="512,256,256,256" color="214,50,48" />
+    <LocationType identifier="TLMine" />
+    <LocationTypeChange from="TLMine" to="Abandoned" requireddurationrange="0,0" cooldownafterchange="5" />
+    <Characters>
+      <Character identifier="TL_mission_npcs_Third" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+      <Character identifier="TL_mission_npcs_Third2" from="TL_mission_npcs" asfaraspossible="true" requirekill="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="waytoascensionfoundsubra" campaignonly="true" />
+    <Metadata identifier="waytoascension" value="8" />
+    <message header="header.TLMine" text="text.TLMine" />
+  </AbandonedOutpostMission>
+  <AbandonedOutpostMission name="同看雪后山" description="missiondescription.TLxue" identifier="TLxue" tags="TLxueoutpost" type="OutpostDestroy" reward="15000" difficulty="4" commonness="160" allowretry="true" unhideentitysubcategories="abandonedmonster">
+    <Reputation identifier="TLCompany" amount="10" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/shan.png" sourcerect="0,0,1024,1024" />
+    <LocationType identifier="TLxue" />
+    <LocationTypeChange from="TLxue" to="Abandoned" requireddurationrange="0,0" cooldownafterchange="5" />
+    <Characters>
+      <Character identifier="HXnpc2" from="HXnpc" requirekill="true" />
+      <Character identifier="HXnpc2A" from="HXnpc" requirekill="true" />
+      <Character identifier="HXnpc2" from="HXnpc" requirekill="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="waytoascensionfoundsubra" campaignonly="true" />
+    <Metadata identifier="waytoascension" value="8" />
+    <message header="header.TLxue" text="text.TLxue" />
+  </AbandonedOutpostMission>
+  <AbandonedOutpostMission name="风雪消霁" description="missiondescription.TLAbandonedOutpostMission1" identifier="TLAbandonedOutpostMission1" tags="abandonedoutpost" achievementidentifier="abandonedoutpostdestroyhumans" type="OutpostDestroy" reward="25000" difficulty="8" commonness="130" allowretry="true" targetitem="reactor" unhideentitysubcategories="abandonedhuman" minleveldifficulty="35">
+    <Reputation identifier="TLCompany" amount="-15" />
+    <Reputation identifier="coalition" amount="25" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/feng.png" sourcerect="0,0,1024,1024" />
+    <LocationType identifier="Abandoned" />
+    <LocationTypeChange from="Abandoned" to="Outpost" requireddurationrange="2,3" cooldownafterchange="5" />
+    <Characters>
+      <Character requirekill="true" moduleflags="crewmodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="crewmodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="crewmodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" multiplayeronly="true" />
+      <Character requirekill="true" moduleflags="crewmodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="crewmodule" identifier="THnpc_FX_Doc" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="engineeringmodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="engineeringmodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="engineeringmodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" multiplayeronly="true" />
+      <Character requirekill="true" moduleflags="engineeringmodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="engineeringmodule" identifier="THnpc_FX_Doc" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_Normal" from="TL_mission_npcs" multiplayeronly="true" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" multiplayeronly="true" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_elite" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="securitymodule" identifier="THnpc_FX_Doc" from="TL_mission_npcs" />
+      <Character requirekill="true" moduleflags="banditleader" identifier="THnpc_FX_XG" from="TL_mission_npcs" asfaraspossible="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="TL_indestructible_wall" campaignonly="true" />
+    <message header="header.TLAbandonedOutpostMission1" text="text.TLAbandonedOutpostMission1" />
+  </AbandonedOutpostMission>
+  <AbandonedOutpostMission name="樱桃雪齿" identifier="TLHQToweroutpost" description="missiondescription.TLHQToweroutpost" tags="TLHQ" targetitem="reactor" type="OutpostDestroy" reward="16800" difficulty="4" commonness="130" allowretry="true" unhideentitysubcategories="abandonedmonster" missionfailure="我就知道...">
+    <Reputation identifier="TLCompany" amount="5" />
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/YYHY.png" sourcerect="0,0,500,500" />
+    <LocationType identifier="TLHQ" />
+    <LocationTypeChange from="TLHQ" to="Abandoned" requireddurationrange="0,0" cooldownafterchange="5" />
+    <Characters>
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD1" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD1" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD1" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD1" identifier="huaqiangta_XL" from="HXnpc" multiplayeronly="true" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD2" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD2" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD2" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD2" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD2" identifier="huaqiangta_XL" from="HXnpc" multiplayeronly="true" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD2" identifier="huaqiangta_XL" from="HXnpc" multiplayeronly="true" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD3" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD3" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD3" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD3" identifier="huaqiangta_XL" from="HXnpc" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD3" identifier="huaqiangta_XL" from="HXnpc" multiplayeronly="true" />
+      <Character requirekill="true" spawnpointtags="huaqiangtaXLD3" identifier="huaqiangta_XL" from="HXnpc" multiplayeronly="true" />
+    </Characters>
+    <TriggerEvent state="0" delay="5" eventidentifier="HQ_KFZY" />
+    <message header="header.TLHQToweroutpost" text="text.TLHQToweroutpost" />
+  </AbandonedOutpostMission>
+  <CargoMission name="舰队补给协议-A1" description="missiondescription.Cargo1_TL" identifier="Cargo1_TL" difficulty="0" tags="TL_Help" type="Cargo" commonness="100">
+    <Items>
+      <Item identifier="Lootcrate_TL_Ore" reward="0" maxcount="6" />
+    </Items>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/HY.png" sourcerect="0,0,1100,1100" color="255,255,255" />
+  </CargoMission>
+  <CargoMission name="舰队补给协议-A1" description="missiondescription.Cargo1_TL" identifier="Cargo2_TL" difficulty="0" tags="TL_Help" type="Cargo" commonness="100">
+    <Items>
+      <Item identifier="Lootcrate_TL_ammomaterial" reward="0" maxcount="6" />
+    </Items>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/HY.png" sourcerect="0,0,1100,1100" color="255,255,255" />
+  </CargoMission>
+  <CargoMission name="舰队补给协议-A1" description="missiondescription.Cargo1_TL" identifier="Cargo3_TL" difficulty="0" tags="TL_Help" type="Cargo" commonness="100">
+    <Items>
+      <Item identifier="Lootcrate_TL_medic" reward="0" maxcount="6" />
+    </Items>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/yiliao.png" sourcerect="0,0,1024,1024" color="255,255,255" />
+  </CargoMission>
+  <CargoMission name="舰队补给协议-A1" description="missiondescription.Cargo1_TL" identifier="Cargo4_TL" difficulty="0" tags="TL_Help" type="Cargo" commonness="100">
+    <Items>
+      <Item identifier="Lootcrate_TL_plants" reward="0" maxcount="6" />
+    </Items>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/HY.png" sourcerect="0,0,1100,1100" color="255,255,255" />
+  </CargoMission>
+  <CargoMission name="舰队补给协议-A1" description="missiondescription.Cargo1_TL" identifier="Cargo5_TL" difficulty="0" tags="TL_Help" type="Cargo" commonness="100">
+    <Items>
+      <Item identifier="Lootcrate_TL_Ore" reward="0" maxcount="2" />
+      <Item identifier="Lootcrate_TL_ammomaterial" reward="0" maxcount="2" />
+      <Item identifier="Lootcrate_TL_medic" reward="0" maxcount="2" />
+      <Item identifier="Lootcrate_TL_plants" reward="0" maxcount="2" />
+    </Items>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/HY.png" sourcerect="0,0,1100,1100" color="255,255,255" />
+  </CargoMission>
+  <EscortMission name="舰队安保协议-A1" identifier="Escort1_TL" description="missiondescription.Escort1_TL" tags="TL_Help" type="Escort" commonness="100" reward="100" difficulty="1" successmessage="运送任务完成！" missionfailure="哦不！有特战队趋势了！你们真让我失望！报酬你们拿不到了！">
+    <Characters>
+      <Character from="TL_Transportation_npcs" identifier="TL_TLsafe_Escort" />
+      <Character from="TL_Transportation_npcs" identifier="TL_TLsafe_Escort" />
+      <Character from="TL_Transportation_npcs" identifier="TL_TLsafe_Escort" />
+    </Characters>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/KY.png" sourcerect="0,0,700,700" color="100,255,100" />
+  </EscortMission>
+  <!--AbandonedOutpostMission name="造船厂（废案）" description=" " identifier="TLshipyard" tags="TLshipyard" type="OutpostDestroy" reward="0" difficulty="4" commonness="100" allowretry="true" targetitem="reactor" unhideentitysubcategories="abandonedmonster">
+		<Reputation identifier="TLCompany" amount="0" />
+		<Icon texture="Content/UI/MissionIcons.png" sourcerect="512,256,256,256" color="214,50,48" />
+		<LocationType identifier="TLshipyard" />
+		<LocationTypeChange from="TLshipyard" to="Outpost" requireddurationrange="2,3" cooldownafterchange="5" />
+		<Characters></Characters>
+		<TriggerEvent state="0" delay="5" eventidentifier="waytoascensionfoundsubra" campaignonly="true" />
+		<Metadata identifier="waytoascension" value="8" />
+		<message header="任务成功" text="成功引爆能源塔，是时候离开了，除非你们还想再深入" />
+	</AbandonedOutpostMission-->
+  <!--特殊-->
+  <!-- <PirateMission name="垃圾清理" description="眼中钉，肉中刺！你们竟敢与集团交恶！集团高层的眼中容不下杂草！" type="Pirate" identifier="TLattack1" tags="TLattack" showinmenus="true" showstartmessage="true" issideobjective="true" achievementidentifier="combatmissioncoalitionvsseparatists" difficulty="4" commonness="0" reward="0" addedmissiondifficultyperplayer="8">
+    <Reputation identifier="coalition" amount="10" amountforopposingfaction="-10" />
+    <SubmarineTypes>
+      <Submarine path="%ModDir%/Content/ModContent/Sub/泰拉旧型攻击舰.sub" faction="separatists" preferreddifficulty="70" alternatereward="10000" />
+    </SubmarineTypes>
+    <Characters>
+      <Character typeidentifier="separatistcaptain" minamount="1" maxamount="1" />
+      <Character typeidentifier="separatistsecurity" minamount="3" maxamount="6" />
+      <Character typeidentifier="separatistmechanic" minamount="3" maxamount="6" />
+      <Character typeidentifier="separatistengineer" minamount="3" maxamount="6" />
+    </Characters>
+    <CharacterTypes>
+      <CharacterType typeidentifier="separatistcaptain">
+        <Character identifier="THnpc4" from="TL_mission_npcs" iscommander="true" />
+      </CharacterType>
+      <CharacterType typeidentifier="separatistsecurity">
+        <Character identifier="THnpc4" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="separatistmechanic">
+        <Character identifier="THnpc4" from="TL_mission_npcs" />
+        <Character identifier="THnpc4" from="TL_mission_npcs" />
+      </CharacterType>
+      <CharacterType typeidentifier="separatistengineer">
+        <Character identifier="THnpc4" from="TL_mission_npcs" />
+        <Character identifier="THnpc4" from="TL_mission_npcs" />
+      </CharacterType>
+    </CharacterTypes>
+    <Icon texture="%ModDir%/Content/ModContent/Missions/Sprite/laji.png" sourcerect="0,0,1024,1024" />
+    <message header="清理行动开始" text="要么忠诚于集团，要么就死在集团手中" />
+  </PirateMission> -->
+</Missions>

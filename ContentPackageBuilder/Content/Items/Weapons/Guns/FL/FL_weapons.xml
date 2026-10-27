@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<!--分离武器-->
+	<!--AKE-->
+	<Item name="AKE突击步枪" description="" identifier="Nil_AKE" subcategory="TL_separatists" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" minamount="0" maxamount="2" spawnprobability="0.1" />
+		<PreferredContainer secondary="armcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+		<PreferredContainer primary="abandonedsecarmcab,abandonedarmcab" minamount="0" maxamount="2" spawnprobability="0.2" />
+		<PreferredContainer secondary="wrecksecarmcab,wreckarmcab" minamount="0" maxamount="2" spawnprobability="0.1" />
+		<PreferredContainer primary="secarmcab,armcab" />
+		<Price baseprice="150" soldeverywhere="false">
+			<Price storeidentifier="merchantoutpost" multiplier="0.8" minavailable="5" sold="true" />
+			<Price storeidentifier="merchantcity" multiplier="1.2" minavailable="1" maxavailable="3" sold="true" />
+			<Price storeidentifier="merchantresearch" multiplier="1" minavailable="1" sold="true" />
+			<Price storeidentifier="merchantmine" multiplier="0.9" minavailable="6" sold="true" />
+			<Price storeidentifier="merchantarmory" multiplier="1.1" minavailable="10" maxavailable="20" sold="true" />
+			<Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="15" sold="true" />
+			<Price storeidentifier="TLarmory" multiplier="0.9" minavailable="0" maxavailable="3" sold="true" />
+		</Price>
+		<Deconstruct time="30">
+			<Item identifier="steel" amount="2" />
+			<Item identifier="plastic" />
+		</Deconstruct>
+		<Fabricate suitablefabricators="fabricator" requiredtime="10">
+			<RequiredSkill identifier="weapons" level="35" />
+			<Item identifier="steel" amount="3" />
+			<Item identifier="plastic" amount="2" />
+		</Fabricate>
+		<InventoryIcon name="AKE_ICON" texture="%ModDir%/Content/Items/weapons/Guns/Nil/WeaponsIcon.png" sourcerect="0,0,223,112" origin="0.5,0.5" />
+		<Sprite name="AKE" texture="%ModDir%/Content/Items/weapons/Guns/Nil/Weapons.png" sourcerect="0,0,254,53" depth="0.55" origin="0.45,0.4" />
+		<Body width="250" height="50" density="15" />
+		<!--握持坐标:闲置握持坐标(武器中心点到身体中心点距离，当附加旋转角度后XY似乎反过来了),瞄准坐标(武器中心点到身体中心点距离),主手位置,副手位置,闲置握持角度-->
+		<!--靠肩holdpos="-15,-20",holdangle="140"-->
+		<Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="-15,-20" aimpos="40,45" handle1="-35,-3" handle2="36,10" holdangle="140" msg="ItemMsgPickUpSelect">
+			<StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+			<StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+			<StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+		</Holdable>
+		<RangedWeapon reload="0.18" weapondamagemodifier="1.0" penetration="0.0" holdtrigger="true" barrelpos="137,5" spread="6" unskilledspread="14" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.15">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="5.0,5.0" colormultiplier="255,200,200,255" />
+			<Sound file="%ModDir%/Content/Sounds/Weapons/AK/AKFire1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="%ModDir%/Content/Sounds/Weapons/AK/AKFire2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse" target="This">
+				<ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="105" anglemax="165" velocitymin="80" velocitymax="280" CopyEntityAngle="true" colormultiplier="255,150,50,255" />
+				<Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="15.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+				<Conditional InWater="false" />
+				<!--弹壳落地-->
+				<Sound file="%ModDir%/Content/Sounds/Weapons/弹壳落地.4.ogg" type="OnUse" range="1500" selectionmode="Random" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/弹壳落地.5.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/弹壳落地.6.ogg" type="OnUse" range="1500" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems tags="AKEMagazines" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="35" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+			<Containable tags="AKEMagazines" hide="false" itempos="8,-8">
+				<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+				<SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+				<StatusEffect type="OnInserted" target="This" setvalue="true">
+					<Conditional isActive="eq true" />
+					<sound file="%ModDir%/Content/Sounds/Weapons/AK/AK换弹.ogg" type="OnInserted" range="200.0" loop="false" volume="2.5" selectionmode="Random" />
+				</StatusEffect>
+				<StatusEffect type="OnInserted" target="This" holdpos="-15,-20" aimpos="0,0" handle1="-35,-3" maxchargetime="999" setvalue="true" />
+				<StatusEffect target="This" aimpos="40,45" disabledeltatime="true" checkconditionalalways="true" maxchargetime="0" delay="2" setvalue="true">
+					<conditional maxchargetime="eq 999" />
+				</StatusEffect>
+			</Containable>
+			<SubContainer capacity="1" maxstacksize="1">
+				<Containable items="flashlight" hide="false" itempos="22,-1" setactive="true" />
+			</SubContainer>
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="2000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="FirepowerMultiplier" value="0.10" />
+		</Quality>
+		<Upgrade gameversion="0.10.0.0" scale="0.5" />
+		<SkillRequirementHint identifier="weapons" level="35" />
+	</Item>
+	<!--AK 101-->
+	<Item name="AK101" identifier="TL_fl_ak101" subcategory="TL_separatists" category="weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai" scale="0.08" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+		<Price baseprice="450" displaynonempty="true" minleveldifficulty="0" buyingpricemultiplier="5" sold="false">
+			<Price storeidentifier="merchantcity" multiplier="1.5" />
+			<Price storeidentifier="merchantoutpost" multiplier="1" />
+			<Price storeidentifier="merchantmilitary" multiplier="1.3" />
+			<Price storeidentifier="merchantarmory" multiplier="1.2" />
+			<Price storeidentifier="merchantresearch" multiplier="1" />
+			<Price storeidentifier="merchantmine" multiplier="1" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="false">
+			<RequiredSkill identifier="weapons" level="30" />
+			<RequiredItem identifier="AluminumAlloy" amount="2" />
+			<RequiredItem identifier="Nil_AKE" amount="1" />
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/WeaponsIcon.png" sourcerect="0,0,242,115" origin="0.5,0.5" />
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="4,-2,1889,408" depth="0.55" origin="0.5,0.5" />
+		<Body width="229" height="100" density="22" />
+		<Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="57,-11" handle1="-385,-47" handle2="15,63" holdangle="-45" msg="ItemMsgPickUpSelect" aimpos="72,-3">
+			<StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+			<StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+		</Holdable>
+		<RangedWeapon reload="0.135" weapondamagemodifier="1" holdtrigger="true" barrelpos="899,96" spread="5" unskilledspread="30" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.25">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<StatusEffect type="OnUse" target="This" forceplaysounds="true">
+				<Sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK101开火.ogg" type="OnUse" range="3000" selectionmode="Random" />
+				<ParticleEmitter particle="casingfirearm" anglemin="54" anglemax="94" velocitymin="50" velocitymax="250" particleamount="1" CopyEntityAngle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<Explosion range="100.0" force="1.3" camerashake="24" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+				<Conditional InWater="false" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<!--ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" /-->
+			</StatusEffect>
+			<RequiredItems items="AK101556" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="40" />
+			<ParticleEmitter particle="muzzleflash" anglemin="-14" anglemax="26" velocitymin="0" velocitymax="0" particleamount="1" colormultiplier="229,221,215,255" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+			<Containable items="AK101556" hide="false" itempos="-1,-6" depth="0.56" setactive="true">
+				<!--换弹-->
+				<StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true" />
+				<StatusEffect type="OnInserted" target="This" setvalue="true">
+					<Conditional isActive="eq true" />
+					<sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK101换弹2.ogg" type="OnInserted" range="200.0" loop="false" volume="0.7" selectionmode="Random" />
+					<sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK101换弹.ogg" type="OnInserted" range="200.0" loop="false" volume="0.7" />
+				</StatusEffect>
+				<StatusEffect target="This" holdpos="57,-11" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.1" maxchargetime="0" setvalue="true">
+					<conditional maxchargetime="eq 999" />
+				</StatusEffect>
+			</Containable>
+			<SlotIcon slotindex="0" texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+			<SubContainer capacity="1" maxstacksize="1">
+				<Containable items="flashlight" hide="false" itempos="25,0" setactive="true" />
+				<SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+			</SubContainer>
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="1500" fadeouttime="6" />
+		<Quality>
+			<QualityStat stattype="FirepowerMultiplier" value="0.1" />
+		</Quality>
+		<CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+			<GuiFrame relativesize="0.09,0.1" anchor="CenterRight" pivot="CenterRight" relativeoffset="-0.02,0.15" style="ItemUI" />
+			<TickBox text="tsm_gun_up">
+				<StatusEffect type="OnUse" target="This,Character" IsOn="true" tags="" aimpos="71,100" setvalue="true" />
+				<StatusEffect type="OnSecondaryUse" target="This,Character" IsOn="false" tags="" aimpos="71,-3" setvalue="true" />
+			</TickBox>
+		</CustomInterface>
+		<SkillRequirementHint identifier="weapons" level="40" />
+	</Item>
+	<!--AK 103 单纯的101换皮x1.3 考虑发给敌人-->
+	<Item name="AK103" identifier="TL_fl_ak103" subcategory="TL_separatists" category="weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai" scale="0.08" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+		<Price baseprice="600" displaynonempty="true" minleveldifficulty="0" buyingpricemultiplier="5" sold="false">
+			<Price storeidentifier="merchantcity" multiplier="1.5" />
+			<Price storeidentifier="merchantoutpost" multiplier="1" />
+			<Price storeidentifier="merchantmilitary" multiplier="1.3" />
+			<Price storeidentifier="merchantarmory" multiplier="1.2" />
+			<Price storeidentifier="merchantresearch" multiplier="1" />
+			<Price storeidentifier="merchantmine" multiplier="1" />
+		</Price>
+		<!--Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="false">
+			<RequiredSkill identifier="weapons" level="30"/>
+			<RequiredItem identifier="AluminumAlloy" amount="2"/>
+			<RequiredItem identifier="Nil_AKE" amount="1"/>
+		</Fabricate-->
+		<Deconstruct time="10">
+			<Item identifier="AluminumAlloy" />
+		</Deconstruct>
+		<InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/WeaponsIcon.png" sourcerect="0,139,241,134" origin="0.5,0.5" />
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="4,-2,1889,408" depth="0.55" origin="0.5,0.5" />
+		<Body width="229" height="100" density="22" />
+		<Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="57,-11" handle1="-385,-47" handle2="15,63" holdangle="-45" msg="ItemMsgPickUpSelect" aimpos="72,-3">
+			<StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+			<StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+		</Holdable>
+		<RangedWeapon reload="0.135" weapondamagemodifier="1.3" holdtrigger="true" barrelpos="899,96" spread="5" unskilledspread="30" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.25">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<StatusEffect type="OnUse" target="This" forceplaysounds="true">
+				<Sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK101开火2.ogg" type="OnUse" range="3000" selectionmode="Random" />
+				<ParticleEmitter particle="casingfirearm" anglemin="54" anglemax="94" velocitymin="50" velocitymax="250" particleamount="1" CopyEntityAngle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<Explosion range="100.0" force="1.3" camerashake="24" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+				<Conditional InWater="false" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<!--ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" /-->
+			</StatusEffect>
+			<RequiredItems items="AK103762" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="40" />
+			<ParticleEmitter particle="muzzleflash" anglemin="-14" anglemax="26" velocitymin="0" velocitymax="0" particleamount="1" colormultiplier="229,221,215,255" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+			<Containable items="AK103762" hide="false" itempos="-1,-6" depth="0.56" setactive="true">
+				<!--换弹-->
+				<StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true" />
+				<StatusEffect type="OnInserted" target="This" setvalue="true">
+					<Conditional isActive="eq true" />
+					<sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK101换弹2.ogg" type="OnInserted" range="200.0" loop="false" volume="0.7" selectionmode="Random" />
+					<sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK101换弹.ogg" type="OnInserted" range="200.0" loop="false" volume="0.7" />
+				</StatusEffect>
+				<StatusEffect target="This" holdpos="57,-11" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.1" maxchargetime="0" setvalue="true">
+					<conditional maxchargetime="eq 999" />
+				</StatusEffect>
+			</Containable>
+			<SlotIcon slotindex="0" texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+			<SubContainer capacity="1" maxstacksize="1">
+				<Containable items="flashlight" hide="false" itempos="25,0" setactive="true" />
+				<SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+			</SubContainer>
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="1500" fadeouttime="6" />
+		<Quality>
+			<QualityStat stattype="FirepowerMultiplier" value="0.1" />
+		</Quality>
+		<CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+			<GuiFrame relativesize="0.09,0.1" anchor="CenterRight" pivot="CenterRight" relativeoffset="-0.02,0.15" style="ItemUI" />
+			<TickBox text="tsm_gun_up">
+				<StatusEffect type="OnUse" target="This,Character" IsOn="true" tags="" aimpos="71,100" setvalue="true" />
+				<StatusEffect type="OnSecondaryUse" target="This,Character" IsOn="false" tags="" aimpos="71,-3" setvalue="true" />
+			</TickBox>
+		</CustomInterface>
+		<SkillRequirementHint identifier="weapons" level="40" />
+	</Item>
+	<!--AK 12-->
+	<Item name="AK12" identifier="TL_fl_ak12" subcategory="TL_separatists" category="weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai" scale="0.08" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+		<Price baseprice="650" displaynonempty="true" minleveldifficulty="0" buyingpricemultiplier="5" sold="false">
+			<Price storeidentifier="merchantcity" multiplier="1.5" />
+			<Price storeidentifier="merchantoutpost" multiplier="1" />
+			<Price storeidentifier="merchantmilitary" multiplier="1.3" />
+			<Price storeidentifier="merchantarmory" multiplier="1.2" />
+			<Price storeidentifier="merchantresearch" multiplier="1" />
+			<Price storeidentifier="merchantmine" multiplier="1" />
+		</Price>
+		<!--Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="false">
+			<RequiredSkill identifier="weapons" level="30"/>
+			<RequiredItem identifier="AluminumAlloy" amount="2"/>
+			<RequiredItem identifier="Nil_AKE" amount="1"/>
+		</Fabricate-->
+		<Deconstruct time="10">
+			<Item identifier="AluminumAlloy" />
+		</Deconstruct>
+		<InventoryIcon texture="%ModDir%/Content/Items/weapons/Guns/FL/WeaponsIcon.png" sourcerect="0,297,233,134" origin="0.5,0.5" />
+		<Sprite texture="%ModDir%/Content/Items/weapons/Guns/FL/AK12.png" sourcerect="4,-2,1889,408" depth="0.55" origin="0.5,0.5" />
+		<Body width="229" height="100" density="22" />
+		<Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="57,-11" handle1="-385,-47" handle2="15,63" holdangle="-45" msg="ItemMsgPickUpSelect" aimpos="72,-3">
+			<StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+			<StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+		</Holdable>
+		<RangedWeapon reload="0.135" weapondamagemodifier="1" holdtrigger="true" barrelpos="899,96" spread="5" unskilledspread="30" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.25">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<StatusEffect type="OnUse" target="This" forceplaysounds="true">
+				<Sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK12开火.ogg" type="OnUse" range="3000" selectionmode="Random" />
+				<ParticleEmitter particle="casingfirearm" anglemin="54" anglemax="94" velocitymin="50" velocitymax="250" particleamount="1" CopyEntityAngle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<Explosion range="100.0" force="1.3" camerashake="24" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+				<Conditional InWater="false" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+				<Sound file="%ModDir%/Content/Sounds/Weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This">
+				<!--ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" /-->
+			</StatusEffect>
+			<RequiredItems items="AK12545" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="40" />
+			<ParticleEmitter particle="muzzleflash" anglemin="-14" anglemax="26" velocitymin="0" velocitymax="0" particleamount="1" colormultiplier="229,221,215,255" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+			<Containable items="AK12545" hide="false" itempos="-1,-6" depth="0.56" setactive="true">
+				<!--换弹-->
+				<StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true" />
+				<StatusEffect type="OnInserted" target="This" setvalue="true">
+					<Conditional isActive="eq true" />
+					<sound file="%ModDir%/Content/Items/weapons/Guns/FL/AK12换弹.ogg" type="OnInserted" range="200.0" loop="false" volume="0.7" selectionmode="Random" />
+				</StatusEffect>
+				<StatusEffect target="This" holdpos="57,-11" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.1" maxchargetime="0" setvalue="true">
+					<conditional maxchargetime="eq 999" />
+				</StatusEffect>
+			</Containable>
+			<SlotIcon slotindex="0" texture="%ModDir%/Content/Items/weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+			<SubContainer capacity="1" maxstacksize="1">
+				<Containable items="flashlight" hide="false" itempos="25,0" setactive="true" />
+				<SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+			</SubContainer>
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="1500" fadeouttime="6" />
+		<Quality>
+			<QualityStat stattype="FirepowerMultiplier" value="0.1" />
+		</Quality>
+		<CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+			<GuiFrame relativesize="0.09,0.1" anchor="CenterRight" pivot="CenterRight" relativeoffset="-0.02,0.15" style="ItemUI" />
+			<TickBox text="tsm_gun_up">
+				<StatusEffect type="OnUse" target="This,Character" IsOn="true" tags="" aimpos="71,100" setvalue="true" />
+				<StatusEffect type="OnSecondaryUse" target="This,Character" IsOn="false" tags="" aimpos="71,-3" setvalue="true" />
+			</TickBox>
+		</CustomInterface>
+		<SkillRequirementHint identifier="weapons" level="40" />
+	</Item>
+</Items>

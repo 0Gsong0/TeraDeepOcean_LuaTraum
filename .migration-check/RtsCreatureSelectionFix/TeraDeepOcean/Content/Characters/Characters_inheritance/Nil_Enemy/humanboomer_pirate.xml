@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="BNZHuman_HX" displayname="" speciesname="humanboomer_pirate" group="pirate">
+    <health Vitality="1400" stunimmunity="false">
+      <Limb name="Head"></Limb>
+      <Limb name="Torso" />
+      <Limb name="LeftArm">
+        <VitalityMultiplier type="damage" multiplier="0.4" />
+      </Limb>
+      <Limb name="RightArm">
+        <VitalityMultiplier type="damage" multiplier="0.4" />
+      </Limb>
+      <Limb name="LeftLeg">
+        <VitalityMultiplier type="damage" multiplier="7.5" />
+        <VitalityMultiplier type="burn" multiplier="7.5" />
+      </Limb>
+      <Limb name="RightLeg">
+        <VitalityMultiplier type="damage" multiplier="7.5" />
+        <VitalityMultiplier type="burn" multiplier="7.5" />
+      </Limb>
+    </health>
+    <attack damagemultiplier="0" />
+    <ai combatstrength="600" sight="20" hearing="20" avoidgunfire="False" />
+    <inventory arrowslot="9" Slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" Accessiblewhenalive="True" Commonness="1">
+      <Item identifier="idcard" slot="Card" />
+      <Item identifier="ballistichelmet1" slot="Head" />
+      <Item identifier="separatistcommoner1" slot="InnerClothes" />
+      <Item identifier="exosuit_AIBNZ" slot="OuterClothes" />
+      <Item identifier="button_TLAI" slot="LeftHand" />
+      <Item identifier="c4block" amount="2" />
+    </inventory>
+    <StatusEffect type="OnDeath" target="This" disabledeltatime="true">
+      <particleemitter particle="iceshards" particleamount="200" velocitymin="100" velocitymax="3000" anglemin="0" anglemax="360" scalemin="0.5" scalemax="3.0" />
+      <Explosion range="225.0" ballastfloradamage="1000" structuredamage="666" itemdamage="666" force="50.0" severlimbsprobability="1.5" decal="explosion" decalsize="1.0" camerashake="500" camerashakerange="50000">
+        <Affliction identifier="explosiondamage" strength="888" mutiplybymaxvitality="true" dividebylimbcount="false" />
+        <Affliction identifier="explosiondamage_TLAI" strength="888" mutiplybymaxvitality="true" dividebylimbcount="false" />
+        <Affliction identifier="burn" strength="888" mutiplybymaxvitality="true" dividebylimbcount="false" />
+        <Affliction identifier="stun" strength="44" mutiplybymaxvitality="true" />
+      </Explosion>
+      <Explosion range="800.0" ballastfloradamage="66" structuredamage="66" itemdamage="666" force="5.0" severlimbsprobability="0.15" decal="explosion" decalsize="1.0" camerashake="500" camerashakerange="50000">
+        <Affliction identifier="explosiondamage" strength="32" />
+        <Affliction identifier="explosiondamage_TLAI" strength="23" />
+        <Affliction identifier="stun" strength="4" />
+      </Explosion>
+    </StatusEffect>
+    <StatusEffect type="OnDeath" target="This">
+      <SpawnItem identifiers="coalitioncommendation" spawnposition="ThisInventory" probability="0.75" />
+    </StatusEffect>
+  </Charactervariant>
+</Override>

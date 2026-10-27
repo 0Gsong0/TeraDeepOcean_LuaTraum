@@ -1,0 +1,51 @@
+﻿<Character SpeciesName="Leopard2a6" Tags="" SpeciesTranslationOverride="" DisplayName="" Group="" Humanoid="False" HasInfo="False" CanInteract="True" CanClimb="True" ForceSlowClimbing="False" Husk="False" HuskedSpecies="" NonHuskedSpecies="" UseHuskAppendage="False" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="True" CanSpeak="True" ShowHealthBar="True" UseBossHealthBar="False" Noise="100" Visibility="100" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="True" EatingSpeed="10" UsePathFinding="True" PathFinderPriority="1" HideInSonar="True" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="10" DrawLast="False" AITurretPriority="1" AISlowTurretPriority="1" DespawnContainer="" MusicType="monster" MusicCommonness="1" MusicRangeMultiplier="1" UnlockKillAchievementForWholeCrew="False">
+  <ragdolls folder="%ModDir%/Characters/Leopard2a6/Ragdolls/" />
+  <animations folder="%ModDir%/Characters/Leopard2a6/Animations/" />
+  <health Vitality="1000" DoesBleed="False" CrushDepth="100000" UseHealthWindow="False" BleedingReduction="0" BurnReduction="0" ConstantHealthRegeneration="0.1" HealthRegenerationWhenEating="0.1" StunImmunity="True" PoisonImmunity="True" PoisonVulnerability="0" EmpVulnerability="0.5" ApplyMovementPenalties="False" DieFromBeheading="True" AllowSeveringLegs="False" ApplyAfflictionColors="False" Immunities="">
+    <Limb>
+      <VitalityMultiplier type="burn" multiplier="0.1" />
+      <VitalityMultiplier type="stun" multiplier="0.1" />
+      <VitalityMultiplier type="gunshotwound" multiplier="0.1" />
+    </Limb>
+  </health>
+  <ai CombatStrength="105" Sight="2" Hearing="1" MaxPerceptionDistance="-1" AggressionHurt="0" AggressionGreed="0" FleeHealthThreshold="0" AttackWhenProvoked="True" AvoidGunfire="False" DamageThreshold="0" AvoidTime="3" MinFleeTime="20" AggressiveBoarding="False" EnforceAggressiveBehaviorForMissions="False" TargetOuterWalls="False" RandomAttack="False" CanOpenDoors="True" UsePathFindingToGetInside="True" KeepDoorsClosed="False" AvoidAbyss="True" StayInAbyss="False" PatrolFlooded="False" PatrolDry="False" StartAggression="0" MaxAggression="100" AggressionCumulation="0" WallTargetingMethod="Target" PlayDeadProbability="0">
+    <target Tag="hostile" State="Attack" Priority="100" ReactDistance="1500" AttackDistance="1500" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <target Tag="stronger" State="Aggressive" Priority="50" ReactDistance="1500" AttackDistance="1500" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <target Tag="weaker" State="Aggressive" Priority="50" ReactDistance="1500" AttackDistance="1500" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <target Tag="equal" State="Aggressive" Priority="50" ReactDistance="1500" AttackDistance="1500" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <target Tag="owner" State="Protect" Priority="10" ReactDistance="150" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreTargetInside="False" IgnoreTargetOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="True" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" PerceptionDistanceMultiplier="1" MaxPerceptionDistance="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <petbehavior maxhappiness="100" happinessdecreaserate="0.01" hungerincreaserate="0.05" playforce="6.0" toggleowner="true" hidestatusindicators="true" playcooldown="0">
+      <eat tag="dead" requiredhunger="50-100" hunger="-100" happiness="10" priority="10" />
+      <eat tag="weldingfueltank" requiredhunger="50-100" hunger="-50" happiness="20" priority="80" />
+      <eat tag="weldingfueltankempty" requiredhunger="50-100" hunger="-50" happiness="20" priority="80" />
+      <eat tag="oxygentank" requiredhunger="50-100" hunger="-50" happiness="20" priority="80" />
+      <eat tag="oxygentankempty" requiredhunger="50-100" hunger="-50" happiness="20" priority="80" />
+      <itemproduction rate="0.0015" requiredhappiness="90-100" requiredhunger="0-10">
+        <item identifier="fpgacircuit" commonness="39" />
+        <item identifier="thoriumfuelrod" commonness="50" />
+        <item identifier="titaniumaluminiumalloy" commonness="10" />
+        <item identifier="blindbox_TL_CDWGG" commonness="1" />
+      </itemproduction>
+    </petbehavior>
+  </ai>
+  <Inventory Slots="Card,RightHand,Any, Any" AccessibleWhenAlive="True" Commonness="1">
+    <Item slot="Card" Identifier="idcard" />
+  </Inventory>
+  <StatusEffect type="OnDeath" target="This" targetlimb="Torso">
+    <ParticleEmitter particle="shrapnel" anglemin="0" anglemax="360" particleamount="100" velocitymin="100" velocitymax="1000" scalemin="0.3" scalemax="0.5" />
+    <Explosion range="300" force="10" flash="true" shockwave="true" sparks="true" flames="true" smoke="true" underwaterbubble="true" structuredamage="0" itemdamage="200" decal="explosion" decalsize="0.3">
+      <Affliction identifier="explosiondamage" strength="100" />
+      <Affliction identifier="stun" strength="1" />
+    </Explosion>
+    <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="3000.0" selectionmode="Random" />
+    <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="3000.0" selectionmode="Random" />
+    <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="3000.0" selectionmode="Random" />
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This">
+    <ParticleEmitter particle="ElectricShock" DistanceMin="10" DistanceMax="25" ParticleAmount="5" ScaleMin="0.1" ScaleMax="0.12" />
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This" delay="0.2">
+    <ParticleEmitter drawontop="true" particle="spark" distancemin="0" distancemax="30" anglemin="0" anglemax="360" particlespersecond="10" velocitymin="50" velocitymax="100" scalemin="0.4" scalemax="0.7" />
+    <ParticleEmitter drawontop="true" particle="swirlysmoke" particlespersecond="5" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
+  </StatusEffect>
+</Character>

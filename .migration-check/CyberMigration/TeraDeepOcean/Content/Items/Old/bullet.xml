@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+<!--test-->
+  123
+  <!--反器材子弹
+  <Item name="反器材子弹" identifier="fqc_ammo" category="Weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="false" scale="0.5">
+    <Sprite texture="bullet.png" sourcerect="17,21,20,5" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" maxtargetstohit="3">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+      <Attack structuredamage="1" targetforce="1" itemdamage="6" severlimbsprobability="0.8" penetration="0.9"> 
+        <Affliction identifier="bleeding" strength="20" />
+        <Affliction identifier="lacerations" strength="50" />
+        <Affliction identifier="lacerations" strength="35" probability="0.05" />
+        <Affliction identifier="lacerations" strength="70" probability="0.02" />
+        <Affliction identifier="bleeding" strength="55" probability="0.5" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="1">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>-->
+  <!--幻星急速子弹-->
+  <Item name="幻星迅疾弹匣子弹" identifier="HX_zd_xj" category="weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <InventoryIcon texture="%ModDir%/items/Weapons/bullet.png" sourcerect="33,153,54,10" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/items/Weapons/bullet.png" sourcerect="33,153,54,10" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="40" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" hitscancount="4" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="30" velocitymax="80" colormultiplier="75,215,215,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="0.2" targetforce="99999" force="99999" itemdamage="15" penetration="0.4" severlimbsprobability="0.4">
+        <Affliction identifier="gunshotwound" strength="4" />
+        <Affliction identifier="explosiondamage" strength="2" />
+        <!--额外概率造成大出血-->
+        <Affliction identifier="bleeding" strength="9" />
+        <Affliction identifier="bleeding" strength="20" probability="0.1" />
+        <Affliction identifier="stun" strength="0.1" probability="0.4" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="this" disabledeltatime="true">
+        <Explosion range="240.0" force="999999.0" targetforce="999999.0" underwaterbubble="false" sparks="false" flames="false" smoke="false" decal=""></Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!--幻星侵蚀子弹-->
+  <Item name="幻星侵蚀弹匣子弹" identifier="HX_zd_qs" category="weapon" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="1">
+    <InventoryIcon texture="%ModDir%/items/Weapons/bullet.png" sourcerect="33,153,54,10" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/items/Weapons/bullet.png" sourcerect="33,153,54,10" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="14" density="40" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" launchimpulse="30.0" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,150,150,175" scalemultiplier="1,0.6" />
+      <Attack structuredamage="75" targetforce="2" itemdamage="60" penetration="0.35" severlimbsprobability="1">
+        <Affliction identifier="gunshotwound" strength="15" />
+        <Affliction identifier="explosiondamage" strength="5" />
+        <Affliction identifier="nmqs" strength="8" />
+        <Affliction identifier="nmqs" strength="8" probability="0.1" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="0">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="380MM炮射核弹" identifier="leonuclear" description="380MM核弹，爆炸范围大，伤害很高，对直接命中的机械类目标有额外效果。" tags="380MMammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Price baseprice="1800" sold="false"></Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="100" />
+      <RequiredItem identifier="steel" amount="1" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="nuclearshell" amount="3" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" amount="1" />
+      <Item identifier="titaniumaluminiumalloy" amount="1" />
+      <Item identifier="nuclearshell" amount="1" />
+    </Deconstruct>
+    <InventoryIcon texture="380.png" sourcerect="448,13,75,76" origin="0.5,0.5" />
+    <Sprite name="380mm炮弹" texture="380.png" sourcerect="12,16,379,76" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="80" density="30" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="80" damagedoors="true" hitscancount="1" spread="0" maxtargetstohit="1">
+      <Attack structuredamage="1500" itemdamage="100" severlimbsprobability="150" penetration="4" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="200" />
+        <Affliction identifier="blunttrauma" strength="200" />
+        <Affliction identifier="organdamage" strength="100" />
+        <Affliction identifier="bleeding" strength="50" />
+        <Affliction identifier="stun" strength="15" />
+        <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true" penetration="2" targetlimb="torso">
+          <Conditional IsMachine="True" />
+          <Affliction identifier="damage_TL" strength="1000" />
+          <Affliction identifier="explosiondamage" strength="500" />
+        </StatusEffect>
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true">
+        <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion ignorecover="true" range="1000" ballastfloradamage="100" structuredamage="1000" itemdamage="750" force="10.0" severlimbsprobability="75" decal="explosion" decalsize="0.3" penetration="1.0">
+          <Affliction identifier="explosiondamage" strength="1000" />
+          <Affliction identifier="burn" strength="1000" />
+          <Affliction identifier="stun" strength="50" />
+          <Affliction identifier="organdamage" strength="300" />
+          <Affliction identifier="organdamage" strength="8" multiplybymaxvitality="true" />
+          <Affliction identifier="bleeding" strength="50" />
+        </Explosion>
+        <Explosion range="1600" ballastfloradamage="100" structuredamage="125" empstrength="1500" itemdamage="500" force="10.0" severlimbsprobability="0.5" decal="explosion" decalsize="0.3" penetration="1.0">
+          <Affliction identifier="explosiondamage" strength="600" />
+          <Affliction identifier="burn" strength="600" />
+          <Affliction identifier="organdamage" strength="100" />
+          <Affliction identifier="stun" strength="5" />
+          <Affliction identifier="bleeding" strength="50" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This">
+        <sound file="Content/Items/Weapons/ExplosionDebris4.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="5000" />
+      </StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <Item name="380MM近炸高爆弹" identifier="leo5" description="380MM装药高威力近炸弹，爆炸范围更大，适合对付群体目标，此高爆弹主要使用弹片杀伤，不会对船体造成过大损害。" tags="380MMammo" showcontentsintooltip="true" category="Weapon" sonarsize="5" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+    <Price baseprice="850" sold="false"></Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="85" />
+      <RequiredItem identifier="iron" amount="3" />
+      <RequiredItem tag="advmunition_jacket" amount="1" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="c4block" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="iron" amount="2" />
+      <Item identifier="copper" amount="2" />
+      <Item identifier="c4block" amount="1" />
+    </Deconstruct>
+    <InventoryIcon texture="380.png" sourcerect="443,206,89,90" origin="0.5,0.5" />
+    <Sprite name="380mm炮弹" texture="380.png" sourcerect="8,186,379,76" depth="0.55" origin="0.5,0.5" />
+    <Body width="380" height="80" density="30" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="80" damagedoors="true" hitscancount="1" spread="0" maxtargetstohit="1">
+      <Attack structuredamage="750" itemdamage="100" severlimbsprobability="100" penetration="0.5" targetforce="1000">
+        <Affliction identifier="explosiondamage" strength="250" />
+        <Affliction identifier="blunttrauma" strength="200" />
+        <Affliction identifier="organdamage" strength="50" />
+        <Affliction identifier="bleeding" strength="50" />
+        <Affliction identifier="stun" strength="15" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This">
+        <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />
+      </StatusEffect>
+      <MotionSensor range="1000" canbeselected="false" IgnoreDead="true" minimumvelocity="0" updateinterval="0.025" target="monster" DetectOwnMotion="false">
+        <StatusEffect type="Always" target="This" condition="-100" disabledeltatime="true" delay="0.15" stackable="false">
+          <Conditional targetitemcomponent="MotionSensor" MotionDetected="eq true" />
+        </StatusEffect>
+      </MotionSensor>
+      <StatusEffect type="OnImpact" target="This" allowwhenbroken="true" Condition="-100.0" setvalue="true"></StatusEffect>
+      <!-- Remove the item after exploding -->
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="Random" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" selectionmode="Random" range="50000" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="50" velocitymin="100" velocitymax="2000" scalemin="1.0" scalemax="1.0" />
+        <Explosion range="600" ballastfloradamage="100" structuredamage="10" itemdamage="0" force="10.0" severlimbsprobability="50" decal="explosion" decalsize="0.3" penetration="1">
+          <Affliction identifier="explosiondamage" strength="150" />
+          <Affliction identifier="burn" strength="150" />
+          <Affliction identifier="stun" strength="50" />
+          <Affliction identifier="organdamage" strength="100" />
+          <Affliction identifier="organdamage" strength="2" multiplybymaxvitality="true" />
+          <Affliction identifier="bleeding" strength="100" />
+        </Explosion>
+        <Explosion range="1500" ballastfloradamage="100" structuredamage="5" itemdamage="0" force="10.0" severlimbsprobability="0.5" decal="explosion" decalsize="0.3" penetration="0.4">
+          <Affliction identifier="explosiondamage" strength="180" />
+          <Affliction identifier="burn" strength="180" />
+          <Affliction identifier="lacerations" strength="180" />
+          <Affliction identifier="stun" strength="5" />
+          <Affliction identifier="bleeding" strength="100" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.05" />
+      <QualityStat stattype="ExplosionDamage" value="0.1" />
+    </Quality>
+  </Item>
+  <Item name="" identifier="HullFixammo" nameidentifier="pulselaserbolt" category="Weapon" scale="0.5" sonarsize="2" hideinmenus="true">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="143,414,113,9" depth="0.55" />
+    <Body width="170" height="10" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true" spread="10" staticspread="true" hitscancount="3" damagedoors="true" penetration="0.5">
+      <ParticleEmitter particle="tracerpulselaser" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Attack structuredamage="5" targetforce="70" itemdamage="17" severlimbsprobability="1.0" penetration="0.4">
+        <Affliction identifier="explosiondamage" strength="30" />
+        <Affliction identifier="stun" strength="0.3" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
+        <ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="255,200,225,180" />
+        <ParticleEmitter particle="FlareBubbles" particleamount="3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50" />
+        <Explosion range="100.0" ballastfloradamage="35" structuredamage="-50" itemdamage="0" force="7.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255">
+          <Affliction identifier="burn" strength="70" />
+          <Affliction identifier="stun" strength="2" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+</Items>

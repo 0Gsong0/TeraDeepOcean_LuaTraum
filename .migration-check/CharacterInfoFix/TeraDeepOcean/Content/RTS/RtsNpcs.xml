@@ -1,0 +1,20 @@
+<npcsets>
+  <npcset identifier="TLnpc">
+    <npc identifier="TLnpc2" job="Captain" spawnpointtags="admin" behavior="Passive" preferredoutpostmoduletypes="adminmodule" healthmultiplier="10">
+      <Character name="豹" speciesname="human" gender="female" race="Asian" headspriteid="8" hairindex="12" beardindex="0" moustacheindex="0" faceattachmentindex="0" personality="Fearful">
+        <job name="Captain" identifier="Captain">
+          <skill identifier="electrical" level="100" />
+          <skill identifier="mechanical" level="100" />
+          <skill identifier="weapons" level="100" />
+          <skill identifier="medical" level="100" />
+          <skill identifier="helm" level="100" />
+        </job>
+      </Character>
+      <ItemSet commonness="1">
+        <Item identifier="idcardplus1B" equip="true" />
+        <Item identifier="var_leopard" equip="true" />
+        <Item identifier="TL_TL15_Enemy" equip="true" />
+      </ItemSet>
+    </npc>
+  </npcset>
+</npcsets>

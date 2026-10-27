@@ -1,0 +1,7 @@
+
+  ContentPackageBuilder -> E:\ModDev\TeraDeepOcean_LuaTraum\ContentPackageBuilder\bin\Debug\net8.0\ContentPackageBuilder.dll
+  Detected Barotrauma version: 1.15.7.0
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\AIControl\TLCharacterControlSystem.cs(81,21): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\AIControl\TLCharacterControlSystem.cs(121,21): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+E:\ModDev\TeraDeepOcean_LuaTraum\SharedProject\SharedSource\AIControl\TLCharacterControlSystem.cs(345,41): warning CS8602: 解引用可能出现空引用。 [E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\WindowsServer.csproj]
+  WindowsServer -> E:\ModDev\TeraDeepOcean_LuaTraum\ServerProject\bin\Windows\Debug\net8.0\TeraDeepOceanServer.dll

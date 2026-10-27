@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Randomevents>
+	<EventSprites>
+		<Sprite identifier="MedicalPump" texture="%ModDir%/Content/Items/Medicals/MedicalPump.png" sourcerect="0,0,620,860" origin="0.5,0.5" />
+	</EventSprites>
+	<EventPrefabs>
+		<!--药液泵-->
+		<ScriptedEvent identifier="TL_MedicalPump_ON">
+			<TagAction criteria="player" tag="player" />
+			<MessageBoxAction tag="TL_MedicalPump_ON"
+                text="TL_MedicalPump_ON" iconstyle="GUIMedicalPump" targettag="player"
+                HideCloseButton="false"/>
+			<WaitAction time="5" />
+			<MessageBoxAction type="close" tag="TL_MedicalPump_ON" />
+		</ScriptedEvent>
+		<ScriptedEvent identifier="TL_MedicalPump_Off">
+			<TagAction criteria="player" tag="player" />
+			<MessageBoxAction tag="TL_MedicalPump_Off"
+                text="TL_MedicalPump_Off" iconstyle="GUIMedicalPump" targettag="player"
+                HideCloseButton="false"/>
+			<WaitAction time="3" />
+			<MessageBoxAction type="close" tag="TL_MedicalPump_Off" />
+		</ScriptedEvent>
+		<ScriptedEvent identifier="TL_MedicalPump_Out">
+			<TagAction criteria="player" tag="player" />
+			<MessageBoxAction tag="TL_MedicalPump_Out"
+                text="TL_MedicalPump_Out" iconstyle="GUIMedicalPump" targettag="player"
+                HideCloseButton="false"/>
+			<WaitAction time="4" />
+			<MessageBoxAction type="close" tag="TL_MedicalPump_Out" />
+		</ScriptedEvent>
+	</EventPrefabs>
+</Randomevents>

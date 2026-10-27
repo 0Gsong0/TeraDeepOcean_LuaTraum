@@ -10,6 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)SharedItems.props" />
-    <Compile Include="$(MSBuildThisFileDirectory)\SharedSource\**\*.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedSource\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)SharedSource\Config\" />
+    <Folder Include="$(MSBuildThisFileDirectory)SharedSource\RTS\" />
   </ItemGroup>
 </Project>
