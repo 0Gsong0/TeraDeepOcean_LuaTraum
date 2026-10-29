@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-	<Item name="导演-摄像机控制组件" identifier="tl_camera_director_point" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
-		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
-		<Body width="48" height="48" density="20" />
-		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
-			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
-		</Holdable>
-		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
-			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-			<RequiredItem items="screwdriver" type="Equipped" />
-			<input name="trigger_in" displayname="Trigger In" />
-		</ConnectionPanel>
-		<TLCameraDirectorComponent index="0" batch="1" delay="2.5" zoom="0.6" target="All" />
-	</Item>
-	<!-- 联动移动控制器：通过信号移动与它 link 的墙体和物品。 -->
-	<Item name="联动物体移动控制器" identifier="tl_linked_mover_controller" description="通过电路信号移动关联的墙体和物品。set_in：非零前往，0返回；trigger_in：切换运动目标。" category="Electrical" tags="smallitem,logic" linkable="true" allowedlinks="" scale="0.5">
-		<Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
-		<Body width="48" height="48" density="20" />
-		<!-- 允许拿取和安装，需要装备扳手。 -->
-		<Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect">
-			<RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
-		</Holdable>
-		<!-- 接线面板：端口 name 必须与 C# ReceiveSignal 中的名称一致。 -->
-		<ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
-			<GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-			<RequiredItem items="screwdriver" type="Equipped" />
-			<!-- 收到 "0" 返回原位，其他非空信号前往目标位。 -->
-			<input name="set_in" displayname="设置目标" />
-			<!-- 新的非零触发切换目标；收到 "0" 重置触发检测。 -->
-			<input name="trigger_in" displayname="切换目标" />
-		</ConnectionPanel>
-		<!-- OffsetX 正值向右，OffsetY 正值向上；MoveSpeed 单位为显示单位/游戏秒。 -->
-		<!-- 默认向右移动 200，速度 100；同时允许移动关联墙体和物品。 -->
-		<TLLinkedMoverComponent OffsetX="200" OffsetY="0" MoveSpeed="100" MoveWalls="true" MoveItems="true" />
-	</Item>
+  <Item name="导演-摄像机控制组件" identifier="tl_camera_director_point" linkable="true" allowedlinks="" category="Electrical" Tags="smallitem,logic" scale="0.5">
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+    <Body width="48" height="48" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect" >
+      <RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+    </Holdable>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="trigger_in" displayname="Trigger In" />
+    </ConnectionPanel>
+    <TLCameraDirectorComponent index="0" batch="1" delay="2.5" zoom="0.6" target="All" />
+  </Item>
+  <!-- 联动移动控制器：通过信号移动与它 link 的墙体和物品。 -->
+  <Item name="联动物体移动控制器" identifier="tl_linked_mover_controller" description="通过电路信号移动关联的墙体和物品。set_in：非零前往，0返回；trigger_in：切换运动目标。" category="Electrical" tags="smallitem,logic" linkable="true" allowedlinks="" scale="0.5">
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+    <Body width="48" height="48" density="20" />
+    <!-- 允许拿取和安装，需要装备扳手。 -->
+    <Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+    </Holdable>
+    <!-- 接线面板：端口 name 必须与 C# ReceiveSignal 中的名称一致。 -->
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <!-- 收到 "0" 返回原位，其他非空信号前往目标位。 -->
+      <input name="set_in" displayname="设置目标" />
+      <!-- 新的非零触发切换目标；收到 "0" 重置触发检测。 -->
+      <input name="trigger_in" displayname="切换目标" />
+    </ConnectionPanel>
+    <!-- OffsetX 正值向右，OffsetY 正值向上；MoveSpeed 单位为显示单位/游戏秒。 -->
+    <!-- 默认向右移动 200，速度 100；同时允许移动关联墙体和物品。 -->
+    <TLLinkedMoverComponent OffsetX="200" OffsetY="0" MoveSpeed="100" MoveWalls="true" MoveItems="true" />
+  </Item>
   <!-- 旋转控制器：本阶段测试旋转中心配置和保存。 -->
   <Item name="联动物体旋转控制器" identifier="tl_linked_rotator_controller" description="在属性面板中设置旋转中心。当前阶段用于中心配置测试。" category="Electrical" tags="smallitem,logic" linkable="true" allowedlinks="" scale="0.5">
     <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
@@ -50,7 +50,38 @@
     </ConnectionPanel>
     <TLLinkedRotatorComponent TargetAngle="90" AngularSpeed="30" RotateWalls="true" RotateItems="true" UseCustomPivot="false" PivotOffsetX="0" PivotOffsetY="0" />
   </Item>
-	
+  <!--
+    电梯主控制器。
+    当前用于配置轿厢基准高度，绿色线表示轿厢对齐基准。
+    后续通过 link 登记外呼面板以及需要随轿厢移动的实体。
+-->
+  <Item name="电梯主控制器" identifier="tl_elevator_controller" description="电梯轿厢控制面板。绿色辅助线表示轿厢对齐基准，CabinOffsetY 正值向上、负值向下。" category="Electrical" tags="smallitem,logic,tl_elevator_controller" linkable="true" allowedlinks="" scale="0.5">
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="0,0,64,64" depth="0.8" origin="0.5,0.5" />
+    <Body width="48" height="48" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+    </Holdable>
+    <!-- 基准高度 = 控制器中心 Y + CabinOffsetY。 -->
+    <TLElevatorControllerComponent CabinOffsetY="0" />
+  </Item>
+
+  <!--
+    楼层外呼面板。
+    青色线表示该楼层的停靠高度。
+    同一台电梯内 Floor 相同的面板，后续归入同一个楼层。
+-->
+  <Item name="电梯楼层外呼面板" identifier="tl_elevator_call_panel" description="固定安装在楼层的电梯外呼面板。Floor 为楼层号，StopOffestY 为停靠高度偏移，正值向上、负值向下。" category="Electrical" tags="smallitem,logic,tl_elevator_call_panel" linkable="true" allowedlinks="" scale="0.5">
+    <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="64,0,64,64" depth="0.8" origin="0.5,0.5" />
+    <Body width="48" height="48" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" attachable="true" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
+    </Holdable>
+    <!-- 停靠高度 = 外呼面板中心 Y + StopOffestY。属性拼写与当前 C# 保持一致。 -->
+    <TLElevatorCallPanelComponent Floor="1" StopOffestY="0" />
+  </Item>
+
+
+
   <Item name="高级手持声纳信标" identifier="sonarbeacon_TL" category="Equipment,Diving" Tags="smallitem,sonar,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer secondary="wreckstoragecab,wreckdivingcab" amount="1" spawnprobability="0.05" />
     <Price baseprice="300" sold="false">
