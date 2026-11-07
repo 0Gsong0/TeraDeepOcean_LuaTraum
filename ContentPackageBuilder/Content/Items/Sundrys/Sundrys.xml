@@ -68,7 +68,9 @@
       <input name="select_floor_in" displayname="select_floor_in" />
     </ConnectionPanel>
     <!-- 基准高度 = 控制器中心 Y + CabinOffsetY。 -->
-    <TLElevatorControllerComponent CabinOffsetY="0" />
+    <TLElevatorControllerComponent CabinOffsetY="0" TravelSpeed="100" StopDuration="2" canbeselected="true" selectkey="Select" hudpriority="0">
+      <GuiFrame relativesize="0.28,0.45" minsize="380,360" maxsize="500,600" anchor="Center" style="ItemUI" draggable="false" />
+    </TLElevatorControllerComponent>
   </Item>
 
   <!--
@@ -83,7 +85,16 @@
       <RequiredItem items="wrench" excludeditems="multitool" type="Equipped" />
     </Holdable>
     <!-- 停靠高度 = 外呼面板中心 Y + StopOffestY。属性拼写与当前 C# 保持一致。 -->
-    <TLElevatorCallPanelComponent Floor="1" StopOffestY="0" />
+    <!-- 到达脉冲只在目标站确认停靠时产生；停靠状态离站后恢复 0。 -->
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <output name="arrived_out" displayname="到达脉冲" />
+      <output name="docked_out" displayname="停靠状态" />
+    </ConnectionPanel>
+    <TLElevatorCallPanelComponent Floor="1" StopOffestY="0" canbeselected="true" selectkey="Select" hudpriority="0">
+      <GuiFrame relativesize="0.25,0.32" minsize="360,300" maxsize="480,420" anchor="Center" style="ItemUI" draggable="false" />
+    </TLElevatorCallPanelComponent>
   </Item>
 
 

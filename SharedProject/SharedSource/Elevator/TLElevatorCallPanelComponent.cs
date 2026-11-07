@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TeraDeepOcean
 {
-    public sealed class TLElevatorCallPanelComponent : ItemComponent
+    public sealed partial class TLElevatorCallPanelComponent : ItemComponent
         , IDrawableComponent
     {
         /// <summary>
@@ -42,6 +42,17 @@ namespace TeraDeepOcean
         }
         public Item PanelItem => item;
         /// <summary>
+        /// 由服务器主控每个更新周期调用。到达只维持一个周期的 1，
+        /// 其余周期输出 0；停靠口在本站停靠期间持续输出 1。
+        /// 输出不参与呼叫路由，无需接线也可以使用 UI 呼叫。
+        /// </summary>
+        public void EmitElevatorSignals(bool docked, bool arrived)
+        {
+            if (!TLLinkedMotionSystem.IsAuthority || item.Removed || item.ParentInventory is not null) return;
+            item.SendSignal(new Signal(arrived ? "1" : "0", source: item), "arrived_out");
+            item.SendSignal(new Signal(docked ? "1" : "0", source: item), "docked_out");
+        }
+        /// <summary>
         /// 获取此楼层的停靠高度。本地坐标
         /// </summary>
         /// <returns></returns>
@@ -59,6 +70,28 @@ namespace TeraDeepOcean
         }
         public TLElevatorCallPanelComponent(Item item, ContentXElement element) : base(item, element)
         {
+            InitializeInteractionUI();
+        }
+        /// <summary>客户端创建操作界面，服务器不包含 GUI 实现。</summary>
+        partial void InitializeInteractionUI();
+        /// <summary>客户端清理等待回执及界面对象。</summary>
+        partial void ReleaseInteractionUI();
+        /// <summary>客户端选中外呼面板时刷新绑定信息。</summary>
+        partial void OnInteractionSelected(Character character);
+
+        /// <summary>沿用原版物品选择流程打开外呼界面。</summary>
+        public override bool Select(Character character)
+        {
+            if (!base.Select(character)) return false;
+            OnInteractionSelected(character);
+            return true;
+        }
+
+        /// <summary>移除组件时取消本界面尚未完成的网络等待。</summary>
+        public override void RemoveComponentSpecific()
+        {
+            ReleaseInteractionUI();
+            base.RemoveComponentSpecific();
         }
 #if CLIENT
         /// <summary>

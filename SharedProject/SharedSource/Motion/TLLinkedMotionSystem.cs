@@ -111,9 +111,9 @@ namespace TeraDeepOcean
 
             /// <summary>
             /// 从原位到目标位的总位移。
-            /// 任务建立后固定，避免运动中修改配置导致轨迹突然变化。
+            /// 普通平移任务建立后固定；电梯只在上一段结束后更新为下一段位移。
             /// </summary>
-            public required Vector2 Offset { get; init; }
+            public required Vector2 Offset { get; set; }
 
             /// <summary>
             /// 平移任务：显示单位/游戏秒。
@@ -144,6 +144,8 @@ namespace TeraDeepOcean
             /// 任务创建后不能在两种模式之间切换。
             /// </summary>
             public bool IsRotation { get; init; }
+            /// <summary>电梯持续保持占用，并允许在完成一段位移后设置下一段。</summary>
+            public bool IsElevator { get; init; }
 
             /// <summary>
             /// 旋转中心，使用目标所属潜艇的局部显示坐标。
@@ -174,6 +176,8 @@ namespace TeraDeepOcean
         /// </summary>
         public sealed class MotionSnapshot
         {
+            /// <summary>电梯专用平移任务，包含控制器本体并允许零位移保持。</summary>
+            public bool IsElevator { get; set; }
             /// <summary>控制器物品 ID。</summary>
             public ushort ControllerId { get; set; }
 
@@ -239,7 +243,7 @@ namespace TeraDeepOcean
                 created = true;
             }
             // 同一个控制器 ID 不能同时表示平移和旋转任务。
-            if (group.IsRotation)
+            if (group.IsRotation || group.IsElevator)
             {
                 return false;
             }
@@ -467,7 +471,9 @@ namespace TeraDeepOcean
                 // LinkedGap 在尚不存在时，可能按物品当前位置创建缺口。
                 Gap? doorGap = door?.LinkedGap;
 
-                movingItem.SetTransform(ConvertUnits.ToSimUnits(desired), movingItem.RotationRad, findNewHull: true, setPrevTransform: false, forceSubmarine: coordinateSubmarine);
+                // 平移保持主物理体的原角度；显示角度与物理角度方向不同，不能混用。
+                float physicalRotation = movingItem.body?.Rotation ?? movingItem.RotationRad;
+                movingItem.SetTransform(ConvertUnits.ToSimUnits(desired), physicalRotation, findNewHull: true, setPrevTransform: false, forceSubmarine: coordinateSubmarine);
                 // FindHull 可能更新物品和物理体的潜艇引用。
                 // 这里保留本次运动采用的坐标空间，避免下一步误用世界坐标。
                 movingItem.Submarine = coordinateSubmarine;
@@ -762,6 +768,7 @@ namespace TeraDeepOcean
                 OffsetX = group.Offset.X,
                 OffsetY = group.Offset.Y,
                 IsRotation = group.IsRotation,
+                IsElevator = group.IsElevator,
                 PivotX = group.Pivot.X,
                 PivotY = group.Pivot.Y,
                 AngleDegrees = group.AngleDegrees,
@@ -835,6 +842,7 @@ namespace TeraDeepOcean
                 return false;
             }
 
+            if (snapshot.IsElevator && snapshot.IsRotation) return false;
             if (snapshot.IsRotation)
             {
                 if (!IsValidVector(new Vector2(snapshot.PivotX, snapshot.PivotY)) ||
@@ -851,7 +859,9 @@ namespace TeraDeepOcean
 
                 if (!IsValidVector(offset) ||
                     !float.IsFinite(offset.LengthSquared()) ||
-                    offset.LengthSquared() < 0.0001f)
+                    (!snapshot.IsElevator && offset.LengthSquared() < 0.0001f) ||
+                    (snapshot.IsElevator && (offset.X != 0f ||
+                        (offset.LengthSquared() < 0.0001f && snapshot.Progress != snapshot.Goal))))
                 {
                     return false;
                 }
@@ -862,7 +872,7 @@ namespace TeraDeepOcean
             foreach (TargetSnapshot? target in snapshot.Targets)
             {
                 if (target is null ||
-                    target.Id == snapshot.ControllerId ||
+                    (!snapshot.IsElevator && target.Id == snapshot.ControllerId) ||
                     !ids.Add(target.Id) ||
                     !float.IsFinite(target.HomeX) ||
                     !float.IsFinite(target.HomeY) ||
@@ -936,6 +946,7 @@ namespace TeraDeepOcean
                 Goal = snapshot.Goal,
 
                 IsRotation = snapshot.IsRotation,
+                IsElevator = snapshot.IsElevator,
                 Pivot = new Vector2(snapshot.PivotX, snapshot.PivotY),
                 AngleDegrees = snapshot.AngleDegrees
             };

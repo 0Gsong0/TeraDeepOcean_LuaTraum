@@ -26,6 +26,13 @@ namespace TeraDeepOcean
         // Motion
         MotionServerSendSnapshot = 22,
         CybNotice = 23,
+        // 客户端请求通过某个外呼面板呼叫电梯。
+        ElevatorCallRequest = 30,
+        // 服务器返回请求是否被接受。
+        ElevatorCallResult = 31,
+        // 操作界面的信息查询与楼层提交，共用经过服务器校验的入口。
+        ElevatorPanelRequest = 32,
+        ElevatorPanelReply = 33,
     }
     // 提交配置和下发配置
     [NetworkSerialize]

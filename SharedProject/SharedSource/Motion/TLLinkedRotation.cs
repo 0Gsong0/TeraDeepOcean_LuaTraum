@@ -60,7 +60,7 @@ namespace TeraDeepOcean
                 created = true;
             }
             // 已有平移任务不能被旋转命令修改。
-            if (!group.IsRotation)
+            if (!group.IsRotation || group.IsElevator)
             {
                 return false;
             }

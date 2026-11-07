@@ -120,7 +120,7 @@ namespace TeraDeepOcean
                 }
 
                 if (groups.TryGetValue(owner, out MotionGroup? occupied) &&
-                    occupied.Progress != occupied.Goal)
+                    (occupied.IsElevator || occupied.Progress != occupied.Goal))
                 {
                     return false;
                 }

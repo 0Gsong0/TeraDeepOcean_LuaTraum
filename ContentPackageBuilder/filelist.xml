@@ -115,6 +115,7 @@
 	<BeaconStation file="%ModDir%/Content/ModContent/Sub/BeaconStation_TLtutorial.sub" />
 	<EnemySubmarine file="%ModDir%/Content/ModContent/Sub/鼬獾-海盗船版本.sub" />
 	<OutpostModule file="%ModDir%/Content/ModContent/Sub/TLMiningIronSite.sub" />
+  <OutpostModule file="%ModDir%/Content/ModContent/Sub/赫利俄斯能源站.sub" />
 
 	<Text file="%ModDir%/Content/Texts/ChineseText.xml" />
 	<Text file="%ModDir%/Content/Texts/EnglishText.xml" />

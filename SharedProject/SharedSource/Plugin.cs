@@ -26,7 +26,8 @@ public partial class Plugin : IBarotraumaPlugin
         TLConfigBridge.RegisterHandlers();
         TLLinkedMotionSystem.RegisterHandlers();
         TLCybNoticeBridge.RegisterHandlers();
-
+        TLElevatorCallNetwork.RegisterHandlers();
+        TLElevatorUiNetwork.RegisterHandlers();
 #if SERVER
         // 服务器读取自己的配置文件。
         TLConfigService.LoadLocal();
@@ -76,6 +77,9 @@ public partial class Plugin : IBarotraumaPlugin
         TLRtsDeploymentBridge.Dispose();
         TLRtsDeploymentCostSystem.Dispose();
         TLRtsDeploymentRegistry.Clear();
+        TLElevatorCallNetwork.Dispose();
+        TLElevatorUiNetwork.Dispose();
+        TLElevatorPanelRegistry.Clear();
 #if CLIENT
         TLRotationPivotPicker.Cancel();
 #endif

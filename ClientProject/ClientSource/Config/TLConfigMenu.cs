@@ -1,4 +1,4 @@
-using Barotrauma.Networking;
+﻿using Barotrauma.Networking;
 using System.Timers;
 
 namespace TeraDeepOcean
@@ -66,8 +66,8 @@ namespace TeraDeepOcean
                 draft.ReplaceWith(TLConfigService.Current);
                 receivedConfig = true;
             }
-            TLVideoPlayer.PlayLocalVideoFromMod(Path.Combine("Content", "UI", "Menu", "tsm_logo_opus.webm"));
-            StartIntroCountdown(5f);
+            TLVideoPlayer.PlayLocalVideoFromMod(Path.Combine("Content", "UI", "Menu", "TLlogo视频_opus.webm"));
+            StartIntroCountdown(10.5f);
         }
         public static void Close()
         {

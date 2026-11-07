@@ -7,7 +7,7 @@ using System.Text;
 
 namespace TeraDeepOcean
 {
-    public class TLElevatorControllerComponent : ItemComponent, IDrawableComponent
+    public partial class TLElevatorControllerComponent : ItemComponent, IDrawableComponent
     {
         /// <summary>
         /// 当前回合是否已经尝试建立布局。
@@ -108,6 +108,51 @@ namespace TeraDeepOcean
         public TLElevatorControllerComponent(Item item, ContentXElement element) : base(item, element)
         {
             IsActive = true;
+            InitializeInteractionUI();
+        }
+        /// <summary>客户端创建操作界面；服务器编译时移除此调用。</summary>
+        partial void InitializeInteractionUI();
+        /// <summary>客户端释放界面等待的请求。</summary>
+        partial void ReleaseInteractionUI();
+        /// <summary>客户端打开面板时刷新服务器楼层列表。</summary>
+        partial void OnInteractionSelected(Character character);
+
+        /// <summary>通过原版选择机制打开物品专用界面。</summary>
+        public override bool Select(Character character)
+        {
+            if (!base.Select(character)) return false;
+            OnInteractionSelected(character);
+            return true;
+        }
+
+        /// <summary>为操作界面取得已初始化的布局，不提交任何楼层请求。</summary>
+        public bool TryGetRuntimeLayout(out TLElevatorLayoutBuilder.ElevatorLayout? layout, out string error)
+        {
+            layout = null;
+            error = string.Empty;
+            if (!TLLinkedMotionSystem.IsAuthority || GameMain.GameSession is not { IsRunning: true })
+            {
+                error = "当前不能读取服务器电梯布局。";
+                return false;
+            }
+            if (item.Removed || item.ParentInventory is not null)
+            {
+                error = "主控制器已失效或位于库存中。";
+                return false;
+            }
+            if (!layoutInitializationAttempted) InitializeLayoutOnce();
+            if (Layout is null || requestQueue is null)
+            {
+                error = string.IsNullOrEmpty(LayoutError) ? "电梯尚未完成登记。" : LayoutError;
+                return false;
+            }
+            if (!ReferenceEquals(item.Submarine, Layout.CoordinateSubmarine))
+            {
+                error = "主控制器的坐标空间发生变化。";
+                return false;
+            }
+            layout = Layout;
+            return true;
         }
         /// <summary>
         /// 地图加载完成时清除旧的登记状态。
@@ -118,7 +163,9 @@ namespace TeraDeepOcean
         public override void OnMapLoaded()
         {
             base.OnMapLoaded();
-
+            ResetElevatorRuntime();
+            // 重新加载地图时，移除旧的外呼归属。
+            TLElevatorPanelRegistry.UnregisterController(this);
             // 重新加载地图时，不继承上一份布局的请求。
             requestQueue?.Clear();
             requestQueue = null;
@@ -133,6 +180,19 @@ namespace TeraDeepOcean
 
             // 确保组件能够在回合开始后获得初始化机会。
             IsActive = true;
+        }
+        /// <summary>
+        /// 控制器移除时解除外呼绑定，并清空请求。
+        /// </summary>
+        public override void RemoveComponentSpecific()
+        {
+            ResetElevatorRuntime();
+            ReleaseInteractionUI();
+            TLElevatorPanelRegistry.UnregisterController(this);
+            requestQueue?.Clear();
+            requestQueue = null;
+            Layout = null;
+            base.RemoveComponentSpecific();
         }
         /// <summary>
         /// 在运行中的回合内尝试一次布局初始化。
@@ -159,7 +219,10 @@ namespace TeraDeepOcean
             {
                 InitializeLayoutOnce();
             }
-            IsActive = false;
+            if (Layout is not null && requestQueue is not null && string.IsNullOrEmpty(RuntimeError))
+                UpdateElevatorRuntime(deltaTime);
+            else
+                IsActive = false;
         }
         /// <summary>
         /// 提交楼层请求的统一入口。
@@ -192,6 +255,11 @@ namespace TeraDeepOcean
             if (Layout is null || requestQueue is null)
             {
                 error = string.IsNullOrWhiteSpace(LayoutError) ? "电梯布局尚未建立。": LayoutError;
+                return false;
+            }
+            if (!string.IsNullOrEmpty(RuntimeError))
+            {
+                error = RuntimeError;
                 return false;
             }
             if (!ReferenceEquals(item.Submarine, Layout.CoordinateSubmarine))
@@ -280,6 +348,8 @@ namespace TeraDeepOcean
             // 清除旧队列引用，确保队列与本次布局一致。
             requestQueue?.Clear();
             requestQueue = null;
+            // 重建布局前，撤销此控制器之前的外呼绑定。
+            TLElevatorPanelRegistry.UnregisterController(this);
             Layout = null;
             LayoutError = string.Empty;
             bool succeeded = TLElevatorLayoutBuilder.TryBuild(this,out var layout,out string error);
@@ -290,8 +360,18 @@ namespace TeraDeepOcean
                 return;
             }
             Layout = layout;
+            // 全部外呼面板成功绑定后，才开放此电梯的请求队列。
+            if (!TLElevatorPanelRegistry.TryRegister(layout, out string bindingError))
+            {
+                LayoutError = bindingError;
+                Layout = null;
+                Plugin.DebugConsole.NewMessage($"[TLElevator] 主控制器 {item.ID} 外呼绑定失败：{LayoutError}",Color.OrangeRed);
+                return;
+            }
             requestQueue = new TLElevatorRequestQueue(layout);
+            InitializeElevatorRuntime();
             PrintLayoutSummary(layout);
+            Plugin.DebugConsole.NewMessage($"[TLElevator] 主控制器 {item.ID} 外呼面板绑定完成。",Color.LightGreen);
         }
         /// <summary>
         /// 输出成功登记的楼层和轿厢信息。
