@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- 每个物品实例代表一堆 5.56 普通散弹。 -->
+  <Item name="5.56×45mm NATO 普通散弹"
+        identifier="tl_loose_556nato_ball"
+        category="Equipment"
+        tags="smallitem,tl_looseammo"
+        maxstacksize="1"
+        scale="0.5"
+        impactsoundtag="impact_metal_light">
+    <InventoryIcon texture="%ModDir%/Content/Items/Weapons/Guns/Bullets/bullet.png" sourcerect="33,100,57,15" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/Weapons/Guns/Bullets/bullet.png" sourcerect="33,100,57,15" origin="0.5,0.5" depth="0.55" />
+    <Body width="40" height="14" density="1" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <!-- 每堆最多 60 发，新生成时为 30 发。 -->
+    <TLAmmoStackComponent capacity="60" roundcount="30" />
+  </Item>
+</Items>

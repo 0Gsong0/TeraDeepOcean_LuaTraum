@@ -9,6 +9,7 @@
 	<Item file="%ModDir%/Content/ModContent/Industry/Items.xml" />
 	<Item file="%ModDir%/Content/Items/weapons/Guns/weapons.xml" />
 	<Item file="%ModDir%/Content/Items/weapons/Guns/magazine.xml" />
+  <Item file="%ModDir%/Content/Items/weapons/Guns/Bullets.xml" />
 	<Item file="%ModDir%/Content/Items/weapons/Missiles/Missiles.xml" />
 	<Item file="%ModDir%/Content/Items/weapons/Missiles/MissilesFire.xml" />
 	<Item file="%ModDir%/Content/Items/weapons/Turrets/turrets.xml" />
