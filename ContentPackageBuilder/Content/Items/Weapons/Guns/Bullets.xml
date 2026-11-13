@@ -15,4 +15,28 @@
     <!-- 每堆最多 60 发，新生成时为 30 发。 -->
     <TLAmmoStackComponent capacity="60" roundcount="30" />
   </Item>
+  <Item name="5.56×45mm NATO 穿甲散弹"
+      identifier="tl_loose_556nato_ap"
+      category="Equipment"
+      tags="smallitem,tl_looseammo"
+      maxstacksize="1"
+      scale="0.5">
+    <Sprite texture="%ModDir%/Content/Items/Weapons/Guns/Bullets/bullet.png" sourcerect="33,100,57,15" origin="0.5,0.5" />
+    <Body width="40" height="14" density="1" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <TLAmmoStackComponent capacity="60" roundcount="30" />
+  </Item>
+  <!-- 独立测试弹匣。rounds 从匣底写到匣顶，悬停时应只看到「匣顶：5.56×45mm NATO 穿甲散弹」。 -->
+  <Item name="5.56×45mm 混装测试弹匣"
+        identifier="tl_test_magazine_556"
+        category="Weapon"
+        tags="smallitem"
+        maxstacksize="1"
+        scale="0.08">
+    <InventoryIcon texture="%ModDir%/Content/Items/Weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Content/Items/Weapons/Guns/FL/AK101.png" sourcerect="383,501,211,369" origin="0.5,0.5" />
+    <Body width="80" height="107" density="10" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <TLMagazineComponent capacity="30" allowedammo="tl_loose_556nato_ball,tl_loose_556nato_ap" rounds="" />
+  </Item>
 </Items>

@@ -45,7 +45,7 @@ namespace TeraDeepOcean
         /// 调用方先检查操作权限、来源和目标。
         /// </summary>
         /// <returns>成功更新返回 true。</returns>
-        public bool TrySetRoundCount(int newRoundCount)
+        public bool TrySetRoundCount(int newRoundCount, bool synchronize = true)
         {
             if (GameMain.NetworkMember is { IsClient: true } ||
                 Item.Removed ||
@@ -59,7 +59,10 @@ namespace TeraDeepOcean
             }
             RoundCount = newRoundCount;
 #if SERVER
-            QueueRoundCountSync();
+            if (synchronize)
+            {
+                QueueRoundCountSync();
+            }
 #endif
             return true;
         }

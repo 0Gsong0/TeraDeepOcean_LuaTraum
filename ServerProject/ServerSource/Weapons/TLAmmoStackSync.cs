@@ -29,6 +29,7 @@ namespace TeraDeepOcean
             // 每个回合开始遍历一次，item 是已加载的物品。
             foreach (Item item in Item.ItemList)
             {
+                item.GetComponent<TLMagazineComponent>()?.SyncTopAmmo();
                 item.GetComponent<TLAmmoStackComponent>()?.QueueRoundCountSync();
             }
         }
@@ -40,6 +41,7 @@ namespace TeraDeepOcean
             if (spawnOrRemove is EntitySpawner.SpawnEntity { Entity: Item item })
             {
                 item.GetComponent<TLAmmoStackComponent>()?.QueueRoundCountSync();
+                item.GetComponent<TLMagazineComponent>()?.SyncTopAmmo();
             }
         }
     }

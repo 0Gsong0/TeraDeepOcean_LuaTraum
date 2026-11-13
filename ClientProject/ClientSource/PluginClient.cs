@@ -11,11 +11,13 @@ public partial class Plugin
         TLRtsClient.Init(HarmonyProvider.GetHarmony());
         TLRotationPivotPicker.Init(HarmonyProvider.GetHarmony());
         TLAmmoStackDraw.Init(HarmonyProvider);
+        TLAmmoSplitDrag.Init(HarmonyProvider.GetHarmony());
         InitCommand();
     }
 
     partial void DisposeProjectSpecific()
     {
+        TLAmmoSplitDrag.Dispose();
         TLRtsClient.Dispose();
         TLConfigMenuEntry.Dispose();
     }

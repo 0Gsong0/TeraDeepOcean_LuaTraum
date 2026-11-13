@@ -33,6 +33,8 @@ namespace TeraDeepOcean
         // 操作界面的信息查询与楼层提交，共用经过服务器校验的入口。
         ElevatorPanelRequest = 32,
         ElevatorPanelReply = 33,
+        // 客户端请求拆分散弹或合并到指定弹药堆。
+        AmmoSplitRequest = 34,
     }
     // 提交配置和下发配置
     [NetworkSerialize]
